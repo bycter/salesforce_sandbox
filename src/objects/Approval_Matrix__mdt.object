@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Approver__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Approver</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sales Director</fullName>
+                    <default>false</default>
+                    <label>Sales Director</label>
+                </value>
+                <value>
+                    <fullName>Property Asset Manager</fullName>
+                    <default>false</default>
+                    <label>Property Asset Manager</label>
+                </value>
+                <value>
+                    <fullName>Serviced Sales Manager</fullName>
+                    <default>false</default>
+                    <label>Serviced Sales Manager</label>
+                </value>
+                <value>
+                    <fullName>Regional Head</fullName>
+                    <default>false</default>
+                    <label>Regional Head</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Opportunity Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sales_Process__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Sales Process</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Conventional</fullName>
+                    <default>true</default>
+                    <label>Conventional</label>
+                </value>
+                <value>
+                    <fullName>Serviced</fullName>
+                    <default>false</default>
+                    <label>Serviced</label>
+                </value>
+                <value>
+                    <fullName>Virtual</fullName>
+                    <default>false</default>
+                    <label>Virtual</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Tolerance_Greater_Than__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Tolerance Greater Than</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Tolerance_Less_or_Equal__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Tolerance Less or Equal</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Percent</type>
+    </fields>
+    <label>Approval Matrix</label>
+    <listViews>
+        <fullName>All_Records</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Sales_Process__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Tolerance_Greater_Than__c</columns>
+        <columns>Tolerance_Less_or_Equal__c</columns>
+        <columns>Approver__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Records</label>
+    </listViews>
+    <listViews>
+        <fullName>Conventional_Existing_Business</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Sales_Process__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Tolerance_Greater_Than__c</columns>
+        <columns>Tolerance_Less_or_Equal__c</columns>
+        <columns>Approver__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sales_Process__c</field>
+            <operation>equals</operation>
+            <value>Conventional</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Type__c</field>
+            <operation>equals</operation>
+            <value>Existing Customer</value>
+        </filters>
+        <label>Conventional (Existing Customer)</label>
+    </listViews>
+    <listViews>
+        <fullName>Conventional_New_Business</fullName>
+        <columns>MasterLabel</columns>
+        <columns>DeveloperName</columns>
+        <columns>Sales_Process__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Tolerance_Less_or_Equal__c</columns>
+        <columns>Tolerance_Greater_Than__c</columns>
+        <columns>Approver__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sales_Process__c</field>
+            <operation>equals</operation>
+            <value>Conventional</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Type__c</field>
+            <operation>equals</operation>
+            <value>New Customer</value>
+        </filters>
+        <label>Conventional (New Customer)</label>
+    </listViews>
+    <listViews>
+        <fullName>Serviced_Existing_Business</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Sales_Process__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Tolerance_Greater_Than__c</columns>
+        <columns>Tolerance_Less_or_Equal__c</columns>
+        <columns>Approver__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sales_Process__c</field>
+            <operation>equals</operation>
+            <value>Serviced</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Type__c</field>
+            <operation>equals</operation>
+            <value>Existing Customer</value>
+        </filters>
+        <label>Serviced (Existing Customer)</label>
+    </listViews>
+    <listViews>
+        <fullName>Serviced_New_Business</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Sales_Process__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Tolerance_Greater_Than__c</columns>
+        <columns>Tolerance_Less_or_Equal__c</columns>
+        <columns>Approver__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sales_Process__c</field>
+            <operation>equals</operation>
+            <value>Serviced</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Type__c</field>
+            <operation>equals</operation>
+            <value>New Customer</value>
+        </filters>
+        <label>Serviced (New Customer)</label>
+    </listViews>
+    <listViews>
+        <fullName>Virtual_New_Business</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Sales_Process__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Tolerance_Greater_Than__c</columns>
+        <columns>Tolerance_Less_or_Equal__c</columns>
+        <columns>Approver__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Sales_Process__c</field>
+            <operation>equals</operation>
+            <value>Virtual</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Type__c</field>
+            <operation>equals</operation>
+            <value>New Customer</value>
+        </filters>
+        <label>Virtual (New Customer)</label>
+    </listViews>
+    <pluralLabel>Approval Matrix</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

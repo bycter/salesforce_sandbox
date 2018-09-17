@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Break_Clause__c</fullName>
+        <externalId>false</externalId>
+        <label>Break Clause</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Concession_Percent__c</fullName>
+        <externalId>false</externalId>
+        <label>Concession %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Concession__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>(Rent per sq ft per month / 100) x Concession %</inlineHelpText>
+        <label>Concession</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Indicative Costs</relationshipLabel>
+        <relationshipName>Indicative_Costs</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Density__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the density of occupation within the space? Think about number of people per sq ft and separate rooms.</inlineHelpText>
+        <label>Density</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Email_Body__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Body</label>
+        <length>3000</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Insurance_per_sq_ft__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicative Cost set on Property / Suite record</inlineHelpText>
+        <label>Insurance per sq ft</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Indicative Costs</relationshipLabel>
+        <relationshipName>Indicative_Costs</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Property__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Property</label>
+        <referenceTo>Property__c</referenceTo>
+        <relationshipLabel>Indicative Costs</relationshipLabel>
+        <relationshipName>Indicative_Costs</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Rent_per_sq_ft__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicative Cost set on Property / Suite record</inlineHelpText>
+        <label>Rent per sq ft</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Service_Charge_per_sq_ft__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicative Cost set on Property / Suite record</inlineHelpText>
+        <label>Service Charge per sq ft</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Size_sq_ft__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How much space is the customer looking to take?</inlineHelpText>
+        <label>Size sq. ft.</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Specification__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What level of specification is required?</inlineHelpText>
+        <label>Specification</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Classic</fullName>
+                    <default>false</default>
+                    <label>Classic</label>
+                </value>
+                <value>
+                    <fullName>Tailored</fullName>
+                    <default>false</default>
+                    <label>Tailored</label>
+                </value>
+                <value>
+                    <fullName>Bespoke</fullName>
+                    <default>false</default>
+                    <label>Bespoke</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Suite__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Suite</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Inventory__c.Property__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Property__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Inventory__c</referenceTo>
+        <relationshipLabel>Indicative Costs</relationshipLabel>
+        <relationshipName>Indicative_Costs</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Term__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of years</inlineHelpText>
+        <label>Term</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Cost_Per_Annum__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Total Cost Per Month x 12</inlineHelpText>
+        <label>Total Cost Per Annum</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Cost_Per_Month__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>(((Rent per sq ft per month + Service Charge per sq ft per month + Insurance per sq ft per month) x Size sq ft) - Concession £) / 12</inlineHelpText>
+        <label>Total Cost Per Month</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Cost_Per_Quarter__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Total Cost Per Month x 3</inlineHelpText>
+        <label>Total Cost Per Quarter</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Design_Cost__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculations set by the Design team</inlineHelpText>
+        <label>Total Design Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Indicative Cost</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{00000}</displayFormat>
+        <label>Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Indicative Costs</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Check_For_Contact_Email_Defined</fullName>
+        <active>true</active>
+        <description>A user cannot create Indicative Cost without Contact Email (Every time when Indicative Cost created, we send it to the customer).</description>
+        <errorConditionFormula>ISBLANK(Contact__r.Email)</errorConditionFormula>
+        <errorDisplayField>Contact__c</errorDisplayField>
+        <errorMessage>Cannot send to Contact - No Email defined!</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Concession_Percent_Between_0_and_100</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR (
+ Concession_Percent__c &lt; 0,
+ Concession_Percent__c &gt; 1
+)</errorConditionFormula>
+        <errorDisplayField>Concession_Percent__c</errorDisplayField>
+        <errorMessage>Concession % must be a number from 0 to 100</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Density_And_Specification_Blank_Error</fullName>
+        <active>true</active>
+        <description>Specification cannot be blank if Density is not blank</description>
+        <errorConditionFormula>NOT(ISPICKVAL(Density__c, &apos;&apos;)) &amp;&amp; ISPICKVAL(Specification__c, &apos;&apos;)</errorConditionFormula>
+        <errorDisplayField>Specification__c</errorDisplayField>
+        <errorMessage>Specification cannot be blank if Density is not blank</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Density_And_Specification_Not_Blank_Err</fullName>
+        <active>true</active>
+        <description>Density cannot be blank if Specification is not blank</description>
+        <errorConditionFormula>ISPICKVAL(Density__c, &apos;&apos;) &amp;&amp; NOT(ISPICKVAL(Specification__c, &apos;&apos;))</errorConditionFormula>
+        <errorDisplayField>Density__c</errorDisplayField>
+        <errorMessage>Density cannot be blank if Specification is not blank</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Rule that affects pricing for an option or quote line</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates whether this rule is active or not.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether this rule is active or not.</inlineHelpText>
+        <label>Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AdvancedCondition__c</fullName>
+        <description>Can only be entered if the Conditions Met is Custom. Enter a combination of the Price Condition Index #s, AND, OR, and parenthesis (e.g. (123 AND 124) AND 125).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Can only be entered if the Conditions Met is Custom. Enter a combination of the Price Condition Index #s, AND, OR, and parenthesis (e.g. (123 AND 124) AND 125).</inlineHelpText>
+        <label>Advanced Condition</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>CPQ_Config_Version__c</fullName>
+        <externalId>false</externalId>
+        <label>CPQ Config Version</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ConditionsMet__c</fullName>
+        <description>Choose the behavior for your conditions: All is AND, Any is OR, Custom is a combination of AND/OR.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the behavior for your conditions: All is AND, Any is OR, Custom is a combination of AND/OR.</inlineHelpText>
+        <label>Conditions Met</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                    <label>All</label>
+                </value>
+                <value>
+                    <fullName>Any</fullName>
+                    <default>false</default>
+                    <label>Any</label>
+                </value>
+                <value>
+                    <fullName>Custom</fullName>
+                    <default>false</default>
+                    <label>Custom</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ConfiguratorEvaluationEvent__c</fullName>
+        <description>Event that specifies when Price Rules should be fired.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When None or Save is selected, the Configurator scoped price rules will fire on save.  When Edit is selected, the Configurator scoped price rules will fire on edit and save.</inlineHelpText>
+        <label>Configurator Evaluation Event</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Save</fullName>
+                    <default>false</default>
+                    <label>Save</label>
+                </value>
+                <value>
+                    <fullName>Edit</fullName>
+                    <default>false</default>
+                    <label>Edit</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>EvaluationEvent__c</fullName>
+        <description>Event that causes this rule to be evaluated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify when this rule should be evaluated. Only to be used when targeting Quote Line and not supported on legacy calculator.</inlineHelpText>
+        <label>Calculator Evaluation Event</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>On Initialization</fullName>
+                    <default>false</default>
+                    <label>On Initialization</label>
+                </value>
+                <value>
+                    <fullName>Before Calculate</fullName>
+                    <default>false</default>
+                    <label>Before Calculate</label>
+                </value>
+                <value>
+                    <fullName>On Calculate</fullName>
+                    <default>true</default>
+                    <label>On Calculate</label>
+                </value>
+                <value>
+                    <fullName>After Calculate</fullName>
+                    <default>false</default>
+                    <label>After Calculate</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>EvaluationOrder__c</fullName>
+        <description>Order in which this price rule is evaluated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify the order of evaluation for this price rule. Higher ordered rules are evaluated last which means they &quot;win&quot; in case of conflict.</inlineHelpText>
+        <label>Evaluation Order</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_Old_Version__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is_Old_Version__c</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Load_Id__c</fullName>
+        <externalId>true</externalId>
+        <label>Load Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LookupObject__c</fullName>
+        <description>API Name of the Custom Object that stores the lookup data.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>API Name of the Custom Object that stores the lookup data.</inlineHelpText>
+        <label>Lookup Object</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Car_Parking_Inventory__c</fullName>
+                    <default>false</default>
+                    <label>Car_Parking_Inventory__c</label>
+                </value>
+                <value>
+                    <fullName>Inventory__c</fullName>
+                    <default>false</default>
+                    <label>Inventory__c</label>
+                </value>
+                <value>
+                    <fullName>Product2</fullName>
+                    <default>false</default>
+                    <label>Product2</label>
+                </value>
+                <value>
+                    <fullName>Property__c</fullName>
+                    <default>false</default>
+                    <label>Property__c</label>
+                </value>
+                <value>
+                    <fullName>SBQQ__LookupData__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__LookupData__c</label>
+                </value>
+                <value>
+                    <fullName>SBQQ__Quote__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__Quote__c</label>
+                </value>
+                <value>
+                    <fullName>SBQQ__QuoteLine__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__QuoteLine__c</label>
+                </value>
+                <value>
+                    <fullName>Suite_Inventory__c</fullName>
+                    <default>false</default>
+                    <label>Suite_Inventory__c</label>
+                </value>
+                <value>
+                    <fullName>Test__c</fullName>
+                    <default>false</default>
+                    <label>Test__c</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Optional field that makes this rule specific to the product.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose a product to associate to this rule.</inlineHelpText>
+        <label>Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Price Rules</relationshipLabel>
+        <relationshipName>PriceRules</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TargetObject__c</fullName>
+        <description>Object that’s the target of the field update.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Event during which this rule is evaluated.</inlineHelpText>
+        <label>Evaluation Scope</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Configurator</fullName>
+                    <default>false</default>
+                    <label>Configurator</label>
+                </value>
+                <value>
+                    <fullName>Calculator</fullName>
+                    <default>false</default>
+                    <label>Calculator</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Price Rule</label>
+    <nameField>
+        <label>Price Rule Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Price Rules</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

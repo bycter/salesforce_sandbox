@@ -1,0 +1,1025 @@
+<apex:page renderAs="pdf" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false"
+           applyHtmlTag="false" cache="false" controller="ServicedSpaceLicenceAgreementGenerator">
+
+    <html>
+    <head>
+        <apex:stylesheet value="{!$Resource.ServicedQuote}"/>
+        <style>
+            .agreement_text_standard {
+                font-family: arial;
+                font-size: 10pt;
+            }
+
+            .agreement_text_large {
+                font-family: arial;
+                font-size: 10pt;
+                border: 1px solid black;
+            }
+
+            li1 span {
+                padding-left: 12px;
+            }
+
+            li1.subitem {
+                padding-left: 40px;
+            }
+
+            .disguised {
+                color: white;
+            }
+
+            .hide {
+                color: white;
+            }
+
+            div.signature table td, th {
+                width: 200px;
+                text-align: left;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                min-height: 20px;
+            }
+
+            div.signature table {
+                margin-bottom: 40px;
+            }
+
+            .contactDescription {
+                margin-bottom: 10px;
+            }
+
+            .contactType {
+                font-size: 10.5pt;
+                font-weight: bold;
+            }
+
+            .contactHelpText {
+                font-size: 9pt;
+            }
+
+        </style>
+    </head>
+
+    <table class="agreement_text_standard" width="100%" border="0">
+        <tbody>
+
+        <tr>
+            <td align="center" colspan="4"><b><p>
+                <h1>LICENCE AGREEMENT</h1><br/>
+                <h2>
+                    <apex:outputText value="{!quote.SBQQ__Account__r.Registered_Name__c}"/>
+                </h2>
+                <br/>
+                At<br/><br/>
+                <h2>
+                    <apex:outputText value="{!quote.Property__r.Name}"/>
+                </h2>
+                </p></b>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <table border="1" cellpadding="6" cellspacing="0" width="100%">
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSLF,')}">
+            <tr>
+                <td><b>Suite: </b></td>
+                <td>{!mapProducts['BSLF'][0].Suite_Inventory__r.Name}</td>
+            </tr>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSLF,')}">
+            <tr>
+                <td><b>Number of Workstations: </b></td>
+                <td>{!IF(CONTAINS(codes, 'BSAS,'), mapProducts['BSLF'][0].Suite_Inventory__r.Workstations__c + mapProducts['BSAS'][0].SBQQ__Quantity__c, mapProducts['BSLF'][0].Suite_Inventory__r.Workstations__c)}</td>
+            </tr>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'SteppedRent,')}">
+            <tr>
+                <td><b>Licence Fee: </b></td>
+                <td>
+                    <apex:repeat value="{!mapProducts['SteppedRent']}" var="steppedRent">
+                        <apex:outputPanel layout="none" rendered="{!NOT(ISNULL(steppedRent.Start_Term__c)) && NOT(ISNULL(steppedRent.Rent_Step_To__c)) && NOT(ISNULL(steppedRent.Monthly_Total__c))}">
+                            <apex:variable var="startPostfix" value="{!IF(AND(steppedRent.Start_Term__c > 10, steppedRent.Start_Term__c < 14),"th", CASE(MOD(steppedRent.Start_Term__c,10),1,"st",2,"nd",3,"rd","th"))}"/>
+                            <apex:variable var="endPostfix" value="{!IF(AND(steppedRent.Rent_Step_To__c> 10, steppedRent.Rent_Step_To__c < 14),"th", CASE(MOD(steppedRent.Rent_Step_To__c,10),1,"st",2,"nd",3,"rd","th"))}"/>
+                            <apex:outputText value="{0, number, 0}{1} month to {2, number, 0}{3} month">
+                                <apex:param value="{!steppedRent.Start_Term__c}"/>
+                                <apex:param value="{!startPostfix}"/>
+                                <apex:param value="{!steppedRent.Rent_Step_To__c}"/>
+                                <apex:param value="{!endPostfix}"/>
+                            </apex:outputText>
+                            <apex:outputText value="{0, number, £###,##0.00}">
+                                <apex:param value="{!steppedRent.Monthly_Total__c}"/>
+                            </apex:outputText> pcm plus VAT
+                            <br/>
+                        </apex:outputPanel>
+                    </apex:repeat>
+                </td>
+            </tr>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSLF,') && NOT(CONTAINS(codes, 'BSSR,'))}">
+            <tr>
+                <td><b>Licence Fee: </b></td>
+                <td>
+                    <b>
+                        <apex:outputText value="{0, number, £###,##0.00}">
+                            <apex:param value="{!IF(CONTAINS(codes, 'BSAS,'), mapProducts['BSLF'][0].New_Monthly_Average__c + mapProducts['BSAS'][0].New_Monthly_Average__c, mapProducts['BSLF'][0].New_Monthly_Average__c)}"/>
+                        </apex:outputText>
+                        pcm plus VAT</b>
+                </td>
+            </tr>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSDP,')}">
+            <tr>
+                <td><b>Deposit: </b></td>
+                <td>
+                    <apex:variable var="fullDeposit" value="{!mapProducts['BSDP'][0].Net_Total__c + mapProducts['BSDP'][0].Deposit_Already_Held__c}"/>
+                    <apex:outputText value="{0, number, £###,##0.00}">
+                        <apex:param value="{!fullDeposit}"/>
+                    </apex:outputText>
+                    <apex:outputPanel layout="none"
+                                      rendered="{!NOT(ISBLANK(mapProducts['BSDP'][0].Deposit_Already_Held__c)) && mapProducts['BSDP'][0].Deposit_Already_Held__c > 0}">
+                        (<apex:outputText value="{0, number, £###,##0.00}">
+                        <apex:param value="{!mapProducts['BSDP'][0].Deposit_Already_Held__c}"/>
+                    </apex:outputText> Already Held )
+                    </apex:outputPanel>
+                </td>
+            </tr>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSII,')}">
+            <tr>
+                <td><b>Inclusive Contended Internet Package: </b></td>
+                <td>100Mb bandwidth</td>
+            </tr>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSDM5,')}">
+            <tr>
+                <td><b>Dedicated Leased Line Internet: </b></td>
+                <td>
+                    <apex:outputText value="{0, number, £###,##0.00}">
+                        <apex:param value="{!mapProducts['BSDM5'][0].Updated_Monthly_Average__c}"/>
+                    </apex:outputText>
+                    plus VAT for 5Mb bandwidth
+                </td>
+            </tr>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSDM10,')}">
+            <tr>
+                <td><b>Dedicated Leased Line Internet: </b></td>
+                <td>
+                    <apex:outputText value="{0, number, £###,##0.00}">
+                        <apex:param value="{!mapProducts['BSDM10'][0].Updated_Monthly_Average__c}"/>
+                    </apex:outputText>
+                    plus VAT for 10Mb bandwidth
+                </td>
+            </tr>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSDM20,')}">
+            <tr>
+                <td><b>Dedicated Leased Line Internet: </b></td>
+                <td>
+                    <apex:outputText value="{0, number, £###,##0.00}">
+                        <apex:param value="{!mapProducts['BSDM20'][0].Updated_Monthly_Average__c}"/>
+                    </apex:outputText>
+                    plus VAT for 20Mb bandwidth
+                </td>
+            </tr>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSDM50,')}">
+            <tr>
+                <td><b>Dedicated Leased Line Internet: </b></td>
+                <td>
+                    <apex:outputText value="{0, number, £###,##0.00}">
+                        <apex:param value="{!mapProducts['BSDM50'][0].Updated_Monthly_Average__c}"/>
+                    </apex:outputText>
+                    plus VAT for 50Mb bandwidth
+                </td>
+            </tr>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSDM100,')}">
+            <tr>
+                <td><b>Dedicated Leased Line Internet: </b></td>
+                <td>
+                    <apex:outputText value="{0, number, £###,##0.00}">
+                        <apex:param value="{!mapProducts['BSDM100'][0].Updated_Monthly_Average__c}"/>
+                    </apex:outputText>
+                    plus VAT for 100Mb bandwidth
+                </td>
+            </tr>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSLF,') && NOT(CONTAINS(codes, 'BSSR,'))}">
+            <tr>
+                <td><b>Licence Start Date: </b></td>
+                <td>
+                    <apex:outputtext style="font-size: 12px;font-family: georgia, serif;"
+                                     value="{0,date, dd MMMMM yyyy}">
+                        <apex:param value="{!mapProducts['BSLF'][0].Licence_Start_Date__c}"></apex:param>
+                    </apex:outputtext>
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Licence Earliest End Date: </b></td>
+                <td>
+                    <apex:outputtext style="font-size: 12px;font-family: georgia, serif;"
+                                     value="{0,date, dd MMMMM yyyy}">
+                        <apex:param value="{!mapProducts['BSLF'][0].End_Date__c}"></apex:param>
+                    </apex:outputtext>
+                </td>
+            </tr>
+        </apex:outputPanel>
+
+        <tr>
+            <td><b>Licence Term: </b></td>
+            <td>{!mapProducts['BSLF'][0].Term__c} {!IF(mapProducts['BSLF'][0].Term__c = 1, 'month', 'months')}</td>
+        </tr>
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BCLC,')}">
+            <tr>
+                <td><b>{!carParkingLicences.size} Car Parking space(s): </b>
+                </td>
+                <td>{!mapProducts['BCLC'][0].Suite_Inventory__r.Cost_per_space__c}</td>
+            </tr>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSHD,')}">
+            <tr>
+                <td><b>
+                    <apex:outputText value="{0, number, integer}">
+                        <apex:param value="{!mapProducts['BSHD'][0].SBQQ__Quantity__c}"/>
+                    </apex:outputText>
+                    Telephone Handset(s) with Inclusive Calls: </b></td>
+                <td>
+                    <apex:outputText value="{0, number, £###,##0.00}">
+                        <apex:param value="{!mapProducts['BSHD'][0].Revised_Price_Cost_Per_Handset_PCM__c}"/>
+                    </apex:outputText> per handset pcm plus VAT
+                </td>
+            </tr>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSDP,')}">
+            <tr>
+                <td><b>Notice Period: </b></td>
+                <td>A minimum of &nbsp;
+                    <apex:outputText value="{0, number, integer}">
+                        <apex:param value="{!mapProducts['BSCB'][0].Minimum_Notice__c}"/>
+                    </apex:outputText>
+                        {!IF(mapProducts['BSCB'][0].Minimum_Notice__c == 1, 'month', 'months')} prior
+                    written notice is required to terminate at the Licence Earliest End Date.
+                </td>
+            </tr>
+        </apex:outputPanel>
+
+        <tr>
+            <td><b>Type of Sale: </b></td>
+            <td> {!quote.SBQQ__Opportunity2__r.Type} </td>
+        </tr>
+
+        <tr>
+            <td><b>Confidentiality: </b></td>
+            <td> The Terms of this Licence Agreement are confidential between the Supplier and Customer only.</td>
+        </tr>
+
+    </table>
+
+    <div style="page-break-after:always"></div>
+
+    <table class="agreement_text_standard" width="100%" border="0">
+        <tr>
+            <td colspan="2">
+                <table class="agreement_text_standard" width="100%">
+                    <tr>
+                        <td valign="top">
+
+                            <p>THIS LICENCE is made on the&nbsp;
+                                <b>
+                                    <apex:outputText value="{0,date, dd}">
+                                        <apex:param value="{!NOW()}"/>
+                                    </apex:outputText>
+                                    <apex:outputText value="{!IF(AND(DAY(TODAY()) > 10, DAY(TODAY()) < 14),"th", CASE(MOD(DAY(TODAY()),10),1,"st",2,"nd",3,"rd","th"))}"/>
+                                </b>
+                                &nbsp;day of&nbsp;
+                                <b>
+                                    <apex:outputText value="{0,date, MMMMM yyyy}">
+                                        <apex:param value="{!NOW()}"/>
+                                    </apex:outputText>
+                                </b>
+                                BETWEEN (1)&nbsp;<b>{!quote.Property__r.Company_Name__c}</b>
+                                whose registered office is situated at&nbsp;
+                                    {!quote.Property__r.Company_Address__c}
+                                ("the Supplier") and (2)&nbsp; <b>{!quote.SBQQ__Account__r.Registered_Name__c}</b>
+                                whose registered office/home address is situated at&nbsp;
+                                <b>{!quote.SBQQ__Account__r.ShippingStreet}, {!quote.SBQQ__Account__r.ShippingCity}
+                                    , {!quote.SBQQ__Account__r.ShippingPostalCode}</b>
+                                and whose registered number
+                                is&nbsp;<b>{!quote.SBQQ__Account__r.Company_Registration_Number__c}</b>
+                                (“the Customer”)
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td valign="top">
+                            <ol>&nbsp;&nbsp;&nbsp;
+
+                                <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSLF,')}">
+                                    <li1><span>IN this Licence:-</span><br/>
+                                        <ol><br/>
+                                            <li1><span>the “Property”&nbsp;
+                                                <b>{!mapProducts['BSLF'][0].Suite_Inventory__r.Name}</b>
+                                                &nbsp;is on the
+                                                <b>{!mapProducts['BSLF'][0].Floor_Number__c}
+                                                    <apex:outputText rendered="{!mapProducts['BSLF'][0].Floor_Number__c == 1}"
+                                                                     value="st"/>
+                                                <apex:outputText rendered="{!mapProducts['BSLF'][0].Floor_Number__c == 2}"
+                                                                 value="nd"/>
+                                                <apex:outputText rendered="{!mapProducts['BSLF'][0].Floor_Number__c == 3}"
+                                                                 value="rd"/>
+                                                <apex:outputText rendered="{!mapProducts['BSLF'][0].Floor_Number__c != 1 && mapProducts['BSLF'][0].Floor_Number__c != 2 && mapProducts['BSLF'][0].Floor_Number__c != 3}"
+                                                                 value="th"/></b>
+                                                &nbsp;floor of&nbsp;
+                                                <b>{!quote.Property__r.Name}
+                                                    , {!quote.Property__r.Street__c} {!quote.Property__r.City__c} {!quote.Property__r.Post_Code__c}
+                                                    ({!mapProducts['BSLF'][0].Suite_Inventory__r.Name})</b> &nbsp;
+                                                or such other suite having equivalent amenities as the Supplier may from
+                                                time to time
+                                                allocate. In such an event the alternative suite will be of equivalent
+                                                or greater size.</span>
+                                            </li1>
+                                            <br/>
+                                            <li1><span>the “Facilities and Services” are those listed in Schedule 1 and
+                                                “Additional Services” are those listed in Schedule 2.</span>
+                                            </li1>
+                                            <br/>
+                                            <li1><span>any obligation to pay money refers to the sum exclusive of Value Added
+                                                Tax (VAT) and any VAT charged on it is payable in addition.</span>
+                                            </li1>
+                                            <br/>
+                                            <li1><span>the “Commencement Date”
+                                                is <apex:outputtext value="{0,date, dd MMMMM yyyy}">
+                                                    <apex:param value="{!mapProducts['BSLF'][0].Licence_Start_Date__c}"/> </apex:outputtext> or the date the Customer first
+                                                takes up occupation of the Property (if earlier).</span>
+                                            </li1>
+                                            <br/>
+                                            <li1><span>the “Earliest End Date”
+                                                is <apex:outputtext value="{0,date, dd MMMMM yyyy}">
+                                                    <apex:param value="{!mapProducts['BSLF'][0].End_Date__c}"/> </apex:outputtext>
+                                                subject to the Licence being terminated in accordance with the provisions herein contained.</span>
+                                            </li1>
+                                            <br/>
+                                            <li1><span>the Customer can expand
+                                                within {!quote.Property__r.Name} or move within the
+                                                Supplier's Portfolio, subject to availability, on commercial terms to be
+                                                agreed.</span>
+                                            </li1>
+                                            <br/>
+                                        </ol>
+                                    </li1>
+                                </apex:outputPanel>
+
+
+                                <li1><span> IN exchange for the obligations agreed by the Customer the Supplier agrees that
+                                    the Customer may use the Property together with the benefit of the Facilities and
+                                    services listed in Schedule 1 and Additional Services listed in Schedule 2 for a
+                                    period commencing on the Commencement Date and ending on the Termination Date.</span>
+                                </li1>
+                                <br/>
+
+                                <li1><span>THE parties agree:</span><br/>
+                                    <ol><br/>
+                                        <li1><span>this Licence is granted to give the Customer the benefit of temporary
+                                            offices for a limited period in accommodation under the management and
+                                            control of the Supplier who remains entitled to enter and use the Property
+                                            at any time.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1>
+                                            <span>this Licence is personal to the Customer and cannot be transferred.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>the Customer is not entitled to permit anyone other than those employed by
+                                            or having business with the Customer to have access to the Property.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>that this Licence does not create any form of tenancy and that no
+                                            relationship of landlord and tenant exists or is intended to exist under the
+                                            terms of this Licence between the Supplier and the Customer.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>if through circumstances beyond the control of the Supplier it becomes
+                                            impracticable to fulfil the purposes of this Licence, the Licence may be
+                                            terminated by the Supplier serving no less than four weeks written notice on
+                                            the Customer. The Supplier must then re-pay to the Customer a proportion,
+                                            based upon the proportion of the licence period still to run, of the sum
+                                            paid by the Customer. The Supplier has no liability to pay compensation to
+                                            the Customer for any resulting loss.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>the permitted use in relation to the Property is for offices only and the
+                                            Customer shall be permitted to use the Supplier's furniture fixtures and
+                                            fittings in the Property.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>this Licence does not give the Customer exclusive possession of any part of
+                                            the Property and the Supplier reserves the right at all times to move the
+                                            Customer to another Suite within <b>{!quote.Property__r.Name}</b>.</span>
+                                        </li1>
+                                        <br/>
+
+                                        <apex:outputPanel layout="none" rendered="{!NOT(CONTAINS(codes, 'BS24,'))}">
+                                            <li1><span>the Supplier is entitled to enter the Property at any time to provide the
+                                            Facilities and Services detailed in Schedule 1 and Additional Services
+                                            detail in Schedule 2 and to inspect the Property to make repairs and
+                                            alterations thereto or to show the Property to prospective Customer and for
+                                            any other reasonable purpose.</span>
+                                            </li1>
+                                        </apex:outputPanel>
+
+                                        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BS24,')}">
+                                            <li1><span>the Supplier is entitled to enter the Property at any time to provide the Facilities and Services detailed in Schedule 1 and Additional Services detail in Schedule 2 and to inspect the Property to make repairs and alterations thereto or to show the Property to prospective Customer and for any other reasonable purpose where possible 24 hours notice will be provided.</span>
+                                            </li1>
+                                        </apex:outputPanel>
+
+                                        <br/>
+                                        <li1><span>if the Customer should damage the Property or any furniture fixtures or
+                                            fittings or not keep and leave them in the state in which this Licence
+                                            requires the Customer to keep them then the Supplier may reinstate the
+                                            Property and the furniture fixtures and fittings with the costs and expenses
+                                            of so doing being payable by the Customer as a debt due on demand.</span>
+                                        </li1>
+                                        <br/>
+
+                                        <li1><br/>
+                                            <ol><br/>
+                                                <li1 class="subitem"><span>any demand or notice required to be given or made or served on the
+                                                    Customer shall be duly and validly made given or served if sent by
+                                                    prepaid registered or recorded delivery mail or sent by telegraphic
+                                                    facsimile transmission to the Property or to the registered office
+                                                    or last known address of the Customer.</span>
+                                                </li1>
+                                                <br/>
+                                                <li1 class="subitem"><span>any demand or notice shall be conclusively treated as having been
+                                                    made given or served if by mail on the second working day after the
+                                                    day of posting of it by telegraphic facsimile transmission on the
+                                                    day of receipt if transmitted before 5.00 pm on a working day but
+                                                    otherwise on the next following working day.</span>
+                                                </li1>
+                                                <br/>
+                                            </ol>
+                                        </li1>
+
+                                        <li1><span>if and to the extent that any Value Added Tax shall be incurred or payable
+                                            consequent on the grant of this Licence or any provisions contained herein
+                                            or any taxable supply made hereunder the Customer shall on demand pay and
+                                            indemnify the Supplier against the same save to the extent that the Supplier
+                                            shall be able to recover the same as allowable input tax.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>the Contracts (Rights of Third Parties) Act 1999 shall not apply to the
+                                            provisions of this Licence and no person who is not a party to this Licence
+                                            shall be entitled to enforce any of its terms pursuant to such Act but this
+                                            shall not affect any rights which may be available apart from that Act.</span>
+                                        </li1>
+                                        <br/>
+
+                                        <apex:outputPanel layout="none" rendered="{!NOT(CONTAINS(codes, 'BSIL,'))}">
+                                            <li1><span>the Supplier is not to be liable for the death of or injury to the Customer
+                                            or its employees or Customer or for damage to any property of theirs or for
+                                            any losses, claims, demands, actions, proceedings, damages, costs or
+                                            expenses or other liability incurred by them in the exercise or purported
+                                            exercise of the rights granted by this Licence.</span>
+                                            </li1>
+                                        </apex:outputPanel>
+
+                                        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSIL,')}">
+                                            <li1><span>the Supplier is not to be liable for the death of or injury to the Customer or its employees or Customer or for damage to any property of theirs or for any losses, claims, demands, actions, proceedings, damages, costs or expenses or other liability incurred by them in the exercise or purported exercise of the rights granted by this Licence. For the avoidance of doubt, nothing contained in this Licence shall be interpreted as an attempt to exclude liability for death or personal injury arising out of the Supplier's negligence, fraud, fraudulent misrepresentation or any other liability that cannot be excluded by law.</span>
+                                            </li1>
+                                        </apex:outputPanel>
+                                    </ol>
+                                </li1>
+                                <br/>
+
+
+                                <li1><span>THE Customer agrees with the Supplier:-</span><br/>
+                                    <ol><br/>
+                                        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSDP,')}">
+                                            <li1><span>to pay the Supplier a deposit of <b>
+                                                <apex:variable var="fullDeposit" value="{!mapProducts['BSDP'][0].Net_Total__c + mapProducts['BSDP'][0].Deposit_Already_Held__c}"/>
+                                                <apex:outputText value="{0, number, £###,##0.00}">
+                                                    <apex:param value="{!fullDeposit}"/>
+                                                </apex:outputText></b>
+                                                <apex:outputPanel layout="none"
+                                                                  rendered="{!NOT(ISBLANK(mapProducts['BSDP'][0].Deposit_Already_Held__c)) && mapProducts['BSDP'][0].Deposit_Already_Held__c > 0}">
+                                                    <b>(<apex:outputText value="{0, number, £###,##0.00}">
+                                                        <apex:param value="{!mapProducts['BSDP'][0].Deposit_Already_Held__c}"/>
+                                                    </apex:outputText> already held )</b>
+                                                </apex:outputPanel> upon the signing of this Licence</span>
+                                            </li1>
+                                            <br/>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSLF,')}">
+                                            <li1><span>during the continuance of this Licence to pay monthly in advance <b>(by Direct Debit)</b> to the Supplier a Licence fee of
+                                                <apex:outputPanel layout="none" rendered="{!NOT(CONTAINS(codes, 'SteppedRent,'))}">
+                                                    <b>
+                                                        <apex:outputText value="{0, number, £###,##0.00}">
+                                                            <apex:param value="{!IF(CONTAINS(codes, 'BSAS,'), mapProducts['BSLF'][0].New_Monthly_Average__c + mapProducts['BSAS'][0].New_Monthly_Average__c, mapProducts['BSLF'][0].New_Monthly_Average__c)}"/>
+                                                        </apex:outputText>
+                                                    pcm</b>,
+                                                </apex:outputPanel>
+                                                <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'SteppedRent,')}">
+                                                    <apex:repeat value="{!mapProducts['SteppedRent']}" var="steppedRent">
+                                                        <apex:outputPanel layout="none" rendered="{!NOT(ISNULL(steppedRent.Start_Term__c)) && NOT(ISNULL(steppedRent.Rent_Step_To__c)) && NOT(ISNULL(steppedRent.Monthly_Total__c))}">
+                                                            <apex:variable var="startPostfix" value="{!IF(AND(steppedRent.Start_Term__c > 10, steppedRent.Start_Term__c < 14),"th", CASE(MOD(steppedRent.Start_Term__c,10),1,"st",2,"nd",3,"rd","th"))}"/>
+                                                            <apex:variable var="endPostfix" value="{!IF(AND(steppedRent.Rent_Step_To__c> 10, steppedRent.Rent_Step_To__c< 14),"th", CASE(MOD(steppedRent.Rent_Step_To__c,10),1,"st",2,"nd",3,"rd","th"))}"/>
+                                                            <apex:outputText value="{0, number, £###,##0.00}">
+                                                                <apex:param value="{!steppedRent.Monthly_Total__c}"/>
+                                                            </apex:outputText> pcm plus VAT from
+                                                            <apex:outputText value="{0, number, 0}{1} month to {2, number, 0}{3} month, ">
+                                                                <apex:param value="{!steppedRent.Start_Term__c}"/>
+                                                                <apex:param value="{!startPostfix}"/>
+                                                                <apex:param value="{!steppedRent.Rent_Step_To__c}"/>
+                                                                <apex:param value="{!endPostfix}"/>
+                                                            </apex:outputText>
+                                                        </apex:outputPanel>
+                                                    </apex:repeat>
+                                                </apex:outputPanel>
+                                                <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSDI,')}">
+                                                and an Internet Fee of <b>
+                                                    <apex:outputText value="{0, number, £###,##0.00}">
+                                                        <apex:param value="{!mapProducts['BSDP'][0].Updated_Monthly_Average__c}"/>
+                                                    </apex:outputText></b>
+                                                    pcm plus VAT for {!mapProducts['BSDI'][0].Serviced_Internet_Bandwidth__c}
+                                                    Dedicated bandwidth.
+                                                </apex:outputPanel>
+                                                <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSII,')}">
+                                                with an inclusive internet package for <b>100Mb</b> Contended bandwidth
+                                                </apex:outputPanel>
+                                                <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSNM,')}">
+                                                and <b>
+                                                    <apex:outputText value="{0, number, integer}">
+                                                        <apex:param value="{!mapProducts['BSNM'][0].Number_of_Hours__c}"/>
+                                                    </apex:outputText></b>
+                                                hours of meeting room usage
+                                                </apex:outputPanel>
+                                                . The first payment is to be made upon signing this Licence and subsequent payments are to be made upon the 25th day of each month during the Licence term.
+                                        </span>
+                                            </li1>
+                                            <br/>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSHD,')}">
+                                            <li1><span>during the continuance of this Licence to pay monthly in advance to the Supplier a Telephony Fee of <b>
+                                                <apex:outputText value="{0, number, £###,##0.00}">
+                                                    <apex:param value="{!mapProducts['BSHD'][0].Revised_Price_Cost_Per_Handset_PCM__c}"/>
+                                                </apex:outputText></b>
+                                                    per handset pcm plus VAT for
+                                                    <apex:outputText value=" {0, number, integer} ">
+                                                        <apex:param value="{!mapProducts['BSHD'][0].SBQQ__Quantity__c}"/>
+                                                    </apex:outputText>
+                                                    telephone handset(s) with 2,000 minutes of inclusive calls to UK mobiles and UK landlines per handset per month.
+                                                </span>
+                                            </li1>
+                                            <br/>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BCLC,')}">
+                                            <li1><span>during the continuance of this Licence to pay monthly in advance to the Supplier a Licence Fee of
+                                                <apex:outputText value="{0, number, £###,##0.00}">
+                                                    <apex:param value="{!mapProducts['BCLC'][0].Discount_Percent__c}"/>
+                                                </apex:outputText>
+                                                per space pcm plus VAT for
+                                                <apex:outputText value="{0, number, £###,##0.00}">
+                                                    <apex:param value="{!mapProducts['BCLC'].Monthly_Cost__c}"/>
+                                                </apex:outputText> Car Parking space(s).
+                                        </span>
+                                            </li1>
+                                            <br/>
+                                        </apex:outputPanel>
+                                        <li1><span>to pay the Supplier’s service bill on the 25th of the month
+                                            following the delivery of the Facilities and Services detailed in
+                                            Schedule 1 and Additional Services detailed in Schedule 2.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>to pay interest on any licence fee and services paid more than
+                                            seven days after it falls due. Interest means a payment at four
+                                            percent above the published base rate of Royal Bank of Scotland Plc
+                                            compounded on each quarter day and paid both before and after
+                                            judgement or arbitration ward.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>to keep all contents of this Licence Agreement confidential between
+                                            the Supplier and Customer only. Upon any breach of this
+                                            confidentiality the Supplier may terminate the Licence with
+                                            immediate effect.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>to take a minimum of 2Mb dedicated bandwidth if there is any
+                                            intention to utilise VOIP over the provided internet connection.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>to use the internet, at all times, in accordance with the
+                                            Internet Services Fair Use Policy, a copy of which is appended to
+                                            this agreement and that in signing this agreement the Customer
+                                            understands and agrees to the actions the Supplier may take as outlined
+                                            in the Internet Services Fair Use Policy.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>to adopt whatever security measures are appropriate to their
+                                            business to ensure security over the allocated internet connection.
+                                            (The Supplier does not accept any responsibility as to the security
+                                            of the Internet Service provided).</span>
+                                        </li1>
+                                        <br/>
+
+                                        <li1><span>to provide the two forms of ID which are a legal requirement of the
+                                            “Know your Customers” Legislation. This ID needs to be Photo
+                                            Identification - Passport or Driving Licence and Proof of Address
+                                            (both name and home address must be shown) eg. Utility Bill.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>not to invite the public generally to come to the Property nor use
+                                            it for any purpose which attracts casual callers.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>to observe any regulations for the use of the Property which the
+                                            Supplier may make from time to time.</span>
+                                        </li1>
+                                        <br/>
+
+                                        <apex:outputPanel layout="none" rendered="{!NOT(CONTAINS(codes, 'BSWT,'))}">
+                                            <li1><span>to keep the Property and any furniture fixtures or fittings in good
+                                            condition, repair and decorative order and in no worse state of
+                                            repair or condition than as at the date of this Licence and as per
+                                            the inventory that is signed upon entry to the property.</span>
+                                            </li1>
+                                        </apex:outputPanel>
+
+                                        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSWT,')}">
+                                            <li1><span>to keep the Property and any furniture fixtures or fittings in good condition, repair and decorative order and in no worse state of repair or condition than as at the date of this Licence and as per the inventory that is signed upon entry to the property subject to wear and tear.</span>
+                                            </li1>
+                                        </apex:outputPanel>
+
+                                        <br/>
+                                        <li1><span>to keep the Property and any furniture fixtures or fittings in a
+                                            clean and tidy condition.</span>
+                                        </li1>
+                                        <br/>
+
+                                        <apex:outputPanel layout="none" rendered="{!NOT(CONTAINS(codes, 'BSRS,'))}">
+                                            <li1><span>to indemnify the Supplier against all losses damages costs expenses
+                                            claims and liability howsoever arising (whether directly indirectly)
+                                            from:-</span>
+                                            </li1>
+                                            <br/>
+                                            <li1><br/>
+                                                <ol><br/>
+                                                    <li1 class="subitem"><span>any breach by the Customer of the terms of this Licence.</span>
+                                                    </li1>
+                                                    <br/>
+                                                    <li1 class="subitem"><span>any failure by the Customer to vacate the Property in accordance with this Licence and</span>
+                                                    </li1>
+                                                    <br/>
+                                                    <li1 class="subitem"><span>the grant or exercise of the Customer's rights under this Licence.</span>
+                                                    </li1>
+                                                    <br/>
+                                                </ol>
+                                            </li1>
+                                        </apex:outputPanel>
+
+                                        <li1><span>not to impede the Supplier or its servants or agents in the exercise of its rights of possession and control of the Property and every part of the Property.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>that if they move to an alternative suite within the building at any point during their current Licence Agreement, they will be liable for the cost of making good any damage to the existing suite and will be required to leave it in the same condition as at the Licence Commencement Date.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>not to act in a way which will or may result in the insurance of the Property becoming void or voidable or in the premium for it being increased nor to allow anyone else to do so.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>not to damage the Property or any Supplier’s fixtures fittings decorations furniture or furnishings.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>not to display any notice or advertisement on the outside of the Property or so as to be visible from outside the property.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>when the Licence ends (howsoever determined) to return the Property to the Supplier in the state in which this Licence requires the Customer to keep it.</span>
+                                        </li1>
+                                        <br/>
+
+
+                                        <li1>
+                                            <span>not to make any alterations or additions whatsoever to the Property.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>that any personal effects or other belongings of the Customer kept at the Property are at all times kept at the risk of the Customer.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>not to install office furniture, equipment, IT or Telecoms connections at the property without the prior written approval of the Supplier.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>not to bring any pets or other animals into the building and/or property.</span>
+                                        </li1>
+                                        <br/>
+
+                                        <li1>
+                                            <span>not to use a radio or music amplifier at any time at the property.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>to conduct the Customer’s business in a way which does not interfere with the Supplier or any other occupiers of adjoining suites and the Customer shall comply with all laws permits and licensing rules and any other requirements regulating the conduct of the Customer’s business.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>not to use the property or any part of it for any of the following nor allow anyone else to do so:- activities which are dangerous offensive noxious noisome illegal or immoral or which are or may become a nuisance or annoyance to the Customer or to the Supplier occupier of any neighbouring property or which could, in the Supplier’s opinion, be in any way undesirable to the use and enjoyment of the building</span>
+                                        </li1>
+                                        <br/>
+
+                                    </ol>
+                                </li1>
+
+
+                                <li1><span>THE Supplier agrees with the Customer:</span><br/>
+                                    <ol><br/>
+                                        <li1><span>to provide the Facilities and Services and additional Services unless prevented by industrial disputes, shortage of supplies, inclement weather or such other causes beyond the control of the Supplier. The Supplier will not be obliged to provide the Facilities and Services and Additional Services where the Customer is in breach of the terms of the Licence.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>that in the event of non-payment of any sums due under this Licence, the Supplier reserves the right to restrict access to the property and services until the Customer has paid all sums due. The Customer agrees that despite the Supplier restricting access, the customer remains liable for all monies due in respect of this Licence to the Licence Earliest End Date.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>when the Licence comes to an end (howsoever determined) to repay the Deposit to the Customer after deducting all sums due to the Supplier in respect of the cost of making good any damage or payment default and in the same condition as at the Licence Commencement Date.</span>
+                                        </li1>
+                                        <br/>
+
+                                        TERMINATION <br/><br/>
+                                        This Licence may be determined forthwith by the Supplier serving written notice
+                                        to that effect on the Customer at the Property if the Customer shall: <br/><br/>
+
+                                        <li1><span>become bankrupt or enter into liquidation or receivership; or</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>refute or fail to pay any sum due to the Supplier seven days after the same has fallen due (whether a formal demand for the same shall have been made or not); or</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>breach any other term of this Licence</span>
+                                        </li1>
+                                        <br/>
+
+                                        The Customer agrees with the Supplier: <br/><br/>
+
+                                        <li1><span>to renew their Licence Agreement for a further period, a minimum of two weeks prior to the Licence Earliest End Date.</span>
+                                        </li1>
+                                        <br/>
+                                        <apex:outputPanel layout="none" rendered="{!NOT(CONTAINS(codes, 'BSCB,'))}">
+                                            <li1><span>to give a minimum of three month's written notice to terminate this Licence, the earliest termination date being the Licence Earliest End Date.</span>
+                                            </li1>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSCB,')}">
+                                            <li1><span>to give a minimum of
+                                                    <apex:outputText value=" {0, number, integer} ">
+                                                        <apex:param value="{!mapProducts['BSCB'][0].Minimum_Notice__c}"/>
+                                                    </apex:outputText>
+                                                month's written notice to terminate this Licence, the earliest termination date being the Licence Earliest End Date.</span>
+                                            </li1>
+                                        </apex:outputPanel>
+                                        <br/>
+                                        <li1><span>Unless renewed as per clause 5.7 or ended as per clause 5.8, the licence fee payable after the Earliest End Date has passed, shall increase monthly by 5% until the licence is either renewed or terminated. If the licence is subsequently terminated as per clause 5.8, the licence shall always end on the last day of the calendar month.</span>
+                                        </li1>
+                                        <br/>
+                                        <li1><span>Clause 5.9 does not apply to the Customer if they have instructed solicitors to move internally within the Supplier's portfolio. Should the exchange of contracts not occur then clause 5.9 will be re-instated from the original Earliest End Date of this licence.</span>
+                                        </li1>
+                                        <br/>
+                                        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSDL,')}">
+                                            <li1><span>the customer will be liable for a fixed dilapidation cost of <b>
+                                                    <apex:outputText value="{0, number, £###,##0.00}">
+                                                        <apex:param value="{!mapProducts['BSDL'][0].SBQQ__NetTotal__c}"/>
+                                                    </apex:outputText>
+                                                    </b> upon exiting the suite.
+                                                </span>
+                                            </li1>
+                                            <br/>
+                                        </apex:outputPanel>
+
+                                        <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSRL,')}">
+                                            <li1><span>the Supplier warrants to the Customer that the Property and Facilities are physically fit for the purposes for which they are intended and will be maintained as such during the term of the Licence. Any defects with the Property will be remedied by the Supplier without any undue delays and at no additional costs to the Customer save where such defects are caused by the Customer where the Customer will be liable for the cost of repair.</span>
+                                            </li1>
+                                            <br/>
+                                        </apex:outputPanel>
+
+                                    </ol>
+                                </li1>
+
+                            </ol>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <div style="page-break-after:always"></div>
+
+    <table class="agreement_text_standard" width="100%">
+        <tr>
+            <td valign="top">
+                <p>The persons signing this Licence on behalf of the Supplier and the Customer hereby warrant that they
+                    each have authority to enter into this Licence and accept responsibility accordingly</p>
+            </td>
+        </tr>
+    </table>
+
+    <table class="agreement_text_standard" width="100%">
+        <tr>
+            <td align="center" colspan="4">
+                <p><b>SCHEDULE 1<br/>
+                    Facilities and Services</b></p>
+            </td>
+        </tr>
+
+        <table class="box-table-grey" width="100%" border="1" cellpadding="5" cellspacing="5">
+            <tr>
+                <td valign="top" colspan="4">
+                    24 Hour Access; Electricity &amp; Utilities; Full Kitchen
+                    Facilities &amp; Refreshments; Fully furnished offices; Mailing Address for receipt of mail;
+                    Maintenance and Cleaning; On-site Customer Service Team; Rent and Service Charge; Business Rates
+                    <apex:outputPanel layout="none" rendered="{!CONTAINS(callHandlingScheduleNames, 'SCHEDULE 1 - FACILITIES AND SERVICES')}">; Call Handling
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BSRA,')}">; Use of Building as
+                        Registered Address
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="none" rendered="{!NOT(CONTAINS(codes, 'BVCN,'))}">; Company Name on
+                        Signboard outside suite
+                    </apex:outputPanel>
+                </td>
+            </tr>
+        </table>
+    </table>
+
+    <table class="agreement_text_standard" width="100%">
+        <tr>
+            <td align="center" colspan="4">
+                <p><b>SCHEDULE 2<br/>
+                    AdditionalServices</b></p>
+            </td>
+        </tr>
+
+        <table class="box-table-grey" width="100%" border="1" cellpadding="5" cellspacing="5">
+            <tr>
+                <td valign="top" colspan="4">
+                    Additional furniture &amp; Equipment Hire; Board/meeting room hire; Internet
+                    Connections; Postal Services; Telecommunications Charges
+                    <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'BVCN,')}">; Company Name on
+                        Signboard
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="none" rendered="{!NOT(CONTAINS(codes, 'BSDM'))}">; Dedicated Internet
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="none" rendered="{!NOT(CONTAINS(codes, 'BSII'))}">; Contended Internet
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="none" rendered="{!NOT(CONTAINS(codes, 'BSHD'))}">; Telephone Handsets
+                        and Line Rental
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="none" rendered="{!CONTAINS(callHandlingScheduleNames, 'SCHEDULE 2 - ADDITIONAL SERVICES')}">; Call Handling
+                    </apex:outputPanel>
+                </td>
+            </tr>
+        </table>
+    </table>
+
+    <apex:outputPanel rendered="{!$CurrentPage.parameters.sendFor == SIGNATURE}">
+        <table class="agreement_text_standard" width="100%">
+            <tr>
+                <td width="100%" valign="top">
+                    <table class="agreement_text_large" width="100%" align="center" height="150pt">
+                        <tr>
+                            <td valign="top">
+                                AUTHORISED SIGNATORY<br/>
+                                for and on behalf of:<br/><br/>
+                                Customer:<span>{!quote.SBQQ__Account__r.Registered_Name__c}</span><br/><br/>
+                                Company Number:<span class="disguised">/CompanyNumber/</span><br/><br/>
+                                First Name:<span class="disguised">/LA1-Name/</span><br/><br/>
+                                Last Name:<span class="disguised">/LA1-LastName/</span><br/><br/>
+                                Address:<span class="disguised"></span><br/><br/>
+                                <span class="disguised">/LA1-Address/</span><br/><br/>
+                                Signature:<span class="disguised">/LA1-Signature/</span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table class="agreement_text_standard" width="100%">
+            <tr>
+                <td width="100%" valign="top">
+                    <table class="agreement_text_large" width="100%" align="center" height="150pt">
+                        <tr>
+                            <td valign="top">
+                                AUTHORISED SIGNATORY<br/>
+                                for and on behalf of:<br/><br/>
+                                Supplier:<span>{!quote.Property__r.Company_Name__c}</span><br/><br/>
+                                Name:<span>{!quote.BW_Signature__r.Name}</span><br/><br/>
+                                Address:<span>
+                                    {!quote.Property__r.Company_Address__c}
+                            </span><br/><br/>
+                                Signature:<span class="disguised">/BW1-Sign/</span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <div style="page-break-after:always;"/>
+        <div class="signature">
+            <apex:outputPanel layout="none" rendered="{!CONTAINS(codes, 'FitOut,')}">
+                <p class="contactDescription"><span class="contactType">Project Management Contact</span> <span
+                        class="contactHelpText">(This is the person we will contact to organise the Fit Out of your suite with)</span>
+                </p>
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                        <td>Email</td>
+                    </tr>
+                    <tr>
+                        <td class="hide">/FirstName2/</td>
+                        <td class="hide">/LastName2/</td>
+                        <td class="hide">/Email2/</td>
+                    </tr>
+                    <tr>
+                        <td>Telephone Number</td>
+                        <td>Mobile Number</td>
+                        <td>Preferred Communication Channel</td>
+                    </tr>
+                    <tr>
+                        <td class="hide">/TNumber2/</td>
+                        <td class="hide">/MNumber2/</td>
+                        <td class="hide">/Channel2/</td>
+                    </tr>
+                </table>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!isSuiteProductAdded}">
+                <p class="contactDescription"><span class="contactType">In life Property Contact</span> <span
+                        class="contactHelpText">(This is the person our Serviced Space Coordinator will organise the move in with and also who will have the day to day responsibility once you have moved in)</span>
+                </p>
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                        <td>Email</td>
+                    </tr>
+                    <tr>
+                        <td class="hide">/FirstName3/</td>
+                        <td class="hide">/LastName3/</td>
+                        <td class="hide">/Email3/</td>
+                    </tr>
+                    <tr>
+                        <td>Telephone Number</td>
+                        <td>Mobile Number</td>
+                        <td>Preferred Communication Channel</td>
+                    </tr>
+                    <tr>
+                        <td class="hide">/TNumber3/</td>
+                        <td class="hide">/MNumber3/</td>
+                        <td class="hide">/Channel3/</td>
+                    </tr>
+                </table>
+            </apex:outputPanel>
+
+            <p class="contactDescription"><span class="contactType">Billing Contact</span> <span
+                    class="contactHelpText">(This is the person we should contact to discuss billing queries with)</span>
+            </p>
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Email</td>
+                </tr>
+                <tr>
+                    <td class="hide">/FirstName5/</td>
+                    <td class="hide">/LastName5/</td>
+                    <td class="hide">/Email5/</td>
+                </tr>
+                <tr>
+                    <td>Telephone Number</td>
+                    <td>Mobile Number</td>
+                    <td>Preferred Communication Channel</td>
+                </tr>
+                <tr>
+                    <td class="hide">/TNumber5/</td>
+                    <td class="hide">/MNumber5/</td>
+                    <td class="hide">/Channel5/</td>
+                </tr>
+            </table>
+        </div>
+    </apex:outputPanel>
+    <span class="hide">/UDN/</span>
+    </html>
+</apex:page>

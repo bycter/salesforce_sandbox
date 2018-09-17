@@ -1,0 +1,26 @@
+<aura:component implements="force:LightningQuickActionWithoutHeader,force:hasRecordId" controller="ConvertPotentialContactController">
+    <aura:attribute name="errorMessage" type="String" />
+
+    <aura:handler name="init" value="this" action="{!c.init}" />
+
+    <aura:dependency resource="markup://force:navigateToSObject" type="EVENT" />
+
+    <div class="{!'slds-align_absolute-center slds-m-top_x-large slds-notify slds-notify_toast ' + (empty(v.errorMessage) ? 'slds-theme_success' : 'slds-theme_error')}">
+        <aura:if isTrue="{!empty(v.errorMessage)}">
+            <div class="">
+                <h2 class="slds-text-heading_small">{!$Label.c.Potential_Contact_Conversion_Message}</h2>
+            </div>
+            <aura:set attribute="else">
+                <!--lightning:formattedText class="slds-theme_error" value="{!v.errorMessage}" linkify="true" /-->
+                <div class="slds-theme_error">
+                    <h2 class="slds-text-heading_small">Duplicates Detected</h2>
+                </div>
+            </aura:set>
+        </aura:if>
+    </div>
+    <aura:if isTrue="{!!empty(v.errorMessage)}">
+        <div class="errorMessage">
+            <aura:unescapedHtml value="{!v.errorMessage}" />
+        </div>
+    </aura:if>
+</aura:component>

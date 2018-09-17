@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Enable or disable email notifications to Community users.</description>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>c2g__NotifyCommunityUsersCreditNote__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If selected, Community members will be sent an email message each time a Sales Credit Note is posted.</description>
+        <externalId>false</externalId>
+        <label>Notify Contacts - Sales Credit Note</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>c2g__NotifyCommunityUsersInvoice__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If selected, Community members will be sent an email message each time a Sales Invoice is posted.</description>
+        <externalId>false</externalId>
+        <label>Notify Contacts - Sales Invoice</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Community Settings (FF)</label>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,126 @@
+<apex:page standardController="Indicative_Cost__c" extensions="GenerateIndicativeCostController"
+           lightningStylesheets="true">
+
+    <script>
+        // Prevent automatically complete entries by a browser
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('{!$Component.formId}').setAttribute("autocomplete", "off");
+        }, false);
+
+        function recalculateIndicativeCosts(sizeUpdated) {
+            console.log('sizeUpdated', sizeUpdated);
+            var propertyId = document.getElementById('{!$Component.formId.quoteBlock.quoteSection.property}_lkid').value;
+            var suiteId = document.getElementById('{!$Component.formId.quoteBlock.quoteSection.suite}_lkid').value;
+            var size = document.getElementById('{!$Component.formId.quoteBlock.quoteSection.size}').value;
+            var concessionPercent = document.getElementById('{!$Component.formId.quoteBlock.concessionSection.concessionPercent}').value;
+            var density = document.getElementById('{!$Component.formId.designBlock.designSection.density}').value;
+            var quality = document.getElementById('{!$Component.formId.designBlock.designSection.quality}').value;
+            if ( sizeUpdated ) {
+                recalculate(propertyId, suiteId, size, concessionPercent, density, quality);
+            } else {
+                recalculateWithSize(propertyId, suiteId, size, concessionPercent, density, quality);
+            }
+        }
+    </script>
+
+    <style>
+        .emptyDependentLookup {
+            min-width: 320px;
+            border: 1px solid rgb(221, 219, 218);
+            max-width: 100%;
+            border-radius: .25rem;
+            background-color: rgb(255, 255, 255);
+            color: rgb(62, 62, 60);
+            -webkit-transition: border .1s linear,background-color .1s linear;
+            transition: border .1s linear,background-color .1s linear;
+            display: inline-block;
+            padding: 0 1rem 0 .75rem;
+            min-height: calc(1.875rem + (1px * 2));
+            line-height: 1.875rem;
+        }
+    </style>
+
+    <apex:form id="formId" html-novalidate="true">
+
+        <apex:actionFunction name="recalculate" action="{!recalculate}"
+                             rerender="propertyDetailsSection, totalQuoteCostSection, concession, designBlock"
+                             immediate="true">
+            <apex:param name="propertyId" value="" assignTo="{!propertyId}"/>
+            <apex:param name="suiteId" value="" assignTo="{!suiteId}"/>
+            <apex:param name="size" value="" assignTo="{!size}"/>
+            <apex:param name="concessionPercent" value="" assignTo="{!concessionPercent}"/>
+            <apex:param name="density" value="" assignTo="{!density}"/>
+            <apex:param name="quality" value="" assignTo="{!quality}"/>
+        </apex:actionFunction>
+
+        <apex:actionFunction name="recalculateWithSize" action="{!recalculate}"
+                             rerender="size, propertyDetailsSection, totalQuoteCostSection, concession, designBlock"
+                             immediate="true">
+            <apex:param name="propertyId" value="" assignTo="{!propertyId}"/>
+            <apex:param name="suiteId" value="" assignTo="{!suiteId}"/>
+            <apex:param name="size" value="" assignTo="{!size}"/>
+            <apex:param name="concessionPercent" value="" assignTo="{!concessionPercent}"/>
+            <apex:param name="density" value="" assignTo="{!density}"/>
+            <apex:param name="quality" value="" assignTo="{!quality}"/>
+        </apex:actionFunction>
+
+        <apex:pageMessages />
+
+        <apex:pageBlock id="customerBlock" title="Customer Details">
+            <apex:pageBlockSection id="customerSection" columns="2">
+                <apex:outputField value="{!cost.Customer_Name__c}"/>
+                <apex:inputField value="{!cost.Contact__c}"/>
+                <apex:outputField value="{!cost.Date__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="quoteBlock" title="Quote Details">
+            <apex:pageBlockSection id="quoteSection" columns="2">
+                <apex:inputField id="property" value="{!cost.Property__c}" onchange="recalculateIndicativeCosts();"/>
+                <apex:inputField value="{!cost.Term__c}"/>
+                <apex:inputField id="suite" value="{!cost.Suite__c}" onchange="recalculateIndicativeCosts();"/>
+                <apex:inputField id="size" value="{!cost.Size_sq_ft__c}" onkeyup="recalculateIndicativeCosts(true);"
+                                 onchange="recalculateIndicativeCosts(true);"/>
+                <apex:outputPanel />
+                <apex:inputField value="{!cost.Break_Clause__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection id="propertyDetailsSection" columns="2" title="Property / Suite Details" collapsible="false">
+                <apex:outputField value="{!cost.Service_Charge_per_sq_ft__c}"/>
+                <apex:outputField value="{!cost.Rent_per_sq_ft__c}"/>
+                <apex:outputField value="{!cost.Insurance_per_sq_ft__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection id="concessionSection" columns="2" title="Concession Details" collapsible="false">
+                <apex:inputField id="concessionPercent" value="{!cost.Concession_Percent__c}"
+                                 onkeyup="recalculateIndicativeCosts();" onchange="recalculateIndicativeCosts();"/>
+                <apex:outputField id="concession" value="{!cost.Concession__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection id="totalQuoteCostSection" columns="2" title="Total Quote Cost" collapsible="false">
+                <apex:outputField value="{!cost.Total_Cost_Per_Month__c}"/>
+                <apex:outputField value="{!cost.Total_Cost_Per_Quarter__c}"/>
+                <apex:outputField value="{!cost.Total_Cost_Per_Annum__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="designBlock" title="Design Details">
+            <apex:pageBlockSection id="designSection" columns="2">
+                <apex:inputField id="density" value="{!cost.Density__c}" onchange="recalculateIndicativeCosts();"/>
+                <apex:inputField id="quality" value="{!cost.Specification__c}" onchange="recalculateIndicativeCosts();"/>
+                <apex:outputField value="{!cost.Total_Design_Cost__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="emailDesignBlock" title="Email Details">
+            <apex:pageBlockSection id="designSection" columns="1">
+                <apex:outputPanel layout="block">
+                    <apex:inputField value="{!cost.Email_Body__c}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <div style="text-align: right; padding-bottom:15px;">
+            <apex:commandButton action="{!save}" value="Generate & Send"/>
+            <apex:commandButton action="{!cancel}" value="Cancel"/>
+        </div>
+
+    </apex:form>
+</apex:page>

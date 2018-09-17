@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>c2g__Picklist__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Picklist</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Actual Value</fullName>
+                    <default>false</default>
+                    <label>Actual Value</label>
+                </value>
+                <value>
+                    <fullName>Balance Sheet 1</fullName>
+                    <default>false</default>
+                    <label>Balance Sheet 1</label>
+                </value>
+                <value>
+                    <fullName>Balance Sheet 2</fullName>
+                    <default>false</default>
+                    <label>Balance Sheet 2</label>
+                </value>
+                <value>
+                    <fullName>Balance Sheet 3</fullName>
+                    <default>false</default>
+                    <label>Balance Sheet 3</label>
+                </value>
+                <value>
+                    <fullName>Bank Account</fullName>
+                    <default>false</default>
+                    <label>Bank Account</label>
+                </value>
+                <value>
+                    <fullName>Budget and Balance</fullName>
+                    <default>false</default>
+                    <label>Budget and Balance</label>
+                </value>
+                <value>
+                    <fullName>Cash Entry Currency</fullName>
+                    <default>false</default>
+                    <label>Cash Entry Currency</label>
+                </value>
+                <value>
+                    <fullName>Cash Entry Number</fullName>
+                    <default>false</default>
+                    <label>Cash Entry Number</label>
+                </value>
+                <value>
+                    <fullName>Company</fullName>
+                    <default>false</default>
+                    <label>Company</label>
+                </value>
+                <value>
+                    <fullName>Credit Note Account</fullName>
+                    <default>false</default>
+                    <label>Credit Note Account</label>
+                </value>
+                <value>
+                    <fullName>Credit Note Currency</fullName>
+                    <default>false</default>
+                    <label>Credit Note Currency</label>
+                </value>
+                <value>
+                    <fullName>Credit Note Dimension 1</fullName>
+                    <default>false</default>
+                    <label>Credit Note Dimension 1</label>
+                </value>
+                <value>
+                    <fullName>Credit Note Dimension 2</fullName>
+                    <default>false</default>
+                    <label>Credit Note Dimension 2</label>
+                </value>
+                <value>
+                    <fullName>Credit Note Dimension 3</fullName>
+                    <default>false</default>
+                    <label>Credit Note Dimension 3</label>
+                </value>
+                <value>
+                    <fullName>Credit Note Dimension 4</fullName>
+                    <default>false</default>
+                    <label>Credit Note Dimension 4</label>
+                </value>
+                <value>
+                    <fullName>Credit Note Number</fullName>
+                    <default>false</default>
+                    <label>Credit Note Number</label>
+                </value>
+                <value>
+                    <fullName>Credit Note Opportunity</fullName>
+                    <default>false</default>
+                    <label>Credit Note Opportunity</label>
+                </value>
+                <value>
+                    <fullName>Credit Note Period</fullName>
+                    <default>false</default>
+                    <label>Credit Note Period</label>
+                </value>
+                <value>
+                    <fullName>Credit Note Tax Code 1</fullName>
+                    <default>false</default>
+                    <label>Credit Note Tax Code 1</label>
+                </value>
+                <value>
+                    <fullName>Credit Note Tax Code 2</fullName>
+                    <default>false</default>
+                    <label>Credit Note Tax Code 2</label>
+                </value>
+                <value>
+                    <fullName>Credit Note Tax Code 3</fullName>
+                    <default>false</default>
+                    <label>Credit Note Tax Code 3</label>
+                </value>
+                <value>
+                    <fullName>Credit Note Total</fullName>
+                    <default>false</default>
+                    <label>Credit Note Total</label>
+                </value>
+                <value>
+                    <fullName>Currency</fullName>
+                    <default>false</default>
+                    <label>Currency</label>
+                </value>
+                <value>
+                    <fullName>Dimension 1</fullName>
+                    <default>false</default>
+                    <label>Dimension 1</label>
+                </value>
+                <value>
+                    <fullName>Dimension 2</fullName>
+                    <default>false</default>
+                    <label>Dimension 2</label>
+                </value>
+                <value>
+                    <fullName>Dimension 3</fullName>
+                    <default>false</default>
+                    <label>Dimension 3</label>
+                </value>
+                <value>
+                    <fullName>Dimension 4</fullName>
+                    <default>false</default>
+                    <label>Dimension 4</label>
+                </value>
+                <value>
+                    <fullName>Document Currency</fullName>
+                    <default>false</default>
+                    <label>Document Currency</label>
+                </value>
+                <value>
+                    <fullName>Document Number</fullName>
+                    <default>false</default>
+                    <label>Document Number</label>
+                </value>
+                <value>
+                    <fullName>Dual Currency</fullName>
+                    <default>false</default>
+                    <label>Dual Currency</label>
+                </value>
+                <value>
+                    <fullName>Document Due Date</fullName>
+                    <default>false</default>
+                    <label>Document Due Date</label>
+                </value>
+                <value>
+                    <fullName>Expense</fullName>
+                    <default>false</default>
+                    <label>Expense</label>
+                </value>
+                <value>
+                    <fullName>Expense Dimension 1</fullName>
+                    <default>false</default>
+                    <label>Expense Dimension 1</label>
+                </value>
+                <value>
+                    <fullName>Expense Dimension 2</fullName>
+                    <default>false</default>
+                    <label>Expense Dimension 2</label>
+                </value>
+                <value>
+                    <fullName>Expense Dimension 3</fullName>
+                    <default>false</default>
+                    <label>Expense Dimension 3</label>
+                </value>
+                <value>
+                    <fullName>Expense Dimension 4</fullName>
+                    <default>false</default>
+                    <label>Expense Dimension 4</label>
+                </value>
+                <value>
+                    <fullName>Expense General Ledger Account</fullName>
+                    <default>false</default>
+                    <label>Expense General Ledger Account</label>
+                </value>
+                <value>
+                    <fullName>Expense Line Number</fullName>
+                    <default>false</default>
+                    <label>Expense Line Number</label>
+                </value>
+                <value>
+                    <fullName>Expense Tax Code</fullName>
+                    <default>false</default>
+                    <label>Expense Tax Code</label>
+                </value>
+                <value>
+                    <fullName>General Ledger Account</fullName>
+                    <default>false</default>
+                    <label>General Ledger Account</label>
+                </value>
+                <value>
+                    <fullName>Home Currency</fullName>
+                    <default>false</default>
+                    <label>Home Currency</label>
+                </value>
+                <value>
+                    <fullName>Inter Company Transfer</fullName>
+                    <default>false</default>
+                    <label>Inter Company Transfer</label>
+                </value>
+                <value>
+                    <fullName>Invoice Currency</fullName>
+                    <default>false</default>
+                    <label>Invoice Currency</label>
+                </value>
+                <value>
+                    <fullName>Invoice Number</fullName>
+                    <default>false</default>
+                    <label>Invoice Number</label>
+                </value>
+                <value>
+                    <fullName>Invoice Total</fullName>
+                    <default>false</default>
+                    <label>Invoice Total</label>
+                </value>
+                <value>
+                    <fullName>Journal Currency</fullName>
+                    <default>false</default>
+                    <label>Journal Currency</label>
+                </value>
+                <value>
+                    <fullName>Journal Number</fullName>
+                    <default>false</default>
+                    <label>Journal Number</label>
+                </value>
+                <value>
+                    <fullName>Line Dimension 1</fullName>
+                    <default>false</default>
+                    <label>Line Dimension 1</label>
+                </value>
+                <value>
+                    <fullName>Line Dimension 2</fullName>
+                    <default>false</default>
+                    <label>Line Dimension 2</label>
+                </value>
+                <value>
+                    <fullName>Line Dimension 3</fullName>
+                    <default>false</default>
+                    <label>Line Dimension 3</label>
+                </value>
+                <value>
+                    <fullName>Line Dimension 4</fullName>
+                    <default>false</default>
+                    <label>Line Dimension 4</label>
+                </value>
+                <value>
+                    <fullName>Line General Ledger Account</fullName>
+                    <default>false</default>
+                    <label>Line General Ledger Account</label>
+                </value>
+                <value>
+                    <fullName>Line Number</fullName>
+                    <default>false</default>
+                    <label>Line Number</label>
+                </value>
+                <value>
+                    <fullName>Line Tax Code</fullName>
+                    <default>false</default>
+                    <label>Line Tax Code</label>
+                </value>
+                <value>
+                    <fullName>Line Tax Code 2</fullName>
+                    <default>false</default>
+                    <label>Line Tax Code 2</label>
+                </value>
+                <value>
+                    <fullName>Line Tax Code 3</fullName>
+                    <default>false</default>
+                    <label>Line Tax Code 3</label>
+                </value>
+                <value>
+                    <fullName>Original Transaction</fullName>
+                    <default>false</default>
+                    <label>Original Transaction</label>
+                </value>
+                <value>
+                    <fullName>Purchase Credit Note Currency</fullName>
+                    <default>false</default>
+                    <label>Purchase Credit Note Currency</label>
+                </value>
+                <value>
+                    <fullName>Purchase Credit Note Number</fullName>
+                    <default>false</default>
+                    <label>Purchase Credit Note Number</label>
+                </value>
+                <value>
+                    <fullName>Purchase Invoice Currency</fullName>
+                    <default>false</default>
+                    <label>Purchase Invoice Currency</label>
+                </value>
+                <value>
+                    <fullName>Purchase Invoice Number</fullName>
+                    <default>false</default>
+                    <label>Purchase Invoice Number</label>
+                </value>
+                <value>
+                    <fullName>Reverse Transaction</fullName>
+                    <default>false</default>
+                    <label>Reverse Transaction</label>
+                </value>
+                <value>
+                    <fullName>Tax Code</fullName>
+                    <default>false</default>
+                    <label>Tax Code</label>
+                </value>
+                <value>
+                    <fullName>Tax Code 1</fullName>
+                    <default>false</default>
+                    <label>Tax Code 1</label>
+                </value>
+                <value>
+                    <fullName>Tax Code 2</fullName>
+                    <default>false</default>
+                    <label>Tax Code 2</label>
+                </value>
+                <value>
+                    <fullName>Tax Code 3</fullName>
+                    <default>false</default>
+                    <label>Tax Code 3</label>
+                </value>
+                <value>
+                    <fullName>Transaction Line Due Date</fullName>
+                    <default>false</default>
+                    <label>Transaction Line Due Date</label>
+                </value>
+                <value>
+                    <fullName>Transaction level Account</fullName>
+                    <default>false</default>
+                    <label>Transaction level Account</label>
+                </value>
+                <value>
+                    <fullName>Transaction Number</fullName>
+                    <default>false</default>
+                    <label>Transaction Number</label>
+                </value>
+                <value>
+                    <fullName>Trial Balance 1</fullName>
+                    <default>false</default>
+                    <label>Trial Balance 1</label>
+                </value>
+                <value>
+                    <fullName>Trial Balance 2</fullName>
+                    <default>false</default>
+                    <label>Trial Balance 2</label>
+                </value>
+                <value>
+                    <fullName>Trial Balance 3</fullName>
+                    <default>false</default>
+                    <label>Trial Balance 3</label>
+                </value>
+                <value>
+                    <fullName>Trial Balance 4</fullName>
+                    <default>false</default>
+                    <label>Trial Balance 4</label>
+                </value>
+                <value>
+                    <fullName>Type</fullName>
+                    <default>false</default>
+                    <label>Type</label>
+                </value>
+                <value>
+                    <fullName>Year</fullName>
+                    <default>false</default>
+                    <label>Year</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Common Name</label>
+    <nameField>
+        <label>Common Name Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Common Names</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

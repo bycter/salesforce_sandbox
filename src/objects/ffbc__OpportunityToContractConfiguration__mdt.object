@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Contains the configuration for the Opportunity to Contract process.</description>
+    <fields>
+        <fullName>ffbc__IsActive__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Determines whether the configuration should be used by the process.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines whether the configuration should be used by the process.</inlineHelpText>
+        <label>Active</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__NewContractActionValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Value of the Process Action field that triggers the creation of a new contract from the opportunity.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Value of the Process Action field that triggers the creation of a new contract from the opportunity.</inlineHelpText>
+        <label>New Contract Action Value</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__OpportunityObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Opportunity object.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Select Opportunity from picklist.</inlineHelpText>
+        <label>Opportunity Object</label>
+        <referenceTo>EntityDefinition</referenceTo>
+        <relationshipLabel>Opportunity_to_Contracts_Process_configs</relationshipLabel>
+        <relationshipName>Opportunity_to_Contracts_Process_configs</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ProcessActionField__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The field that defines which process to run.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>The field that defines which process to run.</inlineHelpText>
+        <label>Process Action Field</label>
+        <metadataRelationshipControllingField>ffbc__OpportunityToContractConfiguration__mdt.ffbc__OpportunityObject__c</metadataRelationshipControllingField>
+        <referenceTo>FieldDefinition</referenceTo>
+        <relationshipLabel>Opportunity To Contracts Actions</relationshipLabel>
+        <relationshipName>OpportunityToContractsActions</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ProcessTriggerField__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The field that defines what triggers the conversion from an opportunity to a contract.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>The field that defines what triggers the conversion from an opportunity to a contract.</inlineHelpText>
+        <label>Process Trigger Field</label>
+        <metadataRelationshipControllingField>ffbc__OpportunityToContractConfiguration__mdt.ffbc__OpportunityObject__c</metadataRelationshipControllingField>
+        <referenceTo>FieldDefinition</referenceTo>
+        <relationshipLabel>Opportunity To Contracts Triggers</relationshipLabel>
+        <relationshipName>OpportunityToContractsTriggers</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ProcessTriggerValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Value of the Process Trigger field that triggers the conversion from an opportunity to a contract.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Value of the Process Trigger field that triggers the conversion from an opportunity to a contract.</inlineHelpText>
+        <label>Process Trigger Value</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__RenewActionValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Value of the Process Action field that triggers the renewal of a contract from the opportunity.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Value of the Process Action field that triggers the renewal of a contract from the opportunity.</inlineHelpText>
+        <label>Renew Action Value</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ReplaceActionValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Value of the Process Action field that triggers the replacement of a contract from the opportunity.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Value of the Process Action field that triggers the replacement of a contract from the opportunity.</inlineHelpText>
+        <label>Replace Action Value</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__UpsellActionValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Value of the Process Action field that triggers the upsell of an active contract from the opportunity.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Value of the Process Action field that triggers the upsell of an active contract from the opportunity.</inlineHelpText>
+        <label>Upsell Action Value</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Opportunity to Contract Configuration</label>
+    <pluralLabel>Opportunity to Contract Configurations</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

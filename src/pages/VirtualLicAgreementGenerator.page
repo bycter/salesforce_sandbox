@@ -1,0 +1,812 @@
+<apex:page renderAs="pdf" id="VirtualLicAgreementGenerator" sideBar="false" showHeader="false"
+           standardStylesheets="false"
+           applyBodyTag="false" controller="VirtualLicAgreementGenerator" applyHtmlTag="false" cache="false"
+           action="{!init}">
+
+    <html>
+    <head>
+        <apex:stylesheet value="{!$Resource.HoTsPDFStyle}"/>
+        <style>
+            @page :first {
+                margin-top: 0;
+            }
+
+            h1 {
+                margin: 0;
+                padding: 10px;
+            }
+
+            div.logo {
+                width: 95%;
+                text-align: right;
+                margin-top: 0px;
+            }
+
+            div.header {
+                padding-top: 10px;
+                padding-bottom: 0px;
+                width: 100%;
+            }
+
+            .agreement_text_standard {
+                font-family: georgia;
+                font-size: 10.5pt;
+                width: 100%;
+                margin: 0 0;
+                padding: 0;
+                display: block;
+            }
+
+            .num {
+                width: 40px;
+                margin-top: 1em;
+                vertical-align: top;
+                display: inline-block;
+
+            }
+
+            .level1 {
+                font-weight: bold;
+                padding-top: 2em;
+            }
+
+            .text {
+                display: inline-block;
+                margin-top: 1em;
+                vertical-align: top;
+                width: 92%;
+            }
+
+            p {
+                padding: 0em;
+                margin: 0em;
+                font-weight: normal;
+            }
+
+            p.cover {
+                padding-top: 20px;
+                line-height: 1.8em;
+                font-size: 2em;
+                text-align: center;
+            }
+
+            .front-col1 {
+                padding-left: 30px;
+                line-height: 2.5em;
+                width: 35%;
+                font-weight: bold;
+            }
+
+            .front-table {
+                margin-top: 20px;
+                border-top: 2px solid black;
+                border-bottom: 2px solid black;
+                width: 100%;
+            }
+
+            .hide {
+                color: white;
+            }
+
+            div.signature table {
+                margin-top: 30px;
+            }
+
+            div.signature table td, th {
+                width: 200px;
+                text-align: left;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                min-height: 20px;
+            }
+
+            .contactType {
+                font-size: 10.5pt;
+                font-weight: bold;
+            }
+
+            .box-table-grey {
+                width: 100%;
+                border: 1 solid black;
+                padding: 5px;
+                border-spacing: 5px;
+                margin-top: 20px;
+
+            }
+
+        </style>
+    </head>
+    <body class="agreement_text_standard">
+    <!-- CoverPage -->
+    <div class="logo">
+        <apex:outputPanel rendered="{!NOT(ISBLANK(quoteDetail.Property__r.Company_Logo__c))}">
+            <apex:image id="Logo" value="{!quoteDetail.Property__r.Company_Logo__c}" height="70px"/>
+        </apex:outputPanel>
+    </div>
+    <div id="CoverPage" class="header agreement_text_standard">
+        <p class="cover">
+            <b>
+                <apex:outputText value="{!quoteDetail.Property__r.Company_Name__c}"/>
+            </b> <br/>
+            and<br/>
+            <b>
+                <apex:outputText value="{!quoteDetail.SBQQ__Account__r.Registered_Name__c}"/>
+            </b>
+        </p>
+        <p class="cover">
+            Licence Agreement for <br/> Virtual <br/> at <br/>
+            <b>
+                <apex:outputText value="{!quoteDetail.Property__r.Name}"/>
+            </b>
+        </p>
+    </div>
+    <table class="front-table">
+        <tbody>
+        <tr>
+            <td class="front-col1">Property:</td>
+            <td class="front-col2">
+                <apex:outputText value="{!quoteDetail.Property__r.Name}"/>
+            </td>
+        </tr>
+        <apex:outputPanel layout="none" rendered="true">
+            <tr>
+                <td class="front-col1">Licence Fee:</td>
+                <apex:outputPanel layout="none"
+                                  rendered="{!CONTAINS(keyString, ' BVLF,')|| CONTAINS(keyString, ' BVLM,')}">
+                    <td class="front-col2">
+                        <apex:outputText value=" £{0,number,##,###,###.00}">
+                            <apex:param value="{!headlineProductLine.Monthly_Cost__c}"/>
+                        </apex:outputText>
+                        pcm plus VAT
+                    </td>
+                </apex:outputPanel>
+            </tr>
+        </apex:outputPanel>
+        <tr>
+            <td class="front-col1">Included Bolt-On Services:</td>
+            <td class="front-col2">
+                <apex:outputPanel rendered="{!CONTAINS(keyString, ' BVRA,')}">
+                    <p>Registered Address Bolt-On - £{!qliTypeMap['BVRA'][0].SBQQ__ListPrice__c} plus VAT </p>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!CONTAINS(keyString, ' BVCN,')}">
+                    <p>Company Name on Sign Board Bolt-On - £{!qliTypeMap['BVCN'][0].SBQQ__ListPrice__c} plus VAT </p>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!CONTAINS(keyString, ' BVCH,')}">
+                    <p>Call Handling Bolt-On - £{!qliTypeMap['BVCH'][0].SBQQ__ListPrice__c} plus VAT</p>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!CONTAINS(keyString, ' BVCF,')}">
+                    <p>Call Forwarding Board Bolt-On - £{!qliTypeMap['BVCF'][0].SBQQ__ListPrice__c} plus VAT</p>
+                </apex:outputPanel>
+            </td>
+        </tr>
+
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(keyString, ' BSDP,')}">
+            <tr>
+                <td class="front-col1">Deposit:</td>
+                <td class="front-col2">
+                    <apex:outputText value="{0, number, £###,##0.00}">
+                        <apex:param value="{!qliTypeMap['BSDP'][0].Net_Total__c}"/>
+                    </apex:outputText>
+                    <apex:outputPanel layout="none"
+                                      rendered="{!NOT(ISBLANK(qliTypeMap['BSDP'][0].Deposit_Already_Held__c)) && qliTypeMap['BSDP'][0].Deposit_Already_Held__c > 0}">
+                        (
+                        <apex:outputText value="{0, number, £###,##0.00}">
+                            <apex:param value="{!qliTypeMap['BSDP'][0].Deposit_Already_Held__c}"/>
+                        </apex:outputText>
+                        Already Held )
+                    </apex:outputPanel>
+                </td>
+            </tr>
+        </apex:outputPanel>
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(keyString, ' BVLF,') || CONTAINS(keyString, ' BVLM,')}">
+            <tr>
+                <td class="front-col1">Commencement Date:</td>
+                <td class="front-col2">
+                    <apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                        <apex:param value="{!headlineProductLine.Start_Date__c}"/>
+                    </apex:outputText>
+                </td>
+            </tr>
+            <tr>
+                <td class="front-col1">Licence Earliest End Date:</td>
+                <td class="front-col2">
+                    <apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                        <apex:param value="{!headlineProductLine.End_Date__c}"/>
+                    </apex:outputText>
+                </td>
+            </tr>
+        </apex:outputPanel>
+        <apex:outputPanel layout="none" rendered="{!CONTAINS(keyString, ' BSCB,')}">
+            <tr>
+                <td class="front-col1">Termination:</td>
+                <td class="front-col2">This licence may be terminated
+                    after {!qliTypeMap['BSCB'][0].Required_Months_before_Notice__c}
+                    months subject to at least {!qliTypeMap['BSCB'][0].Minimum_Notice__c}
+                    month's prior written notice such that the licence shall always end on the last day of a calendar
+                    month.
+                </td>
+            </tr>
+        </apex:outputPanel>
+        <tr>
+            <td class="front-col1">Confidentiality:</td>
+            <td class="front-col2">The Terms of this Licence Agreement are confidential
+                between the Supplier and Customer only.
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <DIV style="page-break-after:always"></DIV>
+    <!--SECTION 1-->
+    <apex:variable var="sectionNum" value="{!1}"/>
+    <apex:outputPanel >
+        <div>
+            <p>THIS LICENCE is made on the
+                <apex:outputText value=" {0,date, d}{1} {0,date, MMMM' 'yyyy}">
+                    <apex:param value="{!today()}"/>
+                    <apex:param value="{!IF(AND(DAY(TODAY()) > 10, DAY(TODAY()) < 14),"th", CASE(MOD(DAY(TODAY()),10),1,"st",2,"nd",3,"rd","th"))}"/>
+                </apex:outputText>
+                BETWEEN (1)
+                    {!quoteDetail.Property__r.Company_Name__c} whose registered office is situated at
+                    {!quoteDetail.Property__r.Company_Address__c} ("the Supplier") and (2)
+                    {!quoteDetail.SBQQ__Account__r.Registered_Name__c}
+                whose registered office/home address is situated at {!quoteDetail.SBQQ__Account__r.ShippingStreet},
+                    {!quoteDetail.SBQQ__Account__r.ShippingCity},
+                    {!quoteDetail.SBQQ__Account__r.ShippingPostalCode}
+                and whose registered number is {!quoteDetail.SBQQ__Account__r.Company_Registration_Number__c} (“the
+                Customer”).
+            </p>
+        </div>
+        <apex:outputPanel rendered="{!CONTAINS(keyString, ' BVLF,') || CONTAINS(keyString, ' BVLM,')}">
+            <div class="num">
+                <apex:variable var="sectionNum" value="{!1}"/>
+                    {!sectionNum}
+                <apex:variable var="parNum" value="{!1}"/>
+            </div>
+            <div class="text">
+                <p> IN this licence</p>
+            </div>
+            <div class="secondLevel">
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>The "Facilities and Services” are those listed in Schedule 1 and “Additional Services”
+                        are those listed in Schedule 2.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>any obligation to pay money refers to a sum exclusive of Value Added Tax (“VAT”) and any VAT
+                        charged on it is payable in addition</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>the “Commencement Date” is
+                        <apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                            <apex:param value="{!headlineProductLine.Start_Date__c}"/>
+                        </apex:outputText>
+                        or, if earlier, the date
+                        the Customer first exercises the use
+                        of the Facilities and Services and/or (if any) the Additional Services
+                    </p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>the "Rights" shall mean (collectively) access to and use of the Facilities and Services and use
+                        of
+                        the Additional Services (if any). The Supplier will be obligated to provide the Facilities and
+                        Services and (if any) the Additional Services pursuant to the terms of this Licence.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>the “Licence Earliest End Date” is
+                        <apex:outputText value="{0,date, dd'/'MM'/'yyyy}">
+                            <apex:param value="{!headlineProductLine.End_Date__c}"/>
+                        </apex:outputText>
+                        subject to the Licence being terminated in accordance
+                        with the provisions herein contained.
+                    </p>
+                </div>
+            </div>
+        </apex:outputPanel>
+    </apex:outputPanel>
+    <!--SECTION 2-->
+    <apex:outputPanel >
+        <div>
+            <div class="num">
+                <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}</div>
+            <div class="text">
+                <p>IN exchange for the obligations agreed by the Customer, the Supplier agrees to provide the Facilities
+                    and Services and (if any) the Additional Services and the Supplier agrees that the Customer may
+                    exercise
+                    the Rights from the Commencement Date until termination pursuant to this Licence.
+                </p>
+            </div>
+        </div>
+    </apex:outputPanel>
+    <!--SECTION 3-->
+    <apex:outputPanel >
+        <div>
+            <div class="num">
+                <apex:variable var="sectionNum" value="{!sectionNum+1}"/>
+                    {!sectionNum}
+                <apex:variable var="parNum" value="{!1}"/>
+            </div>
+            <div class="text">THE parties agree:-</div>
+            <div class="secondLevel">
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>this Licence is granted to give the Customer the benefit of the Rights.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>this Licence is personal to the Customer and cannot be transferred.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>the Customer is not entitled to permit anyone other than those employed by or having business
+                        with the Customer to exercise or enjoy the Rights.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>that this Licence does not create any form of tenancy and that no relationship of landlord and
+                        tenant exists or is intended to exist under the terms of this Licence between the Supplier and
+                        the Customer.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>if through circumstances beyond the control of the Supplier it becomes impracticable to fulfil
+                        the purposes of this Licence, the Licence may be terminated by the Supplier serving no less than
+                        four weeks written notice on the Customer. In these circumstances, the Supplier shall refund to
+                        the Customer the proportion of the Licence Fee paid by the Customer to the Supplier relating to
+                        the period after termination of this Licence. The Supplier has no liability to pay compensation
+                        to
+                        the Customer for any resulting loss.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>this Licence does not give the Customer exclusive possession of any part of the Building.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>the Supplier is entitled to enter the Building or any part thereof at any time for any reasonable
+                        purpose.</p>
+                </div>
+
+                <div class="thirdLevel">
+                    <div class="num"> {!sectionNum}.{!parNum}</div>
+                    <div class="text"><br/></div>
+                    <apex:variable var="parNum2" value="{!1}"/>
+                    <div class="num"> {!sectionNum}.{!parNum}.{!parNum2}
+                        <apex:variable var="parNum2" value="{!parNum2+1}"/>
+                    </div>
+                    <div class="text">
+                        <p>any demand or notice required to be given or made or served on the Customer shall be duly
+                            and validly made given or served if sent by prepaid registered or recorded delivery mail to
+                            the registered office or last known address of the Customer.</p>
+                    </div>
+                    <div class="num"> {!sectionNum}.{!parNum}.{!parNum2}
+                        <apex:variable var="parNum2" value="{!parNum2+1}"/>
+                    </div>
+                    <div class="text">
+                        <p>any demand or notice shall be conclusively treated as having been made given or served,
+                            if by mail on the second working day after the day of posting of it.</p>
+                    </div>
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>if and to the extent that any Value Added Tax shall be incurred or payable consequent on the
+                        grant of this Licence or any provisions contained herein or any taxable supply made hereunder
+                        the Customer shall on demand pay and indemnify the Supplier against the same save to the extent
+                        that the Supplier shall be able to recover the same as allowable input tax.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>the Contracts (Rights of Third Parties) Act 1999 shall not apply to the provisions of this
+                        Licence
+                        and no person who is not a party to this Licence shall be entitled to enforce any of its terms
+                        pursuant
+                        to such Act but this shall not affect any rights which may be available apart from that Act.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>the Supplier is not to be liable for the death of or injury to the Customer or its employees
+                        or for damage to any property of theirs or for any losses, claims, demands, actions,
+                        proceedings,
+                        damages, costs or expenses or other liability incurred by them in the exercise or purported
+                        exercise of the Rights.</p>
+                </div>
+
+            </div>
+        </div>
+    </apex:outputPanel>
+    <!--SECTION 4-->
+    <apex:outputPanel >
+        <div>
+            <div class="num">
+                <apex:variable var="sectionNum" value="{!sectionNum+1}"/>
+                    {!sectionNum}
+                <apex:variable var="parNum" value="{!1}"/>
+            </div>
+            <div class="text">THE Customer agrees with the Supplier:-</div>
+            <div class="secondLevel">
+                <apex:outputPanel rendered="{!CONTAINS(keyString, ' BSDP,')}">
+                    <div class="num"> {!sectionNum}.{!parNum}
+                        <apex:variable var="parNum" value="{!parNum+1}"/>
+                    </div>
+                    <div class="text">
+                        <p>to pay the Supplier a deposit of
+                            <apex:outputText value="{0, number, £###,##0.00}">
+                                <apex:param value="{!qliTypeMap['BSDP'][0].Net_Total__c}"/>
+                            </apex:outputText>
+                            upon the signing of this Licence ('Deposit').
+                            The Supplier can use the Deposit to set off any sums due or payable by the Customer under
+                            this Licence including but not limited to reimburse the Supplier for any breach by the
+                            Customer
+                            of any of the terms of this Licence.
+                        </p>
+                    </div>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!CONTAINS(keyString, ' BVLF,')}">
+                    <div class="num"> {!sectionNum}.{!parNum}
+                        <apex:variable var="parNum" value="{!parNum+1}"/>
+                    </div>
+                    <div class="text">
+                        <p>during the continuance of this Licence to pay monthly in advance to the Supplier the Licence
+                            Fee which, as at the date of this Licence, is £{!headlineProductLine.Monthly_Cost__c}
+                            pcm, plus VAT. The first payment
+                            (pro-rated) is to be made upon signing this Licence and subsequent payments are to be made
+                            upon the [25th] day of each month.</p>
+                    </div>
+                    <div class="num"> {!sectionNum}.{!parNum}
+                        <apex:variable var="parNum" value="{!parNum+1}"/>
+                    </div>
+                    <div class="text">
+                        <p>during the continuance of this Licence to pay monthly in advance to the Supplier the
+                            Supplier's service bill for delivery of the Additional Services ('the Additional Services
+                            Fee') which, as at the date of this Licence, is
+                            £{!headlineProductLine.Additional_Services_Total__c/headlineProductLine.Term__c}
+                            pcm plus VAT. The first payment
+                            (pro-rated) is to be made upon signing this Licence and subsequent payments are to be made
+                            upon the [25th] day of each month.</p>
+                    </div>
+                </apex:outputPanel>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>to pay the Licence Fee by monthly Direct Debit. A £50.00 pcm plus VAT administration fee
+                        will be applied to methods of payment other than Direct Debit.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>To pay the Additional Services Fee by monthly Direct Debit. A £50.00 pcm plus VAT administration
+                        fee will be applied to methods of payment other than Direct Debit.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>that the Supplier may at any time but subject to not less than two (2) month's prior written
+                        notice ('the Increase Notice') to the Customer, increase the Licence Fee and/or the Additional
+                        Services Fee to such sum(s) as the Supplier in its absolute discretion determines.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>to pay interest on any sums due under this Licence paid more than seven days after the sum first
+                        fell due. Interest shall be payable at four percent above the published base rate of Royal Bank
+                        of Scotland Plc ('the Interest Rate') compounded on each quarter day and paid both before and
+                        after judgement or arbitration award.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>to keep all contents of this Licence Agreement confidential, between the Supplier and Customer
+                        only. that upon the Customer's breach of confidentiality, the Supplier may terminate
+                        the Licence with immediate effect.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>to provide two forms of ID to the Supplier. This must include valid Photo Identification
+                        (Passport
+                        or Full Driving Licence) and Proof of Address (for example, a bank statement or utility
+                        bill).</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>to observe and abide by any regulations which the Supplier may make from time to time as to
+                        the exercise of the Rights.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>to forthwith, and to the Supplier's reasonable satisfaction, make good any damage caused in the
+                        exercise of the Rights.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>In the exercise of the Rights not to cause any interference or disruption or legal nuisance
+                        to any other user, tenant or occupier of the Building.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                </div>
+                <div class="text">
+                    <p>to indemnify the Supplier against all losses damages costs expenses claims and liability
+                        howsoever
+                        arising (whether directly indirectly) from:-</p>
+                </div>
+                <div class="thirdLevel">
+                    <apex:variable var="parNum2" value="{!1}"/>
+                    <div class="num"> {!sectionNum}.{!parNum}.{!parNum2}
+                        <apex:variable var="parNum2" value="{!parNum2+1}"/>
+                    </div>
+                    <div class="text">
+                        <p>any breach by the Customer of the terms of this Licence.</p>
+                    </div>
+                    <div class="num"> {!sectionNum}.{!parNum}.{!parNum2}
+                        <apex:variable var="parNum2" value="{!parNum2+1}"/>
+                    </div>
+                    <div class="text">
+                        <p>the grant or exercise of the Rights under this Licence.</p>
+                    </div>
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>that any personal effects or other belongings of the Customer used directly or indirectly in
+                        respect of the Rights are at all times kept at the risk of the Customer.</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>not to exercise the Rights for activities which are dangerous offensive noxious noisome illegal
+                        or immoral orwhich are or may become a nuisance or annoyance to the Supplier and/or other
+                        licensees
+                        and/or occupiers of the Building or which could, in the Supplier’s opinion, be in any way
+                        undesirable
+                        to the use and enjoyment of the Building.</p>
+                </div>
+            </div>
+        </div>
+    </apex:outputPanel>
+    <!--SECTION 5-->
+    <apex:outputPanel >
+        <div>
+            <div class="num">
+                <apex:variable var="sectionNum" value="{!sectionNum+1}"/>
+                    {!sectionNum}
+                <apex:variable var="parNum" value="{!1}"/>
+            </div>
+            <div class="text">The Supplier Agrees with the Customer:-</div>
+            <div class="num"> {!sectionNum}.{!parNum}
+                <apex:variable var="parNum" value="{!parNum+1}"/>
+            </div>
+            <div class="text">
+                <p>to provide the Facilities and Services and (if any) the Additional Services unless prevented by
+                    industrial disputes, shortage of supplies, inclement weather or such other causes beyond the
+                    control of the Supplier, but that the Supplier will not be obliged to provide the Facilities
+                    and Services and Additional Services where the Customer is in breach of the terms of the
+                    Licence.</p>
+            </div>
+            <div class="num"> {!sectionNum}.{!parNum}
+                <apex:variable var="parNum" value="{!parNum+1}"/>
+            </div>
+            <div class="text">
+                <p> that in the event of non-payment of any sums due under this Licence, the Supplier may suspend
+                    the Facilities and Services and/or the Additional Services (or any part thereof) until the
+                    Customer has paid all sums due. In the event that the Supplier suspends all or part of the
+                    Facilities and Services and/or the Additional Services, the Customer remains liable for all
+                    monies due in respect of this Licence to the Licence Earliest End Date.</p>
+            </div>
+            <div class="num"> {!sectionNum}.{!parNum}
+                <apex:variable var="parNum" value="{!parNum+1}"/>
+            </div>
+            <div class="text">
+                <p>when the Licence comes to an end (howsoever determined), the Supplier will repay the balance of
+                    the Deposit to the Customer after deducting all sums due to the Supplier in respect of sums
+                    payable under this Licence and/or the cost of making good, or compensating the Supplier for,
+                    any default of the Customer due to the breach of any of the terms of this Licence.</p>
+            </div>
+            <div class="num"> {!sectionNum}.{!parNum}
+                <apex:variable var="parNum" value="{!parNum+1}"/>
+            </div>
+            <div class="text">
+                <p>If at any time the Deposit falls below the amount as set out at clause 4.1 of this Licence for
+                    any reason then the Supplier may on notice require the Customer to pay on demand the shortfall
+                    plus interest at the Interest Rate from the date (7 days after the date) that the Deposit fell
+                    below the amount set out at clause 4.1 of this Licence until the date that the shortfall is
+                    credited so that the Deposit is the sum as set out at clause 4.1 of this Licence.</p>
+            </div>
+
+            <p><br/> Termination <br/></p>
+
+            <div class="num"> {!sectionNum}.{!parNum}
+            </div>
+            <div class="text">
+                <p>This Licence may be determined with immediate effect by the Supplier serving written notice to
+                    that effect on the Customer if the Customer shall:</p>
+            </div>
+            <div class="thirdLevel">
+                <apex:variable var="parNum2" value="{!1}"/>
+                <div class="num"> {!sectionNum}.{!parNum}.{!parNum2}
+                    <apex:variable var="parNum2" value="{!parNum2+1}"/>
+                </div>
+                <div class="text">
+                    <p>become bankrupt or enter into liquidation or receivership; or</p>
+                </div>
+                <div class="num"> {!sectionNum}.{!parNum}.{!parNum2}
+                    <apex:variable var="parNum2" value="{!parNum2+1}"/>
+                </div>
+                <div class="text">
+                    <p>refute or fail to pay any sum due to the Supplier seven days after the same has fallen due
+                        (whether a formal demand for the same shall have been made or not); or</p>
+                </div>
+                <apex:variable var="parNum" value="{!parNum+1}"/>
+            </div>
+            <apex:outputPanel rendered="{!CONTAINS(keyString, ' BSCB,')}">
+                <div class="num"> {!sectionNum}.{!parNum}
+                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                </div>
+                <div class="text">
+                    <p>The Customer agrees with the Supplier that from and including the date
+                            {!qliTypeMap['BSCB'][0].Minimum_Notice__c} month
+                        before the Licence Earliest End Date, either of the Customer or the Supplier may give the
+                        other at least {!qliTypeMap['BSCB'][0].Minimum_Notice__c} month’s prior written notice to
+                        terminate this Licence, such notice
+                        to expire on the last calendar day of a month (provided always than not less than one month's
+                        written notice is given).
+                    </p>
+                </div>
+            </apex:outputPanel>
+        </div>
+    </apex:outputPanel>
+
+    <DIV style="page-break-after:always"></DIV>
+    <!--SECTION 6-->
+    <div class="signature">
+        <p class="contactDescription"><span class="contactType">Billing Contact</span> <span
+                class="contactHelpText">(This is the person we should contact to discuss billing queries with)</span>
+        </p>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Email</td>
+            </tr>
+            <tr>
+                <td class="hide">/FirstName5/</td>
+                <td class="hide">/LastName5/</td>
+                <td class="hide">/Email5/</td>
+            </tr>
+            <tr>
+                <td>Telephone Number</td>
+                <td>Mobile Number</td>
+                <td>Preferred Communication Channel</td>
+            </tr>
+            <tr>
+                <td class="hide">/TNumber5/</td>
+                <td class="hide">/MNumber5/</td>
+                <td class="hide">/Channel5/</td>
+            </tr>
+        </table>
+    </div>
+    <DIV style="page-break-after:always"></DIV>
+
+    <!--SIGNATURE PAGE-->
+    <apex:outputPanel rendered="{!$CurrentPage.parameters.sendFor == SIGNATURE}">
+        <div class="text">
+            <b>
+                <p>The persons signing this Licence on behalf of the Supplier and the Customer hereby warrant that they
+                    each have authority to enter into this
+                    Licence and accept responsibility accordingly. </p>
+
+                <p style="padding-top: 100px;">AS WITNESS the hand of the duly authorised officer for and on behalf of
+                    each of the Licensor and the Licensee the day and year first above
+                    written </p>
+
+                <p style="padding-top: 100px;">SIGNED by <span class="hide">/LA1-Name/</span><span class="hide">/LA1-Signature/</span>
+                </p>
+                <p style="padding-top: 30px;">for and on behalf
+                    of {!quoteDetail.SBQQ__Account__r.Registered_Name__c} </p>
+                <p style="padding-top: 100px;">Company Number <span class="hide">/CompanyNumber/</span></p>
+
+                <p style="padding-top: 100px;">SIGNED by <span>{!quoteDetail.BW_Signature__r.Name}</span><span
+                        class="hide">/LA2-Signature/</span></p>
+                <p style="padding-top: 30px;">for and on behalf of {!quoteDetail.Property__r.Company_Name__c} </p>
+            </b>
+
+        </div>
+    </apex:outputPanel>
+
+    <DIV style="page-break-after:always"></DIV>
+
+    <!--SERVICES PAGE-->
+    <apex:outputPanel >
+        <table width="100%">
+            <tr>
+                <td align="center" width="100%">
+                    <p><b>SCHEDULE 1<br/>
+                        Facilities and Services</b></p>
+                </td>
+            </tr>
+        </table>
+        <table width="100%" border="1" cellpadding="5" cellspacing="5" style="margin:20px 0;">
+            <tr>
+                <td valign="top" colspan="4">
+                    Mailing Address for Receipt of Mail; Receiving &amp; Handling of incoming mail
+                    <apex:outputText rendered="{!CONTAINS(keyString, ' BVRA,')}" value="; Registered Address"/>
+                    <apex:outputText rendered="{!CONTAINS(keyString, ' BVCN,')}" value="; Company Name on Sign Board"/>
+                    <apex:outputText rendered="{!CONTAINS(keyString, ' BVCH,')}"
+                                     value="; Personalised Telephone Answering Service"/>
+                    <apex:outputText rendered="{!CONTAINS(keyString, ' BVCF,')}" value="; Dedicated Telephone Number"/>
+                    <apex:outputText rendered="{!headlineProductLine.SBQQ__ProductCode__c = 'BVLF'}"
+                                     value="; Personalised Telephone Answering Service; Dedicated Telephone Number"/>
+                </td>
+            </tr>
+        </table>
+        <table width="100%">
+            <tr>
+                <td align="center" width="100%">
+                    <p><b>SCHEDULE 2<br/>
+                        AdditionalServices</b></p>
+                </td>
+            </tr>
+        </table>
+        <table width="100%" border="1" cellpadding="5" cellspacing="5" style="margin:20px 0;">
+            <tr>
+                <td valign="top" colspan="4">
+                    Mail Forwarding (postal changes plus 15%); Meeting Room Hire
+                    <apex:outputText rendered="{!CONTAINS(keyString, ' BVLF,')}" value="; Call Forwarding/Transferring (BT
+                    standard rates)"/>
+                </td>
+            </tr>
+        </table>
+    </apex:outputPanel>
+    <span class="hide">/UDN/</span>
+    </body>
+    </html>
+</apex:page>

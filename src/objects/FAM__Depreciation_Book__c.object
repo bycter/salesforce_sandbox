@@ -1,0 +1,3334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>FAM__DepreciationBookHelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Contains logical groupings of depreciation patterns calculated for a fixed asset. Each depreciation pattern is contained in a separate depreciation book.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>FAM__Accumulated_Depreciation__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Total depreciation of the asset to date based on the depreciation amount on each posted depreciation schedule.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total depreciation of the asset to date based on the depreciation amount on each posted depreciation schedule.</inlineHelpText>
+        <label>Accumulated Depreciation</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Additional_Depreciation_Allowance_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Any additional depreciation allowance amount that should be included in the MACRS calculation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Additional depreciation allowance being claimed for this asset. You cannot enter an amount that will cause the MACRS Basis Cost to be negative.</inlineHelpText>
+        <label>Additional Depreciation Allowance Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Asset_Cost__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Purchase or Transfer cost of the asset. This is the starting value of the asset and is used to calculate the Quantity of Usefulness</description>
+        <externalId>false</externalId>
+        <formula>FAM__Fixed_Asset__r.FAM__Asset_Cost__c</formula>
+        <inlineHelpText>Purchase or Transfer cost of the Item. This is the starting value of the asset and is used to calculate the Quantity of Usefulness.</inlineHelpText>
+        <label>Asset Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Asset_Group__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Asset grouping used to determine the accumulated depreciation account in the general ledger</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Asset grouping used to determine the accumulated depreciation account in the general ledger</inlineHelpText>
+        <label>Asset Group</label>
+        <referenceTo>FAM__Asset_Group__c</referenceTo>
+        <relationshipLabel>Depreciation Books</relationshipLabel>
+        <relationshipName>Depreciation_Books</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Asset_Sub_Group__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Secondary group to further classify the asset within the asset group to which it belongs</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Secondary group to further classify the asset within the asset group to which it belongs</inlineHelpText>
+        <label>Asset Sub-Group</label>
+        <referenceTo>FAM__Asset_Sub_Group__c</referenceTo>
+        <relationshipLabel>Depreciation Books</relationshipLabel>
+        <relationshipName>Depreciation_Books</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Business_Cost__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The cost of the asset to the business based on its percentage business use.</description>
+        <externalId>false</externalId>
+        <formula>FAM__Fixed_Asset__r.FAM__Asset_Cost__c  *  FAM__Fixed_Asset__r.FAM__Business_Use_Percent__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Business cost of the asset based on: Asset Cost * Business Use Percent. This is the starting point for calculating the MACRS Basis Cost.</inlineHelpText>
+        <label>Business Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Claim_Special_Depreciation_Allowance__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates that this book should claim the special depreciation allowance.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether a special depreciation allowance is being claimed on this asset.</inlineHelpText>
+        <label>Claim Special Depreciation Allowance</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Depreciation_Method__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The depreciation method used in the MACRS tax depreciation calculation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The depreciation method that applies to the asset. MACRS defines depreciation methods for GDS and ADS.</inlineHelpText>
+        <label>Depreciation Method</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>FAM__Depreciation_System__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>200% Declining Balance - GDS</fullName>
+                    <default>false</default>
+                    <label>200% Declining Balance - GDS</label>
+                </value>
+                <value>
+                    <fullName>150% Declining Balance - GDS</fullName>
+                    <default>false</default>
+                    <label>150% Declining Balance - GDS</label>
+                </value>
+                <value>
+                    <fullName>Straight Line - GDS (Non Real Property)</fullName>
+                    <default>false</default>
+                    <label>Straight Line - GDS (Non Real Property)</label>
+                </value>
+                <value>
+                    <fullName>Straight Line - GDS (Real Property)</fullName>
+                    <default>false</default>
+                    <label>Straight Line - GDS (Real Property)</label>
+                </value>
+                <value>
+                    <fullName>150% Declining Balance - ADS</fullName>
+                    <default>false</default>
+                    <label>150% Declining Balance - ADS</label>
+                </value>
+                <value>
+                    <fullName>Straight Line - ADS (Non Real Property)</fullName>
+                    <default>false</default>
+                    <label>Straight Line - ADS (Non Real Property)</label>
+                </value>
+                <value>
+                    <fullName>Straight Line - ADS (Real Property)</fullName>
+                    <default>false</default>
+                    <label>Straight Line - ADS (Real Property)</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>GDS</controllingFieldValue>
+                <valueName>200% Declining Balance - GDS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>GDS</controllingFieldValue>
+                <valueName>150% Declining Balance - GDS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>GDS</controllingFieldValue>
+                <valueName>Straight Line - GDS (Non Real Property)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>GDS</controllingFieldValue>
+                <valueName>Straight Line - GDS (Real Property)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>ADS</controllingFieldValue>
+                <valueName>150% Declining Balance - ADS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>ADS</controllingFieldValue>
+                <valueName>Straight Line - ADS (Non Real Property)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>ADS</controllingFieldValue>
+                <valueName>Straight Line - ADS (Real Property)</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FAM__Depreciation_System__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The types of MACRS depreciation system.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The depreciation system that applies to the asset: General Depreciation System (GDS) or Alternative Depreciation System (ADS).</inlineHelpText>
+        <label>Depreciation System</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>GDS</fullName>
+                    <default>true</default>
+                    <label>GDS</label>
+                </value>
+                <value>
+                    <fullName>ADS</fullName>
+                    <default>false</default>
+                    <label>ADS</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FAM__Fixed_Asset__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Fixed Asset to which the depreciation book applies</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Fixed Asset to which the depreciation book applies</inlineHelpText>
+        <label>Fixed Asset</label>
+        <referenceTo>FAM__Fixed_Asset__c</referenceTo>
+        <relationshipLabel>Depreciation Books</relationshipLabel>
+        <relationshipName>Depreciation_Books</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FAM__MACRS_Basis_Cost__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The cost to use in the calculation of the MACRS tax depreciation.</description>
+        <externalId>false</externalId>
+        <formula>FAM__Business_Cost__c - ( FAM__Section_179_Deduction__c +  FAM__Special_Depreciation_Allowance_Amount__c +  FAM__Additional_Depreciation_Allowance_Amount__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Basis cost for generating MACRS depreciation schedules based on: Business Cost - depreciation deductions and allowances</inlineHelpText>
+        <label>MACRS Basis Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FAM__MACRS_Convention__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The convention to use for the MACRS tax depreciation calculation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The convention used to determine the number of months for which you can claim depreciation in the year you place the asset into service, and in the year you dispose of the asset.</inlineHelpText>
+        <label>MACRS Convention</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>FAM__Depreciation_Method__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Mid-Month</fullName>
+                    <default>false</default>
+                    <label>Mid-Month</label>
+                </value>
+                <value>
+                    <fullName>Mid-Quarter</fullName>
+                    <default>false</default>
+                    <label>Mid-Quarter</label>
+                </value>
+                <value>
+                    <fullName>Half-Year</fullName>
+                    <default>false</default>
+                    <label>Half-Year</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>200% Declining Balance - GDS</controllingFieldValue>
+                <controllingFieldValue>150% Declining Balance - GDS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - GDS (Non Real Property)</controllingFieldValue>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>Mid-Quarter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>200% Declining Balance - GDS</controllingFieldValue>
+                <controllingFieldValue>150% Declining Balance - GDS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - GDS (Non Real Property)</controllingFieldValue>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>Half-Year</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Straight Line - GDS (Real Property)</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Real Property)</controllingFieldValue>
+                <valueName>Mid-Month</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FAM__Parent_Book__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the parent depreciation book. Contains a value when the asset to which the book belongs has inherited a depreciation book at the asset group or asset sub group level.</description>
+        <externalId>false</externalId>
+        <label>Parent Book</label>
+        <referenceTo>FAM__Depreciation_Book__c</referenceTo>
+        <relationshipLabel>Related Asset Level Depreciation Books</relationshipLabel>
+        <relationshipName>Depreciation_Books</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Period_End_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date until when the Depreciation Book is used to calculate depreciation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date until when the Depreciation Book is used to calculate depreciation.</inlineHelpText>
+        <label>Period End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Period_Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date from when the Depreciation Book is used to calculate depreciation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date from when the Depreciation Book is used to calculate depreciation.</inlineHelpText>
+        <label>Period Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Push_Group_Changes__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the book has changes to push to its child books.</description>
+        <externalId>false</externalId>
+        <label>Group Changes To Be Pushed To Child Book</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Quantity_of_Usefulness__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Asset Cost minus Salvage Value minus accumulated depreciation in the accounting book</description>
+        <externalId>false</externalId>
+        <formula>FAM__Asset_Cost__c - FAM__Salvage_Value__c - FAM__Accumulated_Depreciation__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Asset Cost minus Salvage Value minus accumulated depreciation in the accounting book</inlineHelpText>
+        <label>Quantity of Usefulness / Net Book Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Recovery_Period__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The recovery period used in the MACRS tax depreciation calculation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of years over which you recover the asset&apos;s cost or other basis.</inlineHelpText>
+        <label>Recovery Period (Years)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>FAM__Depreciation_Method__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+                <value>
+                    <fullName>7</fullName>
+                    <default>false</default>
+                    <label>7</label>
+                </value>
+                <value>
+                    <fullName>9.5</fullName>
+                    <default>false</default>
+                    <label>9.5</label>
+                </value>
+                <value>
+                    <fullName>10</fullName>
+                    <default>false</default>
+                    <label>10</label>
+                </value>
+                <value>
+                    <fullName>12</fullName>
+                    <default>false</default>
+                    <label>12</label>
+                </value>
+                <value>
+                    <fullName>14</fullName>
+                    <default>false</default>
+                    <label>14</label>
+                </value>
+                <value>
+                    <fullName>15</fullName>
+                    <default>false</default>
+                    <label>15</label>
+                </value>
+                <value>
+                    <fullName>20</fullName>
+                    <default>false</default>
+                    <label>20</label>
+                </value>
+                <value>
+                    <fullName>22</fullName>
+                    <default>false</default>
+                    <label>22</label>
+                </value>
+                <value>
+                    <fullName>24</fullName>
+                    <default>false</default>
+                    <label>24</label>
+                </value>
+                <value>
+                    <fullName>25</fullName>
+                    <default>false</default>
+                    <label>25</label>
+                </value>
+                <value>
+                    <fullName>27.5</fullName>
+                    <default>false</default>
+                    <label>27.5</label>
+                </value>
+                <value>
+                    <fullName>30</fullName>
+                    <default>false</default>
+                    <label>30</label>
+                </value>
+                <value>
+                    <fullName>31.5</fullName>
+                    <default>false</default>
+                    <label>31.5</label>
+                </value>
+                <value>
+                    <fullName>35</fullName>
+                    <default>false</default>
+                    <label>35</label>
+                </value>
+                <value>
+                    <fullName>39</fullName>
+                    <default>false</default>
+                    <label>39</label>
+                </value>
+                <value>
+                    <fullName>40</fullName>
+                    <default>false</default>
+                    <label>40</label>
+                </value>
+                <value>
+                    <fullName>50</fullName>
+                    <default>false</default>
+                    <label>50</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>200% Declining Balance - GDS</controllingFieldValue>
+                <controllingFieldValue>150% Declining Balance - GDS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - GDS (Non Real Property)</controllingFieldValue>
+                <valueName>3</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>200% Declining Balance - GDS</controllingFieldValue>
+                <controllingFieldValue>150% Declining Balance - GDS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - GDS (Non Real Property)</controllingFieldValue>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>5</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>200% Declining Balance - GDS</controllingFieldValue>
+                <controllingFieldValue>150% Declining Balance - GDS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - GDS (Non Real Property)</controllingFieldValue>
+                <valueName>7</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>200% Declining Balance - GDS</controllingFieldValue>
+                <controllingFieldValue>150% Declining Balance - GDS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - GDS (Non Real Property)</controllingFieldValue>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>10</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>150% Declining Balance - GDS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - GDS (Non Real Property)</controllingFieldValue>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>15</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>150% Declining Balance - GDS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - GDS (Non Real Property)</controllingFieldValue>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>20</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Straight Line - GDS (Non Real Property)</controllingFieldValue>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>25</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Straight Line - GDS (Non Real Property)</controllingFieldValue>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>50</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Straight Line - GDS (Real Property)</controllingFieldValue>
+                <valueName>27.5</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Straight Line - GDS (Real Property)</controllingFieldValue>
+                <valueName>31.5</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Straight Line - GDS (Real Property)</controllingFieldValue>
+                <valueName>39</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>4</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>9.5</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>12</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>14</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>22</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>24</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>30</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>150% Declining Balance - ADS</controllingFieldValue>
+                <controllingFieldValue>Straight Line - ADS (Non Real Property)</controllingFieldValue>
+                <valueName>35</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Straight Line - ADS (Real Property)</controllingFieldValue>
+                <valueName>40</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FAM__Regenerate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether you need to regenerate the depreciation schedules for the book. If the depreciation book has been changed since the depreciation schedules were generated, the checkbox is selected.</description>
+        <externalId>false</externalId>
+        <label>Depreciation Schedules Need Regenerating</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Salvage_Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Value of the asset at the end of its productive life. Enter a value greater than or equal to zero.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value of the asset at the end of its productive life. Enter a value greater than or equal to zero.</inlineHelpText>
+        <label>Salvage Value</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Section_179_Deduction__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The amount that can be deducted from the asset&apos;s cost for MACRS tax calculations under Section 179.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Section 179 allowance being claimed for this asset. The amount cannot exceed the asset&apos;s Business Cost.</inlineHelpText>
+        <label>Section 179 Deduction</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Service_Life_in_Units__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of units this asset is expected to produce while in service.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of units this asset is expected to produce while in service.</inlineHelpText>
+        <label>Service Life in Units</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Service_Life_in_Years__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of years the asset is expected to be in productive use.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of years the asset is expected to be in productive use.</inlineHelpText>
+        <label>Service Life in Years</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Special_Depreciation_Allowance_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The calculated amount that will be claimed as the special depreciation allowance.</description>
+        <externalId>false</externalId>
+        <formula>(FAM__Business_Cost__c  -   FAM__Section_179_Deduction__c) *  FAM__Special_Depreciation_Allowance_Percent__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The amount claimed as the special depreciation allowance based on: (Business Cost - Section 179 Deduction) * Special Depreciation Allowance Percent</inlineHelpText>
+        <label>Special Depreciation Allowance Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Special_Depreciation_Allowance_Percent__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The percentage calculated for the special depreciation allowance.</description>
+        <externalId>false</externalId>
+        <formula>IF ( FAM__Claim_Special_Depreciation_Allowance__c = TRUE, 
+
+IF( FAM__Fixed_Asset__r.FAM__Date_In_Service__c &gt;= DATE(2015,1,1) &amp;&amp; FAM__Fixed_Asset__r.FAM__Date_In_Service__c &lt;= DATE(2017,12,31), 0.5, 
+
+IF( FAM__Fixed_Asset__r.FAM__Date_In_Service__c &gt;= DATE(2018,1,1) &amp;&amp; FAM__Fixed_Asset__r.FAM__Date_In_Service__c &lt;= DATE(2018,12,31), 0.4, 
+
+IF( FAM__Fixed_Asset__r.FAM__Date_In_Service__c &gt;= DATE(2019,1,1) &amp;&amp; FAM__Fixed_Asset__r.FAM__Date_In_Service__c &lt;= DATE(2019,12,31), 0.3, 
+
+0))),
+
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Based on the asset&apos;s year in service, this is the percentage used to calculate the special depreciation allowance.</inlineHelpText>
+        <label>Special Depreciation Allowance Percent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Time_Period_Basis__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Time period basis for depreciation schedule updates.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Time period basis for depreciation schedule updates.</inlineHelpText>
+        <label>Time Period Basis</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Month</fullName>
+                    <default>true</default>
+                    <label>Month</label>
+                </value>
+                <value>
+                    <fullName>Quarter</fullName>
+                    <default>false</default>
+                    <label>Quarter</label>
+                </value>
+                <value>
+                    <fullName>Half Year</fullName>
+                    <default>false</default>
+                    <label>Half Year</label>
+                </value>
+                <value>
+                    <fullName>Year</fullName>
+                    <default>false</default>
+                    <label>Year</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FAM__Written_Down_Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Asset Cost minus accumulated tax depreciation allowances to be claimed in the tax book.</description>
+        <externalId>false</externalId>
+        <formula>FAM__Asset_Cost__c - FAM__Salvage_Value__c - FAM__Accumulated_Depreciation__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Asset Cost minus accumulated tax depreciation allowances to be claimed in the tax book.</inlineHelpText>
+        <label>Written Down Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Depreciation Book</label>
+    <listViews>
+        <fullName>FAM__All</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>FAM__Fixed_Asset__c</columns>
+        <columns>FAM__Asset_Sub_Group__c</columns>
+        <columns>FAM__Asset_Group__c</columns>
+        <columns>FAM__Asset_Cost__c</columns>
+        <columns>FAM__Accumulated_Depreciation__c</columns>
+        <columns>FAM__Quantity_of_Usefulness__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Depreciation Book Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Depreciation Books</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>FAM__Asset_Accounting_Book</fullName>
+        <active>true</active>
+        <description>Designates the depreciation book as an accounting book. Depreciation calculated using an accounting book can be posted to a financial accounting system such as FinancialForce Accounting.</description>
+        <label>Asset Accounting Book</label>
+        <picklistValues>
+            <picklist>FAM__Depreciation_Method__c</picklist>
+            <values>
+                <fullName>150%25 Declining Balance - ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Depreciation_System__c</picklist>
+            <values>
+                <fullName>ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__MACRS_Convention__c</picklist>
+            <values>
+                <fullName>Half-Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Quarter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Recovery_Period__c</picklist>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>35</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Time_Period_Basis__c</picklist>
+            <values>
+                <fullName>Month</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>FAM__Asset_Custom_Book</fullName>
+        <active>true</active>
+        <description>Designates the depreciation book as a custom book. Custom books: have the same layout as accounting books; work in the same way as tax books; are not posted to financial accounts. You can recalculate future depreciation regardless of an asset&apos;s status.</description>
+        <label>Asset Custom Book</label>
+        <picklistValues>
+            <picklist>FAM__Depreciation_Method__c</picklist>
+            <values>
+                <fullName>150%25 Declining Balance - ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Depreciation_System__c</picklist>
+            <values>
+                <fullName>ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__MACRS_Convention__c</picklist>
+            <values>
+                <fullName>Half-Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Quarter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Recovery_Period__c</picklist>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>35</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Time_Period_Basis__c</picklist>
+            <values>
+                <fullName>Half Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Month</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>FAM__Asset_Group_Accounting_Book</fullName>
+        <active>true</active>
+        <description>Designates the depreciation book as an accounting book at the Asset Group level.</description>
+        <label>Group Accounting Book</label>
+        <picklistValues>
+            <picklist>FAM__Depreciation_Method__c</picklist>
+            <values>
+                <fullName>150%25 Declining Balance - ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Depreciation_System__c</picklist>
+            <values>
+                <fullName>ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__MACRS_Convention__c</picklist>
+            <values>
+                <fullName>Half-Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Quarter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Recovery_Period__c</picklist>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>35</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Time_Period_Basis__c</picklist>
+            <values>
+                <fullName>Month</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>FAM__Asset_Group_Custom_Book</fullName>
+        <active>true</active>
+        <description>Designates the depreciation book as a custom book at the Asset Group Level.</description>
+        <label>Group Custom Book</label>
+        <picklistValues>
+            <picklist>FAM__Depreciation_Method__c</picklist>
+            <values>
+                <fullName>150%25 Declining Balance - ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Depreciation_System__c</picklist>
+            <values>
+                <fullName>ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__MACRS_Convention__c</picklist>
+            <values>
+                <fullName>Half-Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Quarter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Recovery_Period__c</picklist>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>35</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Time_Period_Basis__c</picklist>
+            <values>
+                <fullName>Half Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Month</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>FAM__Asset_Group_Reporting_Book</fullName>
+        <active>false</active>
+        <description>Designates the depreciation book as a reporting book at the Asset Group level.</description>
+        <label>Group Reporting Book</label>
+        <picklistValues>
+            <picklist>FAM__Depreciation_Method__c</picklist>
+            <values>
+                <fullName>150%25 Declining Balance - ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Depreciation_System__c</picklist>
+            <values>
+                <fullName>ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__MACRS_Convention__c</picklist>
+            <values>
+                <fullName>Half-Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Quarter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Recovery_Period__c</picklist>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>35</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Time_Period_Basis__c</picklist>
+            <values>
+                <fullName>Month</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>FAM__Asset_Group_Tax_Book</fullName>
+        <active>true</active>
+        <description>Designates the depreciation book as a tax book at the Asset Sub Group level.</description>
+        <label>Group Tax Book</label>
+        <picklistValues>
+            <picklist>FAM__Depreciation_Method__c</picklist>
+            <values>
+                <fullName>150%25 Declining Balance - ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Depreciation_System__c</picklist>
+            <values>
+                <fullName>ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__MACRS_Convention__c</picklist>
+            <values>
+                <fullName>Half-Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Quarter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Recovery_Period__c</picklist>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>35</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Time_Period_Basis__c</picklist>
+            <values>
+                <fullName>Half Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Month</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>FAM__Asset_MACRS_Tax_Book</fullName>
+        <active>true</active>
+        <description>Designates the depreciation book as a MACRS tax book. You can use depreciation calculated using a MACRS tax book to claim an asset&apos;s cost against a company tax bill. You can also claim additional tax relief as Section 179 and/or Bonus Depreciation.</description>
+        <label>Asset MACRS Tax Book</label>
+        <picklistValues>
+            <picklist>FAM__Depreciation_Method__c</picklist>
+            <values>
+                <fullName>150%25 Declining Balance - ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Depreciation_System__c</picklist>
+            <values>
+                <fullName>ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__MACRS_Convention__c</picklist>
+            <values>
+                <fullName>Half-Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Quarter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Recovery_Period__c</picklist>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>35</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Time_Period_Basis__c</picklist>
+            <values>
+                <fullName>Half Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Month</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>FAM__Asset_Reporting_Book</fullName>
+        <active>false</active>
+        <description>Designates the depreciation book as a reporting book. Depreciation calculated using a reporting book can be posted to a financial accounting system such as FinancialForce Accounting.</description>
+        <label>Asset Reporting Book</label>
+        <picklistValues>
+            <picklist>FAM__Depreciation_Method__c</picklist>
+            <values>
+                <fullName>150%25 Declining Balance - ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Depreciation_System__c</picklist>
+            <values>
+                <fullName>ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__MACRS_Convention__c</picklist>
+            <values>
+                <fullName>Half-Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Quarter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Recovery_Period__c</picklist>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>35</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Time_Period_Basis__c</picklist>
+            <values>
+                <fullName>Month</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>FAM__Asset_Sub_Group_Accounting_Book</fullName>
+        <active>true</active>
+        <description>Designates the depreciation book as an accounting book at the Asset Sub Group level.</description>
+        <label>Sub Group Accounting Book</label>
+        <picklistValues>
+            <picklist>FAM__Depreciation_Method__c</picklist>
+            <values>
+                <fullName>150%25 Declining Balance - ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Depreciation_System__c</picklist>
+            <values>
+                <fullName>ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__MACRS_Convention__c</picklist>
+            <values>
+                <fullName>Half-Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Quarter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Recovery_Period__c</picklist>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>35</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Time_Period_Basis__c</picklist>
+            <values>
+                <fullName>Month</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>FAM__Asset_Sub_Group_Custom_Book</fullName>
+        <active>true</active>
+        <description>Designates the depreciation book as a custom book at the Asset Sub Group level.</description>
+        <label>Sub Group Custom Book</label>
+        <picklistValues>
+            <picklist>FAM__Depreciation_Method__c</picklist>
+            <values>
+                <fullName>150%25 Declining Balance - ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Depreciation_System__c</picklist>
+            <values>
+                <fullName>ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__MACRS_Convention__c</picklist>
+            <values>
+                <fullName>Half-Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Quarter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Recovery_Period__c</picklist>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>35</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Time_Period_Basis__c</picklist>
+            <values>
+                <fullName>Half Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Month</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>FAM__Asset_Sub_Group_Reporting_Book</fullName>
+        <active>false</active>
+        <description>Designates the depreciation book as a reporting book at the Asset Sub Group level.</description>
+        <label>Sub Group Reporting Book</label>
+        <picklistValues>
+            <picklist>FAM__Depreciation_Method__c</picklist>
+            <values>
+                <fullName>150%25 Declining Balance - ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Depreciation_System__c</picklist>
+            <values>
+                <fullName>ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__MACRS_Convention__c</picklist>
+            <values>
+                <fullName>Half-Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Quarter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Recovery_Period__c</picklist>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>35</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Time_Period_Basis__c</picklist>
+            <values>
+                <fullName>Month</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>FAM__Asset_Sub_Group_Tax_Book</fullName>
+        <active>true</active>
+        <description>Designates the depreciation book as a tax book at the Asset Sub Group level.</description>
+        <label>Sub Group Tax Book</label>
+        <picklistValues>
+            <picklist>FAM__Depreciation_Method__c</picklist>
+            <values>
+                <fullName>150%25 Declining Balance - ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Depreciation_System__c</picklist>
+            <values>
+                <fullName>ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__MACRS_Convention__c</picklist>
+            <values>
+                <fullName>Half-Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Quarter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Recovery_Period__c</picklist>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>35</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Time_Period_Basis__c</picklist>
+            <values>
+                <fullName>Half Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Month</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>FAM__Asset_Tax_Book</fullName>
+        <active>true</active>
+        <description>Designates the depreciation book as a tax book. You can use depreciation calculated using a tax book to claim a higher proportion of an asset&apos;s cost early in its life against a company tax bill.</description>
+        <label>Asset Tax Book</label>
+        <picklistValues>
+            <picklist>FAM__Depreciation_Method__c</picklist>
+            <values>
+                <fullName>150%25 Declining Balance - ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Depreciation_System__c</picklist>
+            <values>
+                <fullName>ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__MACRS_Convention__c</picklist>
+            <values>
+                <fullName>Half-Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Quarter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Recovery_Period__c</picklist>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>35</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Time_Period_Basis__c</picklist>
+            <values>
+                <fullName>Half Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Month</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>FAM__Group_MACRS_Tax_Book</fullName>
+        <active>true</active>
+        <description>Designates the depreciation book as a MACRS tax book at the Asset Group level.</description>
+        <label>Group MACRS Tax Book</label>
+        <picklistValues>
+            <picklist>FAM__Depreciation_Method__c</picklist>
+            <values>
+                <fullName>150%25 Declining Balance - ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Depreciation_System__c</picklist>
+            <values>
+                <fullName>ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__MACRS_Convention__c</picklist>
+            <values>
+                <fullName>Half-Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Quarter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Recovery_Period__c</picklist>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>35</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Time_Period_Basis__c</picklist>
+            <values>
+                <fullName>Half Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Month</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>FAM__Sub_Group_MACRS_Tax_Book</fullName>
+        <active>true</active>
+        <description>Designates the depreciation book as a MACRS tax book at the Asset Sub Group level.</description>
+        <label>Sub Group MACRS Tax Book</label>
+        <picklistValues>
+            <picklist>FAM__Depreciation_Method__c</picklist>
+            <values>
+                <fullName>150%25 Declining Balance - ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200%25 Declining Balance - GDS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - ADS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Non Real Property%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line - GDS %28Real Property%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Depreciation_System__c</picklist>
+            <values>
+                <fullName>ADS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GDS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__MACRS_Convention__c</picklist>
+            <values>
+                <fullName>Half-Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Quarter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Recovery_Period__c</picklist>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>35</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FAM__Time_Period_Basis__c</picklist>
+            <values>
+                <fullName>Half Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Month</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Fixed_Asset__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Asset_Sub_Group__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Asset_Group__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Asset_Cost__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Accumulated_Depreciation__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Quantity_of_Usefulness__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>FAM__Fixed_Asset__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>FAM__Asset_Sub_Group__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>FAM__Asset_Group__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>FAM__Accumulated_Depreciation__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>FAM__Quantity_of_Usefulness__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>FAM__Fixed_Asset__c</searchFilterFields>
+        <searchFilterFields>FAM__Asset_Sub_Group__c</searchFilterFields>
+        <searchFilterFields>FAM__Asset_Group__c</searchFilterFields>
+        <searchResultsAdditionalFields>FAM__Accumulated_Depreciation__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>FAM__Generate</fullName>
+        <availability>online</availability>
+        <description>Generate the depreciation schedule</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Generate Depreciation Schedule</masterLabel>
+        <openType>sidebar</openType>
+        <page>FAM__DepBookSchedValidation</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>FAM__Push</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Push to Assets</masterLabel>
+        <openType>sidebar</openType>
+        <page>FAM__DepBookPushChanges</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>ffbc__pricingstructureshelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Contains a list of price breaks to be applied for different quantities on contract line items.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ffbc__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Description of the pricing structure.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Description of the pricing structure.</inlineHelpText>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__MaximumUnitPrice__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum unit price of the quantity breaks associated with this pricing structure.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum unit price of the quantity breaks associated with this pricing structure.</inlineHelpText>
+        <label>Maximum Unit Price</label>
+        <summarizedField>ffbc__QuantityBreak__c.ffbc__UnitPrice__c</summarizedField>
+        <summaryForeignKey>ffbc__QuantityBreak__c.ffbc__PricingStructure__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__MinimumUnitPrice__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Minimum unit price of the quantity breaks associated with this pricing structure.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Minimum unit price of the quantity breaks associated with this pricing structure.</inlineHelpText>
+        <label>Minimum Unit Price</label>
+        <summarizedField>ffbc__QuantityBreak__c.ffbc__UnitPrice__c</summarizedField>
+        <summaryForeignKey>ffbc__QuantityBreak__c.ffbc__PricingStructure__c</summaryForeignKey>
+        <summaryOperation>min</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__PricingType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The type of pricing to be used in billing. For tiered pricing, the price for each quantity break is applied only to units that exceed its quantity. For volume pricing, the price is applied to all units.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The type of pricing to be used in billing. For tiered pricing, the price for each quantity break is applied only to units that exceed its quantity. For volume pricing, the price is applied to all units.</inlineHelpText>
+        <label>Pricing Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Volume</fullName>
+                    <default>true</default>
+                    <label>Volume</label>
+                </value>
+                <value>
+                    <fullName>Tiered</fullName>
+                    <default>false</default>
+                    <label>Tiered</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffbc__UsageBillingType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Determines the way in which usage is billed for a contract line item. When Total Usage is selected, unit prices are based on the total quantity of all usage of the product. When Per Usage is selected, unit prices are calculated based on the quantity used within each usage record of the product.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Determines the way usage is billed. When Total Usage is selected, unit prices are based on the total quantity of all usage of the product. When Per Usage is selected, unit prices are based on the quantity used within each usage record of the product.</inlineHelpText>
+        <label>Usage Billing Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Total Usage</fullName>
+                    <default>true</default>
+                    <label>Total Usage</label>
+                </value>
+                <value>
+                    <fullName>Per Usage</fullName>
+                    <default>false</default>
+                    <label>Per Usage</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Pricing Structure</label>
+    <listViews>
+        <fullName>ffbc__All</fullName>
+        <columns>NAME</columns>
+        <columns>ffbc__Description__c</columns>
+        <columns>ffbc__PricingType__c</columns>
+        <columns>ffbc__UsageBillingType__c</columns>
+        <columns>ffbc__MinimumUnitPrice__c</columns>
+        <columns>ffbc__MaximumUnitPrice__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>PS{0000000000}</displayFormat>
+        <label>Pricing Structure Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Pricing Structures</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>ffbc__Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__PricingType__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__UsageBillingType__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__MinimumUnitPrice__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__MaximumUnitPrice__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ffbc__Description__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ffbc__PricingType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ffbc__UsageBillingType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ffbc__MinimumUnitPrice__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ffbc__MaximumUnitPrice__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__Description__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__PricingType__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__UsageBillingType__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__MinimumUnitPrice__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__MaximumUnitPrice__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

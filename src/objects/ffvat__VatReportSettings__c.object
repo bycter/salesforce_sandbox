@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Setting related to VAT Report Generation</description>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ffvat__ECSalesListReportName__c</fullName>
+        <defaultValue>&quot;ECSalesListReport&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Unique Name of &apos;EC Sales List Report&apos;</description>
+        <externalId>false</externalId>
+        <label>EC Sales List Report Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffvat__VATBreakdownReportName__c</fullName>
+        <defaultValue>&quot;VATReturnBreakdownReport&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Unique Name of &apos;VAT Breakdown Report&apos;</description>
+        <externalId>false</externalId>
+        <label>VAT Breakdown Report Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffvat__VATReportEmailTemplate__c</fullName>
+        <defaultValue>&quot;VATReportCompletedConfirmation&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>&quot;Template Unique Name&quot; of VisualForce Email template used to send VAT Report completion email.</description>
+        <externalId>false</externalId>
+        <label>VAT Report Email Template</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>VAT Report Settings (FF)</label>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>c2g__codahelpsummarizationtemplate</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>This object is deprecated.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>c2g__ApexJobId__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Apex Job Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__BatchProcess__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Batch Process</label>
+        <referenceTo>c2g__fflib_BatchProcess__c</referenceTo>
+        <relationshipLabel>SummarizationTemplates</relationshipLabel>
+        <relationshipName>SummarizationTemplates</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Destination__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The destination SObject, i.e. the table in which the summarization template is held.</description>
+        <externalId>false</externalId>
+        <label>Destination</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__Filter__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Filter</label>
+        <referenceTo>c2g__Filter__c</referenceTo>
+        <relationshipLabel>SummarizationTemplates</relationshipLabel>
+        <relationshipName>SummarizationTemplates</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__LastSuccessfulBuild__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last Successful Build</label>
+        <summarizedField>c2g__SummarizationRunInformation__c.c2g__EndTime__c</summarizedField>
+        <summaryForeignKey>c2g__SummarizationRunInformation__c.c2g__SummarizationTemplate__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>c2g__NotificationType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(AND(c2g__TotalNumberOfErrors__c=0,c2g__TotalNumberOfAborts__c=0,c2g__TotalNumberOfExternal__c=0), 
+&apos;Successful&apos;, 
+IF(c2g__TotalNumberOfErrors__c = c2g__TotalNumberOfLogs__c, 
+&apos;Failure&apos;, 
+IF(c2g__TotalNumberOfAborts__c &gt; 0, 
+&apos;Failure&apos;, 
+IF( c2g__TotalNumberOfExternal__c &gt; 0, 
+&apos;Failure&apos;, 
+&apos;Mixed&apos; 
+) 
+) 
+) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Notification Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__ObjectToObjectMap__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The object to object map that this summarization template is based on.</description>
+        <externalId>false</externalId>
+        <label>ObjectToObjectMap</label>
+        <referenceTo>c2g__ObjectToObjectMap__c</referenceTo>
+        <relationshipLabel>SummarizationTemplates</relationshipLabel>
+        <relationshipName>SummarizationTemplates</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__SourceDataview__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The dataview that acts as the source of the field names for this summarization template.</description>
+        <externalId>false</externalId>
+        <label>Dataview</label>
+        <referenceTo>c2g__DataView__c</referenceTo>
+        <relationshipLabel>Su</relationshipLabel>
+        <relationshipName>SummarizationTemplates</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Processing</fullName>
+                    <default>false</default>
+                    <label>Processing</label>
+                </value>
+                <value>
+                    <fullName>Error</fullName>
+                    <default>false</default>
+                    <label>Error</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__TotalNumberOfAborts__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total Number of Aborts</label>
+        <summaryFilterItems>
+            <field>c2g__SummarizationLog__c.c2g__LogType__c</field>
+            <operation>equals</operation>
+            <value>Abort</value>
+        </summaryFilterItems>
+        <summaryForeignKey>c2g__SummarizationLog__c.c2g__SummarizationTemplate__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>c2g__TotalNumberOfErrors__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total Number of Errors</label>
+        <summaryFilterItems>
+            <field>c2g__SummarizationLog__c.c2g__LogType__c</field>
+            <operation>equals</operation>
+            <value>Error</value>
+        </summaryFilterItems>
+        <summaryForeignKey>c2g__SummarizationLog__c.c2g__SummarizationTemplate__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>c2g__TotalNumberOfExternal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total Number of External</label>
+        <summaryFilterItems>
+            <field>c2g__SummarizationLog__c.c2g__LogType__c</field>
+            <operation>equals</operation>
+            <value>External</value>
+        </summaryFilterItems>
+        <summaryForeignKey>c2g__SummarizationLog__c.c2g__SummarizationTemplate__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>c2g__TotalNumberOfLogs__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total Number of Logs</label>
+        <summaryForeignKey>c2g__SummarizationLog__c.c2g__SummarizationTemplate__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <label>zDeprecated:Summarization Template</label>
+    <listViews>
+        <fullName>c2g__All</fullName>
+        <columns>NAME</columns>
+        <columns>c2g__SourceDataview__c</columns>
+        <columns>c2g__Status__c</columns>
+        <columns>c2g__LastSuccessfulBuild__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Summarization Templates</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>c2g__LastSuccessfulBuild__c</customTabListAdditionalFields>
+        <listViewButtons>c2g__Purge</listViewButtons>
+        <listViewButtons>c2g__Schedule</listViewButtons>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>c2g__Purge</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Purge Summarized Data</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__summarizationtemplatespurge</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__Schedule</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Schedule</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__summarizationtemplateschedule</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+</CustomObject>

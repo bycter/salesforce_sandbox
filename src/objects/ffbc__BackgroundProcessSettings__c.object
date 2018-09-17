@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Contains settings that control the behavior of background processes in FinancialForce Billing Central.</description>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ffbc__ActivateContractQueueSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of contracts activated in a single queue. This setting is only used when Activate Contract: Use Queueable is selected.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of contracts activated in a single queue. This setting is only used when Activate Contract: Use Queueable is selected.</inlineHelpText>
+        <label>Activate Contract: Queue Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ActivateContractScopeSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of contracts to be activated in one go.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of contracts to be activated in one go.</inlineHelpText>
+        <label>Activate Contract: Scope Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ActivateContractUseQueueable__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether Queueable Apex is used instead of Batch Apex when activating contracts. When selected, set Activate Contract: Queue Size and Activate Contract: Scope Size. When cleared, set Activate Contract: Scope Size.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether Queueable Apex is used instead of Batch Apex when activating contracts. When selected, set Activate Contract: Queue Size and Activate Contract: Scope Size. When cleared, set Activate Contract: Scope Size.</inlineHelpText>
+        <label>Activate Contract: Use Queueable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingQueueSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of contracts to be processed in a single queue when creating billing documents. This setting is only used when Billing: Use Queueable is selected.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of contracts to be processed in a single queue when creating billing documents. This setting is only used when Billing: Use Queueable is selected.</inlineHelpText>
+        <label>Billing: Queue Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingScopeSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of contracts to be processed in one go when creating billing documents.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of contracts to be processed in one go when creating billing documents.</inlineHelpText>
+        <label>Billing: Scope Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingUseQueueable__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether Queueable Apex is used instead of Batch Apex when creating billing documents. When selected, set Billing: Queue Size and Billing: Scope Size. When cleared, set Billing: Scope Size.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether Queueable Apex is used instead of Batch Apex when creating billing documents. When selected, set Billing: Queue Size and Billing: Scope Size. When cleared, set Billing: Scope Size.</inlineHelpText>
+        <label>Billing: Use Queueable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__CompleteBillingDocumentQueueSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of billing documents to be completed in a single queue when completing billing documents. This setting is only used when Complete Billing Document: Use Queueable is selected.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of billing documents to be completed in a single queue when completing billing documents. This setting is only used when Complete Billing Document: Use Queueable is selected.</inlineHelpText>
+        <label>Complete Billing Document: Queue Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__CompleteBillingDocumentScopeSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of billing documents to be processed in one go when completing billing documents.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of billing documents to be processed in one go when completing billing documents.</inlineHelpText>
+        <label>Complete Billing Document: Scope Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__CompleteBillingDocumentUseQueueable__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether Queueable Apex is used instead of Batch Apex when completing billing documents. When selected, set Complete Billing Document: Queue Size and Complete Billing Document: Scope Size. When cleared, set Complete Billing Document: Scope Size.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether Queueable Apex is used instead of Batch Apex when completing billing documents. When selected, set Complete Billing Document: Queue Size and Complete Billing Document: Scope Size. When cleared, set Complete Billing Document: Scope Size.</inlineHelpText>
+        <label>Complete Billing Document: Use Queueable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__ConvertInvoiceQueueSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of billing documents to be processed in a single queue when converting invoices to credit notes. This setting is only used when Convert Invoice: Use Queueable is selected.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of billing documents to be processed in a single queue when converting invoices to credit notes. This setting is only used when Convert Invoice: Use Queueable is selected.</inlineHelpText>
+        <label>Convert Invoice: Queue Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ConvertInvoiceScopeSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of billing documents to be updated in one go when invoices are converted to credit notes.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of billing documents to be updated in one go when invoices are converted to credit notes.</inlineHelpText>
+        <label>Convert Invoice: Scope Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ConvertInvoiceUseQueueable__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether Queueable Apex is used instead of Batch Apex when invoices are converted to credit notes. When selected, set Convert Invoice: Queue Size and Convert Invoice: Scope Size. When cleared, set Convert Invoice: Scope Size.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether Queueable Apex is used instead of Batch Apex when invoices are converted to credit notes. When selected, set Convert Invoice: Queue Size and Convert Invoice: Scope Size. When cleared, set Convert Invoice: Scope Size.</inlineHelpText>
+        <label>Convert Invoice: Use Queueable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__DiscardBillingDocumentQueueSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of billing schedules to be processed in a single queue when discarding billing documents. This setting is only used when Discard Billing Document: Use Queueable is selected.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of billing schedules to be processed in a single queue when discarding billing documents. This setting is only used when Discard Billing Document: Use Queueable is selected.</inlineHelpText>
+        <label>Discard Billing Document: Queue Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__DiscardBillingDocumentScopeSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of billing schedules to be updated in one go when billing documents are discarded.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of billing schedules to be updated in one go when billing documents are discarded.</inlineHelpText>
+        <label>Discard Billing Document: Scope Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__DiscardBillingDocumentUseQueueable__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether Queueable Apex is used instead of Batch Apex when billing documents are discarded. When selected, set Discard Billing Document: Queue Size and Discard Billing Document: Scope Size. When cleared, set Discard Billing Document: Scope Size.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether Queueable Apex is used instead of Batch Apex when billing documents are discarded. When selected, set Discard Billing Document: Queue Size and Discard Billing Document: Scope Size. When cleared, set Discard Billing Document: Scope Size.</inlineHelpText>
+        <label>Discard Billing Document: Use Queueable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__ExpireContractQueueSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of Contracts expired in a single queue. This setting is only used when Expire Contract: Use Queueable is selected.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of Contracts expired in a single queue. This setting is only used when Expire Contract: Use Queueable is selected.</inlineHelpText>
+        <label>Expire Contract: Queue Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ExpireContractScopeSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of Contracts expired in one go.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of Contracts expired in one go.</inlineHelpText>
+        <label>Expire Contract: Scope Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ExpireContractUseQueueable__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether Queueable Apex is used instead of Batch Apex when expiring Contracts. When selected, set Expire Contract: Queue Size and Expire Contract: Scope Size. When cleared, set  Expire Contract: Scope Size.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether Queueable Apex is used instead of Batch Apex when expiring Contracts. When selected, set Expire Contract: Queue Size and Expire Contract: Scope Size. When cleared, set  Expire Contract: Scope Size.</inlineHelpText>
+        <label>Expire Contract: Use Queueable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__GenerateSchedulesForLinesQueueSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of contract lines to be processed in a single queue when generating billing schedules for lines.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of contract lines to be processed in a single queue when generating billing schedules for lines.</inlineHelpText>
+        <label>Generate Schedules For Lines: Queue Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__GenerateSchedulesForLinesScopeSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of contract lines to be processed in one go when generating billing schedules for lines.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of contract lines to be processed in one go when generating billing schedules for lines.</inlineHelpText>
+        <label>Generate Schedules For Lines: Scope Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__GenerateSchedulesQueueSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of contracts to be processed in a single queue when generating billing schedules.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of contracts to be processed in a single queue when generating billing schedules.</inlineHelpText>
+        <label>Generate Schedules: Queue Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__GenerateSchedulesSchedulesPerLine__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of billing schedules to be created per contract line item for the contracts being processed at the same time in a single queue when generating billing schedules.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of billing schedules to be created per contract line item for the contracts being processed at the same time in a single queue when generating billing schedules.</inlineHelpText>
+        <label>Generate Schedules: Schedules Per Line</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__GenerateSchedulesScopeSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of contracts to be processed in one go when generating billing schedules.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of contracts to be processed in one go when generating billing schedules.</inlineHelpText>
+        <label>Generate Schedules: Scope Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__JobCheckIntervalMinutes__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Frequency in minutes to check whether queueable processes have finished.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Frequency in minutes to check whether queueable processes have finished.</inlineHelpText>
+        <label>Job Check Interval</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__NotifyAfterDeletingJobsAndLogs__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether notifications are sent upon successful completion of deleting old Jobs/Logs.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether notifications are sent upon successful completion of deleting old Jobs/Logs.</inlineHelpText>
+        <label>Notify After Deleting Old Jobs And Logs</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__NumberOfDaysToRetainJobs__c</fullName>
+        <defaultValue>100</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Number of days for which to keep job records of background processes before automatically deleting them.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of days for which to keep job records of background processes before automatically deleting them.</inlineHelpText>
+        <label>Number of Days to Retain Jobs</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__NumberOfDaysToRetainLogs__c</fullName>
+        <defaultValue>100</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Number of days for which to keep log records of background processes before automatically deleting them.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of days for which to keep log records of background processes before automatically deleting them.</inlineHelpText>
+        <label>Number of Days to Retain Logs</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ReceiveProcessNotificationsByChatter__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether background process notifications are sent to recipients by Chatter.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether background process notifications are sent to recipients by Chatter.</inlineHelpText>
+        <label>Receive Process Notifications by Chatter</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__ReceiveProcessNotificationsByEmail__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether background process notifications are sent to recipients by Email.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether background process notifications are sent to recipients by Email.</inlineHelpText>
+        <label>Receive Process Notifications by Email</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__RenewContractQueueSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of contracts to be processed in a single queue when renewing contracts. This setting is only used when Renew Contracts: Use Queueable is selected.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of contracts to be processed in a single queue when renewing contracts. This setting is only used when Renew Contracts: Use Queueable is selected.</inlineHelpText>
+        <label>Renew Contracts: Queue Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__RenewContractScopeSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of renewals to be created in one go when renewing contracts.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of renewals to be created in one go when renewing contracts.</inlineHelpText>
+        <label>Renew Contracts: Scope Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__RenewContractUseQueueable__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether Queueable Apex is used instead of Batch Apex when renewing contracts. When selected, set  Renew Contracts: Queue Size and Renew Contracts: Scope Size. When cleared, set Renew Contracts: Scope Size.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether Queueable Apex is used instead of Batch Apex when renewing contracts. When selected, set  Renew Contracts: Queue Size and Renew Contracts: Scope Size. When cleared, set Renew Contracts: Scope Size.</inlineHelpText>
+        <label>Renew Contracts: Use Queueable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__UpdateTotalBilledQueueSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of billing documents processed in a single queue when updating the total billed amount on the related contract lines. This setting is only used when Update Total Billed: Use Queueable is selected.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of billing documents processed in a single queue when updating the total billed amount on the related contract lines. This setting is only used when Update Total Billed: Use Queueable is selected.</inlineHelpText>
+        <label>Update Total Billed: Queue Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__UpdateTotalBilledScopeSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of billing documents processed in one go when updating the total billed amount on the related contract lines.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum number of billing documents processed in one go when updating the total billed amount on the related contract lines.</inlineHelpText>
+        <label>Update Total Billed: Scope Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__UpdateTotalBilledUseQueueable__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether Queueable Apex is used instead of Batch Apex when creating billing documents. When selected, set Update Total Billed: Queue Size and Update Total Billed: Scope Size. When cleared, set  Update Total Billed: Scope Size.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether Queueable Apex is used instead of Batch Apex when creating billing documents. When selected, set Update Total Billed: Queue Size and Update Total Billed: Scope Size. When cleared, set  Update Total Billed: Scope Size.</inlineHelpText>
+        <label>Update Total Billed: Use Queueable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Background Process Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

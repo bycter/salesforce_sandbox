@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Contains settings that control the behavior of FinancialForce Fixed Assets Management</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>FAM__Check_Mandatory_Fields_on_Save__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the Asset Cost and Date Acquired fields must contain a value before you can save, update or submit an asset for approval.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether the Asset Cost and Date Acquired fields must contain a value before you can save, update or submit an asset for approval.</inlineHelpText>
+        <label>Check Mandatory Fields on Asset</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Dep_Book_Extra_Query_Fields_Classname__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field contains a class name to an apex class that provides the implementation to provide the extra Depreciation Book fields to include in queries within the system. Only override this when implementing your own Depreciation Calculations.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field contains a class name to an apex class that provides the implementation to provide the extra Depreciation Book fields to include in queries within the system. Only override this when implementing your own Depreciation Calculations.</inlineHelpText>
+        <label>Dep Book Extra Query Fields Class Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Inherit_Books_Values__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Contains setting that control if the values of the Depreciation Book at the Asset level should be inherited from the parents Level.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether the values of a Fixed Asset level depreciation book are inherited from the Parent Book if there is one.</inlineHelpText>
+        <label>Inherit Values From Parent</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Ignore_FAM_FFA_validation_rules__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Ignores validation of Accounting fields when saving a fixed asset. When validation is applied, Accounting company and GLA fields are mandatory.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Ignores validation of Accounting fields when saving a fixed asset. When validation is applied, Accounting company and GLA fields are mandatory.</inlineHelpText>
+        <label>Ignore Validation of FFA fields in FAM</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Fixed Asset Management Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

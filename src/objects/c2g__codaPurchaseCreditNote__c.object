@@ -1,0 +1,1747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>c2g__codahelppurchasecreditnote</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Holds information that applies to the whole payable credit note such as vendor account and payable credit note date.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>c2g__HeaderDetailsForManageLines</fullName>
+        <description>Used in the Manage Lines page for header detail</description>
+        <displayedFields>
+            <field>c2g__Account__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>c2g__CreditNoteDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>c2g__CreditNoteTotal__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>c2g__CreditNoteCurrency__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Header Details for Manage Lines</label>
+    </fieldSets>
+    <fields>
+        <fullName>c2g__AccountAddress__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>c2g__Account__r.BillingStreet + &apos; &apos; + c2g__Account__r.BillingCity + &apos; &apos; + c2g__Account__r.BillingState + &apos; &apos; + c2g__Account__r.BillingPostalCode + &apos; &apos; + c2g__Account__r.BillingCountry</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__AccountCreditNoteNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Vendor Credit Note Number</label>
+        <length>24</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__AccountECCountryCode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>TEXT(c2g__Account__r.c2g__CODAECCountryCode__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tax Country Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__AccountInvoiceNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Vendor Invoice Number</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Payable Credit Notes</relationshipLabel>
+        <relationshipName>PurchaseCreditNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__CopyAccountValues__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Copy Account Values</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>c2g__CreditNoteCurrency__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Credit Note Currency</label>
+        <referenceTo>c2g__codaAccountingCurrency__c</referenceTo>
+        <relationshipLabel>Payable Credit Notes</relationshipLabel>
+        <relationshipName>PurchaseCreditNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__CreditNoteDate__c</fullName>
+        <defaultValue>TODAY()</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Credit Note Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>c2g__CreditNoteDescription__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Credit Note Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>c2g__CreditNoteRate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The document to home exchange rate.</description>
+        <externalId>false</externalId>
+        <label>Credit Note Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>9</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__CreditNoteReason__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Credit Note Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Damaged Goods</fullName>
+                    <default>false</default>
+                    <label>Damaged Goods</label>
+                </value>
+                <value>
+                    <fullName>Goods Returned</fullName>
+                    <default>false</default>
+                    <label>Goods Returned</label>
+                </value>
+                <value>
+                    <fullName>Incorrect Shipment</fullName>
+                    <default>false</default>
+                    <label>Incorrect Shipment</label>
+                </value>
+                <value>
+                    <fullName>Overcharge</fullName>
+                    <default>false</default>
+                    <label>Overcharge</label>
+                </value>
+                <value>
+                    <fullName>Retrospective Discount</fullName>
+                    <default>false</default>
+                    <label>Retrospective Discount</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__CreditNoteStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Credit Note Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>true</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Ready to Post</fullName>
+                    <default>false</default>
+                    <label>Ready to Post</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+                <value>
+                    <fullName>Discarded</fullName>
+                    <default>false</default>
+                    <label>Discarded</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__CreditNoteTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>c2g__NetTotal__c  +  c2g__TaxTotal__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Credit Note Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__DeriveCurrency__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Derive Currency</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>c2g__DeriveDueDate__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Derive Due Date</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>c2g__DerivePeriod__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Derive Period</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Dimension1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dimension 1</label>
+        <referenceTo>c2g__codaDimension1__c</referenceTo>
+        <relationshipLabel>Payable Credit Notes</relationshipLabel>
+        <relationshipName>PurchaseCreditNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Dimension2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dimension 2</label>
+        <referenceTo>c2g__codaDimension2__c</referenceTo>
+        <relationshipLabel>Payable Credit Notes</relationshipLabel>
+        <relationshipName>PurchaseCreditNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Dimension3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dimension 3</label>
+        <referenceTo>c2g__codaDimension3__c</referenceTo>
+        <relationshipLabel>Payable Credit Notes</relationshipLabel>
+        <relationshipName>PurchaseCreditNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Dimension4__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dimension 4</label>
+        <referenceTo>c2g__codaDimension4__c</referenceTo>
+        <relationshipLabel>Payable Credit Notes</relationshipLabel>
+        <relationshipName>PurchaseCreditNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__DiscardReason__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Discard Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>c2g__DualRate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The dual to home exchange rate.</description>
+        <externalId>false</externalId>
+        <label>Dual Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>9</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__DueDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Due Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>c2g__EnableReverseCharge__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Enable Reverse Charge</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>c2g__ExpensesNetTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total value of expense items on the credit note, before tax.
+SUM: Payable Credit Note Expense Line Item: NetValue</description>
+        <externalId>false</externalId>
+        <label>Expenses Net Total</label>
+        <summarizedField>c2g__codaPurchaseCreditNoteExpLineItem__c.c2g__NetValue__c</summarizedField>
+        <summaryForeignKey>c2g__codaPurchaseCreditNoteExpLineItem__c.c2g__PurchaseCreditNote__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>c2g__ExpensesOutputTaxTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Expenses Output Tax Total</label>
+        <summarizedField>c2g__codaPurchaseCreditNoteExpLineItem__c.c2g__OutputTaxValue__c</summarizedField>
+        <summaryForeignKey>c2g__codaPurchaseCreditNoteExpLineItem__c.c2g__PurchaseCreditNote__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>c2g__ExpensesTax1Total__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Sum of tax 1 posted to Expense Line Items.</description>
+        <externalId>false</externalId>
+        <label>Expenses Tax 1 Total</label>
+        <summarizedField>c2g__codaPurchaseCreditNoteExpLineItem__c.c2g__TaxValue1__c</summarizedField>
+        <summaryForeignKey>c2g__codaPurchaseCreditNoteExpLineItem__c.c2g__PurchaseCreditNote__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>c2g__ExpensesTax2Total__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Sum of tax 2 posted to Expense Line Items.</description>
+        <externalId>false</externalId>
+        <label>Expenses Tax 2 Total</label>
+        <summarizedField>c2g__codaPurchaseCreditNoteExpLineItem__c.c2g__TaxValue2__c</summarizedField>
+        <summaryForeignKey>c2g__codaPurchaseCreditNoteExpLineItem__c.c2g__PurchaseCreditNote__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>c2g__ExternalId__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>External Id</label>
+        <length>32</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__IncomeTaxType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Income Tax Type</description>
+        <externalId>false</externalId>
+        <label>Income Tax Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1 - Rents</fullName>
+                    <default>false</default>
+                    <label>1 - Rents</label>
+                </value>
+                <value>
+                    <fullName>2 - Royalties</fullName>
+                    <default>false</default>
+                    <label>2 - Royalties</label>
+                </value>
+                <value>
+                    <fullName>3 - Other Income</fullName>
+                    <default>false</default>
+                    <label>3 - Other Income</label>
+                </value>
+                <value>
+                    <fullName>4 - Federal Income Tax Withheld</fullName>
+                    <default>false</default>
+                    <label>4 - Federal Income Tax Withheld</label>
+                </value>
+                <value>
+                    <fullName>5 - Fishing Boat Proceeds</fullName>
+                    <default>false</default>
+                    <label>5 - Fishing Boat Proceeds</label>
+                </value>
+                <value>
+                    <fullName>6 - Medical and Healthcare Payments</fullName>
+                    <default>false</default>
+                    <label>6 - Medical and Healthcare Payments</label>
+                </value>
+                <value>
+                    <fullName>7 - Nonemployee Compensation</fullName>
+                    <default>false</default>
+                    <label>7 - Nonemployee Compensation</label>
+                </value>
+                <value>
+                    <fullName>8 - Substitute Payments in Lieu of Dividends or Interest</fullName>
+                    <default>false</default>
+                    <label>8 - Substitute Payments in Lieu of Dividends or Interest</label>
+                </value>
+                <value>
+                    <fullName>9 - Payer Made Direct Sales of 5000 or More</fullName>
+                    <default>false</default>
+                    <label>9 - Payer Made Direct Sales of 5000 or More</label>
+                </value>
+                <value>
+                    <fullName>10 - Crop Insurance Proceeds</fullName>
+                    <default>false</default>
+                    <label>10 - Crop Insurance Proceeds</label>
+                </value>
+                <value>
+                    <fullName>11 - Unused 11</fullName>
+                    <default>false</default>
+                    <label>11 - Unused 11</label>
+                </value>
+                <value>
+                    <fullName>12 - Unused 12</fullName>
+                    <default>false</default>
+                    <label>12 - Unused 12</label>
+                </value>
+                <value>
+                    <fullName>13 - Excess Golden Parachute Payments</fullName>
+                    <default>false</default>
+                    <label>13 - Excess Golden Parachute Payments</label>
+                </value>
+                <value>
+                    <fullName>14 - Gross Proceeds Paid to an Attorney</fullName>
+                    <default>false</default>
+                    <label>14 - Gross Proceeds Paid to an Attorney</label>
+                </value>
+                <value>
+                    <fullName>Not Reportable</fullName>
+                    <default>true</default>
+                    <label>Not Reportable</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__IntercompanyTransfer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Intercompany Transfer</label>
+        <referenceTo>c2g__codaIntercompanyTransfer__c</referenceTo>
+        <relationshipLabel>Payable Credit Notes</relationshipLabel>
+        <relationshipName>PayableCreditNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__InvoiceDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Invoice Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>c2g__ItemsNetTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total value of product items on the credit note, before tax.
+SUM: Payable Credit Note Line Item: NetValue</description>
+        <externalId>false</externalId>
+        <label>Items Net Total</label>
+        <summarizedField>c2g__codaPurchaseCreditNoteLineItem__c.c2g__NetValue__c</summarizedField>
+        <summaryForeignKey>c2g__codaPurchaseCreditNoteLineItem__c.c2g__PurchaseCreditNote__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>c2g__ItemsOutputTaxTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Items Output Tax Total</label>
+        <summarizedField>c2g__codaPurchaseCreditNoteLineItem__c.c2g__OutputTaxValue__c</summarizedField>
+        <summaryForeignKey>c2g__codaPurchaseCreditNoteLineItem__c.c2g__PurchaseCreditNote__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>c2g__ItemsTax1Total__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Sum of tax 1 posted to Product Line Items.</description>
+        <externalId>false</externalId>
+        <label>Items Tax 1 Total</label>
+        <summarizedField>c2g__codaPurchaseCreditNoteLineItem__c.c2g__TaxValue1__c</summarizedField>
+        <summaryForeignKey>c2g__codaPurchaseCreditNoteLineItem__c.c2g__PurchaseCreditNote__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>c2g__ItemsTax2Total__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Sum of tax 2 posted to Product Line Items.</description>
+        <externalId>false</externalId>
+        <label>Items Tax 2 Total</label>
+        <summarizedField>c2g__codaPurchaseCreditNoteLineItem__c.c2g__TaxValue2__c</summarizedField>
+        <summaryForeignKey>c2g__codaPurchaseCreditNoteLineItem__c.c2g__PurchaseCreditNote__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>c2g__MatchType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>TEXT(c2g__Transaction__r.c2g__MatchType__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Match Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__NetTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>c2g__ItemsNetTotal__c  +  c2g__ExpensesNetTotal__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Net Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__OutstandingValue__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>c2g__Transaction__r.c2g__DocumentOutstandingTotal__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Outstanding Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__OwnerCompany__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Company</label>
+        <referenceTo>c2g__codaCompany__c</referenceTo>
+        <relationshipLabel>Payable Credit Notes</relationshipLabel>
+        <relationshipName>PurchaseCreditNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__PaymentStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>if( NOT( ISPICKVAL( c2g__CreditNoteStatus__c, &apos;Complete&apos; ) ),
+&apos;Not Applicable&apos;,
+if( c2g__Transaction__r.c2g__DocumentOutstandingTotal__c == 0, &apos;Paid&apos;,
+if( c2g__Transaction__r.c2g__DocumentTotal__c == c2g__Transaction__r.c2g__DocumentOutstandingTotal__c, &apos;Unpaid&apos;,
+&apos;Part Paid&apos; ) ) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payment Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__Period__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Financial period</description>
+        <externalId>false</externalId>
+        <label>Period</label>
+        <referenceTo>c2g__codaPeriod__c</referenceTo>
+        <relationshipLabel>Payable Credit Notes</relationshipLabel>
+        <relationshipName>PurchaseCreditNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__PurchaseInvoice__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payable Invoice</label>
+        <referenceTo>c2g__codaPurchaseInvoice__c</referenceTo>
+        <relationshipLabel>Payable Credit Notes</relationshipLabel>
+        <relationshipName>PayableCreditNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Reference1__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Reference 1</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__Reference2__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Reference 2</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__RegisteredDate__c</fullName>
+        <defaultValue>Today()</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Registered Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>c2g__TaxCode1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Tax Code 1</label>
+        <referenceTo>c2g__codaTaxCode__c</referenceTo>
+        <relationshipLabel>Payable Credit Notes</relationshipLabel>
+        <relationshipName>PurchaseCreditNotesTC1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__TaxDocumentCode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>External Tax Document Code</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__TaxStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Tax status of the invoice.</description>
+        <externalId>false</externalId>
+        <label>External Tax Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Calculated</fullName>
+                    <default>true</default>
+                    <label>Not Calculated</label>
+                </value>
+                <value>
+                    <fullName>Calculated</fullName>
+                    <default>false</default>
+                    <label>Calculated</label>
+                </value>
+                <value>
+                    <fullName>Finalized</fullName>
+                    <default>false</default>
+                    <label>Finalized</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__TaxTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>c2g__ItemsTax1Total__c  +  c2g__ExpensesTax1Total__c + c2g__ItemsTax2Total__c + c2g__ExpensesTax2Total__c - c2g__ItemsOutputTaxTotal__c - c2g__ExpensesOutputTaxTotal__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tax Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__Transaction__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Transaction</label>
+        <referenceTo>c2g__codaTransaction__c</referenceTo>
+        <relationshipLabel>Payable Credit Notes</relationshipLabel>
+        <relationshipName>PurchaseCreditNotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__UnitOfWork__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Unit of Work</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__VATRegistrationNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>c2g__Account__r.c2g__CODAVATRegistrationNumber__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tax Registration Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__Year__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>c2g__Period__r.c2g__YearName__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbext__Approved__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Approved</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Payable Credit Note</label>
+    <listViews>
+        <fullName>FF_100_Bruntwood_Management_Services_L_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 100 - Bruntwood Management Services L</label>
+        <queue>FF_100_Bruntwood_Management_Services_L</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_106_Bruntwood_Management_Services_3_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 106 - Bruntwood Management Services(3</label>
+        <queue>FF_106_Bruntwood_Management_Services_3</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_110_Manchester_Science_Partnerships_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 110 - Manchester Science Partnerships</label>
+        <queue>FF_110_Manchester_Science_Partnerships</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_112_Mi_IDEA_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 112 - Mi-IDEA Limited</label>
+        <queue>FF_112_Mi_IDEA_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_113_Citylabs_2_0_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 113 - Citylabs 2.0 Limited</label>
+        <queue>FF_113_Citylabs_2_0_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_115_Manchester_Technopark_Ltd_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 115 - Manchester Technopark Ltd</label>
+        <queue>FF_115_Manchester_Technopark_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_125_Salford_Innovation_Park_Ltd_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 125 - Salford Innovation Park Ltd</label>
+        <queue>FF_125_Salford_Innovation_Park_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_130_Principal_Agent_Management_Ltd_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 130 - Principal Agent Management Ltd</label>
+        <queue>FF_130_Principal_Agent_Management_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_135_Alderley_Park_Holdings_Ltd_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 135 - Alderley Park Holdings Ltd</label>
+        <queue>FF_135_Alderley_Park_Holdings_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_139_Alderley_Imaging_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 139 - Alderley Imaging Limited</label>
+        <queue>FF_139_Alderley_Imaging_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_140_Alderley_Park_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 140 - Alderley Park Limited</label>
+        <queue>FF_140_Alderley_Park_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_141_Circle_Square_District_Holdings_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 141 - Circle Square District Holdings</label>
+        <queue>FF_141_Circle_Square_District_Holdings</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_142_Circle_Square_District_Company_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 142 - Circle Square District Company</label>
+        <queue>FF_142_Circle_Square_District_Company</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_143_Circle_Square_Green_Company_Ltd_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 143 - Circle Square Green Company Ltd</label>
+        <queue>FF_143_Circle_Square_Green_Company_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_144_Bruntwood_Circle_Square_2_Limit_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 144 - Bruntwood Circle Square 2 Limit</label>
+        <queue>FF_144_Bruntwood_Circle_Square_2_Limit</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_145_Bruntwood_Circle_Square_4_Limit_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 145 - Bruntwood Circle Square 4 Limit</label>
+        <queue>FF_145_Bruntwood_Circle_Square_4_Limit</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_146_Bruntwood_Circle_Square_12_Limi_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 146 - Bruntwood Circle Square 12 Limi</label>
+        <queue>FF_146_Bruntwood_Circle_Square_12_Limi</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_147_Bruntwood_Science_Ltd_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 147 - Bruntwood Science Ltd</label>
+        <queue>FF_147_Bruntwood_Science_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_148_Bruntwood_Circle_Square_14_Limi_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 148 - Bruntwood Circle Square 14 Limi</label>
+        <queue>FF_148_Bruntwood_Circle_Square_14_Limi</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_15_Bruntwood_Energy_Services_Limite_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 15 - Bruntwood Energy Services Limite</label>
+        <queue>FF_15_Bruntwood_Energy_Services_Limite</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_16_Building_Sustainability_Services_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 16 - Building Sustainability Services</label>
+        <queue>FF_16_Building_Sustainability_Services</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_17_Manchester_Gas_and_Power_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 17 - Manchester Gas and Power Limited</label>
+        <queue>FF_17_Manchester_Gas_and_Power_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_1_Bruntwood_Group_Ltd_formerly_Bru_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 1 - Bruntwood Group Ltd (formerly Bru</label>
+        <queue>FF_1_Bruntwood_Group_Ltd_formerly_Bru</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_20_Bruntwood_2000_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 20 - Bruntwood 2000 Limited</label>
+        <queue>FF_20_Bruntwood_2000_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_24_Bruntwood_2000_Fourth_Properties_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 24 - Bruntwood 2000 Fourth Properties</label>
+        <queue>FF_24_Bruntwood_2000_Fourth_Properties</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_25_Bruntwood_2000_Alpha_Portfolio_L_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 25 - Bruntwood 2000 Alpha Portfolio L</label>
+        <queue>FF_25_Bruntwood_2000_Alpha_Portfolio_L</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_26_Bruntwood_2000_Beta_Portfolio_Li_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 26 - Bruntwood 2000 Beta Portfolio Li</label>
+        <queue>FF_26_Bruntwood_2000_Beta_Portfolio_Li</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_27_Bruntwood_2000_NW_Regen_Limite_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 27 - Bruntwood 2000 (NW Regen) Limite</label>
+        <queue>FF_27_Bruntwood_2000_NW_Regen_Limite</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_28_Bruntwood_2000_Holdings_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 28 - Bruntwood 2000 Holdings Limited</label>
+        <queue>FF_28_Bruntwood_2000_Holdings_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_31_The_Bruntwood_Charity_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 31 - The Bruntwood Charity</label>
+        <queue>FF_31_The_Bruntwood_Charity</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_33_Bruntwood_Development_Holdings_L_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 33 - Bruntwood Development Holdings L</label>
+        <queue>FF_33_Bruntwood_Development_Holdings_L</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_35_Bruntwood_Cornwall_Street_Limite_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 35 - Bruntwood Cornwall Street Limite</label>
+        <queue>FF_35_Bruntwood_Cornwall_Street_Limite</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_38_Bruntwood_St_Chads_Hotel_Ltd_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 38 -  Bruntwood St Chads Hotel Ltd</label>
+        <queue>FF_38_Bruntwood_St_Chads_Hotel_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_39_Citylabs_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 39 - Citylabs Limited</label>
+        <queue>FF_39_Citylabs_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_41_Bruntwood_Sixth_Properties_Limit_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 41 - Bruntwood Sixth Properties Limit</label>
+        <queue>FF_41_Bruntwood_Sixth_Properties_Limit</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_43_Bruntwood_MBS_Developments_Limit_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 43 - Bruntwood MBS Developments Limit</label>
+        <queue>FF_43_Bruntwood_MBS_Developments_Limit</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_44_Roundthorn_Group_Pension_Scheme_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 44 - Roundthorn Group Pension Scheme</label>
+        <queue>FF_44_Roundthorn_Group_Pension_Scheme</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_47_Bruntwood_Oxford_Road_Holdings_L_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 47 - Bruntwood Oxford Road Holdings L</label>
+        <queue>FF_47_Bruntwood_Oxford_Road_Holdings_L</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_48_Oxford_Property_Trading_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 48 - Oxford Property Trading Limited</label>
+        <queue>FF_48_Oxford_Property_Trading_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_49_Bruntwood_Albert_Square_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 49 - Bruntwood Albert Square Limited</label>
+        <queue>FF_49_Bruntwood_Albert_Square_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_4_Abney_2003_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 4 - Abney 2003 Limited</label>
+        <queue>FF_4_Abney_2003_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_50_Chandlers_Point_Management_Co_Li_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 50 - Chandlers Point Management Co Li</label>
+        <queue>FF_50_Chandlers_Point_Management_Co_Li</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_52_Arden_Business_Centre_Bredbury_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 52 - Arden Business Centre (Bredbury)</label>
+        <queue>FF_52_Arden_Business_Centre_Bredbury</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_54_Trinity_ICP_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 54 - Trinity ICP Limited</label>
+        <queue>FF_54_Trinity_ICP_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_56_Afflecks_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 56 - Afflecks Limited</label>
+        <queue>FF_56_Afflecks_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_57_Bruntwood_AV_Holdings_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 57 - Bruntwood AV Holdings Limited</label>
+        <queue>FF_57_Bruntwood_AV_Holdings_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_58_Bruntwood_AV_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 58 - Bruntwood AV Limited</label>
+        <queue>FF_58_Bruntwood_AV_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_60_Bruntwood_LG_Holding_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 60 - Bruntwood LG Holding Limited</label>
+        <queue>FF_60_Bruntwood_LG_Holding_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_62_Bruntwood_LG_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 62 - Bruntwood LG Limited</label>
+        <queue>FF_62_Bruntwood_LG_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_66_Bruntwood_Investments_Plc_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 66 - Bruntwood Investments Plc</label>
+        <queue>FF_66_Bruntwood_Investments_Plc</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_67_Bruntwood_RB_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 67 - Bruntwood RB Limited</label>
+        <queue>FF_67_Bruntwood_RB_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_6_Bruntwood_Limited_formerly_Brunt_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 6 - Bruntwood Limited (formerly Brunt</label>
+        <queue>FF_6_Bruntwood_Limited_formerly_Brunt</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_75_Bruntwood_Construction_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 75 - Bruntwood Construction Limited</label>
+        <queue>FF_75_Bruntwood_Construction_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_85_Bruntwood_Estates_Alpha_Portfoli_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 85 - Bruntwood Estates Alpha Portfoli</label>
+        <queue>FF_85_Bruntwood_Estates_Alpha_Portfoli</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_86_Bruntwood_Estates_Beta_Portfolio_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 86 - Bruntwood Estates Beta Portfolio</label>
+        <queue>FF_86_Bruntwood_Estates_Beta_Portfolio</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_87_Bruntwood_Estates_Ltd_formerly_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 87 - Bruntwood Estates Ltd (formerly</label>
+        <queue>FF_87_Bruntwood_Estates_Ltd_formerly</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_88_Bruntwood_Estates_Holdings_Limit_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 88 - Bruntwood Estates Holdings Limit</label>
+        <queue>FF_88_Bruntwood_Estates_Holdings_Limit</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_90_M_J_Oglesby_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 90 - M J Oglesby</label>
+        <queue>FF_90_M_J_Oglesby</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Birmingham_Science_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Birmingham Science Limited</label>
+        <queue>FF_Birmingham_Science_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Birmingham_Technology_Property_Limite_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Birmingham Technology Property Limite</label>
+        <queue>FF_Birmingham_Technology_Property_Limite</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Birmingham_Technology_Property_One_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Birmingham Technology (Property One)</label>
+        <queue>FF_Birmingham_Technology_Property_One</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Bruntwood_Circle_Square_1_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Bruntwood Circle Square 1 Limited</label>
+        <queue>FF_Bruntwood_Circle_Square_1_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Bruntwood_Didsbury_TP_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Bruntwood (Didsbury TP) Limited</label>
+        <queue>FF_Bruntwood_Didsbury_TP_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Bruntwood_Meeting_Rooms_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Bruntwood Meeting Rooms Limited</label>
+        <queue>FF_Bruntwood_Meeting_Rooms_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Citylabs_3_0_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Citylabs 3.0 Limited</label>
+        <queue>FF_Citylabs_3_0_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Company_1_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Company#1</label>
+        <queue>FF_Company_1</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Innovation_Birmingham_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Innovation Birmingham Limited</label>
+        <queue>FF_Innovation_Birmingham_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_K_SIte_Limited_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF K Site Limited</label>
+        <queue>FF_K_Site_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Trafford_Bruntwood_LLP_codaPurchaseCreditNote</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Trafford Bruntwood LLP</label>
+        <queue>FF_Trafford_Bruntwood_LLP</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>c2g__All</fullName>
+        <columns>NAME</columns>
+        <columns>c2g__Account__c</columns>
+        <columns>c2g__AccountCreditNoteNumber__c</columns>
+        <columns>c2g__CreditNoteDate__c</columns>
+        <columns>c2g__Period__c</columns>
+        <columns>c2g__DueDate__c</columns>
+        <columns>c2g__CreditNoteCurrency__c</columns>
+        <columns>c2g__CreditNoteTotal__c</columns>
+        <columns>c2g__PurchaseInvoice__c</columns>
+        <columns>c2g__AccountInvoiceNumber__c</columns>
+        <columns>c2g__CreditNoteReason__c</columns>
+        <columns>c2g__CreditNoteStatus__c</columns>
+        <columns>c2g__PaymentStatus__c</columns>
+        <columns>c2g__OutstandingValue__c</columns>
+        <columns>c2g__OwnerCompany__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>PCR{000000}</displayFormat>
+        <label>Credit Note Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Payable Credit Notes</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>c2g__Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__AccountCreditNoteNumber__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__CreditNoteDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__Period__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__DueDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__CreditNoteCurrency__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__CreditNoteTotal__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__CreditNoteStatus__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__OwnerCompany__c</customTabListAdditionalFields>
+        <listViewButtons>c2g__BulkPost</listViewButtons>
+        <listViewButtons>c2g__BackgroundPost</listViewButtons>
+        <listViewButtons>c2g__BulkCalculateTax</listViewButtons>
+        <listViewButtons>c2g__Clone</listViewButtons>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>c2g__BackgroundPost</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Background Post</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__pcnbackgroundpostconfirm</page>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__BulkCalculateTax</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Calculate Tax</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__bulkcalculatetaxpayablecreditnote</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__BulkPost</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Post</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__bulkpostpayablecreditnote</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__CalculateTax</fullName>
+        <availability>online</availability>
+        <description>Call Avalara to calculate tax</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Calculate Tax</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__payablecreditnotecalculatetax</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__ClassicEdit</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Classic Edit</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__payablecreditnoteclassicedit</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__ClassicView</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Classic View</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__codapurchasecreditnoteview</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__Clone</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Clone</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__cfpurchasecreditnoteclone</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__Manage_Expense_Lines</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Manage Expense Lines</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__payablecreditnotemanageexp</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__Manage_Product_Lines</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Manage Product Lines</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__payablecreditnotemanageprd</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__Post</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Post</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__payablecreditnotepost</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__PostMatch</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Post &amp; Match</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__purchaseCreditNotePostAndMatchConfirm</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbext__Post</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Post</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbext__codabepayablecreditnotebulkposting</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbext__ShowFinancialForceView</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Show FinancialForce View</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__codapurchasecreditnoteview</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

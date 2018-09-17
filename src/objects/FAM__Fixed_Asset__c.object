@@ -1,0 +1,1161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>FAM__FixedAssetHelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Contains records of long term tangible pieces of property that an organization owns and uses in the production of its income. Fixed assets are not expected to be consumed or converted into cash any sooner than one year from the Date in Service. A fixed asset can record a capital equipment acquisition or an asset that has been transferred. This information is used in Accounting processes.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Accumulated_Depreciation_GL_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the account to use to reduce the value of the asset on the balance sheet. This account is credited throughout the depreciation schedule. When the asset is disposed of, the account is debited to write-off the depreciation value.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the account to use to reduce the value of the asset on the balance sheet. This account is credited throughout the depreciation schedule. When the asset is disposed of, the account is debited to write-off the depreciation value.</inlineHelpText>
+        <label>Accumulated Depreciation GL Account</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Fixed Assets (Accumulated Depreciation GL Account)</relationshipLabel>
+        <relationshipName>Fixed_Assets2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Company__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the FinancialForce Accounting Company to which this asset is to be associated. This ensures that transactions are associated with the correct Accounting company when there is more than one Accounting company in your Salesforce organization.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the FinancialForce Accounting Company to which this asset is to be associated. This ensures that transactions are associated with the correct Accounting company when there is more than one Accounting company in your Salesforce organization.</inlineHelpText>
+        <label>Company</label>
+        <referenceTo>c2g__codaCompany__c</referenceTo>
+        <relationshipLabel>Fixed Assets</relationshipLabel>
+        <relationshipName>Fixed_Assets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Depreciation_GL_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the account to which depreciation is to be charged for the profit and loss account. This account is debited during the depreciation schedule.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the account to which depreciation is to be charged for the profit and loss account. This account is debited during the depreciation schedule.</inlineHelpText>
+        <label>Depreciation GL Account</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Fixed Assets</relationshipLabel>
+        <relationshipName>Fixed_Assets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Dimension_1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the FinancialForce Accounting Dimension 1 to be associated with this asset. This field is optional.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the FinancialForce Accounting Dimension 1 to be associated with this asset. This field is optional.</inlineHelpText>
+        <label>Dimension 1</label>
+        <referenceTo>c2g__codaDimension1__c</referenceTo>
+        <relationshipLabel>Fixed Assets</relationshipLabel>
+        <relationshipName>Fixed_Assets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Dimension_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the FinancialForce Accounting Dimension 2 to be associated with this asset. This field is optional.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the FinancialForce Accounting Dimension 2 to be associated with this asset. This field is optional.</inlineHelpText>
+        <label>Dimension 2</label>
+        <referenceTo>c2g__codaDimension2__c</referenceTo>
+        <relationshipLabel>Fixed Assets</relationshipLabel>
+        <relationshipName>Fixed_Assets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Dimension_3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the FinancialForce Accounting Dimension 3 to be associated with this asset. This field is optional.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the FinancialForce Accounting Dimension 3 to be associated with this asset. This field is optional.</inlineHelpText>
+        <label>Dimension 3</label>
+        <referenceTo>c2g__codaDimension3__c</referenceTo>
+        <relationshipLabel>Fixed Assets</relationshipLabel>
+        <relationshipName>Fixed_Assets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Dimension_4__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the FinancialForce Accounting Dimension 4 to be associated with this asset. This field is optional.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the FinancialForce Accounting Dimension 4 to be associated with this asset. This field is optional.</inlineHelpText>
+        <label>Dimension 4</label>
+        <referenceTo>c2g__codaDimension4__c</referenceTo>
+        <relationshipLabel>Fixed Assets</relationshipLabel>
+        <relationshipName>Fixed_Assets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Asset_Condition__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Condition of this Asset.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Condition of the asset. This determines whether tax allowances are applied when calculating tax.</inlineHelpText>
+        <label>Asset Condition</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Used</fullName>
+                    <default>false</default>
+                    <label>Used</label>
+                </value>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <label>None</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FAM__Asset_Cost__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Purchase or Transfer cost of the Item. This is the starting value of the asset and is used to calculate the Quantity of Usefulness.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Purchase or Transfer cost of the Item. This is the starting value of the asset and is used to calculate the Quantity of Usefulness.</inlineHelpText>
+        <label>Asset Cost</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Asset_Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>A general description of the asset and what its purpose is</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A general description of the asset and what its purpose is</inlineHelpText>
+        <label>Asset Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>FAM__Asset_Group__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Select the group the asset is assigned to. This field is used to determine the accumulated depreciation account in the General Ledger</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the group the asset is assigned to. This field is used to determine the accumulated depreciation account in the General Ledger</inlineHelpText>
+        <label>Asset Group</label>
+        <referenceTo>FAM__Asset_Group__c</referenceTo>
+        <relationshipLabel>Fixed Assets</relationshipLabel>
+        <relationshipName>Fixed_Assets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Asset_Relationship_Description__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>FAM__Fixed_Assets_Relationship__r.FAM__Relationship_Description__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Asset Relationship Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Asset_Sub_Group__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>A secondary grouping to further classify an asset</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A secondary grouping to further classify an asset</inlineHelpText>
+        <label>Asset Sub-Group</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <errorMessage>Sub-group must be associated with selected asset group.</errorMessage>
+            <filterItems>
+                <field>FAM__Asset_Sub_Group__c.FAM__Asset_Group__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.FAM__Asset_Group__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>$Source.FAM__Asset_Group__c</field>
+                <operation>equals</operation>
+                <value></value>
+            </filterItems>
+            <infoMessage>Only items defined in the item master that are active are eligible for selection.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>FAM__Asset_Sub_Group__c</referenceTo>
+        <relationshipLabel>Fixed Assets</relationshipLabel>
+        <relationshipName>Fixed_Assets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Asset_Tag_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number or description of the asset tag fixed to the asset. You can use this field to tie the number on the asset tag to the asset record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number or description of the asset tag fixed to the asset. You can use this field to tie the number on the asset tag to the asset record.</inlineHelpText>
+        <label>Asset Tag Number</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Business_Use_Percent__c</fullName>
+        <defaultValue>1</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The percentage of the asset that is assigned for business use.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Percentage of the asset that is for business use</inlineHelpText>
+        <label>Business Use Percent</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Date_Acquired__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date on which the asset was acquired</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the asset was acquired</inlineHelpText>
+        <label>Date Acquired</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Date_In_Service__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date on which the asset came into service</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the asset came into service</inlineHelpText>
+        <label>Date In Service</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Department__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Department in which the asset is deployed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Department in which the asset is deployed</inlineHelpText>
+        <label>Deployed Department</label>
+        <referenceTo>FAM__Department__c</referenceTo>
+        <relationshipLabel>Fixed Assets</relationshipLabel>
+        <relationshipName>Fixed_Assets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Deployed_Facility__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Facility at which the asset is deployed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Facility at which the asset is deployed</inlineHelpText>
+        <label>Deployed Facility</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Facility One</fullName>
+                    <default>false</default>
+                    <label>Facility One</label>
+                </value>
+                <value>
+                    <fullName>Facility Two</fullName>
+                    <default>false</default>
+                    <label>Facility Two</label>
+                </value>
+                <value>
+                    <fullName>Facility Three</fullName>
+                    <default>false</default>
+                    <label>Facility Three</label>
+                </value>
+                <value>
+                    <fullName>Facility Four</fullName>
+                    <default>false</default>
+                    <label>Facility Four</label>
+                </value>
+                <value>
+                    <fullName>Facility Five</fullName>
+                    <default>false</default>
+                    <label>Facility Five</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FAM__Depreciation_Formula__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Depreciation method formula image</description>
+        <externalId>false</externalId>
+        <formula>IF(FAM__Depreciation_Method__r.FAM__Formula_URL__c  != &apos;&apos;, IMAGE(FAM__Depreciation_Method__r.FAM__Formula_URL__c  , FAM__Depreciation_Method__r.Name),&apos;&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DEPRECATED - Depreciation Formula</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Depreciation_Method__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Choose the desired method for depreciation</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the desired method for depreciation</inlineHelpText>
+        <label>DEPRECATED - Depreciation Method</label>
+        <referenceTo>FAM__FA_Depreciation_Method__c</referenceTo>
+        <relationshipLabel>Fixed Assets</relationshipLabel>
+        <relationshipName>Fixed_Assets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Disposal_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date the asset was removed from contributing deprecation schedules</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date the asset was removed from contributing deprecation schedules</inlineHelpText>
+        <label>Disposal Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Disposal_Organization_Address__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Address of disposal organization</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Address of disposal organization</inlineHelpText>
+        <label>Disposal Organization Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Disposal_Organization_Phone_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Contact number of the organization where the asset was disposed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contact number of the organization where the asset was disposed</inlineHelpText>
+        <label>Disposal Organization Phone Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Disposal_Organization__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the organization where the asset was disposed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the organization where the asset was disposed</inlineHelpText>
+        <label>Disposal Organization</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Disposal_Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Amount the asset was sold, salvaged or transferred for</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Amount the asset was sold, salvaged or transferred for</inlineHelpText>
+        <label>Disposal Value</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Employee_Assigned__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the employee who is accountable for the location of the asset and its use</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the employee who is accountable for the location of the asset and its use</inlineHelpText>
+        <label>Employee Assigned</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Employee_E_Mail__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Email address of the employee to which the asset is assigned</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Email address of the employee to which the asset is assigned</inlineHelpText>
+        <label>Employee E-Mail</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Employee_Phone_Extension__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Extension Number of the employee to which the asset is assigned</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Extension Number of the employee to which the asset is assigned</inlineHelpText>
+        <label>Employee Phone Extension</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Employee_Phone_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Telephone Number of the employee to which the asset is assigned</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Telephone Number of the employee to which the asset is assigned</inlineHelpText>
+        <label>Employee Phone Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Fixed_Assets_Relationship__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Enter the relationship for the asset</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the relationship for the asset</inlineHelpText>
+        <label>Fixed Assets Relationship</label>
+        <referenceTo>FAM__Fixed_Assets_Relationship__c</referenceTo>
+        <relationshipLabel>Related Fixed Assets</relationshipLabel>
+        <relationshipName>Fixed_Assets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Inbound_Transfer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the asset was transferred from another organization</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether the asset was transferred from another organization</inlineHelpText>
+        <label>Inbound Transfer</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Inherit_Values__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK ($Setup.FAM__Fixed_Asset_Management_Settings__c.Id ), true,
+        $Setup.FAM__Fixed_Asset_Management_Settings__c.FAM__Inherit_Books_Values__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>When the Inherit Values from Parent is selected in the Fixed Asset Management Settings custom setting, indicates whether the values of the depreciation book are inherited from the Parent Book if there is one.</inlineHelpText>
+        <label>Inherit Values from Parent</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Insurance_Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The replacement valuation of an insurance policy applicable to this asset</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The replacement valuation of an insurance policy applicable to this asset</inlineHelpText>
+        <label>Insurance Value</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Manufacturer_Serial_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The serial number assigned by the manufacturer for this asset</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The serial number assigned by the manufacturer for this asset</inlineHelpText>
+        <label>Manufacturer Serial Number</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Manufacturer__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the company that manufactured this asset</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The name of the company that manufactured this asset</inlineHelpText>
+        <label>Manufacturer</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Method_of_Disposal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Disposal method for the asset</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Disposal method for the asset</inlineHelpText>
+        <label>Method of Disposal</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Destroyed</fullName>
+                    <default>false</default>
+                    <label>Destroyed</label>
+                </value>
+                <value>
+                    <fullName>Recycled</fullName>
+                    <default>false</default>
+                    <label>Recycled</label>
+                </value>
+                <value>
+                    <fullName>Salvaged</fullName>
+                    <default>false</default>
+                    <label>Salvaged</label>
+                </value>
+                <value>
+                    <fullName>Sold</fullName>
+                    <default>false</default>
+                    <label>Sold</label>
+                </value>
+                <value>
+                    <fullName>Transfer</fullName>
+                    <default>false</default>
+                    <label>Transfer</label>
+                </value>
+                <value>
+                    <fullName>Lost</fullName>
+                    <default>false</default>
+                    <label>Lost</label>
+                </value>
+                <value>
+                    <fullName>Stolen</fullName>
+                    <default>false</default>
+                    <label>Stolen</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FAM__Quantity_of_Usefulness__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>FAM__Asset_Cost__c  - FAM__Salvage_Value__c - FAM__Total_Depreciation_to_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DEPRECATED - Quantity of Usefulness</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Salvage_Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>A portion of Asset Cost at the end of the productive life of the Asset</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A portion of Asset Cost at the end of the productive life of the Asset</inlineHelpText>
+        <label>DEPRECATED - Salvage Value</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Service_Life_in_Units__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the number of units this asset is expected to produce during its useful life.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the number of units this asset is expected to produce during its useful life.</inlineHelpText>
+        <label>DEPRECATED - Service Life in Units</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Service_Life_in_Years__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the number of years this asset is expected to be in productive use</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the number of years this asset is expected to be in productive use</inlineHelpText>
+        <label>DEPRECATED - Service Life in Years</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Status_ReadOnly__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>TEXT(FAM__Status__c)</formula>
+        <inlineHelpText>Status of the asset</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Status of the asset</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Submitted</fullName>
+                    <default>false</default>
+                    <label>Submitted</label>
+                </value>
+                <value>
+                    <fullName>Recalled</fullName>
+                    <default>false</default>
+                    <label>Recalled</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Disposed</fullName>
+                    <default>false</default>
+                    <label>Disposed</label>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                    <label>Cancelled</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FAM__Supplier__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the company that this asset was purchased from</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The name of the company that this asset was purchased from</inlineHelpText>
+        <label>Supplier</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Time_Period_Basis__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Select the time period basis for depreciation schedule updates</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the time period basis for depreciation schedule updates</inlineHelpText>
+        <label>DEPRECATED - Time Period Basis</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Monthly</fullName>
+                    <default>true</default>
+                    <label>Monthly</label>
+                </value>
+                <value>
+                    <fullName>Quarterly</fullName>
+                    <default>false</default>
+                    <label>Quarterly</label>
+                </value>
+                <value>
+                    <fullName>Yearly</fullName>
+                    <default>false</default>
+                    <label>Yearly</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FAM__Total_Depreciation_to_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DEPRECATED - Total Depreciation to Date</label>
+        <summarizedField>FAM__FA_Depreciation_Schedule__c.FAM__Depreciation_Amount__c</summarizedField>
+        <summaryFilterItems>
+            <field>FAM__FA_Depreciation_Schedule__c.FAM__Status__c</field>
+            <operation>equals</operation>
+            <value>v1Deprecated</value>
+        </summaryFilterItems>
+        <summaryForeignKey>FAM__FA_Depreciation_Schedule__c.FAM__Fixed_Asset__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Transferring_Organization__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of organization transferring asset</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of organization transferring asset</inlineHelpText>
+        <label>Transferring Organization</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__V1V2UpgradeDone__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the upgrade from version 1 to version 2 has been completed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether the upgrade from version 1 to version 2 has been completed</inlineHelpText>
+        <label>Version 1 to version 2 Upgrade Done</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FAM__VIN__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Vehicle Identification Numbers – Cars, Trucks Industrial and Farm Equipment may have a specific VIN</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Vehicle Identification Numbers – Cars, Trucks Industrial and Farm Equipment may have a specific VIN</inlineHelpText>
+        <label>VIN</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Warranty_Expiration_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date on which the warranty expires for this asset</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the warranty expires for this asset</inlineHelpText>
+        <label>Warranty Expiration Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Warranty_Provided__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the asset has a warranty granted by the Supplier and/or Manufacturer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether the asset has a warranty granted by the Supplier and/or Manufacturer</inlineHelpText>
+        <label>Warranty Provided</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Fixed_Asset_GL_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the account to be debited when the asset is acquired and credited when the asset is disposed of. This is normally a balance sheet account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the account to be debited when the asset is acquired and credited when the asset is disposed of. This is normally a balance sheet account.</inlineHelpText>
+        <label>Fixed Asset GL Account</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Fixed Assets (Fixed Asset GL Account)</relationshipLabel>
+        <relationshipName>Fixed_Assets1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PNL_On_Asset_Disposal_GL_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the account to be debited when an asset is disposed of to write-off its remaining value.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the account to be debited when an asset is disposed of to write-off its remaining value.</inlineHelpText>
+        <label>Asset Disposal Profit and Loss GLA</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Fixed Assets (PNL GL Account)</relationshipLabel>
+        <relationshipName>Fixed_Assets4</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Payment_GL_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the account that is to be credited when the asset is acquired. This is normally a balance sheet account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the account that is to be credited when the asset is acquired. This is normally a balance sheet account.</inlineHelpText>
+        <label>Payment GL Account</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Fixed Assets (Payment GL Account)</relationshipLabel>
+        <relationshipName>Fixed_Assets3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Fixed Asset</label>
+    <listViews>
+        <fullName>FAM__All</fullName>
+        <columns>NAME</columns>
+        <columns>FAM__Status__c</columns>
+        <columns>FAM__Asset_Relationship_Description__c</columns>
+        <columns>FAM__Asset_Tag_Number__c</columns>
+        <columns>FAM__Asset_Cost__c</columns>
+        <columns>FAM__Employee_Assigned__c</columns>
+        <columns>FAM__Deployed_Facility__c</columns>
+        <columns>FAM__Date_Acquired__c</columns>
+        <columns>FAM__Date_In_Service__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>FA-{0000000}</displayFormat>
+        <label>Fixed Assets Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Fixed Assets</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>FAM__Asset_Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Asset_Tag_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Date_Acquired__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Date_In_Service__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Department__c</customTabListAdditionalFields>
+        <listViewButtons>FAM__Approve</listViewButtons>
+        <lookupDialogsAdditionalFields>FAM__Asset_Tag_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>FAM__Asset_Description__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>FAM__Status__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>FAM__Asset_Tag_Number__c</searchFilterFields>
+        <searchResultsAdditionalFields>FAM__Asset_Tag_Number__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Enforce_Acc_Dep_GLA_With_Setting</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+                Not($Setup.FAM__Fixed_Asset_Management_Settings__c.Ignore_FAM_FFA_validation_rules__c),
+
+                AND( IsBlank(Accumulated_Depreciation_GL_Account__c), 
+                    AND(IsBlank( FAM__Asset_Group__r.Accumulated_Depreciation_GL_Account__c),
+                        ( IsBlank(FAM__Asset_Sub_Group__r.Accumulated_Depreciation_GL_Account__c))
+                    )
+                )
+            )</errorConditionFormula>
+        <errorDisplayField>Accumulated_Depreciation_GL_Account__c</errorDisplayField>
+        <errorMessage>The Accumulated Depreciation GL Account has not been set on the Asset, Asset Group or Asset Sub Group.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Enforce_Company_With_Setting</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+                Not($Setup.FAM__Fixed_Asset_Management_Settings__c.Ignore_FAM_FFA_validation_rules__c),
+
+                AND( IsBlank(Company__c), 
+                    (IsBlank( FAM__Asset_Group__r.Company__c))
+                )
+            )</errorConditionFormula>
+        <errorDisplayField>Company__c</errorDisplayField>
+        <errorMessage>The Company has not been set on the Asset or Asset Group.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Enforce_Dep_GLA_With_Setting</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+                Not($Setup.FAM__Fixed_Asset_Management_Settings__c.Ignore_FAM_FFA_validation_rules__c),
+
+                AND( IsBlank(Depreciation_GL_Account__c), 
+                    AND(IsBlank( FAM__Asset_Group__r.Depreciation_GL_Account__c),
+                        ( IsBlank(FAM__Asset_Sub_Group__r.Depreciation_GL_Account__c))
+                    )
+                )
+            )</errorConditionFormula>
+        <errorDisplayField>Depreciation_GL_Account__c</errorDisplayField>
+        <errorMessage>The Depreciation GL Account has not been set on the Asset, Asset Group or Asset Sub Group.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Enforce_FixedAsset_GLA_With_Setting</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+                Not($Setup.FAM__Fixed_Asset_Management_Settings__c.Ignore_FAM_FFA_validation_rules__c),
+
+                AND( IsBlank(Fixed_Asset_GL_Account__c), 
+                    AND(IsBlank( FAM__Asset_Group__r.Fixed_Asset_GL_Account__c),
+                        ( IsBlank(FAM__Asset_Sub_Group__r.Fixed_Asset_GL_Account__c))
+                    )
+                )
+            )</errorConditionFormula>
+        <errorDisplayField>Fixed_Asset_GL_Account__c</errorDisplayField>
+        <errorMessage>The Fixed Asset GL Account has not been set on the Asset, Asset Group or Asset Sub Group.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Enforce_PNL_GLA_With_Setting</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+                Not($Setup.FAM__Fixed_Asset_Management_Settings__c.Ignore_FAM_FFA_validation_rules__c),
+                
+                AND( IsBlank(PNL_On_Asset_Disposal_GL_Account__c), 
+                    AND(IsBlank( FAM__Asset_Group__r.PNL_On_Asset_Disposal_GL_Account__c),
+                        ( IsBlank(FAM__Asset_Sub_Group__r.PNL_On_Asset_Disposal_GL_Account__c))
+                    )
+                )
+            )</errorConditionFormula>
+        <errorDisplayField>PNL_On_Asset_Disposal_GL_Account__c</errorDisplayField>
+        <errorMessage>The Asset Disposal Profit and Loss GL Account has not been set on the Asset, Asset Group or Asset Sub Group.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Enforce_Payment_GLA_With_Setting</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+                Not($Setup.FAM__Fixed_Asset_Management_Settings__c.Ignore_FAM_FFA_validation_rules__c),
+
+                AND( IsBlank(Payment_GL_Account__c), 
+                    AND(IsBlank( FAM__Asset_Group__r.Payment_GL_Account__c),
+                        ( IsBlank(FAM__Asset_Sub_Group__r.Payment_GL_Account__c))
+                    )
+                )
+            )</errorConditionFormula>
+        <errorDisplayField>Payment_GL_Account__c</errorDisplayField>
+        <errorMessage>The Payment GL Account has not been set on the Asset, Asset Group or Asset Sub Group.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>FAM__Approve</fullName>
+        <availability>online</availability>
+        <description>Multi Approval</description>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Submit Assets for Approval</masterLabel>
+        <openType>sidebar</openType>
+        <page>FAM__FixedAssetMassApproval</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>FAM__Cancel</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Cancel Asset</masterLabel>
+        <openType>sidebar</openType>
+        <page>FAM__FixedAssetCancelConfirm</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>FAM__Dispose</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Dispose</masterLabel>
+        <openType>sidebar</openType>
+        <page>FAM__FixedAssetDisposeConfirm</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>FAM__Generate</fullName>
+        <availability>online</availability>
+        <description>Generate the depreciation schedule</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Generate Depreciation Schedule</masterLabel>
+        <openType>sidebar</openType>
+        <page>FAM__vfGenerateDepreciation</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>FAM__Resend_Acquisition</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Resend Acquisition</masterLabel>
+        <openType>sidebar</openType>
+        <page>FAM__FixedAssetResendAcquisitionConfirm</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

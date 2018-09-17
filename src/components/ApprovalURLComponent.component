@@ -1,0 +1,4 @@
+<apex:component controller="ApprovalURLComponentCtrl" access="global">
+    <apex:attribute name="relatedRecordId" description="Related Record Id" assignTo="{!recordId}" type="Id"/>
+    <a href="{!approvalUrl}">{!approvalUrl}</a>
+</apex:component>

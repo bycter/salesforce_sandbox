@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Contains mappings between object fields to be used in Billing Central processes.</description>
+    <fields>
+        <fullName>ffbc__IsActive__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Determines whether the field mapping should be used by the process.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines whether the field mapping should be used by the process.</inlineHelpText>
+        <label>Active</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__Process__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The process in which to map the specified field values.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>The process in which to map the specified field values.</inlineHelpText>
+        <label>Process</label>
+        <required>true</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Opportunity to Contract</fullName>
+                    <default>false</default>
+                    <label>Opportunity to Contract</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffbc__SourceField__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The field from which to map values.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>The field from which to map values.</inlineHelpText>
+        <label>Field From</label>
+        <metadataRelationshipControllingField>ffbc__FfbcFieldMapping__mdt.ffbc__SourceObject__c</metadataRelationshipControllingField>
+        <referenceTo>FieldDefinition</referenceTo>
+        <relationshipLabel>Field Mappings From</relationshipLabel>
+        <relationshipName>SourceFieldMappings</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__SourceObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The object type from which to map fields.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>The object type from which to map fields.</inlineHelpText>
+        <label>Object From</label>
+        <referenceTo>EntityDefinition</referenceTo>
+        <relationshipLabel>Field Mappings From</relationshipLabel>
+        <relationshipName>SourceFieldMappings</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__TargetField__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The field which values will be mapped to.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>The field which values will be mapped to.</inlineHelpText>
+        <label>Field To</label>
+        <metadataRelationshipControllingField>ffbc__FfbcFieldMapping__mdt.ffbc__TargetObject__c</metadataRelationshipControllingField>
+        <referenceTo>FieldDefinition</referenceTo>
+        <relationshipLabel>Field Mappings To</relationshipLabel>
+        <relationshipName>TargetFieldMappings</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__TargetObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The object type whose fields will be mapped to.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>The object type whose fields will be mapped to.</inlineHelpText>
+        <label>Object To</label>
+        <referenceTo>EntityDefinition</referenceTo>
+        <relationshipLabel>Field Mappings To</relationshipLabel>
+        <relationshipName>TargetFieldMappings</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <label>FFBC Field Mapping</label>
+    <pluralLabel>FFBC Field Mappings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

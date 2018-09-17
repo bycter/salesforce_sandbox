@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Actual_Suite__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Actual Suite</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Actual Suite should be with Actual RecordType</errorMessage>
+            <filterItems>
+                <field>Inventory__c.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Actual_Suite</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Inventory__c</referenceTo>
+        <relationshipLabel>Proposed to Actual Suite Mappings</relationshipLabel>
+        <relationshipName>Proposed_to_Actual_Suite_Mappings</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Proposed_Suite__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Proposed Suite</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Proposed Suite should be with Proposed RecordType</errorMessage>
+            <filterItems>
+                <field>Inventory__c.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Proposed_Suite</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Inventory__c</referenceTo>
+        <relationshipLabel>Proposed to Actual Suite Mappings</relationshipLabel>
+        <relationshipName>Proposed_to_Actual_Suite_Mappings1</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Proposed to Actual Suite Mapping</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Proposed to Actual Suite Mapping Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Proposed to Actual Suite Mappings</pluralLabel>
+    <searchLayouts>
+        <listViewButtons>Create_Proposed_Suite_Mapping</listViewButtons>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Actual_Suite_should_be_Actual_RT</fullName>
+        <active>true</active>
+        <errorConditionFormula>Actual_Suite__r.RecordType.DeveloperName &lt;&gt; &quot;Actual_Suite&quot;</errorConditionFormula>
+        <errorDisplayField>Actual_Suite__c</errorDisplayField>
+        <errorMessage>Actual Suite should be with Actual RecordType</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Proposed_Suite_should_be_Proposed_RT</fullName>
+        <active>true</active>
+        <errorConditionFormula>Proposed_Suite__r.RecordType.DeveloperName &lt;&gt; &quot;Proposed_Suite&quot;</errorConditionFormula>
+        <errorDisplayField>Proposed_Suite__c</errorDisplayField>
+        <errorMessage>Proposed Suite should be with Proposed RecordType</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Proposed_and_Actual_Same_Property</fullName>
+        <active>true</active>
+        <errorConditionFormula>Actual_Suite__r.Property__c &lt;&gt;  Proposed_Suite__r.Property__c</errorConditionFormula>
+        <errorMessage>Proposed and Actual Suite should be in the same Property</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Create_Proposed_Suite_Mapping</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Create Proposed Suite Mapping</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/ProposedToActualSuiteMapping</url>
+    </webLinks>
+</CustomObject>

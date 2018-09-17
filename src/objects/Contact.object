@@ -1,0 +1,1337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AddToCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CallHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EmailHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnableCustomerPortal</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnablePartnerPortalUser</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnableSelfService</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ListClean</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Merge</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewContact</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>RequestUpdate</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SmsHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewCustomerPortal</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewPartnerPortalUser</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewSelfService</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <fields>
+        <fullName>AccountId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AssistantName</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>AssistantPhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Birthdate</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Contact_Preference__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Preference</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Mobile</fullName>
+                    <default>false</default>
+                    <label>Mobile</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contact_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Hold the &apos;ctrl&apos; key to select multiple types.</inlineHelpText>
+        <label>Contact Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Billing Contact</fullName>
+                    <default>false</default>
+                    <label>Billing Contact</label>
+                </value>
+                <value>
+                    <fullName>In Life Property Contact</fullName>
+                    <default>false</default>
+                    <label>In Life Property Contact</label>
+                </value>
+                <value>
+                    <fullName>Sales Contact</fullName>
+                    <default>false</default>
+                    <label>Sales Contact</label>
+                </value>
+                <value>
+                    <fullName>Out of Hours Contact</fullName>
+                    <default>false</default>
+                    <label>Out of Hours Contact</label>
+                </value>
+                <value>
+                    <fullName>Legal Contact</fullName>
+                    <default>false</default>
+                    <label>Legal Contact</label>
+                </value>
+                <value>
+                    <fullName>Project Management Contact</fullName>
+                    <default>false</default>
+                    <label>Project Management Contact</label>
+                </value>
+                <value>
+                    <fullName>Director Contact</fullName>
+                    <default>false</default>
+                    <label>Director Contact</label>
+                </value>
+                <value>
+                    <fullName>Remittance - Finance</fullName>
+                    <default>false</default>
+                    <label>Remittance - Finance</label>
+                </value>
+                <value>
+                    <fullName>Statement - Finance</fullName>
+                    <default>false</default>
+                    <label>Statement - Finance</label>
+                </value>
+                <value>
+                    <fullName>Purchase Ledger - Finance</fullName>
+                    <default>false</default>
+                    <label>Purchase Ledger - Finance</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CurrencyIsoCode</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Department</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>DoNotCall</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Fax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfEmail</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>HasOptedOutOfFax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>HomePhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Is_Legal__c</fullName>
+        <description>System field for Create Case flow.</description>
+        <externalId>false</externalId>
+        <formula>INCLUDES(Contact_Type__c, &quot;Legal Contact&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is Legal</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Jigsaw</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>LastCURequestDate</fullName>
+    </fields>
+    <fields>
+        <fullName>LastCUUpdateDate</fullName>
+    </fields>
+    <fields>
+        <fullName>LeadSource</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MailingAddress</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>MobilePhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>NPS_Contact__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>NPS Contact</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>OtherAddress</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>OtherPhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Property__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Property</label>
+        <referenceTo>Property__c</referenceTo>
+        <relationshipLabel>Contacts</relationshipLabel>
+        <relationshipName>Contacts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ReportsToId</fullName>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.AccountId</field>
+                <operation>equals</operation>
+                <valueField>$Source.AccountId</valueField>
+            </filterItems>
+            <filterItems>
+                <field>Contact.Active__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Title</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>c2g__EnableEmailNotification__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Enable Email Notification (FM Community)</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>datapro__Count_of_Contacts__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Count of Contacts</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>datapro__Total_Child_Records__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total Child Records</label>
+        <summaryForeignKey>datapro__Privacy_Detail__c.datapro__Contact__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingContact__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether this contact is sent billing documents for the account to which they belong. You can send billing documents to one contact per account. Select the checkbox for only one of the contacts associated with an account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether this contact is sent billing documents for the account to which they belong. You can send billing documents to one contact per account. Select the checkbox for only one of the contacts associated with an account.</inlineHelpText>
+        <label>Billing Contact</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>smagicinteract__SMSOptOut__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>SMS Opt Out</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <listViews>
+        <fullName>AllContacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>Contact_Type__c</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>Billing_Contacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>Contact_Preference__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Contact.External</value>
+        </filters>
+        <filters>
+            <field>Contact_Type__c</field>
+            <operation>equals</operation>
+            <value>In Life Property Contact</value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Billing Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>Customer_Contacts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>FULL_NAME</columns>
+        <columns>Contact_Type__c</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>Property__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Customer Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>Director_Contacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>Contact_Preference__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Contact.External</value>
+        </filters>
+        <filters>
+            <field>Contact_Type__c</field>
+            <operation>equals</operation>
+            <value>Director Contact</value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Director Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>In_Life_Property_Contacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>Contact_Preference__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Contact.External</value>
+        </filters>
+        <filters>
+            <field>Contact_Type__c</field>
+            <operation>equals</operation>
+            <value>In Life Property Contact</value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>In Life Property Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>Legal_Contacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>Contact_Preference__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Contact.External</value>
+        </filters>
+        <filters>
+            <field>Contact_Type__c</field>
+            <operation>equals</operation>
+            <value>Legal Contact</value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Legal Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>MyContacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.RECORDTYPE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>Out_of_Hours_Contacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>Contact_Preference__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Contact.External</value>
+        </filters>
+        <filters>
+            <field>Contact_Type__c</field>
+            <operation>equals</operation>
+            <value>Out of Hours Contact</value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Out of Hours Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>Project_Management_Contacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>Contact_Preference__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Contact.External</value>
+        </filters>
+        <filters>
+            <field>Contact_Type__c</field>
+            <operation>equals</operation>
+            <value>Project Management Contact</value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Project Management Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>Purchase_Ledger_Contacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>Contact_Preference__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Contact.External</value>
+        </filters>
+        <filters>
+            <field>Contact_Type__c</field>
+            <operation>equals</operation>
+            <value>Statement - Finance</value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Purchase Ledger Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>Remittance_Contacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>Contact_Preference__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Contact.External</value>
+        </filters>
+        <filters>
+            <field>Contact_Type__c</field>
+            <operation>equals</operation>
+            <value>Remittance - Finance</value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Remittance Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>Sales_Contacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>Contact_Preference__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Contact.External</value>
+        </filters>
+        <filters>
+            <field>Contact_Type__c</field>
+            <operation>equals</operation>
+            <value>Sales Contact</value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Sales Contacts</label>
+    </listViews>
+    <listViews>
+        <fullName>Statement_Contacts</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>Contact_Preference__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CONTACT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Contact.External</value>
+        </filters>
+        <filters>
+            <field>Contact_Type__c</field>
+            <operation>equals</operation>
+            <value>Statement - Finance</value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Statement Contacts</label>
+    </listViews>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypes>
+        <fullName>Agent_Broker</fullName>
+        <active>true</active>
+        <label>Agent/Broker</label>
+        <picklistValues>
+            <picklist>Contact_Preference__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contact_Type__c</picklist>
+            <values>
+                <fullName>Billing Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Director Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Life Property Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of Hours Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Project Management Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchase Ledger - Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Remittance - Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Statement - Finance</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LeadSource</picklist>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brand%2FSponsorship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Broker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eshot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exhibition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property Listing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Word of mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Name</picklist>
+            <values>
+                <fullName>Dr%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mr%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mrs%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ms%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prof%2E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>External</fullName>
+        <active>true</active>
+        <label>External</label>
+        <picklistValues>
+            <picklist>Contact_Preference__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contact_Type__c</picklist>
+            <values>
+                <fullName>Billing Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Director Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Life Property Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of Hours Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Project Management Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchase Ledger - Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Remittance - Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Statement - Finance</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LeadSource</picklist>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brand%2FSponsorship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Broker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eshot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exhibition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property Listing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospecting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Word of mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Name</picklist>
+            <values>
+                <fullName>Dr%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mr%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mrs%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ms%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prof%2E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>FULL_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contact_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CONTACT.PHONE1</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CONTACT.PHONE3</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CONTACT.EMAIL</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Property__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>FULL_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupFilterFields>FULL_NAME</lookupFilterFields>
+        <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
+        <lookupPhoneDialogsAdditionalFields>FULL_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE1</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE3</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE4</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE5</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE6</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>FULL_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTACT.PHONE1</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTACT.EMAIL</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Mobile_Number_Should_Start_With_07</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT(BEGINS(MobilePhone, &apos;07&apos;))</errorConditionFormula>
+        <errorDisplayField>MobilePhone</errorDisplayField>
+        <errorMessage>Mobile number should start with 07</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>APXTConga4__Conga_Composer_OAuth</fullName>
+        <availability>online</availability>
+        <description>*** DO NOT USE THIS BUTTON ON A PAGE LAYOUT *** 
+
+OAuth buttons require additional setup. Please see the Composer Installation Guide for more details.
+
+COPY THE URL FROM THIS BUTTON and paste it into your own custom button or link. Then add optional parameters to finely tune the button&apos;s behavior. See the Composer Configuration Guide for details.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>660</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Conga Composer (OAuth)</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/apex/APXTConga4__Conga_Composer
+?id={!Contact.Id}</url>
+        <width>900</width>
+    </webLinks>
+    <webLinks>
+        <fullName>APXTConga4__Conga_Mail_Merge</fullName>
+        <availability>online</availability>
+        <description>*** DO NOT USE THIS BUTTON ON A PAGE LAYOUT *** 
+
+COPY THE URL FROM THIS BUTTON and paste it into your own custom button or link. Then add optional parameters to finely tune the button&apos;s behavior. See the Conga Configuration Guide for details.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>false</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>660</height>
+        <isResizable>false</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Conga Composer</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://composer.congamerge.com
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_290}
+&amp;id={!Contact.Id}</url>
+        <width>900</width>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleMaps</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Maps</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://maps.google.com/maps?f=q&amp;hl=en&amp;q={!Contact_MailingStreet}+{!Contact_MailingCity}+{!Contact_MailingState}&amp;om=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleSearch</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Search</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/search?q={!Contact_FirstName} {!Contact_LastName}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>datapro__Privacy_Detail_Page</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Privacy Detail Page</masterLabel>
+        <openType>noSidebar</openType>
+        <page>datapro__PrivacyDetailPageForContact</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>datapro__Show_Privacy_Detail</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Show Privacy Detail</masterLabel>
+        <openType>noSidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/datapro__FilterPrivacyDetailRecords?id={!Account.Id}&amp;AccName={!Account.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>dsfs__Send_with_DocuSign</fullName>
+        <availability>online</availability>
+        <description>This button will initiate a DocuSign Envelope that is linked to the Contact</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send with DocuSign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/apex/dsfs__DocuSign_JavaScript&quot;)}
+DocuSign_CreateEnvelope();</url>
+    </webLinks>
+    <webLinks>
+        <fullName>smagicinteract__Send_Bulk_SMS</fullName>
+        <availability>online</availability>
+        <description>sms to multiple contacts</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send Bulk SMS</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/apex.js&quot;)}
+function loadJqueryDynamically(){
+
+var newscript = document.createElement(&apos;script&apos;);
+     newscript.type = &apos;text/javascript&apos;;
+     newscript.async = false;
+     newscript.src = &apos;{!URLFOR(&apos;/resource/smagicinteract__smJQuery/js/jquery-1.10.2.js&apos;)}&apos;;
+  (document.getElementsByTagName(&apos;head&apos;)[0]||document.getElementsByTagName(&apos;body&apos;)[0]).appendChild(newscript);
+ 
+var newscript1 = document.createElement(&apos;script&apos;);
+     newscript1.type = &apos;text/javascript&apos;;
+     newscript1.async = false;
+     newscript1.src = &apos;{!URLFOR(&apos;/resource/smagicinteract__smJQuery/js/jquery-ui-1.10.4.custom.min.js&apos;)} &apos;;
+  (document.getElementsByTagName(&apos;head&apos;)[0]||document.getElementsByTagName(&apos;body&apos;)[0]).appendChild(newscript1);
+ 
+var newscript2 = document.createElement(&apos;script&apos;);
+     newscript2.type = &apos;text/javascript&apos;;
+     newscript2.async = false;
+     newscript2.src = &apos;{!URLFOR(&apos;/resource/smagicinteract__sendSMSJS&apos;)}&apos;;
+  (document.getElementsByTagName(&apos;head&apos;)[0]||document.getElementsByTagName(&apos;body&apos;)[0]).appendChild(newscript2);
+     	newscript2.onload = showPage;
+ 
+}
+
+
+loadJqueryDynamically();
+
+function showPage() {
+  
+var records = {!GETRECORDIDS($ObjectType.Contact)}; 
+if (records[0] == null)
+{
+alert(&quot;Please select at least one contact.&quot;) 
+}
+else{
+var packagePrefix = &quot;smagicinteract__&quot;;
+var recordIds = &quot;&quot;;
+var userId = &apos;{!$User.Id}&apos;;
+var elementIdVar = &apos;&apos;;
+var dialogTitle = &apos;&apos;;
+var queryString = &apos;&apos;;
+var showUserDropDown = false; 
+var recordType = &quot;Contact&quot;;                   // Enter the API name of an object
+var nameField = &apos;Name&apos;;                    // Enter the API Name of a Name Field  
+var mobileField = &apos;MobilePhone&apos;;           // Enter the API Name of a Mobile Field. For multiple mobile fields, add API Names of Mobile Fields comma separated (Max 3 allowed)  
+var optOutField = &apos;smagicinteract__SMSOptOut__c&apos;; // Enter the API Name name of Optout field
+var unrelatedObjectAPIName = &apos;&apos;;   // Enter API name of unrelated Object  
+var optOutDefaultValue = &apos;no&apos;;            //  Enter the default OptOut Value  
+var smsType = &apos;&apos;;                          // Enter type as &apos;popup&apos; if you want to send message from popup
+
+for (var n in records) {
+if(n == &apos;remove&apos; || n == &apos;indexOf&apos;) continue;
+recordIds = recordIds + records[n];
+
+if (n != records.length-1) {
+recordIds = recordIds + &quot;,&quot;;
+}
+}
+
+var cssUrl = &apos;{!URLFOR(&apos;/resource/smagicinteract__smJQuery/css/sm-theme/jquery-ui-1.10.4.custom.min.css&apos;)}&apos;;
+
+if({!$Permission.smagicinteract__AllowToSendBulkMessage}) { 
+sendSMS(recordType, recordIds, userId, nameField, mobileField, optOutField, optOutDefaultValue, smsType, elementIdVar, packagePrefix, showUserDropDown, dialogTitle, cssUrl, unrelatedObjectAPIName);
+}
+else { 
+alert(&apos;You cannot Send SMS. Please contact system admin&apos;); 
+} 
+
+}
+
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>smagicinteract__Send_SMS</fullName>
+        <availability>online</availability>
+        <description>send to individual</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send SMS</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/apex.js&quot;)} 
+{!REQUIRESCRIPT(&apos;/resource/smagicinteract__smJQuery/js/jquery-1.10.2.js&apos;)} 
+{!REQUIRESCRIPT(&apos;/resource/smagicinteract__smJQuery/js/jquery-ui-1.10.4.custom.min.js&apos;)} 
+{!REQUIRESCRIPT(&quot;/resource/smagicinteract__sendSMSJS&quot;)} 
+
+var cssUrl = &apos;{!URLFOR(&apos;/resource/smagicinteract__smJQuery/css/sm-theme/jquery-ui-1.10.4.custom.min.css&apos;)}&apos;; 
+
+var packagePrefix = &quot;smagicinteract__&quot;; 
+var userId = &apos;{!$User.Id}&apos;; 
+var elementIdVar = &apos;&apos;; 
+var showUserDropDown = false; 
+var dialogTitle = &apos;&apos;; 
+var recordType = &apos;Contact&apos;; // Enter the API name of an object
+var idToUpdate = &apos;{!Contact.Id}&apos; // Enter merge field of id for example:- for Contact object enter &apos;{!Contact.Id}&apos; 
+var nameField = &apos;Name&apos;; // Enter the API Name of a Name Field 
+var mobileField = &apos;MobilePhone&apos;; // Enter the API Name of a Mobile Field. For multiple mobile fields, add API Names of Mobile Fields comma separated (Max 3 allowed) 
+var optOutField = &apos;smagicinteract__SMSOptOut__c&apos;; // Enter API name of optOut field 
+var optOutDefaultValue = &apos;no&apos;; // Enter the default OptOut Value
+var smsType = &apos;&apos;; // Enter type as &apos;popup&apos; if you want to send message from popup
+var unrelatedObjectAPIName = &apos;&apos;; // Enter the API Name of an Unrelated object 
+
+sendSMS(recordType, idToUpdate, userId, nameField, mobileField, optOutField, optOutDefaultValue, smsType, elementIdVar, packagePrefix, showUserDropDown, dialogTitle, cssUrl, unrelatedObjectAPIName);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>smagicschedule__Schedule_Send_Bulk_SMS</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Schedule/Send SMS</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)}
+
+var packagePrefix = &quot;smagicschedule__&quot;;
+var records = {!GETRECORDIDS($ObjectType.Contact)};
+if (records[0] == null)
+{
+alert(&quot;Please select at least one contact&quot;)
+}
+else{
+var recordType = &quot;contact&quot;;
+var recordIds = &quot;&quot;;
+var nameField = &apos;Name&apos;;
+var mobileField = &apos;MobilePhone&apos;;
+var optOutField = &apos;smagicinteract__SMSOptOut__c&apos;;  
+for (var n in records) {
+if(n == &apos;remove&apos; || n == &apos;indexOf&apos;) continue;
+recordIds = recordIds + records[n];
+
+if (n != records.length-1) {
+recordIds = recordIds + &quot;,&quot;;
+}
+}
+var queryString = parent.window.location.pathname;
+if (parent.window.location.search){
+queryString = queryString + parent.window.location.search
+}
+
+var url = &quot;/apex/&quot;+packagePrefix+&quot;ScheduleSMS?retURL=&quot;+queryString+ &quot;&amp;nameField=&quot; +nameField +&quot;&amp;phoneField=&quot;+ mobileField +&quot;&amp;optOutField=&quot;+optOutField+&quot;&amp;objectType=&quot;+recordType+&quot;&amp;recordIds=&quot;+ recordIds;
+
+parent.window.location = url;
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>smagicschedule__Schedule_Send_SMS</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Schedule/Send SMS</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/apex.js&quot;)}
+
+var packagePrefix = &quot;smagicschedule__&quot;;
+var recordType = &apos;contact&apos;;
+var idToUpdate = &apos;{!Contact.Id}&apos;
+var nameField = &apos;Name&apos;;
+var mobileField = &apos;MobilePhone&apos;;
+var optOutField = &apos;smagicinteract__SMSOptOut__c&apos;; 
+var queryString = parent.window.location.pathname;
+if (parent.window.location.search){
+queryString = queryString + parent.window.location.search
+}
+
+var url = &quot;/apex/&quot;+packagePrefix+&quot;ScheduleSMS?retURL=&quot;+queryString+&quot;&amp;nameField=&quot; +nameField +&quot;&amp;phoneField=&quot;+ mobileField +&quot;&amp;optOutField=&quot;+optOutField+ &quot;&amp;objectType=&quot;+recordType+&quot;&amp;recordIds=&quot;+ idToUpdate;
+
+parent.window.location = url;</url>
+    </webLinks>
+</CustomObject>

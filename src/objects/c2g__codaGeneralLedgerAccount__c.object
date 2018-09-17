@@ -1,0 +1,1416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>c2g__codahelpgeneralledgeraccount</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>General ledger account represent different categories of income/expenses/assets/liabilities and reserves.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Balance_Sheet_Rec_Owner__c</fullName>
+        <description>Created to display the person responsible for reconciling the record balance sheet. 
+This could be replaced with a lookup(contact) field if bruntwood employees are being added as contacts.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the name of the person responsible for reconciling the balance sheet</inlineHelpText>
+        <label>Balance Sheet Rec Owner</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Config_Version__c</fullName>
+        <externalId>false</externalId>
+        <label>Config Version</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dimension_1_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Dimension 1 Required</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dimension_2_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Dimension 2 Required</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dimension_3_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Dimension 3 Required</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dimension_4_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Dimension 4 Required</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Old_Version__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is_Old_Version__c</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Load_Id__c</fullName>
+        <externalId>true</externalId>
+        <label>Load Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sub_Ledger_Required__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub Ledger Required</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Account</fullName>
+                    <default>false</default>
+                    <label>Account</label>
+                </value>
+                <value>
+                    <fullName>Bank</fullName>
+                    <default>false</default>
+                    <label>Bank</label>
+                </value>
+                <value>
+                    <fullName>Product</fullName>
+                    <default>false</default>
+                    <label>Product</label>
+                </value>
+                <value>
+                    <fullName>Tax</fullName>
+                    <default>false</default>
+                    <label>Tax</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__AdjustOperatingActivities__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Reclassify Profits</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>c2g__AllowRevaluation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Allow Revaluation</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>c2g__BalanceSheet1__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Balance Sheet 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Balance Sheet</fullName>
+                    <default>false</default>
+                    <label>Balance Sheet</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__BalanceSheet2__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Balance Sheet 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>c2g__BalanceSheet1__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Current Assets</fullName>
+                    <default>false</default>
+                    <label>Current Assets</label>
+                </value>
+                <value>
+                    <fullName>Fixed Assets</fullName>
+                    <default>false</default>
+                    <label>Fixed Assets</label>
+                </value>
+                <value>
+                    <fullName>Intangible Assets</fullName>
+                    <default>false</default>
+                    <label>Intangible Assets</label>
+                </value>
+                <value>
+                    <fullName>Current Liabilities</fullName>
+                    <default>false</default>
+                    <label>Current Liabilities</label>
+                </value>
+                <value>
+                    <fullName>Long Term Liabilities</fullName>
+                    <default>false</default>
+                    <label>Long Term Liabilities</label>
+                </value>
+                <value>
+                    <fullName>Shareholders Funds</fullName>
+                    <default>false</default>
+                    <label>Shareholders Funds</label>
+                </value>
+                <value>
+                    <fullName>Income Statement</fullName>
+                    <default>false</default>
+                    <label>Income Statement</label>
+                </value>
+                <value>
+                    <fullName>Profit and Loss</fullName>
+                    <default>false</default>
+                    <label>Profit and Loss</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Balance Sheet</controllingFieldValue>
+                <valueName>Current Assets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Sheet</controllingFieldValue>
+                <valueName>Fixed Assets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Sheet</controllingFieldValue>
+                <valueName>Intangible Assets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Sheet</controllingFieldValue>
+                <valueName>Current Liabilities</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Sheet</controllingFieldValue>
+                <valueName>Long Term Liabilities</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Sheet</controllingFieldValue>
+                <valueName>Shareholders Funds</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Sheet</controllingFieldValue>
+                <valueName>Income Statement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Sheet</controllingFieldValue>
+                <valueName>Profit and Loss</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__BalanceSheet3__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Balance Sheet 3</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>c2g__BalanceSheet2__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Bank and Cash</fullName>
+                    <default>false</default>
+                    <label>Bank and Cash</label>
+                </value>
+                <value>
+                    <fullName>Accounts Receivable</fullName>
+                    <default>false</default>
+                    <label>Accounts Receivable</label>
+                </value>
+                <value>
+                    <fullName>Provisions</fullName>
+                    <default>false</default>
+                    <label>Provisions</label>
+                </value>
+                <value>
+                    <fullName>Inventory</fullName>
+                    <default>false</default>
+                    <label>Inventory</label>
+                </value>
+                <value>
+                    <fullName>Prepayments and Accrued Income</fullName>
+                    <default>false</default>
+                    <label>Prepayments and Accrued Income</label>
+                </value>
+                <value>
+                    <fullName>Debtors</fullName>
+                    <default>false</default>
+                    <label>Debtors</label>
+                </value>
+                <value>
+                    <fullName>Stock</fullName>
+                    <default>false</default>
+                    <label>Stock</label>
+                </value>
+                <value>
+                    <fullName>Fixtures Fittings and Equipment</fullName>
+                    <default>false</default>
+                    <label>Fixtures Fittings and Equipment</label>
+                </value>
+                <value>
+                    <fullName>Land and Buildings</fullName>
+                    <default>false</default>
+                    <label>Land and Buildings</label>
+                </value>
+                <value>
+                    <fullName>Intangible Assets</fullName>
+                    <default>false</default>
+                    <label>Intangible Assets</label>
+                </value>
+                <value>
+                    <fullName>Accounts Payable</fullName>
+                    <default>false</default>
+                    <label>Accounts Payable</label>
+                </value>
+                <value>
+                    <fullName>Accruals and Deferred Income</fullName>
+                    <default>false</default>
+                    <label>Accruals and Deferred Income</label>
+                </value>
+                <value>
+                    <fullName>Employment Payables</fullName>
+                    <default>false</default>
+                    <label>Employment Payables</label>
+                </value>
+                <value>
+                    <fullName>Tax Liability</fullName>
+                    <default>false</default>
+                    <label>Tax Liability</label>
+                </value>
+                <value>
+                    <fullName>Creditors</fullName>
+                    <default>false</default>
+                    <label>Creditors</label>
+                </value>
+                <value>
+                    <fullName>Employment Creditors</fullName>
+                    <default>false</default>
+                    <label>Employment Creditors</label>
+                </value>
+                <value>
+                    <fullName>Payable After 1 Year</fullName>
+                    <default>false</default>
+                    <label>Payable After 1 Year</label>
+                </value>
+                <value>
+                    <fullName>Creditors Due After 1 Year</fullName>
+                    <default>false</default>
+                    <label>Creditors Due After 1 Year</label>
+                </value>
+                <value>
+                    <fullName>Capital and Reserves</fullName>
+                    <default>false</default>
+                    <label>Capital and Reserves</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Current Assets</controllingFieldValue>
+                <valueName>Bank and Cash</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Assets</controllingFieldValue>
+                <valueName>Accounts Receivable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Assets</controllingFieldValue>
+                <valueName>Provisions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Assets</controllingFieldValue>
+                <valueName>Inventory</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Assets</controllingFieldValue>
+                <valueName>Prepayments and Accrued Income</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Assets</controllingFieldValue>
+                <valueName>Debtors</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Assets</controllingFieldValue>
+                <valueName>Stock</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fixed Assets</controllingFieldValue>
+                <valueName>Fixtures Fittings and Equipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fixed Assets</controllingFieldValue>
+                <valueName>Land and Buildings</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Intangible Assets</controllingFieldValue>
+                <valueName>Intangible Assets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Liabilities</controllingFieldValue>
+                <valueName>Accounts Payable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Liabilities</controllingFieldValue>
+                <valueName>Accruals and Deferred Income</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Liabilities</controllingFieldValue>
+                <valueName>Employment Payables</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Liabilities</controllingFieldValue>
+                <valueName>Tax Liability</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Liabilities</controllingFieldValue>
+                <valueName>Creditors</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Liabilities</controllingFieldValue>
+                <valueName>Employment Creditors</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Long Term Liabilities</controllingFieldValue>
+                <valueName>Payable After 1 Year</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Long Term Liabilities</controllingFieldValue>
+                <valueName>Creditors Due After 1 Year</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Shareholders Funds</controllingFieldValue>
+                <valueName>Capital and Reserves</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__CashFlowCategory__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Cash Flow Category</description>
+        <externalId>false</externalId>
+        <label>Cash Flow Category</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Operating Activities</fullName>
+                    <default>false</default>
+                    <label>Operating Activities</label>
+                </value>
+                <value>
+                    <fullName>Investing Activities</fullName>
+                    <default>false</default>
+                    <label>Investing Activities</label>
+                </value>
+                <value>
+                    <fullName>Financing Activities</fullName>
+                    <default>false</default>
+                    <label>Financing Activities</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__CashFlowLineSummary__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cash Flow Line Summary</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>(Gain) / Loss on Foreign Exchange</fullName>
+                    <default>false</default>
+                    <label>(Gain) / Loss on Foreign Exchange</label>
+                </value>
+                <value>
+                    <fullName>(Gain) / Loss on Investment Disposals</fullName>
+                    <default>false</default>
+                    <label>(Gain) / Loss on Investment Disposals</label>
+                </value>
+                <value>
+                    <fullName>(Increase) / Decrease in Inventory</fullName>
+                    <default>false</default>
+                    <label>(Increase) / Decrease in Inventory</label>
+                </value>
+                <value>
+                    <fullName>(Increase) / Decrease in Other Current Assets</fullName>
+                    <default>false</default>
+                    <label>(Increase) / Decrease in Other Current Assets</label>
+                </value>
+                <value>
+                    <fullName>(Increase) / Decrease in Receivables</fullName>
+                    <default>false</default>
+                    <label>(Increase) / Decrease in Receivables</label>
+                </value>
+                <value>
+                    <fullName>Deferred Revenue</fullName>
+                    <default>false</default>
+                    <label>Deferred Revenue</label>
+                </value>
+                <value>
+                    <fullName>Depreciation &amp; Amortization</fullName>
+                    <default>false</default>
+                    <label>Depreciation &amp; Amortization</label>
+                </value>
+                <value>
+                    <fullName>Dividends on Common Shares</fullName>
+                    <default>false</default>
+                    <label>Dividends on Common Shares</label>
+                </value>
+                <value>
+                    <fullName>Dividends on Preference Shares</fullName>
+                    <default>false</default>
+                    <label>Dividends on Preference Shares</label>
+                </value>
+                <value>
+                    <fullName>Dividends Received</fullName>
+                    <default>false</default>
+                    <label>Dividends Received</label>
+                </value>
+                <value>
+                    <fullName>Impairment</fullName>
+                    <default>false</default>
+                    <label>Impairment</label>
+                </value>
+                <value>
+                    <fullName>Increase / (Decrease) in Common Capital</fullName>
+                    <default>false</default>
+                    <label>Increase / (Decrease) in Common Capital</label>
+                </value>
+                <value>
+                    <fullName>Increase / (Decrease) in Employment Creditors</fullName>
+                    <default>false</default>
+                    <label>Increase / (Decrease) in Employment Creditors</label>
+                </value>
+                <value>
+                    <fullName>Increase / (Decrease) in Long Term Borrowing</fullName>
+                    <default>false</default>
+                    <label>Increase / (Decrease) in Long Term Borrowing</label>
+                </value>
+                <value>
+                    <fullName>Increase / (Decrease) in Other Current Liabilities</fullName>
+                    <default>false</default>
+                    <label>Increase / (Decrease) in Other Current Liabilities</label>
+                </value>
+                <value>
+                    <fullName>Increase / (Decrease) in Payables</fullName>
+                    <default>false</default>
+                    <label>Increase / (Decrease) in Payables</label>
+                </value>
+                <value>
+                    <fullName>Increase / (Decrease) in Preference Capital</fullName>
+                    <default>false</default>
+                    <label>Increase / (Decrease) in Preference Capital</label>
+                </value>
+                <value>
+                    <fullName>Increase / (Decrease) in Short Term Borrowing</fullName>
+                    <default>false</default>
+                    <label>Increase / (Decrease) in Short Term Borrowing</label>
+                </value>
+                <value>
+                    <fullName>Increase / (Decrease) in Tax Liability</fullName>
+                    <default>false</default>
+                    <label>Increase / (Decrease) in Tax Liability</label>
+                </value>
+                <value>
+                    <fullName>Interest Expense</fullName>
+                    <default>false</default>
+                    <label>Interest Expense</label>
+                </value>
+                <value>
+                    <fullName>Interest Income</fullName>
+                    <default>false</default>
+                    <label>Interest Income</label>
+                </value>
+                <value>
+                    <fullName>Purchase of Fixed Assets</fullName>
+                    <default>false</default>
+                    <label>Purchase of Fixed Assets</label>
+                </value>
+                <value>
+                    <fullName>Purchase of Investment Securities</fullName>
+                    <default>false</default>
+                    <label>Purchase of Investment Securities</label>
+                </value>
+                <value>
+                    <fullName>Research &amp; Development</fullName>
+                    <default>false</default>
+                    <label>Research &amp; Development</label>
+                </value>
+                <value>
+                    <fullName>Sale of Investment Securities</fullName>
+                    <default>false</default>
+                    <label>Sale of Investment Securities</label>
+                </value>
+                <value>
+                    <fullName>Sales Proceeds from Disposal of Fixed Assets</fullName>
+                    <default>false</default>
+                    <label>Sales Proceeds from Disposal of Fixed Assets</label>
+                </value>
+                <value>
+                    <fullName>Taxation</fullName>
+                    <default>false</default>
+                    <label>Taxation</label>
+                </value>
+                <value>
+                    <fullName>Unrealized (Gain) / Loss on Foreign Exchange</fullName>
+                    <default>false</default>
+                    <label>Unrealized (Gain) / Loss on Foreign Exchange</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__ChartOfAccountsStructure__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Chart of Accounts Structure</label>
+        <referenceTo>c2g__ChartOfAccountsStructure__c</referenceTo>
+        <relationshipLabel>General Ledger Accounts</relationshipLabel>
+        <relationshipName>GeneralLedgerAccounts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__ExternalId__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>External Id</label>
+        <length>32</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__GLAGroup__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>GLA Group</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accounts Receivable</fullName>
+                    <default>false</default>
+                    <label>Accounts Receivable</label>
+                </value>
+                <value>
+                    <fullName>Accounts Payable</fullName>
+                    <default>false</default>
+                    <label>Accounts Payable</label>
+                </value>
+                <value>
+                    <fullName>Cash</fullName>
+                    <default>false</default>
+                    <label>Cash</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__ReportingCode__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Reporting Code</label>
+        <length>24</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__TrialBalance1__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Trial Balance 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Profit and Loss</fullName>
+                    <default>false</default>
+                    <label>Profit and Loss</label>
+                </value>
+                <value>
+                    <fullName>Income Statement</fullName>
+                    <default>false</default>
+                    <label>Income Statement</label>
+                </value>
+                <value>
+                    <fullName>Balance Sheet</fullName>
+                    <default>false</default>
+                    <label>Balance Sheet</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__TrialBalance2__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Trial Balance 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>c2g__TrialBalance1__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Gross Profit</fullName>
+                    <default>false</default>
+                    <label>Gross Profit</label>
+                </value>
+                <value>
+                    <fullName>Operating Expenses</fullName>
+                    <default>false</default>
+                    <label>Operating Expenses</label>
+                </value>
+                <value>
+                    <fullName>Interest and Taxation</fullName>
+                    <default>false</default>
+                    <label>Interest and Taxation</label>
+                </value>
+                <value>
+                    <fullName>EBITDA</fullName>
+                    <default>false</default>
+                    <label>EBITDA</label>
+                </value>
+                <value>
+                    <fullName>Depreciation and Amortization</fullName>
+                    <default>false</default>
+                    <label>Depreciation and Amortization</label>
+                </value>
+                <value>
+                    <fullName>Interest</fullName>
+                    <default>false</default>
+                    <label>Interest</label>
+                </value>
+                <value>
+                    <fullName>Taxation</fullName>
+                    <default>false</default>
+                    <label>Taxation</label>
+                </value>
+                <value>
+                    <fullName>Current Assets</fullName>
+                    <default>false</default>
+                    <label>Current Assets</label>
+                </value>
+                <value>
+                    <fullName>Fixed Assets</fullName>
+                    <default>false</default>
+                    <label>Fixed Assets</label>
+                </value>
+                <value>
+                    <fullName>Intangible Assets</fullName>
+                    <default>false</default>
+                    <label>Intangible Assets</label>
+                </value>
+                <value>
+                    <fullName>Current Liabilities</fullName>
+                    <default>false</default>
+                    <label>Current Liabilities</label>
+                </value>
+                <value>
+                    <fullName>Long Term Liabilities</fullName>
+                    <default>false</default>
+                    <label>Long Term Liabilities</label>
+                </value>
+                <value>
+                    <fullName>Shareholders Funds</fullName>
+                    <default>false</default>
+                    <label>Shareholders Funds</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Profit and Loss</controllingFieldValue>
+                <controllingFieldValue>Income Statement</controllingFieldValue>
+                <valueName>Gross Profit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Profit and Loss</controllingFieldValue>
+                <controllingFieldValue>Income Statement</controllingFieldValue>
+                <valueName>Operating Expenses</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Profit and Loss</controllingFieldValue>
+                <controllingFieldValue>Income Statement</controllingFieldValue>
+                <valueName>Interest and Taxation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Profit and Loss</controllingFieldValue>
+                <controllingFieldValue>Income Statement</controllingFieldValue>
+                <valueName>EBITDA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Profit and Loss</controllingFieldValue>
+                <controllingFieldValue>Income Statement</controllingFieldValue>
+                <valueName>Depreciation and Amortization</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Profit and Loss</controllingFieldValue>
+                <controllingFieldValue>Income Statement</controllingFieldValue>
+                <valueName>Interest</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Profit and Loss</controllingFieldValue>
+                <controllingFieldValue>Income Statement</controllingFieldValue>
+                <valueName>Taxation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Sheet</controllingFieldValue>
+                <valueName>Current Assets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Sheet</controllingFieldValue>
+                <valueName>Fixed Assets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Sheet</controllingFieldValue>
+                <valueName>Intangible Assets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Sheet</controllingFieldValue>
+                <valueName>Current Liabilities</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Sheet</controllingFieldValue>
+                <valueName>Long Term Liabilities</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Balance Sheet</controllingFieldValue>
+                <valueName>Shareholders Funds</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__TrialBalance3__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Trial Balance 3</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>c2g__TrialBalance2__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sales Revenue</fullName>
+                    <default>false</default>
+                    <label>Sales Revenue</label>
+                </value>
+                <value>
+                    <fullName>Cost of Sales</fullName>
+                    <default>false</default>
+                    <label>Cost of Sales</label>
+                </value>
+                <value>
+                    <fullName>Administration Costs</fullName>
+                    <default>false</default>
+                    <label>Administration Costs</label>
+                </value>
+                <value>
+                    <fullName>Depreciation</fullName>
+                    <default>false</default>
+                    <label>Depreciation</label>
+                </value>
+                <value>
+                    <fullName>Equipment Hire and Repairs</fullName>
+                    <default>false</default>
+                    <label>Equipment Hire and Repairs</label>
+                </value>
+                <value>
+                    <fullName>Marketing Expenses</fullName>
+                    <default>false</default>
+                    <label>Marketing Expenses</label>
+                </value>
+                <value>
+                    <fullName>Motor Expenses</fullName>
+                    <default>false</default>
+                    <label>Motor Expenses</label>
+                </value>
+                <value>
+                    <fullName>Occupation Costs</fullName>
+                    <default>false</default>
+                    <label>Occupation Costs</label>
+                </value>
+                <value>
+                    <fullName>Payroll Costs</fullName>
+                    <default>false</default>
+                    <label>Payroll Costs</label>
+                </value>
+                <value>
+                    <fullName>Professional Fees</fullName>
+                    <default>false</default>
+                    <label>Professional Fees</label>
+                </value>
+                <value>
+                    <fullName>Staff Costs</fullName>
+                    <default>false</default>
+                    <label>Staff Costs</label>
+                </value>
+                <value>
+                    <fullName>Travel Expenses</fullName>
+                    <default>false</default>
+                    <label>Travel Expenses</label>
+                </value>
+                <value>
+                    <fullName>Other Income and Expenses</fullName>
+                    <default>false</default>
+                    <label>Other Income and Expenses</label>
+                </value>
+                <value>
+                    <fullName>Finance Costs</fullName>
+                    <default>false</default>
+                    <label>Finance Costs</label>
+                </value>
+                <value>
+                    <fullName>Taxation</fullName>
+                    <default>false</default>
+                    <label>Taxation</label>
+                </value>
+                <value>
+                    <fullName>Bank and Cash</fullName>
+                    <default>false</default>
+                    <label>Bank and Cash</label>
+                </value>
+                <value>
+                    <fullName>Accounts Receivable</fullName>
+                    <default>false</default>
+                    <label>Accounts Receivable</label>
+                </value>
+                <value>
+                    <fullName>Provisions</fullName>
+                    <default>false</default>
+                    <label>Provisions</label>
+                </value>
+                <value>
+                    <fullName>Inventory</fullName>
+                    <default>false</default>
+                    <label>Inventory</label>
+                </value>
+                <value>
+                    <fullName>Prepayments and Accrued Income</fullName>
+                    <default>false</default>
+                    <label>Prepayments and Accrued Income</label>
+                </value>
+                <value>
+                    <fullName>Debtors</fullName>
+                    <default>false</default>
+                    <label>Debtors</label>
+                </value>
+                <value>
+                    <fullName>Stock</fullName>
+                    <default>false</default>
+                    <label>Stock</label>
+                </value>
+                <value>
+                    <fullName>Fixtures Fittings and Equipment</fullName>
+                    <default>false</default>
+                    <label>Fixtures Fittings and Equipment</label>
+                </value>
+                <value>
+                    <fullName>Land and Buildings</fullName>
+                    <default>false</default>
+                    <label>Land and Buildings</label>
+                </value>
+                <value>
+                    <fullName>Intangible Assets</fullName>
+                    <default>false</default>
+                    <label>Intangible Assets</label>
+                </value>
+                <value>
+                    <fullName>Accounts Payable</fullName>
+                    <default>false</default>
+                    <label>Accounts Payable</label>
+                </value>
+                <value>
+                    <fullName>Accruals and Deferred Income</fullName>
+                    <default>false</default>
+                    <label>Accruals and Deferred Income</label>
+                </value>
+                <value>
+                    <fullName>Employment Payables</fullName>
+                    <default>false</default>
+                    <label>Employment Payables</label>
+                </value>
+                <value>
+                    <fullName>Tax Liability</fullName>
+                    <default>false</default>
+                    <label>Tax Liability</label>
+                </value>
+                <value>
+                    <fullName>Creditors</fullName>
+                    <default>false</default>
+                    <label>Creditors</label>
+                </value>
+                <value>
+                    <fullName>Employment Creditors</fullName>
+                    <default>false</default>
+                    <label>Employment Creditors</label>
+                </value>
+                <value>
+                    <fullName>Payable After 1 Year</fullName>
+                    <default>false</default>
+                    <label>Payable After 1 Year</label>
+                </value>
+                <value>
+                    <fullName>Creditors Due After 1 Year</fullName>
+                    <default>false</default>
+                    <label>Creditors Due After 1 Year</label>
+                </value>
+                <value>
+                    <fullName>Capital and Reserves</fullName>
+                    <default>false</default>
+                    <label>Capital and Reserves</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Current Liabilities</controllingFieldValue>
+                <valueName>Accounts Payable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Liabilities</controllingFieldValue>
+                <valueName>Accruals and Deferred Income</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Liabilities</controllingFieldValue>
+                <valueName>Employment Payables</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Liabilities</controllingFieldValue>
+                <valueName>Tax Liability</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Liabilities</controllingFieldValue>
+                <valueName>Creditors</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Liabilities</controllingFieldValue>
+                <valueName>Employment Creditors</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Long Term Liabilities</controllingFieldValue>
+                <valueName>Payable After 1 Year</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Long Term Liabilities</controllingFieldValue>
+                <valueName>Creditors Due After 1 Year</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Shareholders Funds</controllingFieldValue>
+                <valueName>Capital and Reserves</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Gross Profit</controllingFieldValue>
+                <controllingFieldValue>EBITDA</controllingFieldValue>
+                <valueName>Sales Revenue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Gross Profit</controllingFieldValue>
+                <controllingFieldValue>EBITDA</controllingFieldValue>
+                <valueName>Cost of Sales</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Operating Expenses</controllingFieldValue>
+                <controllingFieldValue>EBITDA</controllingFieldValue>
+                <valueName>Administration Costs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Operating Expenses</controllingFieldValue>
+                <controllingFieldValue>Depreciation and Amortization</controllingFieldValue>
+                <valueName>Depreciation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Operating Expenses</controllingFieldValue>
+                <controllingFieldValue>EBITDA</controllingFieldValue>
+                <valueName>Equipment Hire and Repairs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Operating Expenses</controllingFieldValue>
+                <controllingFieldValue>EBITDA</controllingFieldValue>
+                <valueName>Marketing Expenses</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Operating Expenses</controllingFieldValue>
+                <controllingFieldValue>EBITDA</controllingFieldValue>
+                <valueName>Motor Expenses</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Operating Expenses</controllingFieldValue>
+                <controllingFieldValue>EBITDA</controllingFieldValue>
+                <valueName>Occupation Costs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Operating Expenses</controllingFieldValue>
+                <controllingFieldValue>EBITDA</controllingFieldValue>
+                <valueName>Payroll Costs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Operating Expenses</controllingFieldValue>
+                <controllingFieldValue>EBITDA</controllingFieldValue>
+                <valueName>Professional Fees</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Operating Expenses</controllingFieldValue>
+                <controllingFieldValue>EBITDA</controllingFieldValue>
+                <valueName>Staff Costs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Operating Expenses</controllingFieldValue>
+                <controllingFieldValue>EBITDA</controllingFieldValue>
+                <valueName>Travel Expenses</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Operating Expenses</controllingFieldValue>
+                <controllingFieldValue>EBITDA</controllingFieldValue>
+                <valueName>Other Income and Expenses</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Interest and Taxation</controllingFieldValue>
+                <controllingFieldValue>Interest</controllingFieldValue>
+                <valueName>Finance Costs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Interest and Taxation</controllingFieldValue>
+                <controllingFieldValue>Taxation</controllingFieldValue>
+                <valueName>Taxation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Assets</controllingFieldValue>
+                <valueName>Bank and Cash</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Assets</controllingFieldValue>
+                <valueName>Accounts Receivable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Assets</controllingFieldValue>
+                <valueName>Provisions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Assets</controllingFieldValue>
+                <valueName>Inventory</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Assets</controllingFieldValue>
+                <valueName>Prepayments and Accrued Income</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Assets</controllingFieldValue>
+                <valueName>Debtors</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Current Assets</controllingFieldValue>
+                <valueName>Stock</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fixed Assets</controllingFieldValue>
+                <valueName>Fixtures Fittings and Equipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fixed Assets</controllingFieldValue>
+                <valueName>Land and Buildings</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Intangible Assets</controllingFieldValue>
+                <valueName>Intangible Assets</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__TrialBalance4__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Trial Balance 4</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>c2g__TrialBalance3__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sales - Direct</fullName>
+                    <default>false</default>
+                    <label>Sales - Direct</label>
+                </value>
+                <value>
+                    <fullName>Sales - Indirect</fullName>
+                    <default>false</default>
+                    <label>Sales - Indirect</label>
+                </value>
+                <value>
+                    <fullName>Cost of Sales - Direct</fullName>
+                    <default>false</default>
+                    <label>Cost of Sales - Direct</label>
+                </value>
+                <value>
+                    <fullName>Cost of Sales - Indirect</fullName>
+                    <default>false</default>
+                    <label>Cost of Sales - Indirect</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Sales Revenue</controllingFieldValue>
+                <valueName>Sales - Direct</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sales Revenue</controllingFieldValue>
+                <valueName>Sales - Indirect</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cost of Sales</controllingFieldValue>
+                <valueName>Cost of Sales - Direct</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cost of Sales</controllingFieldValue>
+                <valueName>Cost of Sales - Indirect</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Balance Sheet</fullName>
+                    <default>false</default>
+                    <label>Balance Sheet</label>
+                </value>
+                <value>
+                    <fullName>Profit and Loss</fullName>
+                    <default>false</default>
+                    <label>Profit and Loss</label>
+                </value>
+                <value>
+                    <fullName>Retained Earnings</fullName>
+                    <default>false</default>
+                    <label>Retained Earnings</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__UnitOfWork__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Unit of Work</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>General Ledger Account</label>
+    <listViews>
+        <fullName>c2g__All</fullName>
+        <columns>NAME</columns>
+        <columns>c2g__Type__c</columns>
+        <columns>c2g__ReportingCode__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>c2g__GeneralLedgerAccountsinclHierarchy</fullName>
+        <columns>NAME</columns>
+        <columns>c2g__ReportingCode__c</columns>
+        <columns>c2g__Type__c</columns>
+        <columns>c2g__TrialBalance1__c</columns>
+        <columns>c2g__TrialBalance2__c</columns>
+        <columns>c2g__TrialBalance3__c</columns>
+        <columns>c2g__TrialBalance4__c</columns>
+        <columns>c2g__BalanceSheet1__c</columns>
+        <columns>c2g__BalanceSheet2__c</columns>
+        <columns>c2g__BalanceSheet3__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>General Ledger Accounts with Hierarchy</label>
+    </listViews>
+    <nameField>
+        <label>Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>General Ledger Accounts</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>c2g__ReportingCode__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__Type__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>c2g__ReportingCode__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>c2g__Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>c2g__ChartOfAccountsStructure__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>c2g__ReportingCode__c</searchFilterFields>
+        <searchFilterFields>c2g__Type__c</searchFilterFields>
+        <searchResultsAdditionalFields>c2g__ReportingCode__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>c2g__Type__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Show_Transactions</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Show Transactions</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O0O000009uuMw
+?pv0={!c2g__codaGeneralLedgerAccount__c.Name}</url>
+    </webLinks>
+</CustomObject>

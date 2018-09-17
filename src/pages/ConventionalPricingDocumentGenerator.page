@@ -1,0 +1,452 @@
+<apex:page renderAs="advanced_pdf" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false"
+           applyHtmlTag="false" cache="false" controller="ConventionalPricingDocumentGenerator">
+    <html>
+    <head>
+        <style>
+
+            @page {
+                margin: 0 !important;
+                size: A4 landscape;
+            }
+
+            @media print {
+                .tableWithText {
+                    page-break-inside: avoid;
+                }
+
+                .finalText {
+                    /*page-break-before: always;
+                    page-break-after: avoid;*/
+                }
+
+                table {
+                    page-break-inside: avoid;
+                }
+
+                .endPageText {
+                    page-break-inside: avoid;
+                }
+
+                .finalDiv {
+                    page-break-before: always;
+                }
+
+                .footer-paragraphs {
+                    position: relative;
+                    margin-left: 90px;
+                    height: 20px;
+                }
+
+            }
+
+            body {
+                margin: 0;
+            }
+
+            .container {
+                background-color: white;
+                width: 100%;
+                min-height: 842px;
+            }
+
+            .half-width {
+                width: 50%;
+            }
+
+            .right {
+                float: right;
+            }
+
+            .left {
+                float: left;
+            }
+
+            .half-width.right p {
+                padding-left: 15px;
+            }
+
+            .half-width.right h3 {
+                padding-left: 15px;
+            }
+
+            .half-width.right ul {
+                padding-left: 35px;
+            }
+
+            .half-width.left p {
+                padding-right: 15px;
+            }
+
+            .half-width.left h3 {
+                padding-right: 15px;
+            }
+
+            .half-width.left ul {
+                padding-right: 15px;
+                padding-left: 25px;
+            }
+
+            .half-width.left p {
+                margin-left: 5px;
+            }
+
+            .inner {
+                padding-right: 40px;
+                padding-left: 40px;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            .clearfix {
+                overflow: auto;
+            }
+
+            .bannerMSP {
+                background-image: url({!URLFOR($Resource.BannerMSP)});
+                background-position: right center;
+            }
+
+            .bannerBruntwood {
+                background-color: #4C7189;
+            }
+
+            .banner {
+                height: 210px;
+                width: 100%;
+                padding: 20px 40px 40px 40px;
+                -webkit-filter: grayscale(100%);
+                filter: grayscale(100%);
+            }
+
+            .two-column-container h3 {
+                margin-top: 0px;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            table {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            th, td {
+                padding: 10px 15px;
+            }
+
+            td {
+                font-size: 12px;
+                font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+            }
+
+            a {
+                text-decoration: none;
+                color: white;
+                font-size: 16px;
+            }
+
+            .indicativeCostsTable {
+                margin-bottom: 10px;
+            }
+
+            .indicativeCostsTable td {
+                padding: 10px 5px;
+            }
+
+            h2 {
+                margin-bottom: 10px;
+            }
+
+            h3 {
+                font-size: 14px;
+                font-weight: bold;
+                margin: 5px 0px 5px 5px;
+            }
+
+            p {
+                margin-bottom: 5px;
+                margin-top: 5px;
+                font-size: 10px;
+            }
+
+            li {
+                font-size: 10px;
+            }
+
+        </style>
+    </head>
+    <apex:stylesheet value="{!IF(actualPortfolio = 'Bruntwood', $Resource.ConventionalBruntwoodStyles, IF(actualPortfolio = 'MSP', $Resource.ConventionalMSPStyles, $Resource.ConventionalAPStyles))}"/>
+
+    <div class="container">
+        <apex:outputPanel rendered="{!actualPortfolio = 'Bruntwood'}">
+            <div class="logo-bar">
+                <a href="https://bruntwood.co.uk/" target="_blank">
+                    <img class="banner-logo" src="{!$Resource.logo}"/>
+                </a>
+            </div>
+            <div class="banner bannerBruntwood">
+                <h1>Your pricing <br/> proposal</h1>
+            </div>
+        </apex:outputPanel>
+
+        <apex:outputPanel rendered="{!actualPortfolio = 'MSP'}">
+            <div class="banner bannerMSP">
+                <a href="https://mspl.co.uk/" target="_blank">
+                    <img class="banner-logo" src="{!$Resource.LogoMSPHeader}"/>
+                </a>
+                <h1>Your pricing <br/> proposal</h1>
+            </div>
+        </apex:outputPanel>
+
+        <apex:outputPanel rendered="{!actualPortfolio = 'Alderley Park'}">
+            <div class="bannerWithoutImg">
+                <a href="https://www.alderleypark.co.uk/" target="_blank">
+                    <img class="banner-logo" src="{!$Resource.logoAP}"/>
+                </a>
+                <h1>Your pricing proposal</h1>
+            </div>
+        </apex:outputPanel>
+
+
+        <div class="inner">
+            <apex:variable value="{!0}" var="iterator"/>
+            <apex:repeat value="{!bundles}" var="bundle">
+                <apex:variable value="{!iterator+1}" var="iterator"/>
+                <div style="margin-top: 50px;" class="tableWithText">
+
+                    <h2>{!bundle.Suite_Inventory__r.Name}
+                        , {!quote.Property__r.Name}</h2>
+
+                    <table cellspacing="5">
+                        <apex:variable var="num" value="{!0}"/>
+
+                        <tr class="{!IF(MOD(num, 2) == 0, 'light-td', 'dark-td')}">
+                            <td>Term of the lease:</td>
+                            <td>{!rentYearsAndMonth[bundle]}</td>
+                            <apex:variable var="num" value="{!num + 1}"/>
+                        </tr>
+
+                        <apex:outputPanel layout="none" rendered="{!NOT(ISBLANK(TRIM(breakOptions[bundle])))}">
+                            <tr class="{!IF(MOD(num, 2) == 0, 'light-td', 'dark-td')}">
+                                <td>Break Clause</td>
+                                <td>{!breakOptions[bundle]}</td>
+                            </tr>
+                            <apex:variable var="num" value="{!num + 1}"/>
+                        </apex:outputPanel>
+
+                        <tr class="{!IF(MOD(num, 2) == 0, 'light-td', 'dark-td')}">
+                            <td>Size:</td>
+                            <td class="dark-td">{!ROUND(bundle.Square_Footage__c, 0)} Sq ft</td>
+                            <apex:variable var="num" value="{!num + 1}"/>
+                        </tr>
+
+                        <tr class="{!IF(MOD(num, 2) == 0, 'light-td', 'dark-td')}">
+                            <td>Rent</td>
+                            <td>£ {!ROUND(bundle.Updated_Price_per_sq_ft__c * 12, 2)} per sq ft per annum</td>
+                            <apex:variable var="num" value="{!num + 1}"/>
+                        </tr>
+                        <apex:outputPanel layout="none"
+                                          rendered="{!NOT(ISBLANK(bundle.Suite_Inventory__r.Service_Charge_per_sq_ft__c))}">
+                            <tr class="{!IF(MOD(num, 2) == 0, 'light-td', 'dark-td')}">
+                                <td>Service Charge</td>
+                                <td>£ {!ROUND(bundle.Suite_Inventory__r.Service_Charge_per_sq_ft__c * 12, 2)} per sq ft per
+                                    annum
+                                </td>
+                                <apex:variable var="num" value="{!num + 1}"/>
+                            </tr>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none"
+                                          rendered="{!NOT(ISBLANK(bundle.Suite_Inventory__r.Insurance_Charge_per_sq_ft__c))}">
+                            <tr class="{!IF(MOD(num, 2) == 0, 'light-td', 'dark-td')}">
+                                <td>Insurance</td>
+                                <td>£ {!ROUND(bundle.Suite_Inventory__r.Insurance_Charge_per_sq_ft__c * 12, 2)} per sq ft per
+                                    annum
+                                </td>
+                                <apex:variable var="num" value="{!num + 1}"/>
+                            </tr>
+                        </apex:outputPanel>
+
+                        <apex:repeat value="{!bundles[bundle]}" var="lineItem">
+                            <apex:outputPanel layout="none"
+                                              rendered="{!lineItem.SBQQ__ProductCode__c == 'EstateCharge'}">
+                                <tr class="{!IF(MOD(num, 2) == 0, 'light-td', 'dark-td')}">
+                                    <td>Estate Charge</td>
+                                    <td>£ {!ROUND(bundle.Suite_Inventory__r.Estate_Charge_per_sq_ft__c * 12, 2)} per sq ft per annum
+                                    </td>
+                                </tr>
+                                <apex:variable var="num" value="{!num + 1}"/>
+                            </apex:outputPanel>
+                        </apex:repeat>
+
+                        <apex:outputPanel layout="none"
+                                          rendered="{!NOT(ISBLANK(quote.Estimated_Business_Rate_Per_Annum__c))}">
+                            <tr class="{!IF(MOD(num, 2) == 0, 'light-td', 'dark-td')}">
+                                <td class="firstColumn">Estimated Business rates</td>
+                                <td>£ {!quote.Estimated_Business_Rate_Per_Annum__c} per sq ft per annum</td>
+                            </tr>
+                            <apex:variable var="num" value="{!num + 1}"/>
+                        </apex:outputPanel>
+
+                        <apex:repeat value="{!bundles[bundle]}" var="lineItem">
+                            <apex:outputPanel layout="none"
+                                              rendered="{!lineItem.SBQQ__ProductCode__c == 'CarParkLicense'}">
+                                <tr class="{!IF(MOD(num, 2) == 0, 'light-td', 'dark-td')}">
+                                    <td class="firstColumn">Car Parking</td>
+                                    <td>£ {!bundle.Inventory__r.Cost_per_space__c} per space per month</td>
+                                </tr>
+                                <apex:variable var="num" value="{!num + 1}"/>
+                            </apex:outputPanel>
+                        </apex:repeat>
+
+                        <apex:outputPanel layout="none"
+                                          rendered="{!bundle.Monthly_Average__c != NULL && bundle.Monthly_Average__c != 0}">
+                            <apex:outputPanel layout="none"
+                                              rendered="{!ROUND(bundle.Discount_Full_Term__c / bundle.Monthly_Average__c, 1) != 0}">
+                                <tr class="{!IF(MOD(num, 2) == 0, 'light-td', 'dark-td')}">
+                                    <td>Concession</td>
+                                    <td> {!ROUND(bundle.Discount_Full_Term__c / bundle.Monthly_Average__c, 1)} {!IF(ROUND(bundle.Discount_Full_Term__c / bundle.Monthly_Average__c, 1) == 1, 'month', 'months')}
+                                        rent free
+                                    </td>
+                                    <apex:variable var="num" value="{!num + 1}"/>
+                                </tr>
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                    </table>
+                </div>
+
+                <table cellspacing="5"
+                       style="margin-top: 30px; margin-bottom: 0px; padding-bottom: 0px; {!IF(countOfBundels == iterator, 'min-height: 380px;', '')}"
+                       class="indicativeCostsTable">
+                    <tr>
+                        <th colspan="{!rentYearsCount[bundle] + 1}" class="table-header"><h4>Indicative costs –
+                            Breakdown annually (As per your lease)</h4></th>
+                    </tr>
+                    <tr>
+                        <td class="dark-td">Years</td>
+                        <apex:repeat value="{!rentsByYears[bundle]}" var="year">
+                            <td class="light-td">{!year}</td>
+                        </apex:repeat>
+                    </tr>
+                    <apex:variable value="{!0}" var="totalAnnualCost"/>
+                    <tr>
+                        <td class="dark-td" width="16%">Rent:</td>
+                        <apex:repeat value="{!rentsByYears[bundle]}" var="year">
+                            <td class="light-td">£
+                                <apex:outputText value="{0, number, 00.00}">
+                                    <apex:param value="{!rentsByYears[bundle][year]}"/>
+                                </apex:outputText>
+                            </td>
+                        </apex:repeat>
+                    </tr>
+                    <apex:repeat value="{!bundles[bundle]}" var="lineItem">
+                        <apex:outputPanel layout="none"
+                                          rendered="{!lineItem.SBQQ__ProductCode__c == 'ServiceCharge' || lineItem.SBQQ__ProductCode__c == 'BuildingInsurance' || lineItem.SBQQ__ProductCode__c == 'EstateCharge'}">
+                            <tr>
+                                <td class="dark-td">{!lineItem.SBQQ__Product__r.Name}:</td>
+                                <apex:repeat value="{!rentsByYears[bundle]}">
+                                    <td class="light-td">£
+                                        <apex:outputText value="{0, number, 00.00}">
+                                            <apex:param value="{!lineItem.Annual_Cost__c}"/>
+                                        </apex:outputText>
+                                    </td>
+                                </apex:repeat>
+                            </tr>
+                            <apex:variable var="totalAnnualCost"
+                                           value="{!totalAnnualCost + IF(lineItem.Annual_Cost__c = null, 0, lineItem.Annual_Cost__c)}"/>
+                        </apex:outputPanel>
+                    </apex:repeat>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dark-td">Total Cost per annum:</td>
+                        <apex:repeat value="{!rentsByYears[bundle]}" var="year">
+                            <td class="light-td">£
+                                <apex:outputText value="{0, number, 00.00}">
+                                    <apex:param value="{!rentsByYears[bundle][year] + totalAnnualCost}"/>
+                                </apex:outputText>
+                            </td>
+                        </apex:repeat>
+                    </tr>
+                    <tr>
+                        <td class="dark-td">Quarterly Cost (As billed):</td>
+                        <apex:repeat value="{!rentsByYears[bundle]}" var="year">
+                            <td class="light-td">£
+                                <apex:outputText value="{0, number, 00.00}">
+                                    <apex:param value="{!(rentsByYears[bundle][year] + totalAnnualCost) / 4}"/>
+                                </apex:outputText>
+                            </td>
+                        </apex:repeat>
+                    </tr>
+                    <tr>
+                        <td class="dark-td">Monthly Cost</td>
+                        <apex:repeat value="{!rentsByYears[bundle]}" var="year">
+                            <td class="light-td">£
+                                <apex:outputText value="{0, number, 00.00}">
+                                    <apex:param value="{!(rentsByYears[bundle][year] + totalAnnualCost) / 12}"/>
+                                </apex:outputText>
+                            </td>
+                        </apex:repeat>
+                    </tr>
+                </table>
+            </apex:repeat>
+
+            <div style="height: 222px; margin-top: 5px; padding-top: 0px;" class="tableWithText finalText">
+                <h3>Please note:</h3>
+
+                <ol>
+                    <li>The amounts shown above are always subject to VAT.</li>
+
+                    <li>Each year we&rsquo;ll review your service charge and insurance payments but we&rsquo;ll
+                        always tell you about any changes first.
+                    </li>
+
+                    <li>You will be sent an invoice every quarter with all the charges due for payment,
+                        the amounts above will give you an indication of those costs, but are for illustrative purposes only
+                    </li>
+                </ol>
+
+                <p><b>Don't forget:</b></p>
+                <p><b>Utilities</b></p>
+                <p>Utilities are charged based on your usage, in addition to the amounts we've shown above</p>
+
+                <p><b>Business rates</b></p>
+                <p>Business rates for your office and car parking spaces are payable to the local authority. To
+                    get
+                    an accurate idea of how much they&rsquo;re likely to be all you need to do is contact your
+                    Local
+                    Authority and they'll be able to give you everything you need.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div style="font-size: 14px;" class="footer">
+        <span class="footer-paragraphs">0800 731 0300</span>
+        <apex:outputPanel rendered="{!actualPortfolio = 'Bruntwood'}" layout="none">
+            <span class="footer-paragraphs"><a href="https://bruntwood.co.uk/">www.bruntwood.co.uk</a></span>
+            <span class="footer-image">
+                    <a href="https://bruntwood.co.uk/"><img class="footer-logo"
+                                                            src="{!IF(actualPortfolio = 'MSP', $Resource.logoMSPFooter, IF(actualPortfolio = 'Alderley Park', $Resource.logoAPFooter, $Resource.logo))}"/></a>
+                </span>
+        </apex:outputPanel>
+
+        <apex:outputPanel rendered="{!actualPortfolio = 'MSP'}" layout="none">
+            <span class="footer-paragraphs"><a href="https://mspl.co.uk/">www.mspl.co.uk</a></span>
+            <span class="footer-image">
+                    <a href="https://mspl.co.uk/"><img class="footer-logo"
+                                                       src="{!IF(actualPortfolio = 'MSP', $Resource.logoMSPFooter, IF(actualPortfolio = 'Alderley Park', $Resource.logoAPFooter, $Resource.logo))}"/></a>
+                </span>
+        </apex:outputPanel>
+
+        <apex:outputPanel rendered="{!actualPortfolio = 'Alderley Park'}" layout="none">
+            <span class="footer-paragraphs"><a href="https://www.alderleypark.co.uk/">www.alderleypark.co.uk</a></span>
+            <span class="footer-image">
+                    <a href="https://www.alderleypark.co.uk/"><img class="footer-logo"
+                                                                   src="{!IF(actualPortfolio = 'MSP', $Resource.logoMSPFooter, IF(actualPortfolio = 'Alderley Park', $Resource.logoAPFooter, $Resource.logo))}"/></a>
+                </span>
+        </apex:outputPanel>
+    </div>
+    </html>
+</apex:page>

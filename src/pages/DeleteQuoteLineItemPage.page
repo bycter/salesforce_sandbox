@@ -1,0 +1,3 @@
+<apex:page sidebar="true" showHeader="true" standardController="SBQQ__QuoteLine__c" lightningStylesheets="true">
+    <center><h2>Please, click on Edit Lines button to delete the quote line item. Make sure that the quote is unlocked.</h2></center>
+</apex:page>

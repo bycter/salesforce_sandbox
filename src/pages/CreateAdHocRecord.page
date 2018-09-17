@@ -1,0 +1,19 @@
+<apex:page showHeader="true" sidebar="true" standardController="Meeting_Room_Booking__c" extensions="CreateAdHocRecordsController" action="{!createRecords}" lightningStylesheets="true" tabStyle="Meeting_Room_Booking__c">
+    <apex:slds />
+
+    <div class="slds">
+        <div class="slds-notify_container slds-is-relative">
+            <div class="slds-notify slds-notify_toast slds-theme_error" role="alert">
+                <span class="slds-assistive-text">error</span>
+                    <span class="slds-icon_container slds-icon-utility-error slds-m-right_small slds-no-flex slds-align-top">
+                    <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error" />
+                    </svg>
+                </span>
+                <div class="slds-notify__content">
+                    <h2 class="slds-text-heading_small">{!adHocRecords[0].message}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</apex:page>

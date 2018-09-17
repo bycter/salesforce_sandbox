@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>ffbc__defaultdocumenttexthelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Contains the default header and footer text for billing documents.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ffbc__CreditNoteFooterText__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Default text to be shown at the end of printed billing documents of type Credit Note.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Default text to be shown at the end of printed billing documents of type Credit Note.</inlineHelpText>
+        <label>Credit Note Footer</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ffbc__CreditNoteHeaderText__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Default text to be shown at the start of printed billing documents of type Credit Note.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Default text to be shown at the start of printed billing documents of type Credit Note.</inlineHelpText>
+        <label>Credit Note Header</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ffbc__InvoiceFooterText__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Default text to be shown at the end of printed billing documents of type Invoice.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Default text to be shown at the end of printed billing documents of type Invoice.</inlineHelpText>
+        <label>Invoice Footer</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ffbc__InvoiceHeaderText__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Default text to be shown at the start of printed billing documents of type Invoice.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Default text to be shown at the start of printed billing documents of type Invoice.</inlineHelpText>
+        <label>Invoice Header</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <label>Default Document Text</label>
+    <listViews>
+        <fullName>ffbc__All</fullName>
+        <columns>NAME</columns>
+        <columns>ffbc__InvoiceHeaderText__c</columns>
+        <columns>ffbc__InvoiceFooterText__c</columns>
+        <columns>ffbc__CreditNoteHeaderText__c</columns>
+        <columns>ffbc__CreditNoteFooterText__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>DDT{0000000}</displayFormat>
+        <label>Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Default Document Text</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

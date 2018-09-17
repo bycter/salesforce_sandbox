@@ -1,0 +1,3 @@
+<apex:page sidebar="true" showHeader="true" standardController="SBQQ__Quote__c" lightningStylesheets="true">
+  <center><h2>To generate Quote, proceed to Opportunity layout (Go to <apex:outputLink value="/006"> Opportunities </apex:outputLink>).</h2></center>
+</apex:page>

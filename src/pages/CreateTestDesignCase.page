@@ -1,0 +1,25 @@
+<apex:page controller="CustomDesignCase" lightningStylesheets="true" showHeader="true" sidebar="true">
+    <apex:includeLightning />
+    <apex:messages />
+    <apex:form >
+        <apex:commandButton onclick="window.history.go(-1);" value="Back"/>
+    </apex:form>
+    <div id="lightning"></div>
+    <apex:outputPanel layout="block" rendered="{! !haveErrors}">
+        <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            var caseId = '{! caseId }';
+            var qouteId = '{! quoteId }';
+            $Lightning.use("c:DesignCaseApp", function() {
+              $Lightning.createComponent("c:DesignCase",
+              { recordId : caseId,
+                quoteId : qouteId
+              },
+              "lightning",
+              function(cmp) {
+              });
+            });
+        }, false);
+        </script>
+    </apex:outputPanel>
+</apex:page>

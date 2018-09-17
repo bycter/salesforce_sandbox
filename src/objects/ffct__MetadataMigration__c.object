@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>ffct__migrationsetonlinehelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>The metadata that needs to be migrated to another organization</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ffct__APIName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Holds the API name of the metadata to be migrated</description>
+        <externalId>false</externalId>
+        <label>API Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffct__ChangedById__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Changed By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>MetadataMigration</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffct__MetadataType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Holds the metadata type to be migrated</description>
+        <externalId>false</externalId>
+        <label>Metadata Type</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffct__MigrationSet__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Holds the associated Migration Set</description>
+        <externalId>false</externalId>
+        <label>Migration Set</label>
+        <referenceTo>ffct__MigrationSet__c</referenceTo>
+        <relationshipLabel>Metadata Migration</relationshipLabel>
+        <relationshipName>MetadataMigration</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>ffct__NamespacePrefix__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Holds the namespace prefix of the metadata to be migrated</description>
+        <externalId>false</externalId>
+        <label>Namespace Prefix</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffct__UniqueKey__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <description>Holds the unique value of the metadata record</description>
+        <externalId>true</externalId>
+        <label>Unique Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <label>Metadata Migration</label>
+    <listViews>
+        <fullName>ffct__All</fullName>
+        <columns>NAME</columns>
+        <columns>ffct__MetadataType__c</columns>
+        <columns>ffct__NamespacePrefix__c</columns>
+        <columns>ffct__APIName__c</columns>
+        <columns>ffct__MigrationSet__c</columns>
+        <columns>ffct__ChangedById__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Metadata Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Metadata Migration</pluralLabel>
+    <searchLayouts>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <listViewButtons>ffct__Delete</listViewButtons>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>ffct__Delete</fullName>
+        <availability>online</availability>
+        <description>This button would be used to delete selected metadata items</description>
+        <displayType>massActionButton</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Delete</masterLabel>
+        <openType>replace</openType>
+        <page>ffct__metadatamigrationdelete</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>ffct__GoToList</fullName>
+        <availability>online</availability>
+        <description>This button would be used to go on metadata migrations list view page</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Go to List</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/{!$ObjectType.ffct__MetadataMigration__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>ffct__ShowReport</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Show Report</masterLabel>
+        <openType>noSidebar</openType>
+        <page>ffct__metadatamigrationreport</page>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+    </webLinks>
+</CustomObject>

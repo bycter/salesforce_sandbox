@@ -1,0 +1,952 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>ffbc__contracthelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Contains contracts between your organization and a customer to provide them with a product or service.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>ffbc__ActiveContractLockedFields</fullName>
+        <availableFields>
+            <field>ffbc__ContractName__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>ffbc__Description__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>ffbc__RenewalReminder__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <description>Defines the fields of a contract that are read-only when its status is Active.</description>
+        <displayedFields>
+            <field>ffbc__Account__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__Company__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__StartDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__EndDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__FirstBillDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__OriginalEndDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__ReasonForEndingContract__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__EndContractNotes__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Active Contract Locked Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>ffbc__EnhancedContractAdditionalFields</fullName>
+        <description>Defines the additional contract fields to be displayed on the enhanced Contract Detail page.</description>
+        <label>Enhanced Contract Additional Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>ffps_brunt__ContractAdditionalFields</fullName>
+        <description>For use on the display page and on the custom dev</description>
+        <displayedFields>
+            <field>ffps_brunt__Creating_Contract__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffps_brunt__Upfront_Amount_Paid__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffps_brunt__Upfront_Reference__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffps_brunt__Upfront_Payment_Value__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ContractAdditionalFields</label>
+    </fieldSets>
+    <fields>
+        <fullName>ffbc__Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the Salesforce Account object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the Salesforce Account object.</inlineHelpText>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Related Contracts</relationshipLabel>
+        <relationshipName>Contracts</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__ActiveContract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the active contract to which this change request relates.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the active contract to which this change request relates.</inlineHelpText>
+        <label>Active Contract</label>
+        <referenceTo>ffbc__Contract__c</referenceTo>
+        <relationshipLabel>Related Contracts</relationshipLabel>
+        <relationshipName>RelatedContracts</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__AnnualRecurringRevenue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Monthly Recurring Revenue multiplied by 12.</description>
+        <externalId>false</externalId>
+        <formula>ffbc__MonthlyRecurringRevenue__c * 12</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Monthly Recurring Revenue multiplied by 12.</inlineHelpText>
+        <label>Annual Recurring Revenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__ApprovalStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Contains the approval status of the change request if this is a contract change request.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contains the approval status of the change request if this is a contract change request.</inlineHelpText>
+        <label>Approval Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Submitted</fullName>
+                    <default>false</default>
+                    <label>Submitted</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>Recalled</fullName>
+                    <default>false</default>
+                    <label>Recalled</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffbc__Company__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the associated company.</description>
+        <externalId>false</externalId>
+        <label>Company</label>
+        <referenceTo>fferpcore__Company__c</referenceTo>
+        <relationshipLabel>Related Contracts</relationshipLabel>
+        <relationshipName>Contracts</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__ContractName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Textual name of the contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Textual name of the contract.</inlineHelpText>
+        <label>Contract Name</label>
+        <length>120</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Description of the contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Description of the contract.</inlineHelpText>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__EndContractNotes__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Additional information about the reasons for ending the contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Additional information about the reasons for ending the contract.</inlineHelpText>
+        <label>End Contract Notes</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__EndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date on which the contract ends.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the contract ends.</inlineHelpText>
+        <label>End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__FirstBillDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>First date on which the contract is to be billed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>First date on which the contract is to be billed.</inlineHelpText>
+        <label>First Bill Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__IsRenewalOfPreviousContract__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates whether this contract is a renewal of the previous contract.</description>
+        <externalId>false</externalId>
+        <formula>AND(
+                ISPICKVAL(ffbc__Type__c, &apos;Contract&apos;),
+                NOT(ISNULL(ffbc__PreviousContract__c)),
+                ffbc__PreviousContract__r.ffbc__MajorVersion__c &lt; ffbc__MajorVersion__c
+            )</formula>
+        <inlineHelpText>Indicates whether this contract is a renewal of the previous contract.</inlineHelpText>
+        <label>Renewal of Previous Contract</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__MajorVersion__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The major version of this contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contract major version</inlineHelpText>
+        <label>Major Version</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__MonthlyRecurringRevenue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total monthly recurring revenue for all contract line items.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total monthly recurring revenue for all contract line items.</inlineHelpText>
+        <label>Monthly Recurring Revenue</label>
+        <summarizedField>ffbc__ContractLineItem__c.ffbc__MonthlyRecurringRevenue__c</summarizedField>
+        <summaryForeignKey>ffbc__ContractLineItem__c.ffbc__Contract__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__OriginalEndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The original date on which the contract was due to end.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The original date on which the contract was due to end.</inlineHelpText>
+        <label>Original End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__PreviousContract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the previous contract to which this contract relates.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the previous contract to which this contract relates.</inlineHelpText>
+        <label>Previous Contract</label>
+        <referenceTo>ffbc__Contract__c</referenceTo>
+        <relationshipLabel>Next Contract</relationshipLabel>
+        <relationshipName>NextContract</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__ReasonForEndingContract__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Reason for ending the contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Reason for ending the contract.</inlineHelpText>
+        <label>Reason for Ending Contract</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Terminated</fullName>
+                    <default>false</default>
+                    <label>Terminated</label>
+                </value>
+                <value>
+                    <fullName>Did not renew</fullName>
+                    <default>false</default>
+                    <label>Did not renew</label>
+                </value>
+                <value>
+                    <fullName>Renewed</fullName>
+                    <default>false</default>
+                    <label>Renewed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffbc__RenewalReminder__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date on which to report that the contract is coming up for renewal.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which to report that the contract is coming up for renewal.</inlineHelpText>
+        <label>Renewal Reminder</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__StartDate__c</fullName>
+        <defaultValue>TODAY()</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Date on which the contract starts.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the contract starts.</inlineHelpText>
+        <label>Start Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Status of the contract. The status can be Draft, Active or Expired.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Status of the contract. The status can be Draft, Active or Expired.</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Expired</fullName>
+                    <default>false</default>
+                    <label>Expired</label>
+                </value>
+                <value>
+                    <fullName>Superseded</fullName>
+                    <default>false</default>
+                    <label>Superseded</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffbc__TotalContractValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total value of all recurring fixed and one-off contract lines over the entire life of the contract if the contract is not continuous.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total value of all recurring fixed and one-off contract lines over the entire life of the contract if the contract is not continuous.</inlineHelpText>
+        <label>Total Contract Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__TriggerId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>An identifier that is used by services when creating contracts.</description>
+        <externalId>false</externalId>
+        <label>Trigger ID</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Type of contract. Determines whether this is a contract or a change request for a contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Type of contract. Determines whether this is a contract or a change request for a contract.</inlineHelpText>
+        <label>Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Contract</fullName>
+                    <default>true</default>
+                    <label>Contract</label>
+                </value>
+                <value>
+                    <fullName>Change Request</fullName>
+                    <default>false</default>
+                    <label>Change Request</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Creating_Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Creating Contract</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Contracts</relationshipLabel>
+        <relationshipName>Contracts</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Legal_Contract_End_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Legal Contract End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Upfront_Amount_Paid__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Upfront Amount Paid</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Upfront_Payment_Paid__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>AND(ffps_brunt__Upfront_Payment_Value__c &gt; 0, ffps_brunt__Upfront_Amount_Paid__c &gt;= ffps_brunt__Upfront_Payment_Value__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Upfront Payment Paid</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Upfront_Payment_Value__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Upfront Payment Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Upfront_Reference__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>Upfront Reference</label>
+        <length>24</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Contract</label>
+    <listViews>
+        <fullName>ffbc__All</fullName>
+        <columns>NAME</columns>
+        <columns>ffbc__ContractName__c</columns>
+        <columns>ffbc__Type__c</columns>
+        <columns>ffbc__Status__c</columns>
+        <columns>ffbc__Account__c</columns>
+        <columns>ffbc__StartDate__c</columns>
+        <columns>ffbc__EndDate__c</columns>
+        <columns>ffbc__RenewalReminder__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>ffbc__AllActiveContracts</fullName>
+        <columns>NAME</columns>
+        <columns>ffbc__ContractName__c</columns>
+        <columns>ffbc__Account__c</columns>
+        <columns>ffbc__StartDate__c</columns>
+        <columns>ffbc__EndDate__c</columns>
+        <columns>ffbc__RenewalReminder__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ffbc__Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </filters>
+        <filters>
+            <field>ffbc__Type__c</field>
+            <operation>equals</operation>
+            <value>Contract</value>
+        </filters>
+        <label>Contracts - Active</label>
+    </listViews>
+    <listViews>
+        <fullName>ffbc__AllDraftContracts</fullName>
+        <columns>NAME</columns>
+        <columns>ffbc__ContractName__c</columns>
+        <columns>ffbc__Account__c</columns>
+        <columns>ffbc__StartDate__c</columns>
+        <columns>ffbc__EndDate__c</columns>
+        <columns>ffbc__RenewalReminder__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ffbc__Status__c</field>
+            <operation>equals</operation>
+            <value>Draft</value>
+        </filters>
+        <filters>
+            <field>ffbc__Type__c</field>
+            <operation>equals</operation>
+            <value>Contract</value>
+        </filters>
+        <label>Contracts - Draft</label>
+    </listViews>
+    <listViews>
+        <fullName>ffbc__AllExpiredContracts</fullName>
+        <columns>NAME</columns>
+        <columns>ffbc__ContractName__c</columns>
+        <columns>ffbc__Account__c</columns>
+        <columns>ffbc__StartDate__c</columns>
+        <columns>ffbc__EndDate__c</columns>
+        <columns>ffbc__RenewalReminder__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ffbc__Status__c</field>
+            <operation>equals</operation>
+            <value>Expired</value>
+        </filters>
+        <filters>
+            <field>ffbc__Type__c</field>
+            <operation>equals</operation>
+            <value>Contract</value>
+        </filters>
+        <label>Contracts - Expired</label>
+    </listViews>
+    <listViews>
+        <fullName>ffbc__ChangeRequests</fullName>
+        <columns>NAME</columns>
+        <columns>ffbc__ContractName__c</columns>
+        <columns>ffbc__ApprovalStatus__c</columns>
+        <columns>ffbc__Account__c</columns>
+        <columns>ffbc__StartDate__c</columns>
+        <columns>ffbc__EndDate__c</columns>
+        <columns>ffbc__RenewalReminder__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ffbc__Type__c</field>
+            <operation>equals</operation>
+            <value>Change Request</value>
+        </filters>
+        <label>Change Requests</label>
+    </listViews>
+    <listViews>
+        <fullName>ffbc__Renewals</fullName>
+        <columns>NAME</columns>
+        <columns>ffbc__ContractName__c</columns>
+        <columns>ffbc__ApprovalStatus__c</columns>
+        <columns>ffbc__Account__c</columns>
+        <columns>ffbc__StartDate__c</columns>
+        <columns>ffbc__EndDate__c</columns>
+        <columns>ffbc__RenewalReminder__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ffbc__Type__c</field>
+            <operation>equals</operation>
+            <value>Contract</value>
+        </filters>
+        <filters>
+            <field>ffbc__Status__c</field>
+            <operation>equals</operation>
+            <value>Draft</value>
+        </filters>
+        <filters>
+            <field>ffbc__MajorVersion__c</field>
+            <operation>greaterThan</operation>
+            <value>1</value>
+        </filters>
+        <label>Renewals</label>
+    </listViews>
+    <listViews>
+        <fullName>ffbc__RenewalsDueNext30Days</fullName>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <columns>NAME</columns>
+        <columns>ffbc__ContractName__c</columns>
+        <columns>ffbc__Account__c</columns>
+        <columns>ffbc__StartDate__c</columns>
+        <columns>ffbc__EndDate__c</columns>
+        <columns>ffbc__RenewalReminder__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ffbc__Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </filters>
+        <filters>
+            <field>ffbc__Type__c</field>
+            <operation>equals</operation>
+            <value>Contract</value>
+        </filters>
+        <filters>
+            <field>ffbc__RenewalReminder__c</field>
+            <operation>equals</operation>
+            <value>NEXT_N_DAYS:30</value>
+        </filters>
+        <filters>
+            <field>ffbc__RenewalReminder__c</field>
+            <operation>lessOrEqual</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Contracts - Renewal due in next 30 days</label>
+    </listViews>
+    <listViews>
+        <fullName>ffbc__RenewalsOverdue</fullName>
+        <columns>NAME</columns>
+        <columns>ffbc__ContractName__c</columns>
+        <columns>ffbc__Account__c</columns>
+        <columns>ffbc__StartDate__c</columns>
+        <columns>ffbc__EndDate__c</columns>
+        <columns>ffbc__RenewalReminder__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ffbc__Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </filters>
+        <filters>
+            <field>ffbc__Type__c</field>
+            <operation>equals</operation>
+            <value>Contract</value>
+        </filters>
+        <filters>
+            <field>ffbc__RenewalReminder__c</field>
+            <operation>lessOrEqual</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Contracts - Renewal overdue</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CT{0000000}</displayFormat>
+        <label>Contract Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Contracts</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>ffbc__ContractName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__StartDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__EndDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__RenewalReminder__c</customTabListAdditionalFields>
+        <listViewButtons>ffbc__ActivateContracts</listViewButtons>
+        <listViewButtons>ffbc__CreateBillingDocuments</listViewButtons>
+        <listViewButtons>ffbc__CreateRenewals</listViewButtons>
+        <lookupDialogsAdditionalFields>ffbc__Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ffbc__Account__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ffbc__Status__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ffbc__Account__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__Account__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>ffbc__ActivateContract</fullName>
+        <availability>online</availability>
+        <description>Activate the Contract</description>
+        <displayType>button</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Activate</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__contractactivate</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__ActivateContracts</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Activate Contracts</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__contractactivatebatch</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__AddPlan</fullName>
+        <availability>online</availability>
+        <description>Add a Plan to the Contract</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Add Plan</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__contractaddplan</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__ApplyChangeRequest</fullName>
+        <availability>online</availability>
+        <description>Apply the Change Request to the Contract</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Apply to Contract</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__contractapplychangerequest</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__CalculateTotalValue</fullName>
+        <availability>online</availability>
+        <description>Calculates the values and totals for the contract.</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Calculate Values</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__contractcalculatetotalvalue</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__CreateBillDoc</fullName>
+        <availability>online</availability>
+        <description>Create the Billing Document from the Contract</description>
+        <displayType>button</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Create Billing Document</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__contractcreatebilldoc</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__CreateBillingDocuments</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Create Billing Documents</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__contractcreatebillsbatch</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__CreateChangeRequest</fullName>
+        <availability>online</availability>
+        <description>Create the Change Request from the Contract</description>
+        <displayType>button</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Create Change Request</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__contractcreatechangerequest</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__CreateRenewal</fullName>
+        <availability>online</availability>
+        <description>Create a Renewal from the Contract</description>
+        <displayType>button</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Create Renewal</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__contractcreaterenewal</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__CreateRenewals</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Create Renewals</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__contractcreaterenewalsbulk</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__EndContract</fullName>
+        <availability>online</availability>
+        <description>Ends a contract</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>End Contract</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__contractending</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__EnhancedEdit</fullName>
+        <availability>online</availability>
+        <description>Opens the Enhanced Edit page for this contract</description>
+        <displayType>button</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Edit with Enhanced Page</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__contractsedit</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__EnhancedView</fullName>
+        <availability>online</availability>
+        <description>Opens the Enhanced View page for this contract</description>
+        <displayType>button</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>View on Enhanced Page</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__contractsview</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__GenerateBillingSchedule</fullName>
+        <availability>online</availability>
+        <description>Generate billing schedules for the Contract</description>
+        <displayType>button</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Generate Billing Schedules</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__contractgeneratebillingschedule</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

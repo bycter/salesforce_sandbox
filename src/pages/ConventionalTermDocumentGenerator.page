@@ -1,0 +1,1528 @@
+<apex:page renderAs="pdf" id="ConventionalTermDocumentGenerator" sideBar="false" showHeader="false"
+           standardStylesheets="false"
+           applyBodyTag="false" controller="ConventionalTermDocumentGenerator" applyHtmlTag="false" cache="false"
+           action="{!init}">
+
+    <html>
+    <head>
+        <apex:stylesheet value="{!$Resource.HoTsPDFStyle}"/>
+        <style>
+            h1, h3 {
+                margin: 0;
+                padding: 10px;
+                white-space: nowrap;
+            }
+
+            div.footer {
+                width: 100%;
+                padding-top: 180px;
+                text-align: right;
+            }
+
+            div.header {
+                padding-top: 70px;
+                padding-bottom: 200px;
+                width: 100%;
+            }
+
+            .agreement_text_standard {
+                font-family: georgia;
+                font-size: 10.5pt;
+                width: 100%;
+                margin: 0 20px;
+                padding: 0;
+                display: block;
+            }
+
+            .num {
+                width: 40px;
+                margin-top: 1em;
+                vertical-align: top;
+                display: inline-block;
+
+            }
+
+            .level1 {
+                font-weight: bold;
+                padding-top: 1em;
+            }
+
+            .text {
+                display: inline-block;
+                margin-top: 1em;
+                vertical-align: top;
+                width: 90%;
+            }
+
+            p {
+                padding: 0em;
+                margin: 0em;
+                font-weight: normal;
+            }
+
+            div.signature table td, th {
+                width: 200px;
+                text-align: left;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                min-height: 20px;
+            }
+
+            .hide {
+                color: #FFFFFF;
+            }
+
+            div.signature table {
+                margin-bottom: 40px;
+            }
+
+            .contactDescription {
+                margin-bottom: 10px;
+            }
+
+            .contactType {
+                font-size: 10.5pt;
+                font-weight: bold;
+            }
+
+            .contactHelpText {
+                font-size: 9pt;
+            }
+
+        </style>
+    </head>
+    <apex:variable var="index" value="{!0}"/>
+    <apex:variable var="surrenderFlag" value="{!0}"/>
+    <apex:repeat value="{!bundleProducts}" var="bundle">
+        <!-- CoverPage -->
+        <apex:variable var="keyString" value="{!keyList[bundle['Suite'].Id]}"/>
+        <apex:variable var="businessRate" value="{!businessRatesPerSqFtMap[bundle['Suite'].Id]}"/>
+        <apex:variable var="rentReviewList" value="{!bundleRentReviewMap[bundle['Suite'].Id]}"/>
+        <apex:variable var="preEmptionList" value="{!bundlePreEmptionMap[bundle['Suite'].Id]}"/>
+        <apex:variable var="halfRentList" value="{!bundleHalfRentMap[bundle['Suite'].Id]}"/>
+        <apex:variable var="freeRentList" value="{!bundleFreeRentMap[bundle['Suite'].Id]}"/>
+        <apex:variable var="steppedRentList" value="{!bundleSteppedRentMap[bundle['Suite'].Id]}"/>
+        <apex:variable var="rentList" value="{!bundleRentMap[bundle['Suite'].Id]}"/>
+        <apex:variable var="firstRentRow" value="{!qLI}"/>
+        <apex:variable var="secondRentRow" value="{!qLI}"/>
+        <apex:variable var="suiteType" value="{!suiteTypesMap[bundle['Suite'].Id]}"/>
+        <apex:variable value="{!bundle['Suite']}" var="SuiteRecord"/>
+
+        <div class="header">
+            <table class="agreement_text_standard" width="100%" style="margin-top:150px">
+                <tbody>
+                <tr>
+                    <td align="Left" colspan="4"><b><p>
+                            <h1>Heads of Terms</h1>
+                            <h1>
+                                <apex:outputText value="{!quoteDetail.SBQQ__Account__r.Registered_Name__c}"/>
+                            </h1>
+                            <h1>
+                                <apex:outputText rendered="{!contains(keyString,' Suite,')}"
+                                                 value="{!SuiteRecord.Suite_Inventory__r.Name}"/>
+                            </h1>
+                            <h1>
+                                <apex:outputText value="{!quoteDetail.Property__r.Name}"/>
+                            </h1>
+                            <h3>
+                                <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                    <apex:param value="{!today()}"/>
+                                </apex:outputText>
+                            </h3>
+                            </p></b>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <apex:outputPanel rendered="{!NOT(ISBLANK(quoteDetail.Property__r.Company_Logo__c))}">
+                <apex:image id="Logo" value="{!quoteDetail.Property__r.Company_Logo__c}" height="90px"/>
+            </apex:outputPanel>
+        </div>
+
+        <DIV style="page-break-after:always"></DIV>
+        <!-- P2 - Terms-->
+
+        <table class="agreement_text_standard" width="100%">
+            <tbody>
+            <tr>
+                <td valign="top">
+                    <apex:variable var="sectionNum" value="{!1}"/>
+                    <apex:outputPanel rendered="true">
+                        <div class="num level1" style="padding-top: 0;">
+                            <apex:variable var="sectionNum" value="{!1}"/>{!sectionNum}</div>
+                        <div class="text level1" style="padding-top: 0;">CUSTOMER
+                            <p>{!quoteDetail.SBQQ__Account__r.Registered_Name__c} <br/>
+                                <apex:outputText value="{!accountFullAddress}"/>
+                            </p>
+                        </div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!contains(keyString,' Guarantor,')}">
+                        <apex:variable value="{!bundle['Guarantor']}" var="Guarantor"/>
+
+                        <div>
+                            <div class="num level1">
+                                <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}</div>
+                            <div class="text level1">GUARANTOR
+                                <p>The Customer’s obligations under the lease will be guaranteed
+                                    by {!Guarantor.Guarantor_Name__c}.<br/>
+                                    <apex:outputText rendered="{!Guarantor.Type_of_Guarantor__c == 'Company'}"
+                                                     value="Registered office address: {!Guarantor.Registered_Address__c}"/>
+                                    <apex:outputText rendered="{!Guarantor.Type_of_Guarantor__c == 'Individual'}"
+                                                     value="Address: {!Guarantor.Registered_Address__c}"/>
+                                </p>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel >
+                        <div>
+                            <div class="num level1">
+                                <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}</div>
+                            <div class="text level1">SUPPLIER
+                                <p>{!quoteDetail.Property__r.Company_Name__c}<br/>
+                                    Registered office address: {!quoteDetail.Property__r.Company_Address__c}
+
+                                </p>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!contains(keyString,' Suite,')}">
+                        <div>
+                            <div class="num level1">
+                                <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}</div>
+                            <div class="text level1">PREMISES
+                                <p>{!SuiteRecord.Suite_Inventory__r.Name}, {!quoteDetail.Property__r.Name}, measuring
+                                    approximately {!SuiteRecord.Suite_Inventory__r.Size_sq_ft__c} sq ft.</p>
+                            </div>
+                        </div>
+
+                        <div id="term">
+                            <div class="num level1">
+                                <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                                <apex:variable var="parNum" value="{!1}"/>
+                            </div>
+                            <div class="text level1">TERM</div>
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">
+                                <p>The lease will be for a term
+                                    of {!SuiteRecord.Term__c} {!IF(SuiteRecord.Term__c == 1, 'month', 'months')}
+                                    beginning on
+                                    <apex:outputText rendered="{!IF(SuiteRecord.When_to_Start_the_Term__c == 'Completion of Lease',true,false)}"
+                                            value=" the completion of the lease"/>
+                                    <apex:outputText rendered="{!IF(SuiteRecord.When_to_Start_the_Term__c == 'Specific Date',true,false)}"
+                                            value=" {!SuiteRecord.Lease_Start_Date__c}"/>
+                                    <apex:outputText rendered="{!IF(SuiteRecord.When_to_Start_the_Term__c == 'End of Customers Existing Lease',true,false)}"
+                                            value=" the day after the Customer’s existing lease expires."/>
+                                </p>
+                            </div>
+                            <apex:outputPanel rendered="{!contains(keyString,' ContractedOut,')}">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text">
+                                    <p>
+                                        <apex:outputText value="The lease will exclude the security of tenure provisions of Part II
+                                            of the Landlord and Tenant Act 1954. Therefore the Customer will have no statutory rights to renew the
+                                            lease at the end of the term, other than by agreement with the Supplier."/>
+                                    </p>
+                                </div>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!NOT(contains(keyString,' ContractedOut,'))}">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text">
+                                    <p>
+                                        <apex:outputText value="The lease will not exclude the security of tenure
+                                        provisions of Part II of the Landlord and Tenant Act 1954. Therefore the
+                                        Customer will have statutory rights to renew the lease at the end of the term if it wishes."/>
+                                    </p>
+                                </div>
+                            </apex:outputPanel>
+                        </div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!contains(keyString,' CustomerBreakOption,')}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">CUSTOMER BREAK OPTION</div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <apex:variable value="{!SuiteRecord.Id}" var="SuiteId"/>
+                        <div class="text"><p>The Customer will have the right to break the lease at the end
+                                of {!bundleBreakOptions[SuiteId].breakDates}
+                                months of the term, provided all rent due under the lease has been paid.</p></div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p>To exercise the right to break the Customer must give the Supplier
+                                between {!bundleBreakOptions[SuiteId].noticedDates} months'
+                                prior written notice. This notice is required to enable the Supplier to remarket the
+                                Premises.
+                                The Customer must also ensure that there
+                                are no continuing subleases in existence at the break date</p></div>
+
+                        <apex:outputPanel rendered="{!bundleBreakOptions[SuiteId].breakPenaltyExists}">
+                            <div class="num level1">
+                                <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                                <apex:variable var="parNum" value="{!1}"/>
+                            </div>
+                            <div class="text"><b>BREAK PENALTY</b>
+                                <p>To exercise the break option(s) the Customer will also need to pay the Supplier the
+                                    sum
+                                    of £{!bundleBreakOptions[SuiteId].breakPenalty} plus VAT.
+                                    This Sum is payable on service of the notice.</p>
+                            </div>
+
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!contains(keyString,' SupplierBreakOption,')}">
+                        <apex:variable value="{!bundle['SupplierBreakOption']}" var="SupplierBreakOption"/>
+
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">SUPPLIER BREAK OPTION</div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <apex:variable value="{!SuiteRecord.Id}" var="SuiteId"/>
+                        <div class="text"><p>The Supplier will have the right to break the lease at the end
+                                of {!bundleSupplierBreakOptions[SuiteId].breakDates} months of the term.</p></div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p>To exercise the right to break, the Supplier must give the Customer a
+                                minimum
+                                of {!SupplierBreakOption.Minimum_Notice__c} months prior written notice.</p>
+                        </div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!contains(keyString,' Suite,')}">
+                        <div>
+                            <div class="num level1">
+                                <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                                <apex:variable var="parNum" value="{!1}"/>
+                            </div>
+                            <div class="text level1">HEADLINE RENT</div>
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">
+                                <p>The rent will be
+                                    <apex:outputText value=" £{0,number,##,###,###.00}">
+                                        <apex:param value="{!ROUND(SuiteRecord.Annual_Average__c, 2)}"/>
+                                    </apex:outputText>
+                                    per annum,
+                                    exclusive of VAT, business rates, service charges, insurance premiums and all other
+                                    outgoings.
+                                    This equates to
+                                    <apex:outputText value=" £{0,number,##,###,###.00}">
+                                        <apex:param value="{!ROUND(SuiteRecord.Updated_Price_per_sq_ft__c * 12, 2)}"/>
+                                    </apex:outputText>
+                                    per sq ft per annum.
+                                </p>
+                            </div>
+                            <apex:outputPanel layout="none"
+                                              rendered="{!OR(SuiteRecord.SBQQ__BillingFrequency__c == 'Traditional Quarters',
+                                                      SuiteRecord.SBQQ__BillingFrequency__c == 'Quarterly')}">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text"><p>The rent will be payable quarterly in advance. The first payment
+                                        will
+                                        be
+                                        due on the date of completion of the lease and will
+                                        cover the period from the start of the term to the next quarter day.</p></div>
+                            </apex:outputPanel>
+                            <apex:outputPanel layout="none"
+                                              rendered="{!(SuiteRecord.SBQQ__BillingFrequency__c == 'Monthly')}">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text"><p>The rent will be payable monthly in advance, the first
+                                        payment will be due on the date of completion will cover the period from the
+                                        start of the term to the end of the following month.</p></div>
+                            </apex:outputPanel>
+
+                        </div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!OR(contains(keyString,' HalfRent,'),contains(keyString,' RentFree,'),contains(keyString,' SteppedRent,'),
+                                    CONTAINS(keyString,' BCCC,'))}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">INCENTIVES</div>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!OR(contains(keyString,' HalfRent,'),contains(keyString,' RentFree,'),contains(keyString,' SteppedRent,'))}">
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text">The Headline Rent is the rent payable following any initial incentive period
+                            detailed below.
+                        </div>
+                        <apex:outputPanel rendered="{!AND(contains(keyString,' HalfRent,'),!contains(keyString,' RentFree,'), halfRentList.size == 1)}">
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">
+
+                                There will be a period of {!bundle['HalfRent'].Term__c} month[s] starting on
+                                <apex:outputText rendered="{!IF(SuiteRecord.When_to_Start_the_Term__c == 'Completion of Lease',true,false)}"
+                                        value=" the completion of the lease,"/>
+                                <apex:outputText rendered="{!IF(AND(SuiteRecord.When_to_Start_the_Term__c == 'Specific Date', bundle['HalfRent'].Start_Term__c == 1),true,false)}"
+                                        value=" {!SuiteRecord.Lease_Start_Date__c},"/>
+                                <apex:outputText rendered="{!IF(AND(SuiteRecord.When_to_Start_the_Term__c == 'Specific Date', bundle['HalfRent'].Start_Term__c > 1),true,false)}"
+                                        value=" {!bundle['HalfRent'].Start_Term__c} month from the commencement of the lease,"/>
+                                <apex:outputText rendered="{!IF(SuiteRecord.When_to_Start_the_Term__c == 'End of Customers Existing Lease',true,false)}"
+                                        value=" the day after the Customer’s existing lease expires,"/>
+                                when the rent
+                                will be half the Headline Rent. This equates to the equivalent of
+                                {!ROUND(bundle['HalfRent'].Term__c / 2, 2)} months rent free.
+                            </div>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!AND(!contains(keyString,' HalfRent,'),contains(keyString,' RentFree,'), freeRentList.size == 1)}">
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">
+                                There will be a rent-free period of {!bundle['RentFree'].Term__c} month[s] starting on
+                                <apex:outputText rendered="{!IF(SuiteRecord.When_to_Start_the_Term__c == 'Completion of Lease',true,false)}"
+                                        value=" the completion of the lease."/>
+                                <apex:outputText rendered="{!IF(AND(SuiteRecord.When_to_Start_the_Term__c == 'Specific Date', bundle['RentFree'].Start_Term__c == 1),true,false)}"
+                                        value=" {!SuiteRecord.Lease_Start_Date__c}."/>
+                                <apex:outputText rendered="{!IF(AND(SuiteRecord.When_to_Start_the_Term__c == 'Specific Date', bundle['RentFree'].Start_Term__c > 1),true,false)}"
+                                        value=" {!bundle['RentFree'].Start_Term__c} month from the commencement of the lease."/>
+                                <apex:outputText rendered="{!IF(SuiteRecord.When_to_Start_the_Term__c == 'End of Customers Existing Lease',true,false)}"
+                                        value=" the day after the Customer’s existing lease expires."/>
+                            </div>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!AND(contains(keyString,' HalfRent,'),contains(keyString,' RentFree,'), freeRentList.size == 1, halfRentList.size == 1)}">
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">
+                                There will be a rent-free period of {!bundle['RentFree'].Term__c} month[s], starting
+                                on
+                                <apex:outputText rendered="{!IF(SuiteRecord.When_to_Start_the_Term__c == 'Completion of Lease',true,false)}"
+                                        value=" the completion of the lease,"/>
+                                <apex:outputText rendered="{!IF(AND(SuiteRecord.When_to_Start_the_Term__c == 'Specific Date', bundle['RentFree'].Start_Term__c == 1),true,false)}"
+                                        value=" {!SuiteRecord.Lease_Start_Date__c},"/>
+                                <apex:outputText rendered="{!IF(AND(SuiteRecord.When_to_Start_the_Term__c == 'Specific Date', bundle['RentFree'].Start_Term__c > 1),true,false)}"
+                                        value=" {!bundle['RentFree'].Start_Term__c} month from the commencement of the lease,"/>
+                                <apex:outputText rendered="{!IF(SuiteRecord.When_to_Start_the_Term__c == 'End of Customers Existing Lease',true,false)}"
+                                        value=" the day after the Customer’s existing lease expires,"/>
+                                followed by a period
+                                of {!bundle['HalfRent'].Term__c} month[s] when the rent will
+                                be
+                                half the Headline Rent. This equates to the equivalent of
+                                <apex:outputText value=" £{0,number,##,###,###.00}.">
+                                    <apex:param value="{!ROUND(SuiteRecord.Discount_Term_Certain__c,2)}"/>
+                                </apex:outputText>
+                            </div>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!OR(freeRentList.size > 1, halfRentList.size > 1)}">
+                            <apex:variable var="i" value="{!1}"/>
+                            <apex:variable var="concessionsCount" value="{!1}"/>
+                            <apex:repeat value="{!rentList}" var="varString" rows="1">
+                                <apex:variable var="firstRentRow" value="{!varString}"/>
+                            </apex:repeat>
+                            <apex:repeat value="{!rentList}" var="varString" rows="2">
+                                <apex:variable var="secondRentRow" value="{!varString}"/>
+                            </apex:repeat>
+                            <apex:outputPanel rendered="true">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text">
+                                    There will be a
+                                    {!IF(firstRentRow.SBQQ__ProductCode__c == 'RentFree',' rent-free ',' ')}
+
+                                    period of {!firstRentRow.Term__c} month[s] starting on
+                                    <apex:outputText rendered="{!IF(SuiteRecord.When_to_Start_the_Term__c == 'Completion of Lease',true,false)}"
+                                            value=" the completion of the lease"/>
+                                    <apex:outputText rendered="{!IF(AND(SuiteRecord.When_to_Start_the_Term__c == 'Specific Date', firstRentRow.Start_Term__c == 1),true,false)}"
+                                            value=" {!SuiteRecord.Lease_Start_Date__c}"/>
+                                    <apex:outputText rendered="{!IF(AND(SuiteRecord.When_to_Start_the_Term__c == 'Specific Date', firstRentRow.Start_Term__c > 1),true,false)}"
+                                            value=" {!firstRentRow.Start_Term__c} month from the commencement of the lease"/>
+                                    <apex:outputText rendered="{!IF(SuiteRecord.When_to_Start_the_Term__c == 'End of Customers Existing Lease',true,false)}"
+                                            value=" the day after the Customer’s existing lease expires"/>
+                                    <apex:outputText value="{!IF(firstRentRow.SBQQ__ProductCode__c == 'RentFree','',' when the rent will be half the Headline Rent')}"/>
+                                    <apex:outputText value="{!IF(firstRentRow.SBQQ__ProductCode__c != secondRentRow.SBQQ__ProductCode__c,',','.')}"/>
+                                    <apex:outputPanel rendered="{!firstRentRow.SBQQ__ProductCode__c != secondRentRow.SBQQ__ProductCode__c}">
+                                        followed by a period
+                                        of {!secondRentRow.Term__c} month[s] when the rent will
+                                        be
+                                        {!IF(secondRentRow.SBQQ__ProductCode__c == 'RentFree',' free.',' half the Headline Rent.')}
+                                        <apex:variable var="concessionsCount" value="{!2}"/>
+                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!OR(freeRentList.size > 1, halfRentList.size > 1)}">
+                                        <p>Further concessions will be given as follows.</p>
+                                    </apex:outputPanel>
+                                </div>
+                            </apex:outputPanel>
+                            <apex:repeat var="rent" value="{!rentList}" id="counter">
+                                <apex:outputPanel rendered="{! i > concessionsCount}">
+                                    <div class="num"> {!sectionNum}.{!parNum}
+                                        <apex:variable var="parNum" value="{!parNum+1}"/>
+                                    </div>
+                                    <div class="text">
+                                        There will be an additional
+                                        {!IF(rent.SBQQ__ProductCode__c == 'RentFree',' rent-free ',' ')}
+                                        period of {!rent.Term__c} month[s] starting on {!rent.Start_Term__c} month of
+                                        the lease
+                                        <apex:outputText value="{!IF(rent.SBQQ__ProductCode__c == 'RentFree','.',' when the rent will be half the Headline Rent.')}"/>
+                                    </div>
+                                </apex:outputPanel>
+                                <apex:variable var="i" value="{!i+1}"/>
+                            </apex:repeat>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel rendered="{!contains(keyString,' SteppedRent,')}">
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">
+                                The rent will be stepped such that the Customer receives the equivalent of a period
+                                of {!ROUND(SuiteRecord.Discount_Full_Term__c / SuiteRecord.Monthly_Average__c , 2)}
+                                month[s]
+                                rent-free. The step will be as follows:
+                            </div>
+                            <apex:variable var="i" value="{!1}"/>
+                            <apex:repeat var="steppedRent" value="{!steppedRentList}" id="counter2">
+                                <div class="num"> {!sectionNum}.{!parNum}.{!i}
+                                </div>
+                                <div class="text">
+                                    A stepped rent period from the {!steppedRent.Start_Term__c} month of commencement of
+                                    the lease for
+                                    {!steppedRent.Term__c} month[s]
+                                    at a discounted rate of {!TEXT(steppedRent.Discount_Percent__c)+'%'}.
+                                    <apex:variable var="i" value="{!i+1}"/>
+                                </div>
+                            </apex:repeat>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!CONTAINS(keyString, ' BCCC,')}">
+                        <apex:variable value="{!bundle['BCCC']}" var="BCCC"/>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text">
+
+                            <apex:outputPanel rendered="{!BCCC.Date_Balance_Due__c = 'Exchange of Contracts'}">
+                                <p>The Supplier will make a contribution of
+                                    <apex:outputText value=" £{0,number,##,###,###.00}">
+                                        <apex:param value="{!ROUND(BCCC.Net_total__c,2)}"/>
+                                    </apex:outputText>
+                                    (exclusive
+                                    of VAT)
+                                    to the cost of the Customer's fitting-out works. The balance will be paid by the
+                                    Customer on exchange of contracts.
+                                </p>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!BCCC.Date_Balance_Due__c = 'Completion of Lease'}">
+                                <p>The Supplier will make a contribution of
+                                    <apex:outputText value=" £{0,number,##,###,###.00}">
+                                        <apex:param value="{!ROUND(BCCC.Net_total__c,2)}"/>
+                                    </apex:outputText>
+                                    (exclusive
+                                    of VAT)
+                                    to the cost of the Customer's fitting-out works. The balance will be paid by the
+                                    Customer on completion of the Lease.
+                                </p>
+                            </apex:outputPanel>
+                        </div>
+                        <apex:outputPanel rendered="{!AND(BCCC.Date_Balance_Due__c = 'Completion of Lease',
+                                BCCC.Capital_Allowances__c = 'Yes')}">
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">
+                                <p>The Supplier will have the benefit of Capital Allowances in relation to the Suppliers
+                                    Works.</p>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!contains(keyString,' RentReview,')}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">RENT REVIEW</div>
+
+                        <apex:repeat value="{!rentReviewList}" var="rentReview">
+                            <apex:outputPanel rendered="{!AND(rentReview.Rent_Review_Type__c == 'Open Market Review',
+                                    rentReview.Rent_Review_Timing__c = 'Fixed Anniversary')}">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text">
+                                    <p>
+                                        On every {!rentReview.Rent_Review_Anniversary__c} anniversary
+                                        of the start of the term the Rent will be reviewed and will be the open market
+                                        rental value or the then passing rent, whichever is the higher.
+                                    </p>
+                                </div>
+                            </apex:outputPanel>
+
+                            <apex:outputPanel rendered="{!AND(rentReview.Rent_Review_Type__c == 'RPI',
+                                    rentReview.Rent_Review_Timing__c = 'Fixed Anniversary')}">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text">
+                                    <p>
+                                        On every {!rentReview.Rent_Review_Anniversary__c}
+                                        anniversary of the start of the term the Rent will increase by the same
+                                        amount as the Retail Price Index has risen since the date when the rent was last
+                                        set.
+                                    </p>
+                                </div>
+                            </apex:outputPanel>
+
+                            <apex:outputPanel rendered="{!AND(rentReview.Rent_Review_Type__c == 'Fixed %',
+                                    rentReview.Rent_Review_Timing__c = 'Fixed Anniversary')}">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text">
+                                    <p>
+                                        On every {!rentReview.Rent_Review_Anniversary__c}
+                                        anniversary of the start of the term the Rent will increase
+                                        {!rentReview.Fixed__c}%.
+                                    </p>
+                                </div>
+                            </apex:outputPanel>
+
+                            <apex:outputPanel rendered="{!AND(rentReview.Rent_Review_Type__c == 'Open Market Review',
+                                    rentReview.Rent_Review_Timing__c = 'Specific Date')}">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text">
+                                    <p>
+                                        <apex:outputText value="On {0,date,dd/MM/yyyy} the Rent will be reviewed and will
+                                        be the open market rental value or the then passing rent, whichever is the higher.">
+                                            <apex:param value="{!rentReview.Rent_Review_Date__c}"/>
+                                        </apex:outputText>
+                                    </p>
+                                </div>
+                            </apex:outputPanel>
+
+                            <apex:outputPanel rendered="{!AND(rentReview.Rent_Review_Type__c == 'RPI',
+                                    rentReview.Rent_Review_Timing__c = 'Specific Date')}">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text">
+                                    <p>
+                                        <apex:outputText value="On {0,date,dd/MM/yyyy} the Rent will increase by the same
+                                        amount as the Retail Price Index has risen since the date when the rent was last set.">
+                                            <apex:param value="{!rentReview.Rent_Review_Date__c}"/>
+                                        </apex:outputText>
+                                    </p>
+                                </div>
+                            </apex:outputPanel>
+
+                            <apex:outputPanel rendered="{!AND(rentReview.Rent_Review_Type__c == 'Fixed %',
+                                    rentReview.Rent_Review_Timing__c = 'Specific Date')}">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text">
+                                    <p>
+                                        <apex:outputText value="On {0,date,dd/MM/yyyy} the Rent will
+                                        increase {!rentReview.Fixed__c}%.">
+                                            <apex:param value="{!rentReview.Rent_Review_Date__c}"/>
+                                        </apex:outputText>
+                                    </p>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:repeat>
+
+
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!NOT(contains(keyString,' RentReview,'))}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">RENT REVIEW<p>
+                                The rent will not be reviewed during the term of the lease</p>
+                        </div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!OR(contains(keyString,' CarParkingLease,'),contains(keyString,' CarParkLicense,'))}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">CAR PARKING</div>
+                        <apex:outputPanel rendered="{!contains(keyString,' CarParkingLease,')}">
+                            <apex:variable value="{!bundle['CarParkingLease']}" var="CarParkingLease"/>
+
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">The lease will contain rights for the Customer to
+                                park {!numCarParkingLeases} car[s] at the Building for an
+                                additional rent of
+                                <apex:outputText value=" £{0,number,##,###,###.00}">
+                                    <apex:param value="{!ROUND(CarParkingLease.Annual_Cost__c, 2)}"/>
+                                </apex:outputText>
+                                per annum per space.
+                                The car parking rent will
+                                commence at the start of the term of the lease.
+                            </div>
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">The Customer will be responsible for any business rates that are payable
+                                to
+                                the local authority in relation to the car parking space[s].
+                            </div>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!contains(keyString,' CarParkLicense,')}">
+                            <apex:variable value="{!bundle['CarParkLicense']}" var="CarParkLicense"/>
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">{!numCarParkingLicenses} car parking
+                                space[s] will be made available on a licence.
+                                This licence will end when either the Supplier or the Customer provides one months’
+                                notice.
+                                The cost of these spaces will be
+                                <apex:outputText value=" £{0,number,##,###,###.00}">
+                                    <apex:param value="{!ROUND(CarParkLicense.Annual_Cost__c, 2)}"/>
+                                </apex:outputText>
+                                per annum,
+                                per space.
+                            </div>
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">The Customer will be responsible for any business rates that are payable
+                                to
+                                the local authority in relation to the car parking space[s].
+                            </div>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!contains(keyString,'CityLabsCarParkLevee,')}">
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">
+                                The Customer will be responsible for any additional charges levied to the supplier by
+                                the
+                                head landlord, in relation to the car parking spaces.
+                            </div>
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text"> The estimated total for the business rates payable and the additional
+                                charges
+                                levied total £583 per annum per space (excluding VAT). This figure is subject to
+                                annual review as detailed in the Lease.
+                            </div>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!contains(keyString,' DepositRetain,')}">
+                        <apex:variable value="{!bundle['DepositRetain']}" var="DepositRetain"/>
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">RENT DEPOSIT</div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text">
+                            <p>The Customer will pay a rent deposit of £
+                                <apex:outputText value=" £{0,number,##,###,###.00}">
+                                    <apex:param value="{!ROUND(bundle['DepositRetain'].Net_total__c ,2)}"/>
+                                </apex:outputText>
+                                (being a sum equivalent
+                                to {!ROUND(DepositRetain.Number_of_Rental_Months__c, 0)} months Rent), which will be
+                                held by the Supplier in
+                                an interest bearing account.
+                            </p>
+                        </div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p>If the Customer does not breach any terms of the Lease, the deposit, and
+                                all
+                                accrued interest, will be repaid to the Customer at the
+                                end of the lease or when it assigns the lease with the Supplier's consent.</p></div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!contains(keyString,' ServiceCharge,')}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">SERVICES AND SERVICE CHARGE</div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p>The Customer will pay a service charge to contribute to the cost of repair
+                                and
+                                services provided to the building by the Supplier.
+                                The amount will be a fair proportion of the total service charge expenditure at the
+                                building
+                                and
+                                will be payable quarterly in advance.</p></div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text">
+                            <p>The service charge expenditure is currently running at
+                                <apex:outputText value=" £{0,number,##,###,###.00}">
+                                    <apex:param value="{!ROUND(SuiteRecord.Suite_Inventory__r.Service_Charge_per_sq_ft_Annual__c ,2)}"/>
+                                </apex:outputText>
+                                per sq ft
+                                <apex:outputText value=" (£{0,number,##,###,###.00}">
+                                    <apex:param value="{!ROUND(SuiteRecord.Suite_Inventory__r.Service_Charge_Total__c ,2)}"/>
+                                </apex:outputText>
+                                per annum). A new
+                                budget is set each April.
+                            </p>
+                        </div>
+                        <apex:outputPanel rendered="{!contains(keyString,'ServiceChargeCap,')}">
+                            <apex:variable value="{!bundle['ServiceChargeCap']}" var="ServiceChargeCap"/>
+
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">
+                                <p>The Customer’s contribution will be capped at
+                                    <apex:outputText value=" £{0,number,##,###,###.00}">
+                                        <apex:param value="{!ROUND(ServiceChargeCap.Net_Total__c ,2)}"/>
+                                    </apex:outputText>
+                                    per annum.
+                                    This cap will increase annually by RPI and will exclude the cost of utilities. The
+                                    Cap
+                                    will
+                                    expire on the {!ServiceChargeCap.Cap_Expiry_Month__c} month from
+                                    commencement of the lease
+                                </p>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!contains(keyString,' BuildingInsurance,')}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">BUILDING INSURANCE</div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p>The Supplier will insure the building and the Customer will pay a fair
+                                proportion of the cost of the premium. The contribution will be payable annually in
+                                advance.</p>
+                        </div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text">
+                            <p>The insurance premium is currently
+                                <apex:outputText value=" £{0,number,##,###,##0.00}">
+                                    <apex:param value="{!ROUND(SuiteRecord.Suite_Inventory__r.Insurance_Charge_per_sq_ft_Annual__c ,2)}"/>
+                                </apex:outputText>
+                                per sq ft,
+                                <apex:outputText value=" £{0,number,##,###,###.00}">
+                                    <apex:param value="{!ROUND(SuiteRecord.Suite_Inventory__r.Insurance_Charge_Total__c ,2)}"/>
+                                </apex:outputText>
+                                per annum. The insurance is
+                                renewed each September.
+                            </p>
+                        </div>
+
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!contains(keyString,' EstateCharge,')}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">ESTATE CHARGE</div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p>The Customer will pay an estate charge to contribute to the cost of
+                                maintenance of and services provided to the estate by the Supplier. The amount will be
+                                a fair proportion of the total service charge expenditure at the estate and will be
+                                payable quarterly in advance.
+                                The estate charge expenditure is currently running
+                                at {!ROUND(SuiteRecord.Suite_Inventory__r.Estate_Charge_per_sq_ft_Annual__c,2)}
+                                per sq ft ({!ROUND(SuiteRecord.Suite_Inventory__r.Estate_Charge_Total__c,2)} per annum).
+                                A new budget is set each April."</p>
+                        </div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!suiteType != 'Storage'}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">BUSINESS RATES</div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p>The Customer will be responsible for the business rates payable in respect
+                                of the Premises.</p></div>
+                        <apex:outputPanel rendered="{!NOT(ISBLANK(quoteDetail.Estimated_Business_Rate_Per_Annum__c))}">
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">
+                                <p>
+                                    It is estimated that the rates payable are currently
+                                    {!businessRate}
+                                    per sq ft
+                                    {!quoteDetail.Estimated_Business_Rate_Per_Annum__c} per annum,
+                                    however the Customer should check this figure with the local council.
+                                    It is possible that the Customer may benefit from small business rate relief,
+                                    we can advise further on this if required.
+                                </p>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!contains(keyString,' Electricity,')}">
+                        <apex:variable value="{!bundle['Electricity']}" var="Electricity"/>
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">ELECTRICITY
+                            <p>
+                                <apex:outputText rendered="{!Electricity.Shared_Meter__c == 'Yes'}"
+                                                 value="The Premises share an electricity meter with neighbouring
+                                         premises and the Customer will therefore contribute a share of the electricity costs.
+                                         This will be calculated as a fair proportion of the total consumption."/>
+                                <apex:outputText rendered="{!Electricity.Shared_Meter__c != 'Yes'}"
+                                                 value="The Premises has its own electricity meter and the customer
+                                        will receive monthly statements providing details of the electricity it consumes."/>
+                            </p>
+                        </div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!contains(keyString,' AirConditioning,')}">
+                        <apex:variable value="{!bundle['AirConditioning']}" var="AirConditioning"/>
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">AIR CONDITIONING
+                            <p>
+                                <apex:outputText rendered="{!AirConditioning.Maintained_By__c == 'Supplier'}"
+                                                 value="The Premises has the benefit of an air conditioning system, which will be maintained by the Supplier.
+                                     The Customer will reimburse the Supplier for the cost of this maintenance."/>
+                                <apex:outputText rendered="{!AirConditioning.Maintained_By__c != 'Supplier'}"
+                                                 value="The Premises has the benefit of an air conditioning system, which will be maintained by the Customer."/>
+                            </p>
+
+                        </div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!OR(contains(keyString,' RefurbishmentCustomer,'),contains(keyString,' RefurbishmentSupplier,'))}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">SUPPLIER WORKS</div>
+                        <apex:outputPanel >
+                            <apex:outputPanel rendered="{!NOT(contains(keyString,' RefurbishmentSupplier,'))}">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text"><p>The Premises will be let in their existing condition.</p></div>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!contains(keyString,' RefurbishmentSupplier,')}">
+                                <apex:variable value="{!bundle['RefurbishmentSupplier']}" var="RefurbishmentSupplier"/>
+
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text">
+                                    <p>The Supplier will undertake works to the Premises at its cost and prior to the
+                                        grant
+                                        of
+                                        the lease.
+                                    </p>
+                                </div>
+                                <apex:outputPanel rendered="{!RefurbishmentSupplier.Works_Prior_to_Lease_Start__c == 'Yes'}">
+                                    <div class="num"> {!sectionNum}.{!parNum}
+                                        <apex:variable var="parNum" value="{!parNum+1}"/>
+                                    </div>
+                                    <div class="text">
+                                        <p>These works will start immediately following the exchange of an Agreement for
+                                            Lease. This agreement will
+                                            oblige both parties to complete the Least once the works have been
+                                            finished.</p>
+                                    </div>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!RefurbishmentSupplier.Works_undertaken__c != ''}">
+                                    <div class="num"> {!sectionNum}.{!parNum}
+                                        <apex:variable var="parNum" value="{!parNum+1}"/>
+                                    </div>
+                                    <div class="text">
+                                        <p>The Suppliers works will include {!RefurbishmentSupplier.Works_undertaken__c}</p>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!contains(keyString,' RefurbishmentCustomer,')}">
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">
+                                <p>The Customer will be undertaking refurbishment works to the Premises to
+                                    an
+                                    agreed specification. It will return the
+                                    Premises to that same specification at the end of the lease The Supplier will pay
+                                    <apex:outputText value=" £{0,number,##,###,###.00}">
+                                        <apex:param value="{!ROUND(bundle['RefurbishmentCustomer'].Suppliers_Contribution__c ,2)}"/>
+                                    </apex:outputText>
+                                    to
+                                    the Customer in payment for these works. This payment will be made once the works
+                                    have
+                                    been
+                                    completed.
+                                </p>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!AND(NOT(contains(keyString,' RefurbishmentCustomer,')),NOT(contains(keyString,' RefurbishmentSupplier,')))}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">SUPPLIER WORKS
+                            <p>The Premises will be let in their existing condition.</p></div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!OR(contains(keyString,' FitOutCustomer,'),contains(keyString,' FitOut,'))}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">CUSTOMER WORKS
+                            <p>
+                                <apex:outputText rendered="{!contains(keyString,' FitOutCustomer,')}"
+                                                 value="The Customer will undertake fit-out works to the Premises at its cost after the lease
+                                                                      has completed. These works will be documented under the terms of a Licence to Alter."/>
+                            </p>
+                        </div>
+                        <apex:outputPanel rendered="{!contains(keyString,' FitOut,')}">
+                            <apex:variable value="{!bundle['FitOut']}" var="FitOut"/>
+
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">
+                                <p>The Supplier will undertake fitting out works to the Premises on the Customer’s
+                                    behalf.
+                                    These works will be managed by the Supplier’s in-house
+                                    project managers at a cost
+                                    of {!FitOut.Project_Management_Fee__c}% of the total fit-out
+                                    cost
+                                    <apex:outputText rendered="{!FitOut.Works_Prior_to_Lease_Start__c == 'Yes'}"
+                                                     value=" and works will start immediately following the exchange of an Agreement for Lease. This contract will oblige both parties to complete the Lease once the works have been finished."/>
+                                    <apex:outputText rendered="{!FitOut.Works_Prior_to_Lease_Start__c == 'No'}"
+                                                     value=". The works will start after completion of the lease under the terms of a Works Agreement."/>
+                                </p>
+                            </div>
+
+                            <apex:outputPanel rendered="{!AND(FitOut.Works_Prior_to_Lease_Start__c == 'Yes', FitOut.Discount_Percent__c == 0 )}">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text"><p>The Customer will
+                                        pay {!FitOut.Percentage_Upfront__c}% of the cost of the fit-out
+                                        works and project management fee to the Supplier on exchange of the Agreement
+                                        for
+                                        Lease.
+                                        The balance will be due on completion of the lease.</p></div>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!AND(FitOut.Works_Prior_to_Lease_Start__c == 'Yes', FitOut.Discount_Percent__c != 0)}">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text"><p>The Customer will
+                                        pay {!FitOut.Percentage_Upfront__c}% of the cost of the fit-out
+                                        works and project management fee on
+                                        exchange of the Agreement for Lease. The balance will be due on completion of
+                                        the
+                                        lease.</p></div>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!AND(FitOut.Works_Prior_to_Lease_Start__c == 'No', FitOut.Discount_Percent__c != 0)}">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text"><p>The Customer will
+                                        pay the cost of the fit-out works
+                                        and the project management fee minus the Supplier’s contribution
+                                        of {!FitOut.Discount_Amount__c} to the Supplier on completion
+                                        of the lease.</p></div>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!FitOut.Works_undertaken__c != ''}">
+                                <div class="num"> {!sectionNum}.{!parNum}
+                                    <apex:variable var="parNum" value="{!parNum+1}"/>
+                                </div>
+                                <div class="text">
+                                    <p>The Suppliers works will include {!FitOut.Works_undertaken__c}</p>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!AND(NOT(contains(keyString,' FitOutCustomer,')),NOT(contains(keyString,' FitOut,')))}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">CUSTOMER WORKS
+                            <p>Fit-out Works may be required to the Premises so that they meet the Customer's
+                                requirements.
+                                If these works are required they will be paid for by the Customer.</p></div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!contains(keyString,' Suite,')}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">USE
+                            <p>
+                                <apex:outputText rendered="{!SuiteRecord.SBQQ__ProductCode__c == 'OfficeRent'}"
+                                                 value="The Premises can only be used as offices within Class B1 (a) of the 1987 Use Classes Order and for storage ancillary to that use."/>
+                                <apex:outputText rendered="{!SuiteRecord.SBQQ__ProductCode__c == 'RetailRent'}"
+                                                 value="The Premises can only be used for a retail trade within Class A1 of the 1987 Use Classes Order."/>
+                                <apex:outputText rendered="{!SuiteRecord.SBQQ__ProductCode__c == 'LabSpace'}"
+                                                 value="The Premises can only be used as laboratories (for the undertaking of research) within Use Class B1 (b) of the 1987 Use Classes Order and for storage ancillary to that use."/>
+                                <apex:outputText rendered="{!SuiteRecord.SBQQ__ProductCode__c == 'Storage'}"
+                                                 value="The Premises can only be used as storage."/>
+                            </p>
+                        </div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!contains(keyString,' PreEmptionAgreement,')}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">RIGHT OF PRE-EMPTION</div>
+                        <apex:repeat var="preEmption" value="{!preEmptionList}">
+                            <div class="num"> {!sectionNum}.{!parNum}
+                                <apex:variable var="parNum" value="{!parNum+1}"/>
+                            </div>
+                            <div class="text">
+                                <p>
+                                    The Customer will have a right of pre-emption over
+                                    {!preEmption.Inventory__r.Name} for the period of
+                                    {!preEmption.Term__c}
+                                    months from the date that the primary lease is completed. In the event that the
+                                    Supplier
+                                    agrees terms to let these premises to a third party then the Customer will have a
+                                    right
+                                    of first refusal. In the event that the Customer decides to take up this right then
+                                    the
+                                    Supplier and the Customer will, within 10 working days, enter into a lease over
+                                    {!preEmption.Inventory__r.Name}
+                                    on the same terms that have been agreed with the third party. This right will be
+                                    subject
+                                    to any lender or head landlord consent that the Supplier may require before granting
+                                    a lease.
+                                </p>
+                            </div>
+                        </apex:repeat>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!contains(keyString,' BSPP,')}">
+                        <apex:variable value="{!bundle['BSPP']}" var="BSPP"/>
+
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">DILAPIDATION
+                            <apex:outputPanel rendered="{!BSPP.Payable_by_customer__c = 'No'}">
+                                <p>By way of further concession the Supplier will waive the Customer’s
+                                    dilapidations liability under the Existing Lease.</p>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!BSPP.Payable_by_customer__c = 'Yes'}">
+                                <p>On the date of surrender of the lease or exchange of an agreement to surrender the
+                                    lease the Customer will pay to the Supplier
+                                    <apex:outputText value=" £{0,number,##,###,###.00}">
+                                        <apex:param value="{!ROUND(BSPP.Net_total__c ,2)}"/>
+                                    </apex:outputText>
+                                    in settlement of its repair, decoration and reinstatement obligations under the
+                                    lease.
+                                </p>
+                            </apex:outputPanel>
+                        </div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel >
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">ASSIGNMENTS AND UNDERLEASES</div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p>The Customer can assign the lease with the Supplier's prior written
+                                consent,
+                                which cannot be unreasonably withheld. The Customer will be
+                                required to give an authorised guarantee agreement in respect of any assignee of the
+                                lease.</p>
+                        </div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p>The Customer can underlet the whole of the Premises (as distinct from part
+                                only) with the Supplier's prior written consent,
+                                which cannot be unreasonably withheld. Any underletting must be at the full open market
+                                rental
+                                value of the Premises and exclude the security of tenure provisions of Part II of the
+                                Landlord
+                                and Tenant Act 1954.</p></div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p>The Customer can share occupation of the Premises with one other company in
+                                the
+                                same group of companies as the Customer.</p></div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel >
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">REPAIR &amp; DECORATION<p>
+                                The Customer will be responsible for the repair and redecoration of the Premises.</p>
+                        </div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!contains(keyString,' ScheduleCondition,')}">
+                        <apex:variable value="{!bundle['ScheduleCondition']}" var="ScheduleCondition"/>
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">SCHEDUE OF CONDITION</div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text">
+                            <p>
+                                <apex:outputText rendered="{!ScheduleCondition.Conducted_By__c == 'Customer'}"
+                                                 value="However the customer will not be required to put or keep the Premises
+                                                in any better condition than they are in at the start of the term.  It will be
+                                                necessary to document this condition with a schedule of condition. The
+                                                Supplier will prepare this schedule for approval by the Customer."/>
+                                <apex:outputText rendered="{!(ScheduleCondition.Conducted_By__c == 'Supplier')}"
+                                                 value="However the customer will not be required to put or keep the
+                                                Premises in any better condition than they are in at the start of the
+                                                term.  It will be necessary to document this condition with a schedule
+                                                of condition. The Customer will prepare this schedule for approval by
+                                                the Supplier."/>
+                            </p>
+                        </div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel >
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">ALTERATIONS</div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p>The Customer cannot make any structural or external alterations to the
+                                Premises.</p></div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p>The Customer can make internal alterations to the Premises with the
+                                Supplier's
+                                prior written consent, which cannot be unreasonably withheld.</p></div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p>The Customer cannot put up any signs on the outside of the Premises or that
+                                would be visible from the outside of the Premises.</p></div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p>The Supplier will install, on the Customer’s behalf, signage including the
+                                Customer’s name and logo immediately outside the entrance to the Premises.
+                                This signage will be in the Supplier’s house style for the building. The Customer’s name
+                                will
+                                also appear on the directory in the building’s reception and
+                                directional signage in its common parts.</p></div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel >
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">VAT<p>
+                                All costs are quoted exclusive of, but will be liable to, VAT.</p>
+                        </div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel >
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">CONDITIONS</div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p> Both parties will proceed to agree the legal documents as quickly as
+                                possible in order that contracts can be exchanged. The parties respective
+                                representatives
+                                will be
+                                asked to note this timeframe and the Supplier and the Customer
+                                will discuss progress periodically to ensure that the target date is achieved. In the
+                                event
+                                that
+                                the target is not achieved the Supplier may need to vary the terms or recommence
+                                marketing
+                                of
+                                the Premises.</p></div>
+                        <div class="num"> {!sectionNum}.{!parNum}
+                            <apex:variable var="parNum" value="{!parNum+1}"/>
+                        </div>
+                        <div class="text"><p>These heads of terms are subject to contract and completion of formally
+                                executed legal documentation.</p></div>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel >
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">COSTS
+                            <p>
+                                <apex:outputText rendered="{!NOT(contains(keyString,'CustomerLegalFees'))}"
+                                                 value="Each party is to be responsible for its own legal costs in connection with this transaction."/>
+
+                                <apex:outputText rendered="{!contains(keyString,'CustomerLegalFees')}"
+                                                 value="The Supplier will be responsible for the Customer's legal
+                                costs in connection with this transaction up to a maximum of"/>
+                                <apex:outputText rendered="{!contains(keyString,'CustomerLegalFees')}"
+                                                 value=" £{0,number,##,###,###.00} plus VAT.">
+                                    <apex:param value="{!ROUND(bundle['CustomerLegalFees'].Net_total__c,2)}"/>
+                                </apex:outputText>
+                            </p>
+                        </div>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{! quoteDetail.SBQQ__Type__c='Surrender_and_regrant' && (legacyContractsInventories != '')
+                                    && (quoteWithoutSuites || CONTAINS('LabSpace OfficeRent RetailRent', SuiteRecord.SBQQ__ProductCode__c)) && surrenderFlag==0}">
+                        <div class="num level1">
+                            <apex:variable var="sectionNum" value="{!sectionNum+1}"/>{!sectionNum}
+                            <apex:variable var="parNum" value="{!1}"/>
+                        </div>
+                        <div class="text level1">EXISTING LEASE SURRENDER
+                            <p>
+                                <apex:outputText >
+                                    The Customer’s existing lease on {!legacyContractsInventories} will be surrendered
+                                    on completion of a deed of surrender. {!surrenderDeedCompletionDate}
+                                    The
+                                    Customer will pay the Supplier a premium of
+                                    <apex:outputText value=" £{0,number,##,###,###.00}">
+                                        <apex:param value="{!ROUND(quoteDetail.Surrender_Premium__c ,2)}"/>
+                                    </apex:outputText>
+                                    plus VAT upon surrender of the Existing Lease. At the end of the service charge
+                                    year, the Customer will also pay the Supplier any service charge reconciliation
+                                    balance due for the period up to the date of surrender of the existing lease. The
+                                    Supplier will pay the Customer any service charge reconciliation credit The Customer
+                                    will ensure the existing premises are empty and clean before the surrender date.
+                                </apex:outputText>
+                            </p>
+                        </div>
+                        <apex:variable var="surrenderFlag" value="{!1}"/>
+                    </apex:outputPanel>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <apex:variable var="index" value="{!index+1}"/>
+        <apex:outputPanel rendered="{!NOT(bundleProducts.size == index)}">
+            <div style="page-break-after:always;"/>
+        </apex:outputPanel>
+    </apex:repeat>
+
+    <apex:outputPanel rendered="{!$CurrentPage.parameters.sendFor == SIGNATURE}">
+        <apex:outputPanel rendered="{!suiteAdded}">
+            <div style="page-break-after:always;"/>
+            <div class="signature">
+                <p class="contactDescription"><span class="contactType">Legal Contact</span> <span
+                            class="contactHelpText">(This is the person who will look after finalising your lease with our Lease Transactions team)</span>
+                </p>
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                        <td>Email</td>
+                    </tr>
+                    <tr>
+                        <td class="hide">/FirstName1/</td>
+                        <td class="hide">/LastName1/</td>
+                        <td class="hide">/Email1/</td>
+                    </tr>
+                    <tr>
+                        <td>Telephone Number</td>
+                        <td>Mobile Number</td>
+                        <td>Preferred Communication Channel</td>
+                    </tr>
+                    <tr>
+                        <td class="hide">/TNumber1/</td>
+                        <td class="hide">/MNumber1/</td>
+                        <td class="hide">/Channel1/</td>
+                    </tr>
+                </table>
+                <apex:outputPanel rendered="{!fitOutAdded}" layout="none">
+                    <p class="contactDescription"><span class="contactType">Project Management Contact</span> <span
+                                class="contactHelpText">(This is the person we will contact to organise the Fit Out of your suite with)</span>
+                    </p>
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>First Name</td>
+                            <td>Last Name</td>
+                            <td>Email</td>
+                        </tr>
+                        <tr>
+                            <td class="hide">/FirstName2/</td>
+                            <td class="hide">/LastName2/</td>
+                            <td class="hide">/Email2/</td>
+                        </tr>
+                        <tr>
+                            <td>Telephone Number</td>
+                            <td>Mobile Number</td>
+                            <td>Preferred Communication Channel</td>
+                        </tr>
+                        <tr>
+                            <td class="hide">/TNumber2/</td>
+                            <td class="hide">/MNumber2/</td>
+                            <td class="hide">/Channel2/</td>
+                        </tr>
+                    </table>
+                </apex:outputPanel>
+                <p class="contactDescription"><span class="contactType">In life Property Contact</span> <span
+                            class="contactHelpText">(This is the person our Property Manger will organise the move in with and also who will have the day to day responsibility once you have moved in)</span>
+                </p>
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                        <td>Email</td>
+                    </tr>
+                    <tr>
+                        <td class="hide">/FirstName3/</td>
+                        <td class="hide">/LastName3/</td>
+                        <td class="hide">/Email3/</td>
+                    </tr>
+                    <tr>
+                        <td>Telephone Number</td>
+                        <td>Mobile Number</td>
+                        <td>Preferred Communication Channel</td>
+                    </tr>
+                    <tr>
+                        <td class="hide">/TNumber3/</td>
+                        <td class="hide">/MNumber3/</td>
+                        <td class="hide">/Channel3/</td>
+                    </tr>
+                </table>
+
+            </div>
+        </apex:outputPanel>
+
+        <div class="signature">
+            <p class="contactDescription"><span class="contactType">Billing Contact</span> <span
+                        class="contactHelpText">(This is the person we should contact to discuss billing queries with)</span>
+            </p>
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Email</td>
+                </tr>
+                <tr>
+                    <td class="hide">/FirstName5/</td>
+                    <td class="hide">/LastName5/</td>
+                    <td class="hide">/Email5/</td>
+                </tr>
+                <tr>
+                    <td>Telephone Number</td>
+                    <td>Mobile Number</td>
+                    <td>Preferred Communication Channel</td>
+                </tr>
+                <tr>
+                    <td class="hide">/TNumber5/</td>
+                    <td class="hide">/MNumber5/</td>
+                    <td class="hide">/Channel5/</td>
+                </tr>
+            </table>
+        </div>
+        <div style="page-break-after:always;"/>
+
+        <div class="signature">
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                <th>Company</th>
+                </thead>
+                <tr>
+                    <td>Number</td>
+                </tr>
+                <tr>
+                    <td class="hide">/CompanyNumber/</td>
+                </tr>
+            </table>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                <th>Signature</th>
+                </thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Signature</td>
+                    <td>Date</td>
+                </tr>
+                <tr>
+                    <td class="hide">/SignatureName/</td>
+                    <td style="padding-top: 30px;" class="hide">/Signature/</td>
+                    <td class="hide">/Date/</td>
+                </tr>
+            </table>
+        </div>
+    </apex:outputPanel>
+    <span class="hide">/UDN/</span>
+    </html>
+</apex:page>

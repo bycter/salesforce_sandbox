@@ -1,0 +1,94 @@
+<apex:page standardController="SBQQ__Quote__c" extensions="QuoteButtonsController" lightningStylesheets="true"
+           cache="false">
+    <style>
+        .row {
+            margin-bottom: 10px;
+        }
+
+        .column {
+            display: inline-block;
+        }
+
+        .first {
+            margin-right: 15px;
+        }
+
+        .buttonStyle {
+            width: 150px;
+        }
+    </style>
+    <script>
+        function doFirstTabActive() {
+            document.getElementById('{!$Component.form1.tab1}').style.display = 'block';
+            document.getElementById('{!$Component.form1.tab2}').style.display = 'none';
+        }
+        function doSecondTabActive() {
+            document.getElementById('{!$Component.form1.tab1}').style.display = 'none';
+            document.getElementById('{!$Component.form1.tab2}').style.display = 'block';
+        }
+        function enableSubmit() {
+            var submitButton = document.getElementById('{!$Component.form1.SubmitButton}');
+            if (document.getElementById('{!$Component.form1.ChangesInput}').value == '') {
+                submitButton.disabled = true;
+                submitButton.title = 'Please enter the value';
+            }
+            else {
+                submitButton.disabled = false;
+                submitButton.removeAttribute('title');
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            enableSubmit()
+        }, false);
+    </script>
+    <apex:form id="form1">
+        <center>
+            <apex:outputPanel id="tab1" layout="block">
+                <div class="row">
+                    <div class="column first">
+                        <apex:commandButton styleClass="buttonStyle" action="{!unlockQuote}" value="Unlock Quote"
+                                            disabled="{!NOT(enableUnlockQuote)}"/>
+                    </div>
+                    <div class="column">
+                        <apex:commandButton styleClass="buttonStyle" action="{!generateDocument}"
+                                            value="Generate Document" disabled="{!NOT(enableGenerateDocument)}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column first">
+                        <apex:commandButton styleClass="buttonStyle" action="{!includeDocument}"
+                                            value="Include Document" disabled="{!NOT(enableIncludeDocument)}"/>
+                    </div>
+                    <div class="column">
+                        <apex:commandButton styleClass="buttonStyle" action="{!previewDocument}"
+                                            value="Preview Document" disabled="{!NOT(enablePreviewDocument)}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <apex:commandButton onclick="doSecondTabActive();return false;"
+                                        value="Submit for Offline Edit Approval"
+                                        disabled="{!NOT(enableSubmitForOfflineEditApproval)}"/>
+                </div>
+            </apex:outputPanel>
+            <apex:outputPanel id="tab2" layout="block" style="display: none;">
+                <apex:outputLabel > What offline changes were made?</apex:outputLabel>
+                <apex:inputTextarea id="ChangesInput" onKeyUp="enableSubmit()" style="margin-top: 10px;" rows="2" cols="50" value="{!quote.Off_line_Edits__c}"/>
+                <table style="margin-top: 10px;" cellpadding="20">
+                    <tr>
+                        <td style="padding: 0px 5px 0px 5px">
+                            <apex:commandButton id="SubmitButton" action="{!submitForOfflineEditApproval}" value="Submit"/>
+                        </td>
+                        <td>
+                            <apex:commandButton onclick="doFirstTabActive();return false;" value="Back"/>
+                        </td>
+                    </tr>
+                </table>
+            </apex:outputPanel>
+        </center>
+        <apex:outputPanel rendered="{!refreshPage}">
+            <script type="text/javascript">
+                window.top.location = '/{!quote.id}';
+            </script>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

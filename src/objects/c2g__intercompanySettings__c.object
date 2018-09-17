@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Intercompany Settings (FF)</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>c2g__IntercompanyJournalDate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Inherit Journal Date from Source Journal</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Intercompany Settings (FF)</label>
+    <visibility>Public</visibility>
+</CustomObject>

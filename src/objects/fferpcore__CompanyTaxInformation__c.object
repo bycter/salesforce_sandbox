@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>fferpcore__CompanyTaxInformationHelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Contains the tax information for a company.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>fferpcore__TaxCode__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The VAT / GST tax code for this company.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The VAT / GST tax code for this company.</inlineHelpText>
+        <label>Tax Code</label>
+        <referenceTo>fferpcore__TaxCode__c</referenceTo>
+        <relationshipLabel>Company Tax Information Records</relationshipLabel>
+        <relationshipName>CompanyTaxInformations</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__TaxCountryCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Code for the European Union country in which the company operates. You can update the entries in this custom picklist if required.
+The country code is required for the correct reporting of VAT on cross-border trades within the European Union.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The country code for this company. This is required for correct reporting of VAT on cross-border trades within the European Union.</inlineHelpText>
+        <label>Tax Country Code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>fferpcore__TaxCountryCode</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>fferpcore__TaxType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The type of tax to use for products sold by this company. For instance, GST, SUT or VAT.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The type of tax to use for products sold by this company. For instance, GST, SUT or VAT.</inlineHelpText>
+        <label>Tax Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>GST</fullName>
+                    <default>false</default>
+                    <label>GST</label>
+                </value>
+                <value>
+                    <fullName>SUT</fullName>
+                    <default>false</default>
+                    <label>SUT</label>
+                </value>
+                <value>
+                    <fullName>VAT</fullName>
+                    <default>false</default>
+                    <label>VAT</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>fferpcore__VatGstGroup__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether this company is part of a VAT/GST group. The value of this checkbox is used when deciding where to get the default tax code to use.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether this company is part of a VAT/GST group. The value of this checkbox is used when deciding where to get the default tax code to use.</inlineHelpText>
+        <label>VAT/GST Group</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__VatRegistrationNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Identifying number used for VAT purposes.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifying number used for tax purposes.</inlineHelpText>
+        <label>Tax Registration Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Company Tax Information</label>
+    <nameField>
+        <label>Company Tax Information Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Company Tax Information</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>fferpcore__AssignToCompanies</fullName>
+        <availability>online</availability>
+        <description>Lets user select a list of companies and assign this tax information to them. Only companies with no associated tax information will be available.</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Assign To Companies</masterLabel>
+        <openType>sidebar</openType>
+        <page>fferpcore__AssignTaxInformationToCompanies</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

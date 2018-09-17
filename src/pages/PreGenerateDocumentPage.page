@@ -1,0 +1,30 @@
+<apex:page standardController="SBQQ__Quote__c" extensions="PreGenerateDocumentPageController"
+           lightningStylesheets="true">
+    <apex:form >
+        <apex:outputPanel rendered="{!quote.SBQQ__LineItems__r.size <= 0}">
+            <apex:pageBlock >
+                <apex:pageMessage severity="error" summary="You can not generate a document without adding products"/>
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton action="{!cancel}" value="Back"/>
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!quote.SBQQ__LineItems__r.size > 0}">
+            <apex:pageBlock title="Sending Options">
+                <apex:pageBlockSection >
+                    <apex:selectList label="Sending Option" value="{!sendFor}" size="1">
+                        <apex:selectOption itemValue="{!SIGNATURE}" itemLabel="Send for Signature"/>
+                        <apex:selectOption itemValue="{!REVIEW}" itemLabel="Send for Review"/>
+                        <apex:selectOption rendered="{!NOT(isVirtualQuote)}" itemValue="{!GENERATE_OFFLINE_DOCUMENT}"
+                                           itemLabel="Generate Offline Document"/>
+                        <apex:selectOption rendered="{!isOfflineDocumentAdded}" itemValue="{!SEND_OFFLINE_DOCUMENT}"
+                                           itemLabel="Send Offline Document"/>
+                    </apex:selectList>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            <div style="text-align: right;">
+                <apex:commandButton action="{!goToGenerateDocumentPage}" value="Next"/>
+            </div>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

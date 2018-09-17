@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ffps_prt__Allow_Select_Other_Status__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Bank Files - Allow Payments to be selected that are not at Matched status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Bank Files - Allow Payments to be selected that are not at Matched status</inlineHelpText>
+        <label>Allow Select Other Status</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffps_prt__CustomQuery__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of a static resource file should a custom query be required to render custom fields</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The name of a static resource file should a custom query be required to render custom fields</inlineHelpText>
+        <label>Custom Query File</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_prt__DisableAutoRemittance__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Disable Auto Remittance</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffps_prt__DisablePrintPreviewInIFrame__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>When generating a PDF for Print, should it be shown in a preview in an IFrame? This is the default setting but problems may arise if files get too large, in which case &apos;Post PDF to Chatter&apos; should be used instead and preview disabled.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When generating a PDF for Print, should it be shown in a preview in an IFrame? This is the default setting but problems may arise if files get too large, in which case &apos;Post PDF to Chatter&apos; should be used instead and preview disabled.</inlineHelpText>
+        <label>Disable Print Preview in IFrame</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffps_prt__DownloadPluginClass__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the Download Plugin class to use. This class must implement the ffps_prt.IDownloadPlugin interface.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The name of the Download Plugin class to use. This class must implement the ffps_prt.IDownloadPlugin interface.</inlineHelpText>
+        <label>Download Plugin Class</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_prt__DownloadPluginNamespace__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The namespace the class containing the plugin resides in. Leave blank if no namespace is specified.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The namespace the class containing the plugin resides in. Leave blank if no namespace is specified.</inlineHelpText>
+        <label>Download Plugin Namespace</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_prt__EmailFieldReferences__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Which fields on the Account should be used as email &apos;To&apos; addresses? Should be expressed as a comma separated list of fields, e.g. c2g__CODAFinanceContact__c, c2g__CODAInvoiceEmail__c, RemittanceEmail__c</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Which fields on the Account should be used as email &apos;To&apos; addresses? Should be expressed as a comma separated list of fields, e.g. c2g__CODAFinanceContact__c, c2g__CODAInvoiceEmail__c, RemittanceEmail__c</inlineHelpText>
+        <label>Email Field References</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_prt__EmailTemplateName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of Email Template to be used when sending a Remittance. If not set, &apos;remittance&apos; will be used as default.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of Email Template to be used when sending a Remittance. If not set, &apos;remittance&apos; will be used as default.</inlineHelpText>
+        <label>Email Template Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_prt__PostPDFToChatter__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>When generating a PDF to Print, should the PDF file be posted to chatter? This setting will should be used in place of (or as well as) &apos;Print Preview in IFrame&apos;  if issues arise.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When generating a PDF to Print, should the PDF file be posted to chatter? This setting will should be used in place of (or as well as) &apos;Print Preview in IFrame&apos;  if issues arise.</inlineHelpText>
+        <label>Post PDF To Chatter</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffps_prt__VisualforcePage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Visualforce page used to print remittances</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Visualforce page used to print remittances</inlineHelpText>
+        <label>Print Visualforce Page</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Payment File/Remittance Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

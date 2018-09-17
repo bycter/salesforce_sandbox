@@ -1,0 +1,1337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>SBQQ__QuoteDocumentHelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Particular version of a generated PDF document for the quote it&apos;s attached to. Ability to edit or delete this object should be taken away from all users (except administrators, of course) in order to preserve audit trail of all revisions.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account_Id__c</fullName>
+        <externalId>false</externalId>
+        <formula>SBQQ__Quote__r.SBQQ__Account__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BC_Contact_Preference__c</fullName>
+        <externalId>false</externalId>
+        <label>BC Contact Preference</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Contact_Communication_Channel</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>BC_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>BC Email</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BC_First_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>BC First Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BC_Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>BC Last Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BC_Mobile__c</fullName>
+        <externalId>false</externalId>
+        <label>BC Mobile</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BC_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>BC Phone</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BW_Countersign_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>BW Countersign User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Quote_Documents</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BW_Signature_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>SBQQ__Quote__r.BW_Signature_User__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>BW Signature Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BW_Signature_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>SBQQ__Quote__r.BW_Signature_User__r.FirstName + SBQQ__Quote__r.BW_Signature_User__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>BW Signature Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CD_First_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>CD First Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CD_Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>CD Last Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Company_Registration_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Company Registration Number</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Acc_Num_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Acc Num 1</label>
+        <length>1</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Acc_Num_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Acc Num 2</label>
+        <length>1</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Acc_Num_3__c</fullName>
+        <externalId>false</externalId>
+        <label>Acc Num 3</label>
+        <length>1</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Acc_Num_4__c</fullName>
+        <externalId>false</externalId>
+        <label>Acc Num 4</label>
+        <length>1</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Acc_Num_5__c</fullName>
+        <externalId>false</externalId>
+        <label>Acc Num 5</label>
+        <length>1</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Acc_Num_6__c</fullName>
+        <externalId>false</externalId>
+        <label>Acc Num 6</label>
+        <length>1</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Acc_Num_7__c</fullName>
+        <externalId>false</externalId>
+        <label>Acc Num 7</label>
+        <length>1</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Acc_Num_8__c</fullName>
+        <externalId>false</externalId>
+        <label>Acc Num 8</label>
+        <length>1</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Account_Name_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Name 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Account_Name_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Name 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Address_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Address 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Address_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Address 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Bank_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Bank Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Branch_Sort_Code_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Branch Sort Code 1</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Branch_Sort_Code_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Branch Sort Code 2</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Branch_Sort_Code_3__c</fullName>
+        <externalId>false</externalId>
+        <label>Branch Sort Code 3</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Branch_Sort_Code_4__c</fullName>
+        <externalId>false</externalId>
+        <label>Branch Sort Code 4</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Branch_Sort_Code_5__c</fullName>
+        <externalId>false</externalId>
+        <label>Branch Sort Code 5</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Branch_Sort_Code_6__c</fullName>
+        <externalId>false</externalId>
+        <label>Branch Sort Code 6</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_City__c</fullName>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Postal_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Postal Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Reference__c</fullName>
+        <externalId>false</externalId>
+        <label>Reference</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DDF_Signer_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Signer Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Docusign_Envelope_Id__c</fullName>
+        <description>DocuSign Envelope Id.</description>
+        <externalId>true</externalId>
+        <label>Docusign Envelope Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ILPC_Contact_Preference__c</fullName>
+        <externalId>false</externalId>
+        <label>ILPC Contact Preference</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Contact_Communication_Channel</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ILPC_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>ILPC Email</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ILPC_First_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>ILPC First Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ILPC_Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>ILPC Last Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ILPC_Mobile__c</fullName>
+        <externalId>false</externalId>
+        <label>ILPC Mobile</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ILPC_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>ILPC Phone</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LC_Contact_Preference__c</fullName>
+        <externalId>false</externalId>
+        <label>LC Contact Preference</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Contact_Communication_Channel</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LC_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>LC Email</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LC_First_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>LC First Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LC_Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>LC Last Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LC_Mobile__c</fullName>
+        <externalId>false</externalId>
+        <label>LC Mobile</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LC_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>LC Phone</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OOHC_Contact_Preference__c</fullName>
+        <externalId>false</externalId>
+        <label>OOHC Contact Preference</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Contact_Communication_Channel</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OOHC_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>OOHC Email</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OOHC_First_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>OOHC First Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OOHC_Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>OOHC Last Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OOHC_Mobile__c</fullName>
+        <externalId>false</externalId>
+        <label>OOHC Mobile</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OOHC_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>OOHC Phone</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Owner_Id__c</fullName>
+        <externalId>false</externalId>
+        <formula>SBQQ__Quote__r.SBQQ__Opportunity2__r.OwnerId</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Owner Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PMC_Contact_Preference__c</fullName>
+        <externalId>false</externalId>
+        <label>PMC Contact Preference</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Contact_Communication_Channel</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>PMC_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>PMC Email</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PMC_First_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>PMC First Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PMC_Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>PMC Last Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PMC_Mobile__c</fullName>
+        <externalId>false</externalId>
+        <label>PMC Mobile</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PMC_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>PMC Phone</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quote_Record_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>SBQQ__Quote__r.RecordType.DeveloperName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quote Record Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQDS__EnvelopeId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>DocuSign envelope ID.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>DocuSign envelope ID.</inlineHelpText>
+        <label>Envelope Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQDS__ErrorMessage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Message returned by DocuSign service in case of errors.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Message returned by DocuSign service in case of errors.</inlineHelpText>
+        <label>Error Message</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>SBQQDS__SenderURL__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One-time URL to open the DocuSign sender view for this document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>DocuSign sender view</inlineHelpText>
+        <label>Sender URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>SBQQDS__SignedDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date this document was signed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date this document was signed.</inlineHelpText>
+        <label>Signed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SBQQDS__VoidedReason__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Reason for voiding this document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Reason for voiding this document.</inlineHelpText>
+        <label>Voided Reason</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQ__AttachmentId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>ID of attachment record generated for this document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of attachment record generated for this document.</inlineHelpText>
+        <label>Attachment Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQ__CustomerAmount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Customer amount on the quote at the time this document was generated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Customer amount on the quote at the time this document was generated.</inlineHelpText>
+        <label>Customer Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>SBQQ__DocumentId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>ID of the Document record which contains its generated PDF.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the Document record which contains its generated PDF.</inlineHelpText>
+        <label>Document Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQ__ElectronicSignature__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates this document was generated for electronic signature.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field for the document to be signed electronically.</inlineHelpText>
+        <label>Electronic Signature</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SBQQ__Key__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <description>Key used to ensure unique combination of quote ID and version number.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Key used to ensure unique combination of quote ID and version number.</inlineHelpText>
+        <label>Key</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQ__ListAmount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>List amount of the quote at the time this document was generated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>List amount of the quote at the time this document was generated.</inlineHelpText>
+        <label>List Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>SBQQ__NetAmount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Net amount on the quote at the time this document was generated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Net amount on the quote at the time this document was generated.</inlineHelpText>
+        <label>Net Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>SBQQ__Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the Opportunity that parents the Quote for this document. References the opportunity on the quote for this document, allowing the Opportunity Quote Documents Related List to reside on the Opportunity as well as the Quote.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the Opportunity that parents the Quote for this document.</inlineHelpText>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Quote Documents</relationshipLabel>
+        <relationshipName>R00N700000029COgEAM</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SBQQ__OutputFormat__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Output format of this document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the output format for this document.</inlineHelpText>
+        <label>Output Format</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>PDF</fullName>
+                    <default>true</default>
+                    <label>PDF</label>
+                </value>
+                <value>
+                    <fullName>MS Word</fullName>
+                    <default>false</default>
+                    <label>MS Word</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SBQQ__PaperSize__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Paper size of this document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the paper size for this document.</inlineHelpText>
+        <label>Paper Size</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>SBQQ__PaperSize</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SBQQ__PrimaryContactId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>ID of primary contact in the quote. Used in Email button to default the To field.</description>
+        <externalId>false</externalId>
+        <formula>SBQQ__Quote__r.SBQQ__PrimaryContact__c</formula>
+        <inlineHelpText>References the primary contact for the quote to be used on the Email button, which defaults the To field.</inlineHelpText>
+        <label>Primary Contact Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQ__QuoteTemplate__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Quote Template that generated this document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Quote Template that generated this document.</inlineHelpText>
+        <label>Quote Template</label>
+        <referenceTo>SBQQ__QuoteTemplate__c</referenceTo>
+        <relationshipLabel>Quote Documents</relationshipLabel>
+        <relationshipName>Quote_Documents</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SBQQ__Quote__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Quote to which this Quote Document belongs.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Quote to which this Quote Document belongs.</inlineHelpText>
+        <label>Quote</label>
+        <referenceTo>SBQQ__Quote__c</referenceTo>
+        <relationshipLabel>Quote Documents</relationshipLabel>
+        <relationshipName>R00N70000001lX7YEAU</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>SBQQ__SignatureStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Status of electronic signature.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Status of electronic signature.</inlineHelpText>
+        <label>Signature Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>Created</fullName>
+                    <default>false</default>
+                    <label>Created</label>
+                </value>
+                <value>
+                    <fullName>Sent</fullName>
+                    <default>false</default>
+                    <label>Sent</label>
+                </value>
+                <value>
+                    <fullName>Delivered</fullName>
+                    <default>false</default>
+                    <label>Delivered</label>
+                </value>
+                <value>
+                    <fullName>Signed</fullName>
+                    <default>false</default>
+                    <label>Signed</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>Correct</fullName>
+                    <default>false</default>
+                    <label>Correct</label>
+                </value>
+                <value>
+                    <fullName>Declined</fullName>
+                    <default>false</default>
+                    <label>Declined</label>
+                </value>
+                <value>
+                    <fullName>Voided</fullName>
+                    <default>false</default>
+                    <label>Voided</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SBQQ__Template__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the template used to generate this document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the template used to generate this document.</inlineHelpText>
+        <label>Template</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQ__Version__c</fullName>
+        <defaultValue>1</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Sequentially incremented version number.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sequentially incremented version number.</inlineHelpText>
+        <label>Version</label>
+        <precision>10</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQ__ViewRecordId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Allows user to view the Quote Document Record Id.</description>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(SBQQ__AttachmentId__c),SBQQ__DocumentId__c,SBQQ__AttachmentId__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Allows user to view the Quote Document Record Id.</inlineHelpText>
+        <label>View Record Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Secondary_Signature_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>SBQQ__Quote__r.Secondary_Signature__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Secondary Signature Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Secondary_Signature_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>SBQQ__Quote__r.Secondary_Signature__r.FirstName + SBQQ__Quote__r.Secondary_Signature__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Secondary Signature Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Signature_Status__c</fullName>
+        <description>Status of electronic signature.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Status of electronic signature.</inlineHelpText>
+        <label>Signature Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>Created</fullName>
+                    <default>false</default>
+                    <label>Created</label>
+                </value>
+                <value>
+                    <fullName>Sent</fullName>
+                    <default>false</default>
+                    <label>Sent</label>
+                </value>
+                <value>
+                    <fullName>Delivered</fullName>
+                    <default>false</default>
+                    <label>Delivered</label>
+                </value>
+                <value>
+                    <fullName>Signed</fullName>
+                    <default>false</default>
+                    <label>Signed</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>Correct</fullName>
+                    <default>false</default>
+                    <label>Correct</label>
+                </value>
+                <value>
+                    <fullName>Declined</fullName>
+                    <default>false</default>
+                    <label>Declined</label>
+                </value>
+                <value>
+                    <fullName>Voided</fullName>
+                    <default>false</default>
+                    <label>Voided</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Signed_By_CD__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Signed By CD</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Unique_Document_Number__c</fullName>
+        <externalId>true</externalId>
+        <label>Unique Document Number</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Update_Quote_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>SBQQ__QuoteTemplate__r.Update_Quote_Status__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Update Quote Status</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Quote Document</label>
+    <nameField>
+        <label>Document Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Quote Documents</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>SBQQ__Quote__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SBQQ__Template__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATEDBY_USER</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>UPDATEDBY_USER</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>SBQQDS__Send</fullName>
+        <availability>online</availability>
+        <description>Send the document via DocuSign.</description>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Send</masterLabel>
+        <openType>replace</openType>
+        <page>SBQQDS__SendDocument</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>SBQQDS__Update</fullName>
+        <availability>online</availability>
+        <description>Updates document status and collected information from DocuSign.</description>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Update</masterLabel>
+        <openType>replace</openType>
+        <page>SBQQDS__UpdateDocument</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>SBQQDS__Void</fullName>
+        <availability>online</availability>
+        <description>Void this document in DocuSign.</description>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Void</masterLabel>
+        <openType>replace</openType>
+        <page>SBQQDS__VoidDocument</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>SBQQ__Email</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>0</height>
+        <linkType>page</linkType>
+        <masterLabel>Email</masterLabel>
+        <openType>sidebar</openType>
+        <page>SBQQ__EmailDocument</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>SBQQ__View</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>false</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>0</height>
+        <isResizable>false</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>View</masterLabel>
+        <openType>newWindow</openType>
+        <page>SBQQ__ViewDocument</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <width>800</width>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Contains settings that control the behavior of FinancialForce Billing Central</description>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ffbc__ActiveContractLineLockedFieldSet__c</fullName>
+        <defaultValue>&quot;ActiveContractLineLockedFields&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Name of the contract line item field set that determines which fields are read-only on a contract line item belonging to an Active contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the contract line item field set that determines which fields are read-only on a contract line item belonging to an Active contract.</inlineHelpText>
+        <label>Active Contract Line Locked Field Set</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ActiveContractLockedFieldSet__c</fullName>
+        <defaultValue>&quot;ActiveContractLockedFields&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Name of the contract field set that determines which fields are read-only on an Active contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the contract field set that determines which fields are read-only on an Active contract.</inlineHelpText>
+        <label>Active Contract Locked Field Set</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__AddDeleteLinesOnActiveContracts__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether you can add and delete contract line items on an Active contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether you can add and delete contract line items on an Active contract.</inlineHelpText>
+        <label>Add and Delete Lines on Active Contracts</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__AllowConvertedInvoiceToBeRebilled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether option to allow invoices to be rebilled after conversion to a credit note is selected by default when converting billing documents of type Invoice to credit notes.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether option to allow invoices to be rebilled after conversion to a credit note is selected by default when converting billing documents of type Invoice to credit notes.</inlineHelpText>
+        <label>Allow Converted Invoice to be Rebilled</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__AllowDeleteAccountInUse__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether you can delete an account that is in use. For instance, an account that is associated with a contract.</description>
+        <externalId>false</externalId>
+        <label>Allow Deletion of Account in Use</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__AllowDeleteCompanyInUse__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether you can delete a company that is in use. For instance, a company that is associated with a contract.</description>
+        <externalId>false</externalId>
+        <label>Allow Deletion of Company in Use</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__AllowDeleteProductInUse__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether you can delete a product that is in use. For instance, a product that is associated with a plan line item.</description>
+        <externalId>false</externalId>
+        <label>Allow Deletion of Product in Use</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__AllowDeleteTaxCodeInUse__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether you can delete a tax code that is in use. For instance, a tax code that is associated with a billing document line item.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether you can delete a tax code that is in use. For instance, a tax code that is associated with a billing document line item.</inlineHelpText>
+        <label>Allow Deletion of Tax Code in Use</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__AllowDraftBillingDocumentDelete__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether you can delete draft billing documents.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether you can delete draft billing documents.</inlineHelpText>
+        <label>Allow Deletion of Draft Billing Document</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingDocumentCreditNoteEmailTemplate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the custom email template to use when emailing billing documents of type Credit Note.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the custom email template to use when emailing billing documents of type Credit Note.</inlineHelpText>
+        <label>Credit Note Email Template</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingDocumentCreditNoteTemplate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the custom template for printing billing documents of type Credit Note.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the custom template for printing billing documents of type Credit Note.</inlineHelpText>
+        <label>Billing Document Credit Note Template</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingDocumentInvoiceEmailTemplate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the custom email template to use when emailing billing documents of type Invoice.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the custom email template to use when emailing billing documents of type Invoice.</inlineHelpText>
+        <label>Invoice Email Template</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingDocumentInvoiceTemplate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the custom template for printing billing documents of type Invoice.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the custom template for printing billing documents of type Invoice.</inlineHelpText>
+        <label>Billing Document Invoice Template</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingDocumentOutput__c</fullName>
+        <defaultValue>&quot;Single&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Determines the number of billing documents to be created for contracts when running a background process to create billing documents for contracts. You can enter: Single or Per Billing Type. The default value is Single.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Determines the number of billing documents to be created for contracts when running a background process to create billing documents for contracts. You can enter: Single or Per Billing Type. The default value is Single.</inlineHelpText>
+        <label>Billing Document Output</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingDocumentPrintRollupByPlan__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the lines in a printed billing document are grouped by plan.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether the lines in a printed billing document are grouped by plan.</inlineHelpText>
+        <label>Group Printed Billing Documents by Plan</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingScheduleNumberOfMonths__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Default number of future months for which to create billing schedules when activating contracts.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Default number of future months for which to create billing schedules when activating contracts.</inlineHelpText>
+        <label>Billing Schedule Number of Months</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__CalculateTaxOnBilling__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether tax will be calculated automatically on billing documents that are created when billing contracts.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether tax will be calculated automatically on billing documents that are created when billing contracts.</inlineHelpText>
+        <label>Calculate Tax On Billing</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__ContractChangeRequestUseApprovals__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether an approval process is used for contract change requests.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether an approval process is used for contract change requests.</inlineHelpText>
+        <label>Contract Change Request Use Approvals</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__DeleteDiscardedBillingDocSchedule__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether related billing schedules are deleted when a billing document is discarded. If cleared, the Billing Document Line Item field on related billing schedules is cleared when a billing document is discarded.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether related billing schedules are deleted when a billing document is discarded. If cleared, the Billing Document Line Item field on related billing schedules is cleared when a billing document is discarded.</inlineHelpText>
+        <label>Delete Discarded Billing Doc Schedule</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__EnhancedBillingDocFieldSet__c</fullName>
+        <defaultValue>&quot;EnhancedBillingDocumentAdditionalFields&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Name of the billing document field set that determines which billing document fields are to be included on the enhanced Billing Document Detail page. When blank, the default field set &quot;EnhancedBillingDocumentAdditionalFields&quot; is used.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the billing document field set that determines which billing document fields are to be included on the enhanced Billing Document Detail page. When blank, the default field set &quot;EnhancedBillingDocumentAdditionalFields&quot; is used.</inlineHelpText>
+        <label>Enhanced Billing Doc Field Set</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__EnhancedBillingDocLineFieldSet__c</fullName>
+        <defaultValue>&quot;EnhancedBillingDocumentAdditionalFields&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Name of the billing document line item field set that determines which billing document line item fields are to be included on the enhanced Billing Document Detail page. When blank, the default field set &quot;EnhancedBillingDocumentAdditionalFields&quot; is used.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the billing document line item field set that determines which billing document line item fields are to be included on the enhanced Billing Document Detail page. When blank, the default field set &quot;EnhancedBillingDocumentAdditionalFields&quot; is used.</inlineHelpText>
+        <label>Enhanced Billing Doc Line Field Set</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__EnhancedContractFieldSet__c</fullName>
+        <defaultValue>&quot;EnhancedContractAdditionalFields&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Name of the contract field set that determines which contract fields are to be included on the enhanced Contract Detail page. When blank, the default field set &quot;EnhancedContractAdditionalFields&quot; is used.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the contract field set that determines which contract fields are to be included on the enhanced Contract Detail page. When blank, the default field set &quot;EnhancedContractAdditionalFields&quot; is used.</inlineHelpText>
+        <label>Enhanced Contract Field Set</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__EnhancedContractLineFieldSet__c</fullName>
+        <defaultValue>&quot;EnhancedContractAdditionalFields&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Name of the contract line item field set that determines which contract line item fields are to be included on the enhanced Contract Detail page. When blank, the default field set &quot;EnhancedContractAdditionalFields&quot; is used.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the contract line item field set that determines which contract line item fields are to be included on the enhanced Contract Detail page. When blank, the default field set &quot;EnhancedContractAdditionalFields&quot; is used.</inlineHelpText>
+        <label>Enhanced Contract Line Field Set</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__PrintBillingDocFieldSet__c</fullName>
+        <defaultValue>&quot;PrintedDocumentFields&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Name of the billing document field set that determines which billing document fields are to be included on a printed billing document. When blank, the default field set &quot;PrintedDocumentFields&quot; is used.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the billing document field set that determines which billing document fields are to be included on a printed billing document. When blank, the default field set &quot;PrintedDocumentFields&quot; is used.</inlineHelpText>
+        <label>Print Billing Doc Field Set</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__PrintBillingDocLineFieldSet__c</fullName>
+        <defaultValue>&quot;PrintedDocumentFields&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Name of the billing document line item field set that determines which billing document fields are to be included on a printed billing document. When blank, the default field set &quot;PrintedDocumentFields&quot; is used.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the billing document line item field set that determines which billing document fields are to be included on a printed billing document. When blank, the default field set &quot;PrintedDocumentFields&quot; is used.</inlineHelpText>
+        <label>Print Billing Doc Line Field Set</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__PrintBillingDocPlanSummaryFieldSet__c</fullName>
+        <defaultValue>&quot;PlanSummaryFields&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Name of the billing document line item field set that determines which billing document fields are to be included when summarizing a plan on a printed billing document. When blank, the default field set &quot;PlanSummaryFields&quot; is used.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the billing document line item field set that determines which billing document fields are to be included when summarizing a plan on a printed billing document. When blank, the default field set &quot;PlanSummaryFields&quot; is used.</inlineHelpText>
+        <label>Print Billing Doc Plan Summary Field Set</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__RenewalReminderOffset__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of days before the contract End Date on which to set the renewal reminder when creating a contract. Enter a positive number to set the reminder before the End Date. Enter a negative number to set the reminder after the End Date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of days before the contract End Date on which to set the renewal reminder when creating a contract. Enter a positive number to set the reminder before the End Date. Enter a negative number to set the reminder after the End Date.</inlineHelpText>
+        <label>Renew Reminder Days Before Contract End</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__SoftDateStartOfWeek__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Defines which day a week starts on when calculating the start or end of a week for soft dates.</description>
+        <externalId>false</externalId>
+        <label>Soft Date Week Start Day</label>
+        <length>6</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Billing Central Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

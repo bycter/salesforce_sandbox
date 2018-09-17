@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>ffbc__softdatehelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Represents a soft date</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ffbc__Definition__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Defines a date using the format Reference+Adjustment. Reference sets whether the date falls at the start or end of a week, month, year or quarter. +Adjustment is the number of days or months to add or subtract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Defines a date using the format Reference+Adjustment. Reference determines whether the date falls at the start or end of a period. +Adjustment is the number of days or months to add or subtract. You can enter a Reference, Adjustment or both.</inlineHelpText>
+        <label>Definition</label>
+        <length>20</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Description of the soft date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Description of the soft date.</inlineHelpText>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__EstimatedDaysPerTerm__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Estimated duration of a single term of the soft date. This is used to calculate the monthly and annual value of contracts and plans.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Estimated duration of a single term of the soft date. This is used to calculate the monthly and annual value of contracts and plans.</inlineHelpText>
+        <label>Estimated Days per Term</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__MrrMultiplier__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Multiplier used to calculate monthly recurring revenue. Must contain a positive number.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Multiplier used to calculate monthly recurring revenue. You must enter a positive number.</inlineHelpText>
+        <label>Monthly Recurring Revenue Multiplier</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>9</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Soft Date</label>
+    <listViews>
+        <fullName>ffbc__All</fullName>
+        <columns>NAME</columns>
+        <columns>ffbc__Definition__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Soft Date Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Soft Dates</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>ffbc__Definition__c</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__Definition__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

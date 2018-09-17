@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>c2g__codahelppaymentspluserrorlog</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Stores error logs from the Payments Plus process.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>c2g__AttemptNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Attempt Number</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__ErrorReason__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Error Description</inlineHelpText>
+        <label>Error Reason</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>c2g__PaymentProposalNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment Proposal Number</label>
+        <referenceTo>c2g__codaPayment__c</referenceTo>
+        <relationshipLabel>Payments Plus Error Logs</relationshipLabel>
+        <relationshipName>PaymentsPlusErrorLogs</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>c2g__PaymentStage__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment Stage</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Add to Proposal</fullName>
+                    <default>false</default>
+                    <label>Add to Proposal</label>
+                </value>
+                <value>
+                    <fullName>Remove from Proposal</fullName>
+                    <default>false</default>
+                    <label>Remove from Proposal</label>
+                </value>
+                <value>
+                    <fullName>Create Media Data</fullName>
+                    <default>false</default>
+                    <label>Create Media Data</label>
+                </value>
+                <value>
+                    <fullName>Post and Match</fullName>
+                    <default>false</default>
+                    <label>Post and Match</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__SourceDocument__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF (ISBLANK(c2g__TransactionLineItem__c), NULL,
+		CASE (c2g__TransactionLineItem__r.c2g__Transaction__r.c2g__TransactionType__c ,
+		&quot;Cash&quot;, HYPERLINK(c2g__TransactionLineItem__r.c2g__Transaction__r.c2g__CashEntry__c, c2g__TransactionLineItem__r.c2g__Transaction__r.c2g__CashEntry__r.Name),
+		&quot;Journal&quot;, HYPERLINK(c2g__TransactionLineItem__r.c2g__Transaction__r.c2g__Journal__c, c2g__TransactionLineItem__r.c2g__Transaction__r.c2g__Journal__r.Name),
+		&quot;Purchase Credit Note&quot;, HYPERLINK(c2g__TransactionLineItem__r.c2g__Transaction__r.c2g__PayableCreditNote__c, c2g__TransactionLineItem__r.c2g__Transaction__r.c2g__PayableCreditNote__r.Name),
+		&quot;Purchase Invoice&quot;,  HYPERLINK(c2g__TransactionLineItem__r.c2g__Transaction__r.c2g__PayableInvoice__c, c2g__TransactionLineItem__r.c2g__Transaction__r.c2g__PayableInvoice__r.Name),
+		&quot;Credit Note&quot;, HYPERLINK(c2g__TransactionLineItem__r.c2g__Transaction__r.c2g__SalesCreditNote__c, c2g__TransactionLineItem__r.c2g__Transaction__r.c2g__SalesCreditNote__r.Name),
+		&quot;Invoice&quot;, HYPERLINK(c2g__TransactionLineItem__r.c2g__Transaction__r.c2g__SalesInvoice__c, c2g__TransactionLineItem__r.c2g__Transaction__r.c2g__SalesInvoice__r.Name), 
+		&quot;&quot;))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Source Document</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__TransactionLineItem__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Transaction Line Item</label>
+        <referenceTo>c2g__codaTransactionLineItem__c</referenceTo>
+        <relationshipLabel>Payments Plus Error Logs</relationshipLabel>
+        <relationshipName>PaymentsPlusTransactionErrorLogs</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Payments Plus Error Log</label>
+    <listViews>
+        <fullName>c2g__All</fullName>
+        <columns>NAME</columns>
+        <columns>c2g__PaymentProposalNumber__c</columns>
+        <columns>c2g__AttemptNumber__c</columns>
+        <columns>c2g__PaymentStage__c</columns>
+        <columns>c2g__TransactionLineItem__c</columns>
+        <columns>c2g__SourceDocument__c</columns>
+        <columns>c2g__ErrorReason__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>LOG{000000}</displayFormat>
+        <label>Log Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Payments Plus Error Logs</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>c2g__PaymentProposalNumber__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__AttemptNumber__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__PaymentStage__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__TransactionLineItem__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__ErrorReason__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>c2g__PaymentProposalNumber__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>c2g__AttemptNumber__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>c2g__PaymentStage__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>c2g__TransactionLineItem__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>c2g__ErrorReason__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>c2g__PaymentProposalNumber__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>c2g__AttemptNumber__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>c2g__PaymentStage__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>c2g__TransactionLineItem__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>c2g__ErrorReason__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>c2g__PaymentProposalNumber__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>c2g__AttemptNumber__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>c2g__PaymentStage__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>c2g__TransactionLineItem__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>c2g__ErrorReason__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

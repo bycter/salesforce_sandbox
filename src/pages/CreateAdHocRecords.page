@@ -1,0 +1,90 @@
+<apex:page showHeader="true" sidebar="true" standardController="Meeting_Room_Booking__c" extensions="CreateAdHocRecordsController" action="{!createRecords}" recordSetVar="Meeting_Room_Payments" lightningStylesheets="true" tabStyle="Meeting_Room_Booking__c">
+    <apex:slds />
+
+    <div class="slds">
+        <table class="slds-table slds-table_edit slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate">{!$ObjectType.Meeting_Room_Booking__c.Label}</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate">{!$ObjectType.Ad_hoc_Revenue__c.Label}</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate">{!$ObjectType.Ad_hoc_Revenue__c.fields.Customer_Account__c.Label}</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate">{!$ObjectType.Ad_hoc_Revenue__c.fields.Customer_Reference__c.Label}</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate">{!$ObjectType.Ad_hoc_Revenue__c.fields.Invoice_Date__c.Label}</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate">{!$ObjectType.Ad_hoc_Revenue__c.fields.Tax_Code__c.Label}</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate">{!$ObjectType.Ad_hoc_Revenue__c.fields.Unit_Price__c.Label}</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody><apex:repeat value="{!adHocRecords}" var="adHoc">
+                <tr>
+                    <td>
+                        <div class="slds-truncate">
+                            <a href="{!URLFOR($Action.Meeting_Room_Booking__c.View, adHoc.meeting.Id )}"  onclick="return navigateToRecord('{!adHoc.meeting.Id}')">
+                                <apex:outputField value="{!adHoc.meeting.Name}"/>
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <apex:outputPanel layout="block" styleClass="slds-truncate" rendered="{!NOT(ISBLANK(adHoc.adHocRecord.Id))}">
+                            <a href="{!URLFOR($Action.Ad_hoc_Revenue__c.View, adHoc.adHocRecord.Id )}" onclick="return navigateToRecord('{!adHoc.adHocRecord.Id}')">
+                                <apex:outputField value="{!adHoc.adHocRecord.Name}"/>
+                            </a>
+                        </apex:outputPanel>
+                    </td>
+                    <apex:outputPanel layout="none" rendered="{!NOT(ISBLANK(adHoc.message))}">
+                        <td colspan="5" >
+                            <div class="slds-text-color_error">{!adHoc.message}</div>
+                        </td>
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="none" rendered="{!ISBLANK(adHoc.message)}">
+                        <td>
+                            <div class="slds-truncate">
+                                <apex:outputField value="{!adHoc.adHocRecord.Customer_Account__c}"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">
+                                <apex:outputField value="{!adHoc.adHocRecord.Customer_Reference__c}"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">
+                                <apex:outputField value="{!adHoc.adHocRecord.Invoice_Date__c}"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">
+                                <apex:outputField value="{!adHoc.adHocRecord.Tax_Code__c}"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate">
+                                <apex:outputField value="{!adHoc.adHocRecord.Unit_Price__c}"/>
+                            </div>
+                        </td>
+                    </apex:outputPanel>
+                </tr>
+            </apex:repeat></tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+        function navigateToRecord(recordId) {
+            if (sforce && sforce.one) {
+                sforce.one.navigateToSObject(recordId)
+            }   
+        };
+    </script>
+</apex:page>

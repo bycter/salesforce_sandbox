@@ -1,0 +1,51 @@
+<aura:component
+        implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:lightningQuickActionWithoutHeader"
+        extends="c:BaseCmp"
+        controller="SBQQ_QuoteCtrl">
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:attribute name="approvalInfo" type="SBQQ_QuoteApprovalHandler.ApprovalInfo"/>
+    <aura:attribute name="comments" type="String"/>
+    <aura:attribute name="isDisabledSubmitAction" type="Boolean" default="false"/>
+
+    <h2 id="header43" class="title slds-text-heading--medium">
+        <div class="slds-grid slds-grid--align-center">
+            Submit for Approval
+        </div>
+    </h2>
+
+    <div class="slds-has-divider--top slds-m-vertical--large slds-grid--pull-padded-medium"></div>
+
+    <lightning:layout multipleRows="true">
+        <lightning:layoutItem padding="around-small" size="6" smallDeviceSize="6" mediumDeviceSize="6">
+            <lightning:input name="approverText"
+                             value="{! v.approvalInfo.approver.Name }"
+                             label="Approver"
+                             disabled="true"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="around-small" size="6" smallDeviceSize="6" mediumDeviceSize="6">
+            <lightning:input name="toleranceLevelText"
+                             value="{! v.approvalInfo.toleranceLevel + ' %' }"
+                             label="Tolerance Level"
+                             disabled="true"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="around-small" size="12" smallDeviceSize="12" mediumDeviceSize="12">
+            <lightning:textarea name="commentsArea"
+                                class="commentsArea"
+                                value="{! v.comments }"
+                                label="Comments"
+                                maxlength="2000"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+
+    <div class="slds-has-divider--top slds-m-vertical--large slds-grid--pull-padded-medium"></div>
+    <section class="slds-clearfix">
+        <div class="slds-float--right">
+            <lightning:button variant="neutral" label="Cancel" onclick="{! c.cancelAction }"/>
+            <lightning:button variant="brand" label="Submit" onclick="{! c.submitAction }"
+                              disabled="{! v.isDisabledSubmitAction }"/>
+        </div>
+    </section>
+
+</aura:component>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>fferpcore__AnalysisItemHelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Used to sub-analyze postings and can be used to represent a number of different business concepts.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>fferpcore__ReportingCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>An alternative name or code to be used for reporting.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>An alternative name or code to be used for reporting.</inlineHelpText>
+        <label>Reporting Code</label>
+        <length>24</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__UniquenessConstraint__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <description>An identifier which is used to prevent duplicate analysis items from being created.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>An identifier which is used to prevent duplicate analysis items from being created.</inlineHelpText>
+        <label>Uniqueness Constraint</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <label>Analysis Item</label>
+    <listViews>
+        <fullName>fferpcore__All</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>fferpcore__ReportingCode__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>fferpcore__Analysis1</fullName>
+        <columns>NAME</columns>
+        <columns>fferpcore__ReportingCode__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>fferpcore__AnalysisItem__c.fferpcore__Analysis_1</value>
+        </filters>
+        <label>Analysis 1</label>
+    </listViews>
+    <listViews>
+        <fullName>fferpcore__Analysis2</fullName>
+        <columns>NAME</columns>
+        <columns>fferpcore__ReportingCode__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>fferpcore__AnalysisItem__c.fferpcore__Analysis_2</value>
+        </filters>
+        <label>Analysis 2</label>
+    </listViews>
+    <listViews>
+        <fullName>fferpcore__Analysis3</fullName>
+        <columns>NAME</columns>
+        <columns>fferpcore__ReportingCode__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>fferpcore__AnalysisItem__c.fferpcore__Analysis_3</value>
+        </filters>
+        <label>Analysis 3</label>
+    </listViews>
+    <listViews>
+        <fullName>fferpcore__Analysis4</fullName>
+        <columns>NAME</columns>
+        <columns>fferpcore__ReportingCode__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>fferpcore__AnalysisItem__c.fferpcore__Analysis_4</value>
+        </filters>
+        <label>Analysis 4</label>
+    </listViews>
+    <nameField>
+        <label>Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Analysis Items</pluralLabel>
+    <recordTypes>
+        <fullName>fferpcore__Analysis_1</fullName>
+        <active>true</active>
+        <description>Used to sub-analyze billing documents and can be used to represent a number of different business concepts.</description>
+        <label>Analysis 1</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>fferpcore__Analysis_2</fullName>
+        <active>true</active>
+        <description>Used to sub-analyze billing documents and can be used to represent a number of different business concepts.</description>
+        <label>Analysis 2</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>fferpcore__Analysis_3</fullName>
+        <active>true</active>
+        <description>Used to sub-analyze billing documents and can be used to represent a number of different business concepts.</description>
+        <label>Analysis 3</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>fferpcore__Analysis_4</fullName>
+        <active>true</active>
+        <description>Used to sub-analyze billing documents and can be used to represent a number of different business concepts.</description>
+        <label>Analysis 4</label>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fferpcore__ReportingCode__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>fferpcore__ReportingCode__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RECORDTYPE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>fferpcore__ReportingCode__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>RECORDTYPE</searchFilterFields>
+        <searchFilterFields>fferpcore__ReportingCode__c</searchFilterFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fferpcore__ReportingCode__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

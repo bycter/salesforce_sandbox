@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Stores tax details at line level for tax calculations from Avalara.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>c2g__Country__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Country of tax jurisdiction</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__JurisName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of tax jurisdiction</description>
+        <externalId>false</externalId>
+        <label>Jurisdiction Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__JurisType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Regional type of tax jurisdiction</description>
+        <externalId>false</externalId>
+        <label>Jurisdiction Type</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Effective tax rate for jurisdiction</description>
+        <externalId>false</externalId>
+        <label>Tax Rate</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__Region__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Region of tax jurisdiction</description>
+        <externalId>false</externalId>
+        <label>Tax Region</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__SalesCreditNoteLineItem__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Links to the line item described by this record</description>
+        <externalId>false</externalId>
+        <label>Sales Credit Note Line Item</label>
+        <referenceTo>c2g__codaCreditNoteLineItem__c</referenceTo>
+        <relationshipLabel>Full External Tax Details</relationshipLabel>
+        <relationshipName>FullSalesTaxDetails</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>c2g__TaxName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Tax name</description>
+        <externalId>false</externalId>
+        <label>Tax Rule</label>
+        <length>75</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__Tax__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Tax amount</description>
+        <externalId>false</externalId>
+        <label>Tax Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__Taxable__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Taxable amount on the line</description>
+        <externalId>false</externalId>
+        <label>Taxable Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Tax Detail Sales Credit Note</label>
+    <nameField>
+        <label>Tax Detail Sales Credit Note Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Tax Details Sales Credit Note</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

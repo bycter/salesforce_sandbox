@@ -1,0 +1,23 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId"
+                extends="c:BaseCmp"
+                controller="ValidateAdHocRevenueCtrl">
+
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <div class="slds">
+        <div class="slds-clearfix">
+            <div class="slds-grid slds-float--left slds-m-around--x-small">
+                <label class="slds-text-heading--small">Validate Ad-hoc Revenue in process, please wait...</label>
+            </div>
+            <div class="slds-grid slds-float--right slds-m-around--x-small">
+                <div class="slds-grid slds-button-group">
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-text-heading--large slds-m-around--large slds-is-relative">
+            <lightning:spinner alternativeText="Loading" size="medium" variant="brand"/>
+        </div>
+    </div>
+
+</aura:component>

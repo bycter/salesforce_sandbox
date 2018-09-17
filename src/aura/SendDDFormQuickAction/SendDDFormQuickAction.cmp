@@ -1,0 +1,34 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" extends="c.BaseCmp" controller="SendDDFormQuickActionController">
+
+    <aura:attribute name="recordFields" type="Map" />
+    <aura:attribute name="selectedAccountId" type="Id" />
+
+    <force:recordData recordId="{!v.recordId}"
+                      fields="Account__c, Account__r.Name"
+                      targetFields="{!v.recordFields}"
+                      recordUpdated="{!c.handleRecordUpdated}" />
+
+    <aura:handler name="oSelectedRecordEvent" event="c:LookupSelectedSObject" action="{!c.handleAccountChange}"/>
+
+    <div class="slds-is-relative">
+        <div class="modal-header slds-modal__header">
+            <h2 class="title slds-text-heading--medium">Send Direct Debit Form</h2>
+        </div>
+        <lightning:layout horizontalAlign="spread" multipleRows="true">
+            <lightning:layoutItem padding="around-small" flexibility="grow" size="12">
+                <c:Lookup aura:id="accLookup" objectAPIName="Account" iconName="standard:account" label="Account" />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" flexibility="grow" size="12">
+                <c:Lookup aura:id="lookup" objectAPIName="Contact" accountId="{!v.selectedAccountId}" iconName="standard:contact" label="Contact" />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" flexibility="grow" size="12">
+                <lightning:textarea aura:id="emailBody" label="Message for the Customer" name="emailBody" maxlength="1000"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <div class="actionButtons">
+            <lightning:button label="Send" variant="brand" onclick="{!c.handleSend}"/>
+            <lightning:button label="Cancel" onclick="{!c.handleCancel}"/>
+        </div>
+        <lightning:spinner aura:id="spinner" alternativeText="Loading" size="medium" variant="brand" class="slds-hide"/>
+    </div>
+</aura:component>

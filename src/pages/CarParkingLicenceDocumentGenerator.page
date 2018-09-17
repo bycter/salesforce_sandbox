@@ -1,0 +1,579 @@
+<apex:page renderAs="pdf" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false"
+           applyHtmlTag="false" cache="false" controller="CarParkingLicenceDocumentGenerator">
+
+    <html>
+    <head>
+        <style>
+            .header {
+                padding-top: 200px;
+            }
+
+            .header div, .header p {
+                text-align: center;
+            }
+
+            tr td:first-child {
+                width: 10%;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            td {
+                vertical-align: top;
+            }
+
+            table.signature {
+                margin-top: 40px;
+            }
+
+            table.signature strong {
+                text-decoration: underline;
+            }
+
+            .disguised {
+                color: white;
+            }
+        </style>
+    </head>
+
+    <div class="header">
+        <div>DATED &nbsp;<apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+            <apex:param value="{!TODAY()}"/>
+        </apex:outputText>
+        </div>
+
+        <div style="margin-top: 110px;"><strong>{!quote.Property__r.Company_Name__c}</strong></div>
+        <div style="margin-top: 50px;"><strong>AND</strong></div>
+        <div style="margin-top: 50px;"><strong>{!quote.SBQQ__Account__r.Registered_Name__c}</strong></div>
+        <hr style="margin-top: 50px;" width="50%"/>
+        <p><strong>Licence</strong></p>
+        <p>relating to <strong>{!carParkingSpacesQuantity}</strong><strong> Car Parking Space(s) at </strong></p>
+        <p><strong>{!quote.Property__r.Name}</strong></p>
+        <hr width="50%"/>
+        <div style="margin-top: 200px; text-align: left;"><img src="{!quote.Property__r.Company_Logo__c}"
+                                                               height="70px"/>
+        </div>
+    </div>
+
+    <div style="page-break-after:always"></div>
+
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p><u>THIS LICENCE</u> is made on the
+        <apex:outputText value="{0,date, dd}">
+            <apex:param value="{!NOW()}"/>
+        </apex:outputText>
+        <apex:outputText value="{!IF(AND(DAY(TODAY()) > 10, DAY(TODAY()) < 14),"th", CASE(MOD(DAY(TODAY()),10),1,"st",2,"nd",3,"rd","th"))}"/>
+        &nbsp;day of&nbsp;
+        <apex:outputText value="{0,date, MMMMM yyyy}">
+            <apex:param value="{!NOW()}"/>
+        </apex:outputText>
+    </p>
+    <p>&nbsp;</p>
+    <p><strong><u>BETWEEN:</u></strong></p>
+    <p>&nbsp;</p>
+
+    <table align="left" border="0" cellpadding="1" cellspacing="1">
+        <tbody>
+        <tr>
+            <td>(1)</td>
+            <td>{!quote.Property__r.Company_Name__c} whose registered office is situated
+                at {!quote.Property__r.Company_Address__c} <strong>(&ldquo;the
+                    Licensor&rdquo;)</strong></td>
+        </tr>
+        <tr/>
+        <tr>
+            <td>(2)</td>
+            <td>{!quote.SBQQ__Account__r.Registered_Name__c} whose registered office is situated
+                at {!quote.SBQQ__Account__r.ShippingStreet}, {!quote.SBQQ__Account__r.ShippingCity}
+                ,{!quote.SBQQ__Account__r.ShippingPostalCode} <strong>(&ldquo;the Licensee&rdquo;)</strong></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+    <table align="left" border="0" cellpadding="1" cellspacing="1">
+        <tbody>
+        <tr>
+            <td>1&nbsp;</td>
+            <td>The Licensor hereby grants leave and licence to the Licensee from <strong>
+                <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                    <apex:param value="{!carParkingLicense.Start_Date__c}"/>
+                </apex:outputText>
+            </strong> for a period of
+                <strong>{!carParkingLicense.Term__c}</strong> {!IF(carParkingLicense.Term__c == 1, 'month', 'months')}
+                or until licence shall be terminated in the manner hereinafter mentioned (the &ldquo;<strong>Licence
+                    Period</strong>&rdquo;) to enter the car park (the &ldquo;<strong>Car Park</strong>&rdquo;) in the
+                curtilage of the building (the <strong>&ldquo;Building</strong>&rdquo;) known as
+                <strong>{!quote.Property__r.Name}</strong> and to park <strong>{!carParkingSpacesQuantity}</strong> No.
+                Motor car<strong>(s)</strong> (the <strong>Vehicles</strong>&rdquo;) in such spaces as the Licensor may
+                from time to time designate (and the expression the &ldquo;<strong>Parking</strong>
+                <strong>Spaces</strong>&rdquo; shall hereinafter be deemed to mean any such spaces so designated).
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+    <table align="left" border="0" cellpadding="1" cellspacing="1">
+        <tbody>
+        <tr>
+            <td>2&nbsp;</td>
+            <td colspan="2" style="width: 90%;">The Licensee hereby agrees with the Licensor:</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="2" style="width: 90%;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>2.1&nbsp;</td>
+            <td>To pay the licence fee of <strong>£{!ROUND(carParkingLicense.New_Annual_Average__c, 2)}</strong> per
+                annum plus VAT per car
+                parking space, payable quarterly in advance without deduction or set off and in addition to discharge
+                all general rates charged on or in respect of the Parking Spaces or if and in so far as any such rates
+                shall be levied in or in respect of the Building or any part thereof which includes the car park or on
+                the Licensor then to the Licensee shall on demand reimburse to the Licensor a fair proportion of such
+                rates from time to time by the Licensor’s surveyor or managing agent for the time being whose decision
+                shall be final except in the case of a manifest error. The first payment is to be made upon signing this
+                licence and subsequent payments are to be made upon the usual month days during the licence term.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>2.2&nbsp;</td>
+            <td>To observe all rules which may be made by the Licensor or its surveyor or managing agent for the time
+                being for the management safety and control of the Car Park and the vehicles.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>2.3&nbsp;</td>
+            <td>To use the Parking Spaces for the parking of <strong>{!carParkingSpacesQuantity}</strong> private
+                car<strong>(s)</strong> by the Licensee its employees or servants or visitors and for no other purpose
+                whatsoever.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>2.4&nbsp;</td>
+            <td>Not to waste spill or (apart from such as inside the tank and engine of the Vehicles) store any water
+                petrol or oil on or about the Car Park nor to empty or fill the fuel tank of the Vehicles in the Car
+                Park and generally not to do or suffer to be done anything which may cause the premium or premiums of
+                any policy or policies of insurance in respect of the Car Park of the Building or any part of the Car
+                Park or the Building to be increased or any such policy or policies of insurance to be void or voidable.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>2.5&nbsp;</td>
+            <td>To reimburse on demand to the Licensor all additional expenditure incurred by the Licensor on any
+                renewal of the said policy or policies and any increase in the premium rendered necessary as a result of
+                the Licensee&rsquo;s breach of the provisions of clause 2.4 hereof.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>2.6&nbsp;</td>
+            <td>Not to commit or cause any nuisance or annoyance or damage or disturbance to the Licensor or to any
+                other licensee lessee or occupant of the Car Park or of the Building or of any part of the Car Park or
+                Building and in particular not to cause any obstruction in the Car Park and not to park the Vehicles
+                other than within the designated boundaries of the Parking Spaces.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>2.7&nbsp;</td>
+            <td>Not to permit any rubbish or litter to be deposited in the Car Park.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>2.8&nbsp;</td>
+            <td>Not to clean any Vehicles or carry out any repairs to any Vehicles (other than running repairs) in the
+                Car Park and not to run the engine of any Vehicle whilst the same is in the Car Park except so far as
+                may be necessary for entering or leaving the same or for proceeding to or departing from the Parking
+                Spaces.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>2.9&nbsp;</td>
+            <td>Not to cause any damage or injury to the Car Park or the Building or to any fixtures plant or equipment
+                in the Car Park or the Building and to make good forthwith to the satisfaction of the Licensor all such
+                damage or injury whether caused by impact or any other means (at the option of the Licensor) to repay to
+                the Licensor on demand the reasonable costs and expenses properly incurred by the Licensor in making
+                good the same.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>2.10&nbsp;</td>
+            <td>To park the Vehicles in an orderly manner in the Parking Spaces and to keep the Parking spaces clean and
+                tidy.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>2.11&nbsp;</td>
+            <td>To pay interest at the rate of 4% above the base lending rate of the Royal Bank of Scotland plc from
+                time to time in force on any payments due under this Licence from the date when they became due to the
+                date of payment if they are not paid within 7 days of demand.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>2.12&nbsp;</td>
+            <td>Not to do or permit to be done anything in the Car Park that contravenes any statutory provision
+                regulation or any bylaw by any competent authority.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>2.13&nbsp;</td>
+            <td>To pay the sum of £10.00 plus vat for any replacement swipe cards provided at the request of the
+                Licensee.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="2" style="width: 90%;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>3&nbsp;</td>
+            <td colspan="2" style="width: 90%;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>3.1&nbsp;</td>
+            <td>Subject always to the provisions of sub-clause 3.2 and 3.3 this Licence may be terminated by the
+                Licensor giving to the Licensee one months notice in writing expiring at any time or by the Licensee
+                giving to the Licensor one months notice in writing to carparking@bruntwood.co.uk at any time.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>3.2&nbsp;</td>
+            <td>In the event of any sum hereby agreed to be paid being in arrear or unpaid (whether or not requested by
+                the Licensor) for 7 days after the date due for payment hereunder or if the Licensee shall at any time
+                fail or neglect to perform any of the terms hereof the Licensor may terminate this licence forthwith
+                without notice at any time.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>3.3&nbsp;</td>
+            <td>Any termination of this licence shall be without prejudice to any claim by either party against the
+                other in respect of any antecedent breach of the provisions of this licence.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="2" style="width: 90%;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>4&nbsp;</td>
+            <td colspan="2" style="width: 90%;">On the termination of this Licence the Licensee shall leave the Parking
+                Spaces vacant and in good and clean order and condition.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="2" style="width: 90%;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>5&nbsp;</td>
+            <td colspan="2" style="width: 90%;">This licence is personal to the Licensee who may not transfer or assign
+                the benefit thereof and may not sub-licence the Parking Spaces or any of them nor allow any person or
+                body to use the same.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <table align="left" border="0" cellpadding="1" cellspacing="1">
+        <tbody>
+        <tr>
+            <td>6</td>
+            <td colspan="3" style="width: 90%;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td style="width: 2%;">6.1&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td colspan="2" rowspan="1">Neither the Licensor nor its employees or agents nor without prejudice to the
+                generality of the foregoing its managing agents shall in any way be responsible for loss or damage to
+                any Vehicle or other property or anything in or about such vehicle or for any loss damage or injury
+                which may be suffered by the Licensee or any employee agent of the Licensee while in the Car Park
+                however the same may be caused nor shall the Licensee nor its employees or agents nor without prejudice
+                to the generality of the foregoing its managing agents be in any way responsible for damages and
+                compensation for loss of profits or delay or otherwise if:-
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td style="width: 2%;">&nbsp;</td>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>6.1.1</td>
+            <td>unauthorised persons use or endeavour to use the Parking Spaces or;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>6.1.2</td>
+            <td>vehicles or other things prevent ingress to or egress from the Car Park or the Parking Spaces;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>6.2</td>
+            <td colspan="2">The Licensee shall indemnify and keep indemnified the Licensor from and against all actions
+                proceedings claims demands costs expenses losses and liabilities occasioned or whatsoever arising out of
+                the use of the Car Park for the purposes hereof by the Licensee or any employee or agent of the Licensee
+                or anyone for whom the Licensee is responsible;
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>&nbsp;</td>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>7.1</td>
+            <td colspan="2">Following the implementation of, &lsquo;The Protection of Freedoms Act 2012&rsquo;
+                (Commencement No. 2) Order 2012, the Licensee hereby expressly agrees to the Licensor contacting an
+                approved and accredited SIA body should any Vehicle having pursuant to the provisions of this licence
+                entered the Car Park and later need to be moved
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>7.1.1</td>
+            <td colspan="2">if the vehicle is parked or left otherwise than in accordance with the provisions of this
+                Licence or of any regulation made hereunder and;
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>7.1.2</td>
+            <td colspan="2">if necessary in emergency or;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>7.1.3</td>
+            <td colspan="2">on the termination of this Licence;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>7.2</td>
+            <td colspan="2">and in any such case the Licensor shall be at liberty without notice to arrange with an
+                approved and accredited SIA body to remove or caused to remove any such Vehicle from the Car Park to any
+                other place and to leave it there and any such driving removal or leaving shall be at the sole risk and
+                responsibility of the Licensee or other the owner (or person entitled to the possession) of such vehicle
+                who shall hereby be deemed to have permission for such driving removal or leaving;
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="3" rowspan="1">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td colspan="3" rowspan="1">Notices hereunder shall be served in the case of the Licensor at its registered
+                office and in the case of the Licensee at the last known address of the Licensee;
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="3" rowspan="1">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td colspan="3" rowspan="1">The parties hereto agree that the Licensee shall not have exclusive possession
+                of any Parking Spaces within the Car Park and this Licence is not intended to confer upon the Licensee a
+                tenancy nor without prejudice to the generality of the foregoing security of tenure pursuant to Sections
+                24-28 Landlord and Tenant Act 1954.
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table style="margin-top: 40px;" align="left" border="0" cellpadding="1" cellspacing="1">
+        <tr>
+            <td style="width: 100%;">
+                Save as expressly provided none of the provisions of this agreement are intended to or will operate to
+                confer any benefit (pursuant to the Contracts (Rights of Third Parties) Act 1999) on a person who is not
+                named as a party to this agreement.
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="3" rowspan="1">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 100%;">
+                <strong style="text-decoration: underline;">AS WITNESS</strong> the hand of the duly authorised officer
+                for and on behalf of each of the Licensor and the Licensee the day and year first above written.
+            </td>
+        </tr>
+    </table>
+
+    <div style="page-break-after:always"></div>
+    <apex:outputPanel rendered="{!$CurrentPage.parameters.sendFor == 'signature'}">
+        <table class="signature" align="left" border="0" cellpadding="1" cellspacing="1">
+            <tr>
+                <td style="width: 45%;" valign="top">
+                    <table width="100%" align="center" height="150pt">
+                        <tr>
+                            <td valign="top">
+                                <strong>SIGNED</strong> by<br/>
+                                for and on behalf of the Licensor<br/><br/>
+                                Customer Name:<span class="disguised">/CP1-Name/</span><br/><br/>
+                                Signature:<span class="disguised">/CP1-Signature/</span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="width: 5%;" valign="top">&nbsp;</td>
+                <td style="width: 50%;" valign="top">
+                    <table width="100%" align="center" height="150pt">
+                        <tr>
+                            <td valign="top">
+                                <strong>SIGNED</strong> by<br/>
+                                for and on behalf of the Licensee<br/><br/>
+                                Bruntwood Name:<span>{!quote.BW_Signature__r.Name}</span><br/><br/>
+                                Signature:<span class="disguised">/CP2-Signature/</span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </apex:outputPanel>
+    <span class="disguised">/UDN/</span>
+    </html>
+</apex:page>

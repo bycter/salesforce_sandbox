@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Break_Penalty_Premium_Billing_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Break Penalty Premium Billing Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Surrender_Billing_Status</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Break_Penalty_Premium__c</fullName>
+        <externalId>false</externalId>
+        <label>Break Penalty Premium</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Budget_Dilapidations_Billing_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Budget Dilapidations Billing Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Surrender_Billing_Status</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Budget_Dilapidations__c</fullName>
+        <externalId>false</externalId>
+        <label>Budget Dilapidations</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Carpet_Cleaning_Billing_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Carpet Cleaning Billing Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Surrender_Billing_Status</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Carpet_Cleaning__c</fullName>
+        <externalId>false</externalId>
+        <label>Carpet Cleaning</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Contract Surrenders</relationshipLabel>
+        <relationshipName>Contract_Surrenders</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Date_Instruction_Received__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Instruction Received</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Surrender_Triggered__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Surrender Triggered</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Deposit_Billing_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Deposit Billing Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Surrender_Billing_Status</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Deposit_Interest_Billing_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Deposit Interest Billing Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Surrender_Billing_Status</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Deposit_Interest__c</fullName>
+        <externalId>false</externalId>
+        <label>Deposit Interest</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Deposit__c</fullName>
+        <externalId>false</externalId>
+        <label>Deposit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Final_Dilapidations_Billing_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Dilapidations Billing Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Surrender_Billing_Status</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Final_Dilapidations__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Dilapidations</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Interim_Dilapidations_Billing_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Interim Dilapidations Billing Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Surrender_Billing_Status</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Interim_Dilapidations__c</fullName>
+        <externalId>false</externalId>
+        <label>Interim Dilapidations</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Is_the_customer_liable_for_Service_Chrg__c</fullName>
+        <description>Is the customer liable for Service Charge Reconciliation?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Is the customer liable for Service Charge Reconciliation?</inlineHelpText>
+        <label>Customer liable for Service Charge</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Yes_No_Value_Set</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Is_the_customer_liable_for_electricity__c</fullName>
+        <description>Is the customer liable for electricity costs post completion?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Is the customer liable for electricity costs post completion?</inlineHelpText>
+        <label>Customer liable for electricity</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Yes_No_Value_Set</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Other_Costs_Billing_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Costs Billing Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Surrender_Billing_Status</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Other_Costs__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Costs</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Painting_Decorating_Billing_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Painting &amp; Decorating Billing Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Surrender_Billing_Status</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Painting_Decorating__c</fullName>
+        <externalId>false</externalId>
+        <label>Painting &amp; Decorating</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Proposed_date_of_surrender__c</fullName>
+        <externalId>false</externalId>
+        <label>Proposed date of surrender</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Region__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Contract__r.Property__r.Region__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Region</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <defaultValue>&apos;New&apos;</defaultValue>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Suite_Restoration_Billing_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Suite Restoration Billing Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Surrender_Billing_Status</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Suite_Restoration__c</fullName>
+        <externalId>false</externalId>
+        <label>Suite Restoration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Surrender_Premium_Billing_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Surrender Premium Billing Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Surrender_Billing_Status</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Surrender_Premium__c</fullName>
+        <externalId>false</externalId>
+        <label>Surrender Premium</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Terminal_Dilapidations_Billing_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Terminal Dilapidations Billing Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Surrender_Billing_Status</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Terminal_Dilapidations__c</fullName>
+        <externalId>false</externalId>
+        <label>Terminal Dilapidations</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Contract Surrender</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Conventional_Surrenders</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Contract_Surrender__c.Conventional</value>
+        </filters>
+        <label>Conventional Surrenders</label>
+    </listViews>
+    <listViews>
+        <fullName>Serviced</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Contract_Surrender__c.Serviced</value>
+        </filters>
+        <label>Serviced Surrenders</label>
+    </listViews>
+    <nameField>
+        <label>Contract Surrender Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Contract Surrenders</pluralLabel>
+    <recordTypes>
+        <fullName>Conventional</fullName>
+        <active>true</active>
+        <label>Conventional</label>
+        <picklistValues>
+            <picklist>Break_Penalty_Premium_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_Dilapidations_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Carpet_Cleaning_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Deposit_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Deposit_Interest_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Final_Dilapidations_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interim_Dilapidations_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_the_customer_liable_for_Service_Chrg__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_the_customer_liable_for_electricity__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Other_Costs_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Painting_Decorating_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Suite_Restoration_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Surrender_Premium_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Terminal_Dilapidations_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Serviced</fullName>
+        <active>true</active>
+        <label>Serviced</label>
+        <picklistValues>
+            <picklist>Break_Penalty_Premium_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_Dilapidations_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Carpet_Cleaning_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Deposit_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Deposit_Interest_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Final_Dilapidations_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interim_Dilapidations_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_the_customer_liable_for_Service_Chrg__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_the_customer_liable_for_electricity__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Other_Costs_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Painting_Decorating_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Suite_Restoration_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Surrender_Premium_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Terminal_Dilapidations_Billing_Status__c</picklist>
+            <values>
+                <fullName>Billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not be billed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be billed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>BillingStatusesRequiredForCompletion</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(Status__c, &apos;Complete&apos;),
+ OR(
+    ISPICKVAL(Break_Penalty_Premium_Billing_Status__c,&apos;&apos;),
+    ISPICKVAL(Deposit_Billing_Status__c,&apos;&apos;),
+    ISPICKVAL(Deposit_Interest_Billing_Status__c,&apos;&apos;),
+    ISPICKVAL(Suite_Restoration_Billing_Status__c,&apos;&apos;),
+    ISPICKVAL(Terminal_Dilapidations_Billing_Status__c,&apos;&apos;),
+    ISPICKVAL(Final_Dilapidations_Billing_Status__c,&apos;&apos;),
+    AND(RecordType.DeveloperName=&apos;Serviced&apos;, ISPICKVAL(Surrender_Premium_Billing_Status__c,&apos;&apos;)),
+    AND(NOT(RecordType.DeveloperName=&apos;Serviced&apos;),ISPICKVAL(Interim_Dilapidations_Billing_Status__c,&apos;&apos;)),
+    AND(NOT(RecordType.DeveloperName=&apos;Serviced&apos;),ISPICKVAL(Budget_Dilapidations_Billing_Status__c,&apos;&apos;))
+ )
+)</errorConditionFormula>
+        <errorMessage>Populate all Billing Status fields for saving with Status &apos;Completed&apos;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Currency_cannot_be_negative</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(
+    AND(NOT(ISBLANK(Break_Penalty_Premium__c)), Break_Penalty_Premium__c &lt; 0),
+    AND(NOT(ISBLANK(Deposit__c)), Deposit__c &lt; 0),
+    AND(NOT(ISBLANK(Deposit_Interest__c)), Deposit_Interest__c &lt; 0),
+    AND(NOT(ISBLANK(Final_Dilapidations__c)), Final_Dilapidations__c &lt; 0),
+    AND(NOT(ISBLANK(Suite_Restoration__c)), Suite_Restoration__c &lt; 0),
+    AND(NOT(ISBLANK(Terminal_Dilapidations__c)), Terminal_Dilapidations__c &lt; 0),
+    AND(NOT(ISBLANK(Surrender_Premium__c)), Surrender_Premium__c &lt; 0),
+    AND(NOT(ISBLANK(Interim_Dilapidations__c)), Interim_Dilapidations__c &lt; 0),
+    AND(NOT(ISBLANK(Budget_Dilapidations__c)), Budget_Dilapidations__c &lt; 0)
+)</errorConditionFormula>
+        <errorMessage>Values can&apos;t be negative</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Dilapidations_not_negative</fullName>
+        <active>true</active>
+        <errorConditionFormula>Final_Dilapidations__c &lt; 0</errorConditionFormula>
+        <errorMessage>Dilapidations can&apos;t be negative</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Surrender_Liabilities_not_negative</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+  Surrender_Premium__c &lt; 0,
+  RecordType.DeveloperName == &apos;Serviced&apos;
+)</errorConditionFormula>
+        <errorMessage>Surrender Liabilities can&apos;t be negative</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

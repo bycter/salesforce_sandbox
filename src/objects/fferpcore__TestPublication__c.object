@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>fferpcore__TestPublicationHelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>A publication that sends a message for the provided properties.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>fferpcore__CorrelationId__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Correlation ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__MessageBody__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Message Body</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>12</visibleLines>
+    </fields>
+    <fields>
+        <fullName>fferpcore__MessageType__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Message Type</label>
+        <referenceTo>fferpcore__MessageType__c</referenceTo>
+        <relationshipLabel>Test Mode Publications</relationshipLabel>
+        <relationshipName>Test_Publications</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__Publisher__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>It is possible to set up a Test Mode Subscription that forwards messages after it has completed its work. In order to set up the messages that the Subscription forwards, we need to link a Test Mode Publication to it. The relationship exists on the Test Mode Publication so that multiple Publications can be linked to a single Test Mode Subscription.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>It is possible to set up a Test Mode Subscription that forwards messages after it has completed its work. In order to set up the messages that the Subscription forwards, we need to link a Test Mode Publication to it.</inlineHelpText>
+        <label>Test Mode Subscription</label>
+        <referenceTo>fferpcore__TestSubscription__c</referenceTo>
+        <relationshipLabel>Response Publications</relationshipLabel>
+        <relationshipName>ForwardMessages</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Test Mode Publication</label>
+    <listViews>
+        <fullName>fferpcore__All</fullName>
+        <columns>NAME</columns>
+        <columns>fferpcore__MessageType__c</columns>
+        <columns>fferpcore__CorrelationId__c</columns>
+        <columns>fferpcore__Publisher__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Test Mode Publication Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Test Mode Publications</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>fferpcore__MessageType__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fferpcore__CorrelationId__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fferpcore__Publisher__c</customTabListAdditionalFields>
+        <listViewButtons>fferpcore__SetupAndPublishMultipleMessages</listViewButtons>
+        <searchResultsAdditionalFields>fferpcore__MessageType__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fferpcore__CorrelationId__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fferpcore__Publisher__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>fferpcore__PublishMessage</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Setup and Publish</masterLabel>
+        <openType>sidebar</openType>
+        <page>fferpcore__TestPublicationSetupAndPublishSingle</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>fferpcore__SetupAndPublishMultipleMessages</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Setup and Publish</masterLabel>
+        <openType>sidebar</openType>
+        <page>fferpcore__TestPublicationSetupAndPublish</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+</CustomObject>

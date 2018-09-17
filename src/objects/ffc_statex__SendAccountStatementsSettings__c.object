@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ffc_statex__CustomStatementLineSortOrder__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Please input the API Name of the field(s) you wish to order by. E.g. &quot;ffc_statex__DueDate__c, ffc_statex__Transaction__r.c2g__DocumentNumber__c asc&quot; which would order by the Due Date then the document number if multiple documents fall on the same day.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please input the API Name of the field(s) you wish to order by. E.g. &quot;ffc_statex__DueDate__c, ffc_statex__Transaction__r.c2g__DocumentNumber__c asc&quot; which would order by the Due Date then the document number if multiple documents fall on the same day.</inlineHelpText>
+        <label>Custom Statement Line Sort Order</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffc_statex__DefaultMonthRange__c</fullName>
+        <defaultValue>999</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This value will be used when clicking on the send button to default the month range. i.e. 3 would give a default range of 3 months, for a record of all transactions within the past 3 months. If you want all months use a large value i.e. 999.</inlineHelpText>
+        <label>Default Month Range</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffc_statex__EmailTemplate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Email Template</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffc_statex__PrintTemplate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Print Template</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffc_statex__Use_Invoice_Email__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If this is checked account statements will be sent to the invoice email address rather than the finance contact.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this is checked account statements will be sent to the invoice email address rather than the finance contact.</inlineHelpText>
+        <label>Use Invoice Email</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Send Account Statements Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

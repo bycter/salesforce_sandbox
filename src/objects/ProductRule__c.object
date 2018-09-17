@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Rule that governs valid product configurations.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flag that indicates whether this rule is active or inactive.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether this rule is active or inactive.</inlineHelpText>
+        <label>Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AdvancedCondition__c</fullName>
+        <description>Can only be entered if the Conditions Met is Custom. Enter a combination of the Error Condition Index #s, AND, OR, and parenthesis (e.g. (123 AND 124) AND 125).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Can only be entered if the Conditions Met is Custom. Enter a combination of the Error Condition Index #s, AND, OR, and parenthesis (e.g. (123 AND 124) AND 125).</inlineHelpText>
+        <label>Advanced Condition</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>CPQ_Config_Version__c</fullName>
+        <externalId>false</externalId>
+        <label>CPQ Config Version</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ConditionsMet__c</fullName>
+        <description>Choose the behavior for your conditions: All is AND, Any is OR, Custom is a combination of AND/OR.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the behavior for your conditions: All is AND, Any is OR, Custom is a combination of AND/OR.</inlineHelpText>
+        <label>Conditions Met</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>false</default>
+                    <label>All</label>
+                </value>
+                <value>
+                    <fullName>Any</fullName>
+                    <default>false</default>
+                    <label>Any</label>
+                </value>
+                <value>
+                    <fullName>Custom</fullName>
+                    <default>false</default>
+                    <label>Custom</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ErrorMessage__c</fullName>
+        <description>Enter a message to displayed when rule is activated.  An error message will be displayed when a Validations is fired.  A warning message will be displayed when an Alert is fired. Does not apply to Filter rules.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a message to displayed when rule is activated.  An error message will be displayed when a Validations is fired.  A warning message will be displayed when an Alert is fired. Does not apply to Filter rules.</inlineHelpText>
+        <label>Message</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>EvaluationEvent__c</fullName>
+        <description>Event that causes this rule to be evaluated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify when this rule should be evaluated.</inlineHelpText>
+        <label>Evaluation Event</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Load</fullName>
+                    <default>false</default>
+                    <label>Load</label>
+                </value>
+                <value>
+                    <fullName>Edit</fullName>
+                    <default>false</default>
+                    <label>Edit</label>
+                </value>
+                <value>
+                    <fullName>Save</fullName>
+                    <default>false</default>
+                    <label>Save</label>
+                </value>
+                <value>
+                    <fullName>Always</fullName>
+                    <default>false</default>
+                    <label>Always</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>EvaluationOrder__c</fullName>
+        <description>Order in which this price rule is evaluated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify the order of evaluation for this price rule. Higher ordered rules are evaluated last which means they &quot;win&quot; in case of conflict.</inlineHelpText>
+        <label>Evaluation Order</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_Old_Version__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is_Old_Version__c</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Load_Id__c</fullName>
+        <externalId>true</externalId>
+        <label>Load Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LookupMessageField__c</fullName>
+        <description>Field on Lookup Object corresponding to Product Rule Message. Field must be text.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field on Lookup Object corresponding to Product Rule Message. Field must be text.</inlineHelpText>
+        <label>Lookup Message Field</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SBQQ__Message__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__Message__c</label>
+                </value>
+                <value>
+                    <fullName>Error_Message__c</fullName>
+                    <default>false</default>
+                    <label>Error_Message__c</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LookupObject__c</fullName>
+        <description>API Name of the Custom Object that stores the lookup data.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>API Name of the Custom Object that stores the lookup data.</inlineHelpText>
+        <label>Lookup Object</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SBQQ__LookupData__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__LookupData__c</label>
+                </value>
+                <value>
+                    <fullName>Product2</fullName>
+                    <default>false</default>
+                    <label>Product2</label>
+                </value>
+                <value>
+                    <fullName>Inventory__c</fullName>
+                    <default>false</default>
+                    <label>Inventory__c</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LookupProductField__c</fullName>
+        <description>Field on Lookup Object corresponding to Product Action Product Lookup. Field must be a lookup to the Product object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field on Lookup Object corresponding to Product Action Product Lookup. Field must be a lookup to the Product object.</inlineHelpText>
+        <label>Lookup Product Field</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SBQQ__Product__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__Product__c</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LookupRequiredField__c</fullName>
+        <description>Field on Lookup Object corresponding to Product Action Required checkbox. Field must be checkbox.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field on Lookup Object corresponding to Product Action Required checkbox. Field must be checkbox.</inlineHelpText>
+        <label>Lookup Required Field</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SBQQ__Required__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__Required__c</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LookupTypeField__c</fullName>
+        <description>Field on Lookup Object corresponding to Product Action Type picklist. Field must be a Picklist or Text.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field on Lookup Object corresponding to Product Action Type picklist. Field must be a Picklist or Text.</inlineHelpText>
+        <label>Lookup Type Field</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SBQQ__Type__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__Type__c</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Scope__c</fullName>
+        <description>Scopes the rule to the entire quote or specific product.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Applies the rule to the entire quote or specific product.</inlineHelpText>
+        <label>Scope</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Quote</fullName>
+                    <default>true</default>
+                    <label>Quote</label>
+                </value>
+                <value>
+                    <fullName>Product</fullName>
+                    <default>false</default>
+                    <label>Product</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>Type of rule. Validation displays error messages. Selection causes products to be added or suggested. Alert displays a warning, but requires no rectification. Filter refines option lookup results for Dynamic Bundles.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Type of rule. Validation displays error messages. Selection causes products to be added or suggested. Alert displays a warning, but requires no rectification. Filter refines option lookup results for Dynamic Bundles.</inlineHelpText>
+        <label>Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Validation</fullName>
+                    <default>false</default>
+                    <label>Validation</label>
+                </value>
+                <value>
+                    <fullName>Selection</fullName>
+                    <default>false</default>
+                    <label>Selection</label>
+                </value>
+                <value>
+                    <fullName>Alert</fullName>
+                    <default>false</default>
+                    <label>Alert</label>
+                </value>
+                <value>
+                    <fullName>Filter</fullName>
+                    <default>false</default>
+                    <label>Filter</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Product Rule</label>
+    <nameField>
+        <label>Product Rule Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Product Rules</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

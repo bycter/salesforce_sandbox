@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ffps_brunt__Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Account used to filter the transaction lines</inlineHelpText>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Collections</relationshipLabel>
+        <relationshipName>Collections</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__BankAccount__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Bank Account used to filter the transaction lines</inlineHelpText>
+        <label>Bank Account</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>c2g__codaBankAccount__c.c2g__OwnerCompany__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.ffps_brunt__Company__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>c2g__codaBankAccount__c</referenceTo>
+        <relationshipLabel>Collections</relationshipLabel>
+        <relationshipName>Collections</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__CollectionCurrency__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Collection Currency</label>
+        <referenceTo>c2g__codaAccountingCurrency__c</referenceTo>
+        <relationshipLabel>Collections</relationshipLabel>
+        <relationshipName>Collections</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__CollectionStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Collection Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Selected</fullName>
+                    <default>false</default>
+                    <label>Selected</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Cash Entry Stage</fullName>
+                    <default>false</default>
+                    <label>Cash Entry Stage</label>
+                </value>
+                <value>
+                    <fullName>Saved</fullName>
+                    <default>false</default>
+                    <label>Saved</label>
+                </value>
+                <value>
+                    <fullName>Matching Stage</fullName>
+                    <default>false</default>
+                    <label>Matching Stage</label>
+                </value>
+                <value>
+                    <fullName>Matched</fullName>
+                    <default>false</default>
+                    <label>Matched</label>
+                </value>
+                <value>
+                    <fullName>Matched with Errors</fullName>
+                    <default>false</default>
+                    <label>Matched with Errors</label>
+                </value>
+                <value>
+                    <fullName>Canceled with Errors</fullName>
+                    <default>false</default>
+                    <label>Canceled with Errors</label>
+                </value>
+                <value>
+                    <fullName>Canceled</fullName>
+                    <default>false</default>
+                    <label>Canceled</label>
+                </value>
+                <value>
+                    <fullName>Canceling Stage</fullName>
+                    <default>false</default>
+                    <label>Canceling Stage</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Company__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Company used to filter the transaction lines</inlineHelpText>
+        <label>Company</label>
+        <referenceTo>c2g__codaCompany__c</referenceTo>
+        <relationshipLabel>Collections</relationshipLabel>
+        <relationshipName>Collections</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Credit_Balances__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of collection summaries that have a credit balance within this collection</inlineHelpText>
+        <label>Credit Balances</label>
+        <summaryFilterItems>
+            <field>ffps_brunt__CollectionSummary__c.ffps_brunt__TotalAmounttoPay__c</field>
+            <operation>lessThan</operation>
+            <value>0</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>ffps_brunt__CollectionSummary__c.ffps_brunt__Selected__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>ffps_brunt__CollectionSummary__c.ffps_brunt__Collection__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__CurrencyWriteOff__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Currency Write-Off</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Collections (Currency Write-Off)</relationshipLabel>
+        <relationshipName>Collections</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__DueDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The date used to filter Transaction Lines by Due Date</inlineHelpText>
+        <label>Due Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__GeneralLedgerAccount__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>GLA used to filter Transaction Lines</inlineHelpText>
+        <label>General Ledger Account</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Collections (General Ledger Account)</relationshipLabel>
+        <relationshipName>Collections1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__InvoiceDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The date used to filter Transaction Lines by Transaction Date</inlineHelpText>
+        <label>Invoice Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__PaymentDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Matching Date used during Cash Matching Stage</inlineHelpText>
+        <label>Payment Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__SettlementDiscount__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Settlement Discount</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Collections (Settlement Discount)</relationshipLabel>
+        <relationshipName>Collections2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Total_Amount_To_Pay__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total Amount To Pay</label>
+        <summarizedField>ffps_brunt__CollectionSummary__c.ffps_brunt__TotalAmounttoPay__c</summarizedField>
+        <summaryForeignKey>ffps_brunt__CollectionSummary__c.ffps_brunt__Collection__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Total_Outstanding_Balance__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total Outstanding Balance</label>
+        <summarizedField>ffps_brunt__CollectionSummary__c.ffps_brunt__TotalOutstandingBalance__c</summarizedField>
+        <summaryForeignKey>ffps_brunt__CollectionSummary__c.ffps_brunt__Collection__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <label>Collection</label>
+    <listViews>
+        <fullName>ffps_brunt__All</fullName>
+        <columns>NAME</columns>
+        <columns>ffps_brunt__Company__c</columns>
+        <columns>ffps_brunt__BankAccount__c</columns>
+        <columns>ffps_brunt__Total_Amount_To_Pay__c</columns>
+        <columns>ffps_brunt__Total_Outstanding_Balance__c</columns>
+        <columns>ffps_brunt__CollectionStatus__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>C{000000}</displayFormat>
+        <label>Collection Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Collections</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>ffps_brunt__Company__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffps_brunt__BankAccount__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffps_brunt__Total_Amount_To_Pay__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffps_brunt__Total_Outstanding_Balance__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffps_brunt__CollectionStatus__c</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <listViewButtons>ffps_brunt__CollectionProcess</listViewButtons>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>ffps_brunt__CollectionProcess</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Collection Process</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/apex/ffps_brunt__CollectionProcess</url>
+    </webLinks>
+    <webLinks>
+        <fullName>ffps_brunt__EditPayment</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Edit Payment</masterLabel>
+        <openType>replace</openType>
+        <page>ffps_brunt__EditCollectionProcess</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

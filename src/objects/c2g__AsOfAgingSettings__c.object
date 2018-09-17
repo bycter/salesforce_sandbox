@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Contains the configuration options for the As of Aging process.</description>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>c2g__BatchSizePhase1__c</fullName>
+        <defaultValue>200</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The As of Aging process consists of three phases. This setting contains the number of records to process in one batch for phase 1.</description>
+        <externalId>false</externalId>
+        <label>Batch Size (Phase 1)</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__BatchSizePhase2__c</fullName>
+        <defaultValue>200</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The As of Aging process consists of three phases. This setting contains the number of records to process in one batch for phase 2.</description>
+        <externalId>false</externalId>
+        <label>Batch Size (Phase 2)</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__BatchSizePhase3__c</fullName>
+        <defaultValue>200</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The As of Aging process consists of three phases. This setting contains the number of records to process in one batch for phase 3.</description>
+        <externalId>false</externalId>
+        <label>Batch Size (Phase 3)</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>As Of Aging Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

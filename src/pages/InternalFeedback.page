@@ -1,0 +1,7 @@
+<apex:page standardController="Case" extensions="InternalFeedbackController" lightningStylesheets="true">
+    <flow:interview name="Internal_Feedback" interview="{!internalFeedback}" finishlocation="{!CaseLink}">
+        <apex:param name="caseId" value="{!$CurrentPage.parameters.caseId}"/>
+        <apex:param name="accountId" value="{!$CurrentPage.parameters.accountId}"/>
+        <apex:param name="userName" value="{!$User.FirstName} {!$User.LastName}"/>
+    </flow:interview>
+</apex:page>

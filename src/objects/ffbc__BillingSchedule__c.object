@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>ffbc__billingschedulehelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Contains the billing schedules used to create billing documents from contracts in FinancialForce Billing Central.
+EARLY ADOPTERS: The Billing Schedule object is currently for FinancialForce internal use only and is likely to be significantly changed or replaced in a future release. We recommend that you do not build any custom functionality around this object that you still require after upgrading to a future version of Billing Central. Scheduling of future billing will be retained, but may use a different solution.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ffbc__BillingDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date on which a billing document is due to be created for this billing schedule.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which a billing document is due to be created for this billing schedule.</inlineHelpText>
+        <label>Billing Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingDocumentLineItem__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the billing document line item generated from this billing schedule.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the billing document line item generated from this billing schedule.</inlineHelpText>
+        <label>Billing Document Line Item</label>
+        <referenceTo>fferpcore__BillingDocumentLineItem__c</referenceTo>
+        <relationshipLabel>Related Billing Schedules</relationshipLabel>
+        <relationshipName>BillingSchedules</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingPeriodEndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Last day of the billing period for this billing schedule.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Last day of the billing period for this billing schedule.</inlineHelpText>
+        <label>Billing Period End Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingPeriodStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>First day of the billing period for this billing schedule.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>First day of the billing period for this billing schedule.</inlineHelpText>
+        <label>Billing Period Start Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__ContractGrouping__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Contract Id to which this billing schedule belongs.</description>
+        <externalId>false</externalId>
+        <formula>ffbc__ContractLineItem__r.ffbc__Contract__r.Name</formula>
+        <inlineHelpText>Contract Id to which this billing schedule belongs.</inlineHelpText>
+        <label>Contract</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ContractLineItem__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the contract line item that is to be processed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the contract line item that is to be processed.</inlineHelpText>
+        <label>Contract Line Item</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>ffbc__ContractLineItem__c.ffbc__ContractType__c</field>
+                <operation>equals</operation>
+                <value>Contract</value>
+            </filterItems>
+            <filterItems>
+                <field>ffbc__ContractLineItem__c.ffbc__ContractStatus__c</field>
+                <operation>equals</operation>
+                <value>Active</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>ffbc__ContractLineItem__c</referenceTo>
+        <relationshipLabel>Related Billing Schedules</relationshipLabel>
+        <relationshipName>BillingSchedules</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__ContractStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field containing the status of the contract to which the billing schedule belongs.</description>
+        <externalId>false</externalId>
+        <formula>ffbc__ContractLineItem__r.ffbc__ContractStatus__c</formula>
+        <inlineHelpText>Status of the contract to which this billing schedule belongs.</inlineHelpText>
+        <label>Contract Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ContractType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field containing the type of contract to which this billing schedule belongs.</description>
+        <externalId>false</externalId>
+        <formula>ffbc__ContractLineItem__r.ffbc__ContractType__c</formula>
+        <inlineHelpText>&gt;Type of contract to which this billing schedule belongs.</inlineHelpText>
+        <label>Contract Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__IsFinalSchedule__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates whether this is the last billing schedule for the contract line item.</description>
+        <externalId>false</externalId>
+        <formula>AND
+        	(
+        		!ISNULL(ffbc__ContractLineItem__c),
+        		OR
+                (
+                    ffbc__BillingPeriodEndDate__c &gt;= ffbc__ContractLineItem__r.ffbc__EndDate__c,
+                    ISPICKVAL(ffbc__ContractLineItem__r.ffbc__BillingType__c, &apos;One-off&apos;)
+                )
+        	)</formula>
+        <inlineHelpText>Indicates whether this is the last billing schedule for the contract line item.</inlineHelpText>
+        <label>Final Schedule</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__Month__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field which calculates the month of the Billing Period Start Date.</description>
+        <externalId>false</externalId>
+        <formula>MONTH( ffbc__BillingPeriodStartDate__c)</formula>
+        <inlineHelpText>Formula field which calculates the month of the Billing Period Start Date.</inlineHelpText>
+        <label>Month</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__Value__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Value of the billing schedule. When the billing schedule is created, the sales price is copied from the related contract line item. If you edit this field, the contract line item is not updated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value of the billing schedule. When the billing schedule is created, the sales price is copied from the related contract line item. If you edit this field, the contract line item is not updated.</inlineHelpText>
+        <label>Value</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__Year__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field which calculates the year of the Billing Period Start Date.</description>
+        <externalId>false</externalId>
+        <formula>YEAR( ffbc__BillingPeriodStartDate__c)</formula>
+        <inlineHelpText>Formula field which calculates the year of the Billing Period Start Date.</inlineHelpText>
+        <label>Year</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Billing Schedule</label>
+    <listViews>
+        <fullName>ffbc__All</fullName>
+        <columns>NAME</columns>
+        <columns>ffbc__ContractGrouping__c</columns>
+        <columns>ffbc__ContractLineItem__c</columns>
+        <columns>ffbc__BillingDocumentLineItem__c</columns>
+        <columns>ffbc__BillingDate__c</columns>
+        <columns>ffbc__BillingPeriodStartDate__c</columns>
+        <columns>ffbc__BillingPeriodEndDate__c</columns>
+        <columns>ffbc__Value__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>BS{0000000000}</displayFormat>
+        <label>Billing Schedule Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Billing Schedules</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>ffbc__ContractGrouping__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__ContractLineItem__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__BillingDocumentLineItem__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__BillingDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__BillingPeriodStartDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__BillingPeriodEndDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__Value__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ffbc__ContractGrouping__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ffbc__ContractLineItem__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ffbc__BillingDocumentLineItem__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ffbc__BillingDate__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ffbc__ContractGrouping__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ffbc__ContractLineItem__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ffbc__BillingDocumentLineItem__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ffbc__BillingDate__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>ffbc__ContractGrouping__c</searchFilterFields>
+        <searchFilterFields>ffbc__ContractLineItem__c</searchFilterFields>
+        <searchFilterFields>ffbc__BillingDocumentLineItem__c</searchFilterFields>
+        <searchFilterFields>ffbc__BillingDate__c</searchFilterFields>
+        <searchFilterFields>ffbc__BillingPeriodStartDate__c</searchFilterFields>
+        <searchFilterFields>ffbc__BillingPeriodEndDate__c</searchFilterFields>
+        <searchResultsAdditionalFields>ffbc__ContractGrouping__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__ContractLineItem__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__BillingDocumentLineItem__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__BillingDate__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

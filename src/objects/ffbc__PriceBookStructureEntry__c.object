@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>ffbc__pricebookstructureentryhelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Links products, price books and currencies to a pricing structure. This is the equivalent of a price book entry but with variable pricing based on quantity.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ffbc__IsActive__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether this price book structure entry is active.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether this price book structure entry is active.</inlineHelpText>
+        <label>Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__PriceBookStructureEntryId__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <deprecated>false</deprecated>
+        <description>An identifier which is used to prevent duplicate price book structure entries.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>An identifier which is used to prevent duplicate price book structure entries.</inlineHelpText>
+        <label>Price Book Structure Entry ID</label>
+        <length>39</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__PriceBook__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the price book to which this price book structure entry applies.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the price book to which this price book structure entry applies.</inlineHelpText>
+        <label>Price Book</label>
+        <referenceTo>Pricebook2</referenceTo>
+        <relationshipLabel>Price Book Structure Entries</relationshipLabel>
+        <relationshipName>PriceBookStructureEntries</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__PricingStructureDescription__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Description of the pricing structure to which this price book structure entry applies.</description>
+        <externalId>false</externalId>
+        <formula>ffbc__PricingStructure__r.ffbc__Description__c</formula>
+        <inlineHelpText>Description of the pricing structure to which this price book structure entry applies.</inlineHelpText>
+        <label>Pricing Structure Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__PricingStructure__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the pricing structure to which this price book structure entry applies.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the pricing structure to which this price book structure entry applies.</inlineHelpText>
+        <label>Pricing Structure</label>
+        <referenceTo>ffbc__PricingStructure__c</referenceTo>
+        <relationshipLabel>Price Book Structure Entries</relationshipLabel>
+        <relationshipName>PriceBookStructureEntries</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the product to which this price book structure entry applies.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the product to which this price book structure entry applies.</inlineHelpText>
+        <label>Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Related Price Book Structure Entries</relationshipLabel>
+        <relationshipName>PriceBookStructureEntries</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Price Book Structure Entry</label>
+    <nameField>
+        <displayFormat>PBSE{0000000}</displayFormat>
+        <label>Price Book Structure Entry Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Price Book Structure Entries</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

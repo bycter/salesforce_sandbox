@@ -1,0 +1,30 @@
+<apex:page controller="ProposedToActualSuiteMappingController" lightningStylesheets="true">
+    <apex:form >
+        <div style="display: flex; text-align: center;justify-content: center">
+            <apex:pageBlock title="Create Proposed Suite Mapping">
+                <apex:pageMessages ></apex:pageMessages>
+                
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton value="Save" action="{!save}"/>
+                    <apex:commandButton value="Cancel" action="{!cancel}"/>
+                </apex:pageBlockButtons>
+                
+                <apex:outputLabel value="Proposed Suite" for="proposedSuiteId"/>
+                <p></p>
+                <apex:inputfield id="proposedSuiteId" value="{!searchMapping.Proposed_Suite__c}"
+                                 onchange="rerenderActualSuites();" required="false"/>
+                <p></p>
+                <apex:outputLabel value="Mapped Actual Suites" for="selectedSuitesId"/>
+                <p></p>
+                <apex:selectList id="selectedSuitesId" value="{!selectedSuitesIds}" multiselect="true">
+                    <apex:selectOptions value="{!actualSuites}"/>
+                </apex:selectList>
+                <p></p>
+                <apex:outputLabel value="Tip: to deselect a Suite, hold down the ctrl and click on the row"/>
+                <apex:actionFunction name="rerenderActualSuites" action="{!rerenderActualSuites}"
+                                     reRender="selectedSuitesId"/>
+
+            </apex:pageBlock>
+        </div>
+    </apex:form>
+</apex:page>

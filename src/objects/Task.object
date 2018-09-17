@@ -1,0 +1,1205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Close</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>DeleteSeries</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewTask</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ActivityDate</fullName>
+    </fields>
+    <fields>
+        <fullName>CallDisposition</fullName>
+    </fields>
+    <fields>
+        <fullName>CallDurationInSeconds</fullName>
+    </fields>
+    <fields>
+        <fullName>CallObject</fullName>
+    </fields>
+    <fields>
+        <fullName>CallType</fullName>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+    </fields>
+    <fields>
+        <fullName>IsRecurrence</fullName>
+    </fields>
+    <fields>
+        <fullName>IsReminderSet</fullName>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+    </fields>
+    <fields>
+        <fullName>Priority</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>RecurrenceInterval</fullName>
+    </fields>
+    <fields>
+        <fullName>RecurrenceRegeneratedType</fullName>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Subject</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TaskSubtype</fullName>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>WhatId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>WhoId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <recordTypes>
+        <fullName>Cost_Plan</fullName>
+        <active>true</active>
+        <label>Cost Plan</label>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Longer Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Complete__c</picklist>
+            <values>
+                <fullName>Budget Cost Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cost Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Tender Cost Plan</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_of_Design__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concept %28Stage 2%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Developed Design %28Stage 3%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Handover %28Stage 6%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-site %28Stage 5%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Design %28Stage 4%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Quote</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Customer on-boarding</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Viewing_Arranged_by__c</picklist>
+            <values>
+                <fullName>Agent_Broker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Viewing_Conducted_by__c</picklist>
+            <values>
+                <fullName>Building Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Design</fullName>
+        <active>true</active>
+        <label>Design</label>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Longer Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Complete__c</picklist>
+            <values>
+                <fullName>Concept Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Developed Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Design</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_of_Design__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concept %28Stage 2%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Developed Design %28Stage 3%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Handover %28Stage 6%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-site %28Stage 5%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Design %28Stage 4%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Quote</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Concept</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Developed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lease Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Space plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suite Split</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Viewing_Arranged_by__c</picklist>
+            <values>
+                <fullName>Agent_Broker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FCC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Viewing_Conducted_by__c</picklist>
+            <values>
+                <fullName>Agent_Broker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>File_type_task</fullName>
+        <active>true</active>
+        <label>File Type Task</label>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer did not attend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Longer Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Complete__c</picklist>
+            <values>
+                <fullName>Budget Cost Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concept Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cost Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Developed Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Tender Cost Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Design</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Booked</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Did Not Attend</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_of_Design__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concept %28Stage 2%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Developed Design %28Stage 3%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Handover %28Stage 6%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-site %28Stage 5%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Design %28Stage 4%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Quote</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Design Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feasibility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lease Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suite Split</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Viewing_Arranged_by__c</picklist>
+            <values>
+                <fullName>Agent_Broker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FCC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Viewing_Conducted_by__c</picklist>
+            <values>
+                <fullName>Agent_Broker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Instruction</fullName>
+        <active>true</active>
+        <label>Instruction</label>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Longer Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Complete__c</picklist>
+            <values>
+                <fullName>Budget Cost Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concept Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cost Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Developed Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Tender Cost Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Design</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_of_Design__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concept %28Stage 2%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Developed Design %28Stage 3%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Handover %28Stage 6%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-site %28Stage 5%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Design %28Stage 4%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Quote</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Customer on-boarding</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Viewing_Arranged_by__c</picklist>
+            <values>
+                <fullName>Agent_Broker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Viewing_Conducted_by__c</picklist>
+            <values>
+                <fullName>Building Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Quotation</fullName>
+        <active>true</active>
+        <label>Quotation</label>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Longer Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Complete__c</picklist>
+            <values>
+                <fullName>Budget Cost Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concept Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cost Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Developed Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Tender Cost Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Design</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_of_Design__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concept %28Stage 2%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Developed Design %28Stage 3%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Handover %28Stage 6%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-site %28Stage 5%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Design %28Stage 4%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Quote</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Customer on-boarding</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Viewing_Arranged_by__c</picklist>
+            <values>
+                <fullName>Agent_Broker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Viewing_Conducted_by__c</picklist>
+            <values>
+                <fullName>Building Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Standard_Task</fullName>
+        <active>true</active>
+        <label>Standard Task</label>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer did not attend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Longer Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Complete__c</picklist>
+            <values>
+                <fullName>Budget Cost Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concept Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cost Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Developed Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Tender Cost Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Design</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_of_Design__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concept %28Stage 2%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Developed Design %28Stage 3%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Handover %28Stage 6%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-site %28Stage 5%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Design %28Stage 4%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Quote</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Customer on-boarding</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Viewing_Arranged_by__c</picklist>
+            <values>
+                <fullName>Agent_Broker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Viewing_Conducted_by__c</picklist>
+            <values>
+                <fullName>Building Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Check_Related_To_For_FileTypeTask</fullName>
+        <active>true</active>
+        <errorConditionFormula>RecordType.DeveloperName = &apos;File_type_task&apos;
+&amp;&amp;
+ISBLANK( WhatId )</errorConditionFormula>
+        <errorDisplayField>WhatId</errorDisplayField>
+        <errorMessage>File Type Task should be related to an Account, Opportunity or Case.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CostPlan_Budget_Value_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+RecordType.DeveloperName = &apos;Cost_Plan&apos;,
+ISBLANK(Budget_Value__c),
+NOT(ISBLANK(TEXT(Status_Complete__c)))
+)</errorConditionFormula>
+        <errorDisplayField>Budget_Value__c</errorDisplayField>
+        <errorMessage>Budget Value field is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CostPlan_StatusTaskComleted_required</fullName>
+        <active>true</active>
+        <description>if Cost_Plan task, Status Complete field required</description>
+        <errorConditionFormula>AND(
+  RecordType.DeveloperName = &apos;Cost_Plan&apos;,
+  ISPICKVAL(Status, &apos;Completed&apos;),
+  ISBLANK(TEXT(Status_Complete__c))
+)</errorConditionFormula>
+        <errorMessage>Status Complete field is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Instruction_FieldsValidation_required</fullName>
+        <active>true</active>
+        <description>if Instruction task, Practical Completion Date (Actual) field is required</description>
+        <errorConditionFormula>AND(
+  RecordType.DeveloperName = &apos;Instruction&apos;,
+  ISPICKVAL(Status, &apos;Completed&apos;),
+  ISBLANK( Completion_Date_Actual__c )
+)</errorConditionFormula>
+        <errorDisplayField>Completion_Date_Actual__c</errorDisplayField>
+        <errorMessage>Field is required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Link_task_to_Case</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+OR(RecordType.DeveloperName = &apos;Design&apos;, RecordType.DeveloperName = &apos;Cost_Plan&apos;, RecordType.DeveloperName = &apos;Instruction&apos;, RecordType.DeveloperName = &apos;Quotation&apos;),
+ISBLANK(WhatId)
+)</errorConditionFormula>
+        <errorDisplayField>WhatId</errorDisplayField>
+        <errorMessage>Please relate the task to a record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Quotation_FieldsValidation_required</fullName>
+        <active>true</active>
+        <description>if Quotation task,  Concept Reference, Quotation Amount and Indicative Programme Length fields are required</description>
+        <errorConditionFormula>AND(
+  RecordType.DeveloperName = &apos;Quotation&apos;,
+  ISPICKVAL(Status, &apos;Completed&apos;),
+  OR(
+    ISBLANK( Concept_Reference__c ),
+    ISBLANK( Quotation_Amount__c ),
+    ISBLANK( Indicative_Programme_Length__c )
+  )
+)</errorConditionFormula>
+        <errorMessage>Concept Reference, Quotation Amount and Indicative Programme Length fields are required.</errorMessage>
+    </validationRules>
+</CustomObject>

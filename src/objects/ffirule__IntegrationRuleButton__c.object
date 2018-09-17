@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>ffirule__helpintegrationrulebutton</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ffirule__DetailPageButton__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( OR(ffirule__ListObject__c==null,ffirule__ListObject__c == &apos;&apos; ) ,
+
+&apos;&lt;apex:page standardController=&quot;&apos; + ffirule__IntegrationRule__r.ffirule__SourceObject__c + &apos;&quot; extensions=&quot;ffirule.IntegrationRuleEngine&quot; action=&quot;&apos;+&apos;{&apos;+&apos;!&apos;+&apos;convert&apos;+&apos;}&apos;+&apos;&quot;&gt;&apos;+ BR() +&apos;&lt;ffirule:IntegrationRule engine=&quot;&apos;+&apos;{&apos;+&apos;!&apos;+&apos;engine&apos;+&apos;}&apos;+&apos;&quot;/&gt;&apos;+ BR() + &apos;&lt;/apex:page&gt;&apos;,
+
+&apos;&lt;apex:page standardController=&quot;&apos; + ffirule__ListObject__c + &apos;&quot; extensions=&quot;ffirule.IntegrationRuleEngine&quot; action=&quot;&apos;+&apos;{&apos;+&apos;!&apos;+&apos;convert&apos;+&apos;}&apos;+&apos;&quot;&gt;&apos;+ BR() +&apos;&lt;ffirule:IntegrationRule engine=&quot;&apos;+&apos;{&apos;+&apos;!&apos;+&apos;engine&apos;+&apos;}&apos;+&apos;&quot;/&gt;&apos;+ BR() + &apos;&lt;/apex:page&gt;&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Detail Page Button</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffirule__IntegrationRule__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>ClickLink Rule</label>
+        <referenceTo>ffirule__IntegrationRule__c</referenceTo>
+        <relationshipLabel>ClickLink Buttons</relationshipLabel>
+        <relationshipName>IntegrationRuleButtons</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>ffirule__ListButton__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( OR(ffirule__ListObject__c==null,ffirule__ListObject__c == &apos;&apos; ) ,
+
+&apos;&lt;apex:page standardController=&quot;&apos; + ffirule__IntegrationRule__r.ffirule__SourceObject__c + &apos;&quot; extensions=&quot;ffirule.IntegrationRuleEngine&quot; action=&quot;&apos;+&apos;{&apos;+&apos;!&apos;+&apos;convert&apos;+&apos;}&apos;+&apos;&quot; recordSetVar=&quot;records&quot;&gt;&apos; + BR() +&apos;&lt;ffirule:IntegrationRule engine=&quot;&apos;+&apos;{&apos;+&apos;!&apos;+&apos;engine&apos;+&apos;}&apos;+&apos;&quot;/&gt;&apos;+ BR() +&apos;&lt;/apex:page&gt;&apos;,
+
+&apos;&lt;apex:page standardController=&quot;&apos; + ffirule__ListObject__c + &apos;&quot; extensions=&quot;ffirule.IntegrationRuleEngine&quot; action=&quot;&apos;+&apos;{&apos;+&apos;!&apos;+&apos;convert&apos;+&apos;}&apos;+&apos;&quot; recordSetVar=&quot;records&quot;&gt;&apos; + BR() +&apos;&lt;ffirule:IntegrationRule engine=&quot;&apos;+&apos;{&apos;+&apos;!&apos;+&apos;engine&apos;+&apos;}&apos;+&apos;&quot;/&gt;&apos;+ BR() +&apos;&lt;/apex:page&gt;&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>List Button</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffirule__ListObjectSourceIDField__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>List Object Source ID Field</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffirule__ListObject__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>List Object</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffirule__VisualforcePage__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Visualforce Page</label>
+        <length>250</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>ClickLink Button</label>
+    <nameField>
+        <label>Description</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>ClickLink Buttons</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

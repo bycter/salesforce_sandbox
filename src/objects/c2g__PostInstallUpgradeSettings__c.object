@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Post Install Upgrade Settings (FF)</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>c2g__DocumentLookupTransactionDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Only populate the document lookups on transactions with a transaction date on or after this date.</inlineHelpText>
+        <label>Document Lookups from Transaction Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Post Install Upgrade Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

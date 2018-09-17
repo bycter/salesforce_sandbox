@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>FAM__FixedAssetBatchJobsHelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Stores information relating to one batch run in Fixed Asset Management.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>FAM__Apex_Job_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Unique Id for the batch job.</inlineHelpText>
+        <label>Apex Job Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Batch_Process_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>TEXT(FAM__Batch_Process__r.FAM__Status__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The status of the associated batch process.</inlineHelpText>
+        <label>Batch Process Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Batch_Process__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the associated batch process.</inlineHelpText>
+        <label>Batch Process</label>
+        <referenceTo>FAM__fflib_BatchProcess__c</referenceTo>
+        <relationshipName>Fixed_Asset_Batch_Job</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Deleted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates that the batch control record has been deleted.</inlineHelpText>
+        <label>Deleted</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Job_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The type of the batch job</description>
+        <externalId>false</externalId>
+        <label>Job Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Mass Export Schedule</fullName>
+                    <default>false</default>
+                    <label>Mass Export Schedule</label>
+                </value>
+                <value>
+                    <fullName>Mass Depreciation Schedule</fullName>
+                    <default>false</default>
+                    <label>Mass Depreciation Schedule</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FAM__NotificationType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The type of the batch email notification</description>
+        <externalId>false</externalId>
+        <formula>IF(FAM__Total_Number_of_Errors__c=0,
+        $Label.fam__fflib_notificationsuccessfull,
+        IF(FAM__Total_Number_of_Errors__c = FAM__Total_Number_of_Logs__c,
+        $Label.fam__fflib_notificationfailure, $Label.fam__fflib_notificationmixed
+        )
+        )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Notification Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Process_Completed__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Process Completed</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Process_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>FAM__Batch_Process__r.FAM__ProcessName__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The name of batch process.</inlineHelpText>
+        <label>Process Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Process_Started__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Process Started</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The status of the batch job.</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Processing</fullName>
+                    <default>false</default>
+                    <label>Processing</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+                <value>
+                    <fullName>Error</fullName>
+                    <default>false</default>
+                    <label>Error</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FAM__Total_Number_of_Aborts__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Rollup that counts the number of logs where Log Type is Abort.</inlineHelpText>
+        <label>Total Number of Aborts</label>
+        <summaryFilterItems>
+            <field>FAM__Batch_Log__c.FAM__Log_Type__c</field>
+            <operation>equals</operation>
+            <value>Abort</value>
+        </summaryFilterItems>
+        <summaryForeignKey>FAM__Batch_Log__c.FAM__Batch_Job__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Total_Number_of_Errors__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Rollup that counts the number of logs where Log Type is Error.</inlineHelpText>
+        <label>Total Number of Errors</label>
+        <summaryFilterItems>
+            <field>FAM__Batch_Log__c.FAM__Log_Type__c</field>
+            <operation>equals</operation>
+            <value>Error</value>
+        </summaryFilterItems>
+        <summaryForeignKey>FAM__Batch_Log__c.FAM__Batch_Job__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Total_Number_of_External__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Rollup that counts the number of logs where Log Type is External.</inlineHelpText>
+        <label>Total Number of External</label>
+        <summaryFilterItems>
+            <field>FAM__Batch_Log__c.FAM__Log_Type__c</field>
+            <operation>equals</operation>
+            <value>External</value>
+        </summaryFilterItems>
+        <summaryForeignKey>FAM__Batch_Log__c.FAM__Batch_Job__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Total_Number_of_Logs__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Rollup that counts the number of logs.</inlineHelpText>
+        <label>Total Number of Logs</label>
+        <summaryForeignKey>FAM__Batch_Log__c.FAM__Batch_Job__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <label>Fixed Asset Batch Job</label>
+    <listViews>
+        <fullName>FAM__All</fullName>
+        <columns>NAME</columns>
+        <columns>FAM__Job_Type__c</columns>
+        <columns>FAM__Status__c</columns>
+        <columns>FAM__Process_Started__c</columns>
+        <columns>FAM__Process_Completed__c</columns>
+        <columns>FAM__Total_Number_of_Logs__c</columns>
+        <columns>FAM__Total_Number_of_Errors__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>FAM__Deleted__c</field>
+            <operation>notEqual</operation>
+            <value>1</value>
+        </filters>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>FAM__Export_Batches</fullName>
+        <columns>NAME</columns>
+        <columns>FAM__Status__c</columns>
+        <columns>FAM__Process_Started__c</columns>
+        <columns>FAM__Process_Completed__c</columns>
+        <columns>FAM__Total_Number_of_Logs__c</columns>
+        <columns>FAM__Total_Number_of_Errors__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>FAM__Job_Type__c</field>
+            <operation>equals</operation>
+            <value>Mass Export Schedule</value>
+        </filters>
+        <filters>
+            <field>FAM__Deleted__c</field>
+            <operation>notEqual</operation>
+            <value>1</value>
+        </filters>
+        <label>Export Batches</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>FAM__Mass_Generate_Batches</fullName>
+        <columns>NAME</columns>
+        <columns>FAM__Status__c</columns>
+        <columns>FAM__Process_Started__c</columns>
+        <columns>FAM__Process_Completed__c</columns>
+        <columns>FAM__Total_Number_of_Logs__c</columns>
+        <columns>FAM__Total_Number_of_Errors__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>FAM__Job_Type__c</field>
+            <operation>equals</operation>
+            <value>Mass Depreciation Schedule</value>
+        </filters>
+        <filters>
+            <field>FAM__Deleted__c</field>
+            <operation>notEqual</operation>
+            <value>1</value>
+        </filters>
+        <label>Mass Generate Batches</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>FABJN-{000000000}</displayFormat>
+        <label>Fixed Asset Batch Job Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Fixed Asset Batch Jobs</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>FAM__Process_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Job_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Process_Started__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Process_Completed__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Total_Number_of_Logs__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FAM__Total_Number_of_Errors__c</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <listViewButtons>FAM__Generate_Depreciation_Schedules</listViewButtons>
+        <listViewButtons>FAM__Export_Schedules</listViewButtons>
+        <lookupDialogsAdditionalFields>FAM__Process_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>FAM__Job_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>FAM__Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>FAM__Process_Started__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>FAM__Process_Completed__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>FAM__Total_Number_of_Logs__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>FAM__Total_Number_of_Errors__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>FAM__Process_Name__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>FAM__Job_Type__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>FAM__Status__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>FAM__Process_Started__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>FAM__Process_Completed__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>FAM__Total_Number_of_Logs__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>FAM__Total_Number_of_Errors__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>FAM__Process_Name__c</searchFilterFields>
+        <searchFilterFields>FAM__Job_Type__c</searchFilterFields>
+        <searchFilterFields>FAM__Status__c</searchFilterFields>
+        <searchFilterFields>FAM__Process_Started__c</searchFilterFields>
+        <searchFilterFields>FAM__Process_Completed__c</searchFilterFields>
+        <searchFilterFields>FAM__Total_Number_of_Logs__c</searchFilterFields>
+        <searchFilterFields>FAM__Total_Number_of_Errors__c</searchFilterFields>
+        <searchResultsAdditionalFields>FAM__Process_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>FAM__Job_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>FAM__Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>FAM__Process_Started__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>FAM__Process_Completed__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>FAM__Total_Number_of_Logs__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>FAM__Total_Number_of_Errors__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>FAM__Export_Schedules</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Export Depreciation Schedules</masterLabel>
+        <openType>sidebar</openType>
+        <page>FAM__ExportSchedulesStart</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>FAM__Generate_Depreciation_Schedules</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Generate Depreciation Schedules</masterLabel>
+        <openType>sidebar</openType>
+        <page>FAM__GenerateDepreciationSchedulesStart</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+</CustomObject>

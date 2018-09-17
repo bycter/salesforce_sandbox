@@ -1,0 +1,807 @@
+<apex:page id="ServicedPricingDocumentGenerator" renderAs="pdf"  controller="ServicedPricingDocumentGenerator" sideBar="false"
+        showHeader="false" applyHtmlTag="false" cache="false" standardStylesheets="false"
+           applyBodyTag="false" action="{!init}">
+
+    <html>
+        <head>
+            <meta charset="UTF-8"/>
+            <title>{!IF(quoteDetail.Property__r.Portfolio__c == 'Alderley Park','Alderley Park – Your pricing proposal', IF(quoteDetail.Property__r.Portfolio__c == 'MSP','Manchester Science Partnerships – Your pricing proposal','Bruntwood – Your space at bruntwood'))}</title>
+            <style>
+                <apex:variable value="0" var="pageSize" />
+                <apex:variable value="0" var="container" />
+                <apex:outputPanel layout="none" rendered="{!quoteDetail.Property__r.Portfolio__c == 'Bruntwood'}">
+                    <apex:variable value="{!if(AND(additionalProducts.size >0, quoteDetail.Property__r.Serviced_Space_Package__c != 'All Inclusive'), 23.32 + additionalProducts.size * 0.52, 23.32)}" var="pageSize" />
+                    <apex:variable value="{!if(AND(additionalProducts.size >0, quoteDetail.Property__r.Serviced_Space_Package__c != 'All Inclusive'), 2198.5 + additionalProducts.size * 50, 2198.5)}" var="container" />
+                </apex:outputPanel>
+                <apex:outputPanel layout="none" rendered="{!quoteDetail.Property__r.Portfolio__c != 'Bruntwood'}">
+                    <apex:variable value="{!if(AND(additionalProducts.size >0, quoteDetail.Property__r.Serviced_Space_Package__c != 'All Inclusive'), 22.13 + additionalProducts.size * 0.52, 22.65)}" var="pageSize" />
+                    <apex:variable value="{!if(AND(additionalProducts.size >0, quoteDetail.Property__r.Serviced_Space_Package__c != 'All Inclusive'), 2084 + additionalProducts.size * 50, 2134)}" var="container" />
+                </apex:outputPanel>
+                @page {
+                    size: 9.4in, {!pageSize}in;
+                    margin: 0;
+                    padding: 0;
+                }
+                <apex:outputPanel layout="none" rendered="{!quoteDetail.Property__r.Portfolio__c == 'Bruntwood'}">
+                    .container{
+                        margin:0 auto;
+                        background-color:white;
+                        /* width:910px; */
+                        min-height:{!container}px;
+                    }
+                    .half-width{
+                        width:50%;
+                    }
+                    .right{
+                        float:right;
+                    }
+                    .left{
+                        float:left;
+                    }
+                    .half-width.right p{
+                        padding-left:15px;
+                    }
+                    .half-width.right h3{
+                        padding-left:15px;
+                    }
+                    .half-width.right ul{
+                        /* padding-left:35px; */
+                    }
+
+                    .half-width.left p{
+                        padding-right:15px;
+                    }
+                    .half-width.left h3{
+                        padding-right:15px;
+                    }
+                    .half-width.left ul{
+                        margin-left: 25px;
+                        padding-right:15px;
+                        /* padding-left:25px; */
+                    }
+                    .half-width.left p{
+                        margin-left:5px;
+                    }
+                    .inner{
+                        margin:40px 45px 40px 45px;
+                    }
+                    body{
+                        /* background-color: #525559 */
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .line{
+                        width:100%; border-bottom:1px solid #959791; margin-bottom:40px;
+                        margin-top:30px;
+                    }
+                    li{
+                        font-size:15px;
+                        font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+                        line-height:1.6em;
+                    }
+                    ul {
+                        list-style: none;
+                    }
+                    /* li{margin-left: 5px;} */
+                    li::before {
+                        content: "•"; color: red; font-size: 150%;
+                        display: inline-block; width: 1em;
+                        margin-left: -1em;
+                        margin-top:5px;
+                        vertical-align:bottom;
+                    }
+                    .logo-bar{
+                        background-color:#152119;
+                        height:70px;
+                        margin-bottom:0px;
+                    }
+                    .logo-bar img{
+                        margin:20px 0 0 45px;
+                    }
+                    .clearfix {
+                        display: inline-block;
+                    }
+                    .clearfix::after {
+                        visibility: hidden;
+                        display: block;
+                        font-size: 0;
+                        content: " ";
+                        clear: both;
+                        height: 0;
+                    }
+                    .banner{
+                        margin-top:0px;
+                        background-image: url({!URLFOR($Resource.ServicedPricingDocsImages, '/Bruntwood/banner.png' )});
+                        background-color:#152119;
+                        height:210px;
+                        width:830px;
+                        padding:20px 40px 40px 40px;
+                    }
+                    .two-column-container h3{
+                        margin-top:0px; padding-right:5px;
+                    }
+                    table{
+                        width:100%;
+                        margin-bottom:30px;
+                    }
+
+                    .table-header{
+                        background:#C51A1B;
+                        color:white;
+                    }
+                    h1{
+                        color:white;
+                        font-family: Georgia,Times,Times New Roman,serif;
+                        line-height:1.2em;
+                        font-size:60px;
+                        font-weight:normal;
+                        margin-left:5px;
+                    }
+                    h2{
+                        font-size:28px; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; font-weight:normal; margin-bottom:30px; margin-left:5px;
+                    }
+                    h3{
+                        font-family: Georgia,Times,Times New Roman,serif; font-size:28px; color:#C41C1C; font-weight:normal; margin-bottom: 15px; margin-left:5px;
+                    }
+                    h4{
+                        text-align: left;
+                        margin:0px;
+                        padding:0px;
+                        font-weight:normal;
+                    }
+                    th,td{
+                        padding:15px;
+                    }
+                    td{
+                        font-size:14px;
+                        font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+                    }
+                    p{
+                        margin-bottom: 28px;
+                        font-size:16px;
+                        font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+                        line-height:1.6em;
+                        margin-left:5px;
+                    }
+                    .light-td{
+                        background-color:#EAE9E6;
+                    }
+                    .dark-td{
+                        background-color:#DBDBDB;
+                    }
+                    .footerContainer {
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                        border: 0;
+                    }
+                    .footer{
+                        width: 100%;
+                        border: 0;
+                        background-color:#152119;
+                        height:115px;
+                        color:white;
+                    }
+                    .opening-pargagraphs{
+                        margin-right:5px; margin-left:5px;
+                    }
+                    .footer-paragraphs{
+                        position: relative;
+                        margin-top:50px; margin-left:45px; float:left;
+                    }
+                    a{
+                        text-decoration:none; color:white; font-size:16px;
+                    }
+                    .banner-logo{
+                        width:180px;
+                    }
+                    .footer-logo{
+                        position: relative;
+                        padding-top:40px; margin-right:45px; float:right; width:220px;
+                    }
+                    .disclaimer{background-color: #959791; height:70px; width:100%; color:white; padding-top:20px;
+                    }
+                    .disclaimer p{font-size:15px; margin-left:45px; margin-top:0px; margin-bottom:0px;
+                    }
+                </apex:outputPanel>
+                <apex:outputPanel layout="none" rendered="{!quoteDetail.Property__r.Portfolio__c == 'MSP'}">
+                    .container{
+                        margin:0 auto;
+                        background-color:white;
+                        min-height:{!container}px;
+                        /* border:1px solid #ddd; */
+                    }
+                    .half-width{
+                        width:50%;
+                    }
+                    .right{
+                        float:right;
+                    }
+                    .left{
+                        float:left;
+                    }
+                    .half-width.right p{
+                        padding-left:15px;
+                    }
+                    .half-width.right h3{
+                        padding-left:15px;
+                    }
+                    .half-width.right ul{
+                        /* padding-left:35px; */
+                    }
+
+                    .half-width.left p{padding-right:15px;
+                    }
+                    .half-width.left h3{
+                        padding-right:15px;
+                    }
+                    .half-width.left ul{
+                        margin-left: 25px;
+                        padding-right:15px;
+                        /* padding-left:20px; */
+                    }
+                    .half-width.left p{margin-left:5px;}
+                    .inner{
+                        margin:40px 45px 40px 45px;
+                    }
+                    body{
+                        margin: 0;
+                        padding: 0;
+                        /* background-color: #F2F2F2; */
+                    }
+                    hr{
+                        margin-bottom:40px;
+                        margin-top:30px;
+                        width:100%;
+                        color:#FFE650;
+                    }
+
+                    .line{width:100%; border-bottom:1px solid #FFE650; margin-bottom:40px;
+                        margin-top:30px;}
+                    li{
+                        font-size:15px;
+                        font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+                        line-height:1.6em;
+                    }
+                    ul {
+                        list-style: none;
+                    }
+
+                    li::before {
+                        content: "•"; color: black;
+                        display: inline-block; width: 1em;
+                        margin-left: -1em;
+                        margin-top:5px;
+                        vertical-align:bottom;
+                    }
+                    .logo-bar{
+                        background-color:#6FCACC;
+                        background-image: url({!URLFOR($Resource.ServicedPricingDocsImages, '/MSP/banner.png')});
+                        margin-bottom:0px;}
+
+                    .logo-bar img{margin:23px 0px 20px 45px;
+                    }
+
+                    .clearfix {
+                        display: inline-block;
+                    }
+                    .clearfix::after {
+                        visibility: hidden;
+                        display: block;
+                        font-size: 0;
+                        content: " ";
+                        clear: both;
+                        height: 0;
+                    }
+
+                    .banner{
+                        margin-top:0px;
+                        background-color:#6FCACC;
+                        background-image: url({!URLFOR($Resource.ServicedPricingDocsImages, '/MSP/banner.png')});
+                        height:190px;
+                        width:830px;
+                        padding:40px 40px 40px 40px;
+                    }
+                    .two-column-container h3{
+                        margin-top:0px; padding-right:5px; margin-left: 5px;
+                    }
+                    table{
+                        width:100%;
+                        margin-bottom:30px;
+                    }
+
+                    .table-header{
+                        background:#C51A1B;
+                        color:white;
+                    }
+                    h1{
+                        color:white;
+                        font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+                        line-height:1.2em;
+                        font-size:45px;
+                        font-weight: 600;
+                        padding-left:5px;
+                    }
+                    h2{
+                        font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+                        margin-left: 5px;
+                        margin-bottom: 30px;
+                    }
+                    h3{
+                        font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;" font-size:28px; color:#C41C1C; font-weight:normal; margin-bottom: 15px; margin-left:5px;
+                    }
+                    h4{
+                        text-align: left;
+                        margin:0px;
+                        padding:0px;
+                        font-weight:normal;
+                    }
+                    th,td{
+                        padding:15px;
+                    }
+                    td{
+                        font-size:14px;
+                        font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;"
+                    }
+                    p{
+                        margin-bottom: 28px;
+                        font-size:16px;
+                        font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+                        line-height:1.6em;
+
+                    }
+                    .light-td{
+                        background-color:#F9F9F9;
+                    }
+                    .dark-td{
+                        background-color:#F2F2F2;
+                    }
+                    .footerContainer {
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                    }
+
+                    .footer{
+                        width: 100%;
+                        background-color:#4F534D;
+                        height:115px;
+                        color:white;
+                    }
+
+                    .opening-pargagraphs{margin-right:5px; margin-left:5px;}
+                    .footer-paragraphs{
+                        position: relative;
+                        margin-top:50px; margin-left:45px; float:left;
+                    }
+                    a{text-decoration:none; color:white; font-size:16px;}
+                    .banner-logo{width:180px;}
+                    .footer-logo{
+                        position: relative;
+                        padding-top:40px; margin-right:45px; float:right; width:220px;
+                    }
+                    .disclaimer{background-color: #6FCACC; height:70px; width:100%; color:white; padding-top:20px;
+                    }
+                    .disclaimer p{font-size:15px; margin-left:45px; margin-top:0px; margin-bottom:0px;
+                    }
+                </apex:outputPanel>
+                <apex:outputPanel layout="none" rendered="{!quoteDetail.Property__r.Portfolio__c == 'Alderley Park'}">
+                    .container{
+                        margin:0 auto;
+                        background-color:white;
+                        /* width:910px; */
+                        min-height:{!container}px;
+                    }
+                    .half-width{
+                        width:50%;
+                    }
+                    .right{
+                        float:right;
+                    }
+                    .left{
+                        float:left;
+                    }
+                    .half-width.right p{
+                        padding-left:15px;
+                    }
+                    .half-width.right h3{
+                        padding-left:15px;
+                    }
+                    .half-width.right ul{
+                        /* padding-left:35px; */
+                    }
+
+                    .half-width.left p{
+                        padding-right:15px;
+                        margin-left:5px;
+                    }
+                    .half-width.left h3{
+                        padding-right:15px;
+                    }
+                    .half-width.left ul{
+                        margin-left: 25px;
+                        padding-right:15px;
+                        /* padding-left:25px; */
+                    }
+                    .half-width.left li{
+                        margin-top: -5px;
+                    }
+                    .inner{
+                        margin:40px 45px 40px 45px;
+                    }
+                    body{
+                        /* background-color: #000 */
+                        margin: 0;
+                        padding: 0;
+                    }
+                    hr{margin-bottom:40px;
+                        margin-top:30px;
+                        width:100%;
+                        color:#bbb;
+                    }
+                    li{
+                        font-size: 15px;
+                        font-family: georgia, arial, helvetica, sans-serif;
+                        line-height:1.6em;
+                    }
+                    ul {
+                        list-style: none;
+                    }
+                    /* li{margin-left: 5px;} */
+                    li::before {
+                        content: "•"; color: #000; font-size: 150%;
+                        display: inline-block; width: 1em;
+                        margin-left: -1em;
+                        margin-top: 5px;
+                        /* vertical-align: bottom; */
+                    }
+                    .logo-bar{
+                        background-color:#405463;
+
+                        margin-bottom:0px;
+                    }
+
+                    .logo-bar img{margin:13px 0 10px 45px;
+                    }
+                    .clearfix {
+                        display: inline-block;
+                    }
+                    .clearfix::after {
+                        visibility: hidden;
+                        display: block;
+                        font-size: 0;
+                        content: " ";
+                        clear: both;
+                        height: 0;
+                    }
+                    .banner{
+                        margin-top:0px;
+                        background-color:#405463;
+                        width:830px;
+                        padding:30px 40px 40px 40px;
+                    }
+
+                    .two-column-container h3{
+                        margin-top:0px; padding-right:5px;
+                    }
+                    table{
+                        width:100%;
+                        margin-bottom:30px;
+                    }
+
+                    .table-header{
+                        background:#405463;
+                        color:white;
+                    }
+                    h1{
+                        color:white;
+                        font-family:arial, sans-serif;
+                        line-height:1.2em;
+                        font-size:35px;
+                        font-weight:600;
+                        padding-left:5px;
+                        text-transform: uppercase;
+                        letter-spacing: 0.04em;
+                        text-align:center;
+                    }
+
+                    h2{
+                        font-size:23px; font-family:arial, sans-serif; font-weight:normal; margin-bottom:30px; margin-left:5px; text-transform: uppercase; letter-spacing: 0.00em; font-weight:600;
+                    }
+                    h3{
+                        font-family:arial, sans-serif; font-size:23px; color:#000; font-weight:normal; margin-bottom: 15px; margin-left:5px; text-transform: uppercase; font-weight:600;
+                    }
+                    h4{
+                        text-align: left;
+                        margin:0px;
+                        padding:0px;
+                        font-weight:normal;
+                    }
+                    th,td{
+                        padding:15px;
+                    }
+                    td{
+                        font-size:14px;
+                        font-family: georgia, arial, helvetica, sans-serif;
+                    }
+                    p{
+                        margin-bottom: 28px;
+                        font-size:16px;
+                        font-family: georgia, arial, helvetica, sans-serif;
+                        line-height:1.6em;
+                        margin-left:5px;
+                    }
+                    /* tr:nth-child(even) {background-color: #F2F5F7} */
+                    /* tr:nth-child(odd) {background-color: #D0DADF} */
+                    .light-td{
+                        background-color:#F2F5F7;
+                    }
+                    .dark-td{
+                        background-color:#D0DADF;
+                    }
+                    .footerContainer {
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                    }
+                    .footer{
+                        width: 100%;
+                        background-color:#405463;
+                        height:140px;
+                        color:white;
+                    }
+                    .opening-pargagraphs{margin-right:5px; margin-left:5px;}
+                    .footer-paragraphs{
+                        position: relative;
+                        margin-top:60px; margin-left:45px; float:left;
+                    }
+                    a{text-decoration:none; color:white; font-size:16px;}
+                    .banner-logo{height:90px; margin-bottom:0px; }
+                    .footer-logo{
+                        position: relative;
+                        padding-top:20px; margin-right:45px; float:right; width:100px;
+                    }
+                    .disclaimer {
+                        /* position: absolute; */
+                        bottom: 160px;
+                        background-color:#737F8A; height:70px; width:100%; color:white; padding-top:20px;
+                    }
+                    .disclaimer p{font-size:15px; margin-left:45px; margin-top:0px; margin-bottom:0px;
+                    }
+                    .line{
+                        margin-bottom:40px;
+                        margin-top:30px;
+                        width:100%;
+                        border-bottom:1px solid #bbb;
+                    }
+                </apex:outputPanel>
+                .hidden {
+                    display: none;
+                }
+    		</style>
+    	</head>
+        <body>
+    		<div class="container">
+
+                <apex:outputPanel layout="none" rendered="{!quoteDetail.Property__r.Portfolio__c == 'Bruntwood'}">
+        			<div class="logo-bar">
+        				<a href="https://bruntwood.co.uk/" target="_blank"><img class="banner-logo" src="{!URLFOR($Resource.ServicedPricingDocsImages, '/Bruntwood/logo.png')}" alt="Bruntwood Logo"/></a>
+        			</div>
+                    <div class="banner">
+        				<h1>Your space<br/>at bruntwood</h1>
+        			</div>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" styleClass="banner" rendered="{!quoteDetail.Property__r.Portfolio__c == 'MSP'}">
+    				<a href="https://mspl.co.uk/" target="_blank"><img class="banner-logo" src="{!URLFOR($Resource.ServicedPricingDocsImages, '/MSP/logo.png')}" alt="Manchester Science Partnerships Logo"/></a>
+    				<h1>Your pricing <br/>proposal</h1>
+    			</apex:outputPanel>
+                <apex:outputPanel layout="block" styleClass="banner" rendered="{!quoteDetail.Property__r.Portfolio__c == 'Alderley Park'}">
+                    <a href="https://www.alderleypark.co.uk/" target="_blank"><img class="banner-logo" src="{!URLFOR($Resource.ServicedPricingDocsImages, '/AlderleyPark/logo.png')}" alt="Alderley Park Logo"/></a>
+                    <h1>Your pricing proposal</h1>
+                </apex:outputPanel>
+    			<div class="inner">
+    				<h2>{!quoteDetail.Property__r.Name}, {!quoteDetail.Property__r.Street__c},
+                        {!quoteDetail.Property__r.City__c}, {!quoteDetail.Property__r.Post_Code__c}</h2>
+
+    				<table cellspacing="5">
+    					 <tr>
+    						<td class="light-td" width="50%">Customer:</td>
+    						<td class="light-td" width="50%">{!quoteDetail.SBQQ__Account__r.Registered_Name__c}</td>
+    					</tr>
+    					 <tr class="{!IF(CONTAINS(suiteType, 'BSLF'), '', 'hidden')}">
+    						<td class="dark-td">Suite:</td>
+    						<td class="dark-td">{!qliTypeMap[SuiteType][0].Suite_inventory__r.Name}</td>
+    					</tr>
+
+    					 <tr>
+    						<td class="light-td">No. of workstations:</td>
+    						<td class="light-td">
+                                <apex:outputText value="{0,number, 0}">
+                                    <apex:param value="{!numberOfWorkstations}" />
+                                </apex:outputText>
+                            </td>
+    					</tr>
+    					 <tr>
+    						<td class="dark-td">Licence fee:</td>
+    						<td class="dark-td">
+                                <apex:variable var="suiteCode" value="{!qliTypeMap[suiteType][0].SBQQ__ProductCode__c}" />
+                                <apex:outputPanel rendered="{!contains(keyString, ' SteppedRent,')}">
+                                    <apex:repeat value="{!qliTypeMap['SteppedRent']}" var="steppedRent">
+                                        <apex:outputPanel layout="none" rendered="{!NOT(ISNULL(steppedRent.Start_Term__c)) && NOT(ISNULL(steppedRent.Rent_Step_To__c)) && NOT(ISNULL(steppedRent.Monthly_Total__c))}">
+                                            <apex:variable var="startPostfix" value="{!IF(AND(steppedRent.Start_Term__c > 10, steppedRent.Start_Term__c < 14),"th", CASE(MOD(steppedRent.Start_Term__c,10),1,"st",2,"nd",3,"rd","th"))}"/>
+                                            <apex:variable var="endPostfix" value="{!IF(AND(steppedRent.Rent_Step_To__c > 10, steppedRent.Rent_Step_To__c < 14),"th", CASE(MOD(steppedRent.Rent_Step_To__c,10),1,"st",2,"nd",3,"rd","th"))}"/>
+                                            <apex:outputText value="{0, number, 0}{1} month to {2, number, 0}{3} month">
+                                                <apex:param value="{!steppedRent.Start_Term__c}"/>
+                                                <apex:param value="{!startPostfix}"/>
+                                                <apex:param value="{!steppedRent.Rent_Step_To__c}"/>
+                                                <apex:param value="{!endPostfix}"/>
+                                            </apex:outputText>
+                                            <apex:outputText value="{0, number, £###,##0.00}">
+                                                <apex:param value="{!steppedRent.Monthly_Total__c}"/>
+                                            </apex:outputText> pcm plus VAT
+                                            <br/>
+                                        </apex:outputPanel>
+                                    </apex:repeat>
+                                </apex:outputPanel>
+                                <apex:outputPanel layout="none" rendered="{!NOT(contains(keyString, ' SteppedRent,'))}">
+                                    <apex:outputText rendered="{!NOT(contains(keyString, ' BSAS,'))}" value="{0, number, £###,##0.00}">
+                                        <apex:param value="{!qliTypeMap[suiteType][0].New_Monthly_Average__c}"/>
+                                    </apex:outputText>
+                                    <apex:outputText rendered="{!contains(keyString, ' BSAS,')}" value="{0, number, £###,##0.00}">
+                                        <apex:param value="{!qliTypeMap[suiteType][0].New_Monthly_Average__c + qliTypeMap['BSAS'][0].New_Monthly_Average__c }"/>
+                                    </apex:outputText>
+                                    pcm plus VAT
+                                </apex:outputPanel>
+                            </td>
+    					</tr>
+    					<tr>
+    						<td class="light-td">Deposit:</td>
+    						<td class="light-td">
+                                <apex:variable var="fullDeposit" value="{!qliTypeMap['BSDP'][0].Net_Total__c + qliTypeMap['BSDP'][0].Deposit_Already_Held__c}"/>
+                                <apex:outputText value="{0, number, £###,##0.00}">
+                                    <apex:param value="{!fullDeposit}"/>
+                                </apex:outputText>
+                                <apex:outputPanel layout="none"
+                                                  rendered="{!NOT(ISBLANK(qliTypeMap['BSDP'][0].Deposit_Already_Held__c)) && qliTypeMap['BSDP'][0].Deposit_Already_Held__c > 0}">
+                                    (<apex:outputText value="{0, number, £###,##0.00}">
+                                        <apex:param value="{!qliTypeMap['BSDP'][0].Deposit_Already_Held__c}"/>
+                                    </apex:outputText> Already Held )
+                                </apex:outputPanel>
+                            </td>
+    					</tr>
+    				</table>
+
+    				<table cellspacing="5">
+    					<tr>
+    						<td class="dark-td" width="50%">Date:</td>
+    						<td class="dark-td" width="50%">
+                                <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                                    <apex:param value="{!today()}" />
+                                </apex:outputText>
+                            </td>
+    					</tr>
+    					<tr>
+    						<td class="light-td">Licence start date:</td>
+    						<td class="light-td">
+                                <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                                    <apex:param value="{!qliTypeMap[suiteType][0].Licence_Start_Date__c}" />
+                                </apex:outputText>
+                            </td>
+    					</tr>
+    					<tr>
+    						<td class="dark-td">Earliest licence end date:</td>
+    						<td class="dark-td">
+                                <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                                    <apex:param value="{!qliTypeMap[suiteType][0].End_date__c}" />
+                                </apex:outputText>
+                            </td>
+    					</tr>
+    					<tr>
+    						<td class="light-td">Licence term:</td>
+    						<td class="light-td">
+                                <apex:outputText value="{0,number, 00} {!IF(qliTypeMap[suiteType][0].Term__c > 1, 'months', 'month')}">
+                                    <apex:param value="{!qliTypeMap[suiteType][0].Term__c}" />
+                                </apex:outputText>
+                            </td>
+    					</tr>
+                        <apex:outputPanel layout="none" rendered="{!CONTAINS(suiteType, 'BSLF')}" >
+        					<tr>
+        						<td class="dark-td">Notice period:</td>
+        						<td class="dark-td">
+                                    <apex:outputText rendered="{!contains(keyString, ' BSCB,')}"
+                                                     value="{0,number, 0} {!IF(NOT(ISNULL(qliTypeMap['BSCB'][0].Minimum_notice__c)),
+                                                     IF(qliTypeMap['BSCB'][0].Minimum_notice__c > 1, 'months', 'month'),'null')}">
+                                        <apex:param value="{!qliTypeMap['BSCB'][0].Minimum_notice__c}" />
+                                    </apex:outputText>
+                                </td>
+        					</tr>
+                            <apex:variable value="{!0}" var="index"/>
+                            <apex:repeat rendered="{!AND(additionalProducts.size >0, quoteDetail.Property__r.Serviced_Space_Package__c != 'All Inclusive')}"
+                                         value="{!additionalProducts}" var="product">
+                                <tr class="box">
+                                    <td class="{!if(mod(index, 2) == 0, 'light-td', 'dark-td')}">{!product.ProductName} </td>
+                                    <td class="{!if(mod(index, 2) == 0, 'light-td', 'dark-td')}">{!product.ProductDescription} </td>
+                                </tr>
+                                <apex:variable value="{!index+1}" var="index"/>
+                            </apex:repeat>
+                        </apex:outputPanel>
+
+    				</table>
+    				<div class="two-column-container clearfix">
+    					<div class="half-width left">
+							<h3>Hit the ground running</h3>
+							<p class="">Your workspace comes fully equipped with everything you need to get going the moment you arrive.</p>
+                            <apex:outputPanel layout="none" rendered="{!CONTAINS(suiteType, 'BSLF')}" >
+                                <apex:outputText value="{!quoteDetail.Property__r.Serviced_Package_Details__c}" escape="false"/>
+                            </apex:outputPanel>
+                            <apex:outputPanel layout="none" rendered="{!NOT(CONTAINS(suiteType, 'BSLF'))}" >
+                                <ul>
+                                    <li >Office furniture package including desk and adjustable office chair.</li>
+                                    <li>Telephony package including 2,000 minutes per month and a handset.</li>
+                                    <li>High speed. fully inclusive Internet package with optional upgrade to 100mb line.</li>
+                                    <li>13 hours of free Neo meeting room user per customer. per month.</li>
+                                </ul>
+                            </apex:outputPanel>
+    					</div>
+    					<div class="half-width right">
+    							<h3>More than just workspace</h3>
+    							<p class="">We offer a range of additional services to support your business and the whole building community.</p>
+                                <apex:outputText value="{!quoteDetail.Property__r.Property_USPs__c}" escape="false"/>
+    					</div>
+    				</div>
+
+    				<div class="line"></div>
+                    <!-- <hr/> -->
+
+    				<h3>We&rsquo;re here to support your success</h3>
+
+    				<p>From start-ups to multinationals, every customer can expect to receive the same level of
+    				<br/>
+    				outstanding service.</p>
+
+    				<h3>Flexible</h3>
+
+    				<p>With a simple pay per desk rate and sign-up for as little as six months, our serviced offices provide
+    				<br/>
+    				flexibility for growing businesses with changing business needs.</p>
+
+    				<h3>Service &amp; value</h3>
+
+    				<p>Because we own the buildings we manage, we&rsquo;re able to give our customers outstanding
+    				<br/>value and real service excellence.</p>
+
+    				<h3>Peace of mind</h3>
+
+    				<p>Trust us to take care of everything, leaving you free to concentrate on what you do best:
+    				<br/>
+    				growing your business.</p>
+
+    			</div>
+
+                <div class="footerContainer">
+        			<div class="disclaimer">
+        				<p>Please note this offer is valid for one month from receipt and is made subject to contract and without prejudice.
+        				<br/>
+        				All prices and outgoing quote are exclusive of, but liable to, VAT.</p>
+        			</div>
+
+        			<apex:outputPanel layout="block" styleClass="footer" rendered="{!quoteDetail.Property__r.Portfolio__c == 'Bruntwood'}">
+        				<p class="footer-paragraphs">0800 731 0300</p>
+        				<p class="footer-paragraphs"><a href="https://bruntwood.co.uk/" target="_blank">www.bruntwood.co.uk</a></p>
+        				<a href="https://bruntwood.co.uk/" target="_blank"><img class="footer-logo" src="{!URLFOR($Resource.ServicedPricingDocsImages, '/Bruntwood/logo.png' )}" alt="Bruntwood Logo"/></a>
+        			</apex:outputPanel>
+                    <apex:outputPanel layout="block" styleClass="footer" rendered="{!quoteDetail.Property__r.Portfolio__c == 'MSP'}">
+                        <p class="footer-paragraphs">0333 323 2253</p>
+                        <p class="footer-paragraphs"><a href="https://mspl.co.uk/" target="_blank">www.mspl.co.uk</a></p>
+                        <a href="https://mspl.co.uk/" target="_blank"><img class="footer-logo" src="{!URLFOR($Resource.ServicedPricingDocsImages, '/MSP/logo-white.png' )}" alt="Manchester Science Partnerships Logo"/></a>
+        			</apex:outputPanel>
+                    <apex:outputPanel layout="block" styleClass="footer" rendered="{!quoteDetail.Property__r.Portfolio__c == 'Alderley Park'}">
+                        <p class="footer-paragraphs">0161 233 7877</p>
+                        <p class="footer-paragraphs"><a href="https://www.alderleypark.co.uk/" target="_blank">www.alderleypark.co.uk</a></p>
+                        <a href="https://www.alderleypark.co.uk/" target="_blank"><img class="footer-logo" src="{!URLFOR($Resource.ServicedPricingDocsImages, '/AlderleyPark/full-logo.png' )}" alt="Alderley Park Logo"/></a>
+        			</apex:outputPanel>
+                </div>
+    		</div>
+    	</body>
+    </html>
+</apex:page>

@@ -1,0 +1,81 @@
+<apex:page controller="GenerateQuoteController" lightningStylesheets="true" docType="html-5.0">
+    <style>
+        input::-webkit-calendar-picker-indicator {
+            display: none;
+        }
+    </style>
+    <apex:slds />
+    <apex:form >
+        <div style="display: flex; text-align: center;justify-content: center" class="slds-scope">
+            <c:StatusComponent />
+            <apex:pageBlock id="pbId" title="Generate Quote" html-style="min-width:30rem; margin-top:5rem;">
+                <div>
+                    <apex:pageMessages />
+                </div>
+
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton value="Back" action="{!back}"
+                                        rendered="{!currentView.previousView!=null && currentView.Name!='done'}"
+                                        reRender="pbId" status="status" immediate="true"/>
+                    <apex:commandButton value="Next" action="{!next}" rendered="{!currentView.Name!='done'}"
+                                        reRender="pbId" status="status"/>
+                    <apex:commandButton value="Finish" action="{!finish}" rendered="{!currentView.Name=='done'}"
+                                        reRender="pbId" status="status"/>
+                </apex:pageBlockButtons>
+
+                <apex:outputpanel id="contractOptions" rendered="{!currentView.Name=='contractOptions'}">
+                    <apex:outputLabel value="Contract Option" for="contractOptionId"/>
+                    <apex:selectList id="contractOptionId" value="{!contractOption}" size="1" style="min-width:15rem;">
+                        <apex:selectOption itemValue="New_deal" itemLabel="New Deal"/>
+                        <apex:selectOption itemValue="Renewal" itemLabel="Renewal"/>
+                        <apex:selectOption itemValue="Surrender_and_regrant" itemLabel="Surrender and regrant"/>
+                    </apex:selectList>
+                </apex:outputpanel>
+
+                <apex:outputpanel id="selectContracts" rendered="{!currentView.Name=='selectContracts'}" styleClass="requiredInput">
+                    <apex:outputLabel value="Select Contracts" for="selectedContractsId" style="margin-bottom: 0.5rem;"/>
+                    <p></p>
+                    <apex:outputPanel styleClass="requiredBlock"/>
+                    <apex:selectList id="selectedContractsId" value="{!selectedContractsIds}" multiselect="true"
+                                     style="min-width:100px">
+                        <apex:selectOptions value="{!contractOptions}"/>
+                    </apex:selectList>
+                </apex:outputpanel>
+                <apex:outputpanel id="selectMasterContract" rendered="{!currentView.Name=='selectMasterContract'}">
+                    <apex:outputLabel value="Select Master Contract" for="selectedContractId" style="margin-bottom: 0.5rem;"/>
+                    <p></p>
+                    <apex:selectList id="selectedContractId" value="{!selectMasterContract}" multiSelect="false" size="1">
+                        <apex:selectOptions value="{!selectedContractOptions}"/>
+                    </apex:selectList>
+                </apex:outputpanel>
+                <apex:outputpanel id="viewingSelection" rendered="{!currentView.Name=='viewingSelection'}">
+                    <apex:outputLabel value="Select Viewing" for="selectedViewingId"/>
+                    <apex:selectList id="selectedViewingId" value="{!selectedViewingId}" size="1" style="min-width:15rem;">
+                        <apex:selectOptions value="{!viewingOptions}"/>
+                    </apex:selectList>
+                </apex:outputpanel>
+                <apex:outputpanel id="noViewingComment" rendered="{!currentView.Name=='noViewingComment'}">
+                    <apex:outputLabel value="Please explain why no viewing was required" for="noViewingCommentId" style="margin-bottom: 0.5rem;"/>
+                    <p></p>
+                    <apex:inputTextarea label="Comment" title="Comment" id="noViewingCommentId"
+                                        value="{!noViewingComment}" required="true" style="min-width:400px; margin:auto;"/>
+                </apex:outputpanel>
+                <apex:outputpanel id="propertyContactSelection"
+                                  rendered="{!currentView.Name=='propertyContactSelection'}">
+                    <div style="margin-bottom: 0.5rem;">
+                        <apex:outputLabel value="Property Name" for="selectedProperty"/>
+                        <apex:input id="selectedProperty" list="{!properties}" value="{!selectedProperty}" required="true" style="width:240px; margin-right:5px" html-autocomplete="off"/>
+                    </div>
+                    <p></p>
+                    <apex:outputLabel value="Contact Name" for="selectedContactId"/>
+                    <apex:selectList id="selectedContactId" value="{!selectedContactId}" size="1" style="min-width:15rem;">
+                        <apex:selectOptions value="{!ContactOptions}"/>
+                    </apex:selectList>
+                </apex:outputpanel>
+                <apex:outputpanel id="done" rendered="{!currentView.Name=='done'}">
+                    A new quote is successfully created.
+                </apex:outputpanel>
+            </apex:pageBlock>
+        </div>
+    </apex:form>
+</apex:page>

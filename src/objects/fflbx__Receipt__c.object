@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>fflbx__receipthelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>fflbx__ApexJobId__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Apex Job Id</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fflbx__BankCharges__c</fullName>
+        <defaultValue>0.00</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Bank Charges</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fflbx__BatchProcessStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Text(fflbx__BatchProcess__r.fflbx__Status__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Batch Process Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fflbx__BatchProcess__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Batch Process</label>
+        <referenceTo>fflbx__fflib_BatchProcess__c</referenceTo>
+        <relationshipLabel>AR Cash Transactions</relationshipLabel>
+        <relationshipName>Receipts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__CashEntriesCount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number of Cash Entries</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fflbx__CashEntriesTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total of Cash Entries</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fflbx__CashEntryType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cash Entry Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>LBX Only</fullName>
+                    <default>true</default>
+                    <label>LBX Only</label>
+                </value>
+                <value>
+                    <fullName>ALL Transactions</fullName>
+                    <default>false</default>
+                    <label>ALL Transactions</label>
+                </value>
+                <value>
+                    <fullName>Group By Type</fullName>
+                    <default>false</default>
+                    <label>Group By Type</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>fflbx__CashProcessStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cash Process Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+                <value>
+                    <fullName>Matched</fullName>
+                    <default>false</default>
+                    <label>Matched</label>
+                </value>
+                <value>
+                    <fullName>Processing</fullName>
+                    <default>false</default>
+                    <label>Processing</label>
+                </value>
+                <value>
+                    <fullName>Cash Entry Error</fullName>
+                    <default>false</default>
+                    <label>Cash Entry Error</label>
+                </value>
+                <value>
+                    <fullName>Cash Matching Error</fullName>
+                    <default>false</default>
+                    <label>Cash Matching Error</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>fflbx__CompletedLinesCount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Completed Lines Count</label>
+        <summaryFilterItems>
+            <field>fflbx__ReceiptLineItem__c.fflbx__Status__c</field>
+            <operation>equals</operation>
+            <value>Complete</value>
+        </summaryFilterItems>
+        <summaryForeignKey>fflbx__ReceiptLineItem__c.fflbx__Receipt__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__CreditDate__c</fullName>
+        <defaultValue>today()</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Deposit Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__Currency__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Currency</label>
+        <referenceTo>c2g__codaAccountingCurrency__c</referenceTo>
+        <relationshipName>Receipts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__ErroredLineCount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Errored Line Count</label>
+        <summaryFilterItems>
+            <field>fflbx__ReceiptLineItem__c.fflbx__Status__c</field>
+            <operation>equals</operation>
+            <value>Error, Cash Entry Error, Cash Matching Error</value>
+        </summaryFilterItems>
+        <summaryForeignKey>fflbx__ReceiptLineItem__c.fflbx__Receipt__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__LineChargesTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Line Charges Total</label>
+        <summarizedField>fflbx__ReceiptLineItem__c.fflbx__BankChargesAmount__c</summarizedField>
+        <summaryForeignKey>fflbx__ReceiptLineItem__c.fflbx__Receipt__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__LineCount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Line Count</label>
+        <summaryForeignKey>fflbx__ReceiptLineItem__c.fflbx__Receipt__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__LockboxNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>fflbx__Lockbox__r.fflbx__NumberWiretransfer__c</formula>
+        <label>Bank Lockbox Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fflbx__Lockbox__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Bank Lockbox</label>
+        <referenceTo>fflbx__Lockbox__c</referenceTo>
+        <relationshipLabel>AR Cash Transactions</relationshipLabel>
+        <relationshipName>Receipts</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__MatchedLinesCount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Matched Lines Count</label>
+        <summaryFilterItems>
+            <field>fflbx__ReceiptLineItem__c.fflbx__Status__c</field>
+            <operation>equals</operation>
+            <value>Matched</value>
+        </summaryFilterItems>
+        <summaryForeignKey>fflbx__ReceiptLineItem__c.fflbx__Receipt__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__MatchingDate__c</fullName>
+        <defaultValue>Today()</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Matching Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__PartMatchedLinesCount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Part Matched Lines Count</label>
+        <summaryFilterItems>
+            <field>fflbx__ReceiptLineItem__c.fflbx__Status__c</field>
+            <operation>equals</operation>
+            <value>Part Matched</value>
+        </summaryFilterItems>
+        <summaryForeignKey>fflbx__ReceiptLineItem__c.fflbx__Receipt__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Imported</fullName>
+                    <default>false</default>
+                    <label>Imported</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Matched</fullName>
+                    <default>false</default>
+                    <label>Matched</label>
+                </value>
+                <value>
+                    <fullName>Error</fullName>
+                    <default>false</default>
+                    <label>Error</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+                <value>
+                    <fullName>Cash Entry Error</fullName>
+                    <default>false</default>
+                    <label>Cash Entry Error</label>
+                </value>
+                <value>
+                    <fullName>Cash Matching Error</fullName>
+                    <default>false</default>
+                    <label>Cash Matching Error</label>
+                </value>
+                <value>
+                    <fullName>Part Complete</fullName>
+                    <default>false</default>
+                    <label>Part Complete</label>
+                </value>
+                <value>
+                    <fullName>Part Matched</fullName>
+                    <default>false</default>
+                    <label>Part Matched</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>fflbx__Total__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total</label>
+        <summarizedField>fflbx__ReceiptLineItem__c.fflbx__Amount__c</summarizedField>
+        <summaryForeignKey>fflbx__ReceiptLineItem__c.fflbx__Receipt__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__ValidateDepositDate__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Validate that the deposit date on imported lines matches the Deposit Date entered here. Errors will be logged if the dates do not match. (When disabled, the deposit date on imported lines is replaced with the Deposit Date entered here.)</inlineHelpText>
+        <label>Validate Deposit Date</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>AR Cash Transaction</label>
+    <listViews>
+        <fullName>fflbx__All</fullName>
+        <columns>NAME</columns>
+        <columns>fflbx__Lockbox__c</columns>
+        <columns>fflbx__CreditDate__c</columns>
+        <columns>fflbx__MatchingDate__c</columns>
+        <columns>fflbx__Currency__c</columns>
+        <columns>fflbx__BankCharges__c</columns>
+        <columns>fflbx__Status__c</columns>
+        <columns>fflbx__Total__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>R-{0000}</displayFormat>
+        <label>AR Cash Transaction ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>AR Cash Transactions</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>fflbx__LockboxNumber__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fflbx__CreditDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fflbx__MatchingDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fflbx__Currency__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fflbx__BankCharges__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fflbx__Total__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fflbx__Status__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>fflbx__Lockbox__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>fflbx__CreditDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>fflbx__MatchingDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>fflbx__Currency__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>fflbx__BankCharges__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>fflbx__Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>fflbx__Total__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>fflbx__Lockbox__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fflbx__CreditDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fflbx__MatchingDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fflbx__Currency__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fflbx__BankCharges__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fflbx__Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fflbx__Total__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>fflbx__CreateCashEntry</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Create Cash Entry</masterLabel>
+        <openType>sidebar</openType>
+        <page>fflbx__cashentry</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>fflbx__CreateCashEntryWithoutTypeSelection</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Create Cash Entry</masterLabel>
+        <openType>sidebar</openType>
+        <page>fflbx__cashentrywithouttypeselection</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>fflbx__Match</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Match</masterLabel>
+        <openType>sidebar</openType>
+        <page>fflbx__cashmatching</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,159 @@
+<apex:page standardController="Contract_Surrender__c" extensions="SurrenderContractController"
+           lightningStylesheets="true">
+    <apex:includeScript value="{!URLFOR($Resource.smagicinteract__SMS_Insight_Reload, 'jquery_1_5_1.js')}"/>
+    <style type="text/css">
+        .bPageBlock .pbTitle {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+
+    <apex:form id="myForm">
+        <c:StatusComponent />
+        <apex:pageBlock title="Surrender {!contract.Name}" rendered="{!NOT(surrenderExists)}">
+            <apex:pageMessage severity="error" rendered="{!IsMessageRendered}" summary="{!errorMessage}"/>
+
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Surrender" action="{!saveSurrender}" reRender="myForm" status="status" styleClass="action--button" oncomplete="initValidation();" rendered="{!NOT(IsMessageRendered)}"/>
+                <apex:commandButton value="Cancel" action="{!cancelSurrender}" immediate="true"/>
+            </apex:pageBlockButtons>
+            <apex:outputPanel style="max-width=900px" rendered="{!NOT(IsMessageRendered)}">
+                <apex:pageBlockSection columns="2" id="dataBlock">
+                    <apex:inputField value="{!surrender.Proposed_date_of_surrender__c}"/>
+                    <apex:inputField value="{!surrender.Status__c}"/>
+
+                    <apex:inputField value="{!surrender.Surrender_Premium__c}" rendered="{!isServicedRT}" styleClass="input--field"/>
+                    <apex:inputField value="{!surrender.Surrender_Premium_Billing_Status__c}" styleClass="select--field" label="Billing Status" rendered="{!isServicedRT}"/>
+
+                    <apex:inputField value="{!surrender.Budget_Dilapidations__c}" rendered="{!NOT(isServicedRT)}" styleClass="input--field"/>
+                    <apex:inputField value="{!surrender.Budget_Dilapidations_Billing_Status__c}" styleClass="select--field" label="Billing Status" rendered="{!NOT(isServicedRT)}"/>
+
+                    <apex:inputField value="{!surrender.Interim_Dilapidations__c}" rendered="{!NOT(isServicedRT)}" styleClass="input--field"/>
+                    <apex:inputField value="{!surrender.Interim_Dilapidations_Billing_Status__c}" styleClass="select--field" label="Billing Status"  rendered="{!NOT(isServicedRT)}"/>
+
+                    <apex:inputField value="{!surrender.Final_Dilapidations__c}" styleClass="input--field"/>
+                    <apex:inputField value="{!surrender.Final_Dilapidations_Billing_Status__c}" styleClass="select--field" label="Billing Status"/>
+
+                    <apex:inputField value="{!surrender.Terminal_Dilapidations__c}" rendered="{!NOT(isServicedRT)}" styleClass="input--field"/>
+                    <apex:inputField value="{!surrender.Terminal_Dilapidations_Billing_Status__c}" styleClass="select--field" label="Billing Status" rendered="{!NOT(isServicedRT)}"/>
+
+                    <apex:inputField value="{!surrender.Break_Penalty_Premium__c}" styleClass="input--field"/>
+                    <apex:inputField value="{!surrender.Break_Penalty_Premium_Billing_Status__c}" styleClass="select--field"
+                                     label="Billing Status"/>
+
+                    <apex:inputField value="{!surrender.Suite_Restoration__c}" styleClass="input--field"/>
+                    <apex:inputField value="{!surrender.Suite_Restoration_Billing_Status__c}" styleClass="select--field" label="Billing Status"/>
+
+                    <apex:inputField value="{!surrender.Deposit__c}" styleClass="input--field"/>
+                    <apex:inputField value="{!surrender.Deposit_Billing_Status__c}" styleClass="select--field" label="Billing Status"/>
+
+                    <apex:inputField value="{!surrender.Deposit_Interest__c}" rendered="{!NOT(isServicedRT)}" styleClass="input--field"/>
+                    <apex:inputField value="{!surrender.Deposit_Interest_Billing_Status__c}" styleClass="select--field" label="Billing Status" rendered="{!NOT(isServicedRT)}"/>
+
+                    <apex:inputField value="{!surrender.Painting_Decorating__c}" rendered="{!isServicedRT}" styleClass="input--field">
+                        <apex:actionsupport event="onchange"
+                                            action="{!calculateTerminalDilapidations}"
+                                            rerender="terminalValue">
+                        </apex:actionsupport>
+                    </apex:inputField>
+                    <apex:inputField value="{!surrender.Painting_Decorating_Billing_Status__c}" styleClass="select--field" label="Billing Status" rendered="{!isServicedRT}"/>
+
+                    <apex:inputField value="{!surrender.Carpet_Cleaning__c}" rendered="{!isServicedRT}" styleClass="input--field">
+                        <apex:actionsupport event="onchange"
+                                            action="{!calculateTerminalDilapidations}"
+                                            rerender="terminalValue">
+                        </apex:actionsupport>
+                    </apex:inputField>
+                    <apex:inputField value="{!surrender.Carpet_Cleaning_Billing_Status__c}" styleClass="select--field" label="Billing Status"  rendered="{!isServicedRT}"/>
+
+                    <apex:inputField value="{!surrender.Other_Costs__c}" rendered="{!isServicedRT}" styleClass="input--field">
+                        <apex:actionsupport event="onchange"
+                                            action="{!calculateTerminalDilapidations}"
+                                            rerender="terminalValue">
+                        </apex:actionsupport>
+                    </apex:inputField>
+                    <apex:inputField value="{!surrender.Other_Costs_Billing_Status__c}" styleClass="select--field" label="Billing Status"
+                                     rendered="{!isServicedRT}"/>
+
+                    <apex:outputField value="{!surrender.Terminal_Dilapidations__c}" id="terminalValue" rendered="{!isServicedRT}"/>
+                    <apex:outputPanel rendered="{!isServicedRT}"/>
+
+                    <apex:inputField label="Is the customer liable for Service Charge Reconciliation?"
+                                     value="{!surrender.Is_the_customer_liable_for_Service_Chrg__c}"
+                                     rendered="{!NOT(isServicedRT)}"/>
+                    <apex:outputPanel rendered="{!NOT(isServicedRT)}"/>
+                    <apex:inputField label="Is the customer liable for electricity costs post completion?"
+                                     value="{!surrender.Is_the_customer_liable_for_electricity__c}"
+                                     rendered="{!NOT(isServicedRT)}"/>
+                    <apex:outputPanel rendered="{!NOT(isServicedRT)}"/>
+
+                    <apex:inputField value="{!surrender.Date_Surrender_Triggered__c}"/>
+                    <apex:outputPanel />
+
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="Surrender {!contract.Name}" rendered="{!surrenderExists}">
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Back" action="{!cancelSurrender}" immediate="true"/>
+            </apex:pageBlockButtons>
+            <apex:outputText value="This Contract already have a Surrender:"/>
+            <apex:outputLink value="/{!surrender.Id}">{!surrender.Name}</apex:outputLink>
+        </apex:pageBlock>
+    </apex:form>
+
+
+    <script type="text/javascript">
+        $(function() {
+            initValidation();
+        });
+
+        function initValidation() {
+            $('.select--field').change(function() {
+                validateAllBilingStatuses();
+            });
+            $('.input--field').change(function() {
+                validateAllBilingStatuses();
+            })
+        };
+        function validateAllBilingStatuses() {
+            var $elements = $('.input--field');
+            var isValid = true;
+            $('.input--field').each(function() {
+                var valid = validateBillingStatus(this, this.value);
+                isValid = isValid ? valid : isValid;
+            });
+            if (!isValid) {
+                $('.action--button').attr('disabled', 'disabled');
+            } else {
+                $('.action--button').removeAttr('disabled');
+            }
+        };
+        function validateBillingStatus(el, value) {
+            var isValid = true;
+            var $select = $(el).closest('tr').find('.select--field');
+
+            if (value && parseFloat(value,10) >= 0) {
+                var val = $select.val();
+                if (!val) {
+                    $select.addClass('requried--input');
+                    isValid = false;
+                } else {
+                    $select.removeClass('requried--input');
+                }
+            } else {
+                $select.removeClass('requried--input');
+            }
+            return isValid;
+        };
+    </script>
+    <style type="text/css">
+        .requried--input {
+            background-color: white;
+            border-color: #c23934;
+            box-shadow: #c23934 0 0 0 1px inset;
+            background-clip: padding-box;
+        }
+    </style>
+</apex:page>

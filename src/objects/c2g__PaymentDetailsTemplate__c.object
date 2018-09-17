@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>c2g__codahelppaymentdetailstemplate</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Stores template details from the Payments Plus process.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>c2g__BankAccount__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Bank Account</label>
+        <referenceTo>c2g__codaBankAccount__c</referenceTo>
+        <relationshipLabel>Payment Details Templates</relationshipLabel>
+        <relationshipName>PaymentDetailsTemplates</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__CurrencyWriteOffDimension1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Currency Write-off Dimension 1</label>
+        <referenceTo>c2g__codaDimension1__c</referenceTo>
+        <relationshipLabel>Payment Details Templates</relationshipLabel>
+        <relationshipName>PaymentDetailsTemplatesCWODimension1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__CurrencyWriteOffDimension2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Currency Write-off Dimension 2</label>
+        <referenceTo>c2g__codaDimension2__c</referenceTo>
+        <relationshipLabel>Payment Details Templates</relationshipLabel>
+        <relationshipName>PaymentDetailsTemplatesCWODimension2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__CurrencyWriteOffDimension3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Currency Write-off Dimension 3</label>
+        <referenceTo>c2g__codaDimension3__c</referenceTo>
+        <relationshipLabel>Payment Details Templates</relationshipLabel>
+        <relationshipName>PaymentDetailsTemplatesCWODimension3</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__CurrencyWriteOffDimension4__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Currency Write-off Dimension 4</label>
+        <referenceTo>c2g__codaDimension4__c</referenceTo>
+        <relationshipLabel>Payment Details Templates</relationshipLabel>
+        <relationshipName>PaymentDetailsTemplatesCWODimension4</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__CurrencyWriteOffGLA__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Currency Write-off GLA</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Payment Details Templates</relationshipLabel>
+        <relationshipName>PaymentDetailsTemplatesCWOGLA</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Default__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Default</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>c2g__OwnerCompany__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Company</label>
+        <referenceTo>c2g__codaCompany__c</referenceTo>
+        <relationshipLabel>Payment Details Templates</relationshipLabel>
+        <relationshipName>PaymentDetailsTemplates</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__PaymentCurrency__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment Currency</label>
+        <referenceTo>c2g__codaAccountingCurrency__c</referenceTo>
+        <relationshipLabel>Payment Details Templates</relationshipLabel>
+        <relationshipName>PaymentDetailsTemplates</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__PaymentMediaTypes__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment Media</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Check</fullName>
+                    <default>false</default>
+                    <label>Check</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__SettlementDiscountDimension1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Settlement Discount Dimension 1</label>
+        <referenceTo>c2g__codaDimension1__c</referenceTo>
+        <relationshipLabel>Payment Details Templates</relationshipLabel>
+        <relationshipName>PaymentDetailsTemplatesSDDimension1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__SettlementDiscountDimension2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Settlement Discount Dimension 2</label>
+        <referenceTo>c2g__codaDimension2__c</referenceTo>
+        <relationshipLabel>Payment Details Templates</relationshipLabel>
+        <relationshipName>PaymentDetailsTemplatesSDDimension2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__SettlementDiscountDimension3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Settlement Discount Dimension 3</label>
+        <referenceTo>c2g__codaDimension3__c</referenceTo>
+        <relationshipLabel>Payment Details Templates</relationshipLabel>
+        <relationshipName>PaymentDetailsTemplatesSDDimension3</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__SettlementDiscountDimension4__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Settlement Discount Dimension 4</label>
+        <referenceTo>c2g__codaDimension4__c</referenceTo>
+        <relationshipLabel>Payment Details Templates</relationshipLabel>
+        <relationshipName>PaymentDetailsTemplatesSDDimension4</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__SettlementDiscountGLA__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Settlement Discount GLA</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Payment Details Templates</relationshipLabel>
+        <relationshipName>PaymentDetailsTemplatesSDGLA</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Payment Details Template</label>
+    <listViews>
+        <fullName>c2g__All</fullName>
+        <columns>NAME</columns>
+        <columns>c2g__OwnerCompany__c</columns>
+        <columns>c2g__Default__c</columns>
+        <columns>c2g__BankAccount__c</columns>
+        <columns>c2g__PaymentMediaTypes__c</columns>
+        <columns>c2g__PaymentCurrency__c</columns>
+        <columns>c2g__SettlementDiscountGLA__c</columns>
+        <columns>c2g__CurrencyWriteOffGLA__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Payment Details Template Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Payment Details Templates</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>c2g__OwnerCompany__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__Default__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__BankAccount__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__PaymentMediaTypes__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__PaymentCurrency__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__SettlementDiscountGLA__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__CurrencyWriteOffGLA__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>c2g__OwnerCompany__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>c2g__Default__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>c2g__BankAccount__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>c2g__PaymentMediaTypes__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>c2g__PaymentCurrency__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>c2g__SettlementDiscountGLA__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>c2g__CurrencyWriteOffGLA__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>c2g__OwnerCompany__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>c2g__Default__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>c2g__BankAccount__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>c2g__PaymentMediaTypes__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>c2g__PaymentCurrency__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>c2g__SettlementDiscountGLA__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>c2g__CurrencyWriteOffGLA__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>c2g__OwnerCompany__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>c2g__Default__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>c2g__BankAccount__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>c2g__PaymentMediaTypes__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>c2g__PaymentCurrency__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>c2g__SettlementDiscountGLA__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>c2g__CurrencyWriteOffGLA__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

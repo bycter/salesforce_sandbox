@@ -1,0 +1,1507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>fferpcore__BillingDocumentHelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Contains sales invoice and sales credit note billing documents that enable you to bill and credit customers.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>ffbc__EnhancedBillingDocumentAdditionalFields</fullName>
+        <description>Defines the additional billing document fields to be displayed on the enhanced Billing Document Detail page.</description>
+        <label>Enhanced Billing Document Additional Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>ffbc__PrintedDocumentFields</fullName>
+        <description>Defines the billing document fields to be displayed on printed invoices and credit notes.</description>
+        <displayedFields>
+            <field>fferpcore__CustomerReference__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>fferpcore__DocumentDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>fferpcore__DocumentDueDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Printed Document Fields</label>
+    </fieldSets>
+    <fields>
+        <fullName>c2g__MatchType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Match Type of the FinancialForce Accounting transaction to which this billing document relates.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(c2g__Transaction__r.c2g__MatchType__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Match Type of the FinancialForce Accounting transaction to which this billing document relates.</inlineHelpText>
+        <label>Match Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__OutstandingValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Outstanding Value of the FinancialForce Accounting transaction to which this billing document relates.</description>
+        <externalId>false</externalId>
+        <formula>c2g__Transaction__r.c2g__DocumentOutstandingTotal__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Outstanding Value of the FinancialForce Accounting transaction to which this billing document relates.</inlineHelpText>
+        <label>Outstanding Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__PaymentStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Transaction Payment Status of the FinancialForce Accounting transaction to which this billing document relates.</description>
+        <externalId>false</externalId>
+        <formula>if(OR(NOT(ISPICKVAL(fferpcore__DocumentStatus__c, &apos;Complete&apos;)),
+      NOT(ISPICKVAL(c2g__PostingStatus__c, &apos;Posted&apos;))),
+&apos;Not Applicable&apos;,
+
+if(c2g__Transaction__r.c2g__DocumentOutstandingTotal__c == 0, &apos;Paid&apos;,
+
+if(c2g__Transaction__r.c2g__DocumentTotal__c == c2g__Transaction__r.c2g__DocumentOutstandingTotal__c, &apos;Unpaid&apos;,
+
+&apos;Part Paid&apos;)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Transaction Payment Status of the FinancialForce Accounting transaction to which this billing document relates.</inlineHelpText>
+        <label>Payment Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__PostingError__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Error that occurred while posting this billing document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Error that occurred while posting this billing document.</inlineHelpText>
+        <label>Posting Error</label>
+        <length>131072</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>c2g__PostingStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Posting status for this billing document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Posting status for this billing document.</inlineHelpText>
+        <label>Posting Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Posting</fullName>
+                    <default>false</default>
+                    <label>Posting</label>
+                </value>
+                <value>
+                    <fullName>Posted</fullName>
+                    <default>false</default>
+                    <label>Posted</label>
+                </value>
+                <value>
+                    <fullName>Error</fullName>
+                    <default>false</default>
+                    <label>Error</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__Transaction__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the FinancialForce Accounting transaction to which this billing document relates.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the FinancialForce Accounting transaction to which this billing document relates.</inlineHelpText>
+        <label>Accounting Transaction</label>
+        <referenceTo>c2g__codaTransaction__c</referenceTo>
+        <relationshipLabel>Billing Document</relationshipLabel>
+        <relationshipName>BillingDocument</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Year__c</fullName>
+        <deprecated>false</deprecated>
+        <description>FinancialForce Accounting year to which this billing document relates.</description>
+        <externalId>false</externalId>
+        <formula>c2g__Transaction__r.c2g__Period__r.c2g__YearName__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>FinancialForce Accounting year to which this billing document relates.</inlineHelpText>
+        <label>Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffaci__CongaEmailStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Conga Email Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Sent</fullName>
+                    <default>true</default>
+                    <label>Not Sent</label>
+                </value>
+                <value>
+                    <fullName>Sent</fullName>
+                    <default>false</default>
+                    <label>Sent</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffaci__CongaPrintStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Conga Print Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Printed</fullName>
+                    <default>true</default>
+                    <label>Not Printed</label>
+                </value>
+                <value>
+                    <fullName>Printed</fullName>
+                    <default>false</default>
+                    <label>Printed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffaci__CongaTemplate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>fferpcore__Company__r.ffaci__CongaTemplateBillingDocument__c</formula>
+        <label>Conga Template</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ContractStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field containing the status of the contract to which this billing document belongs.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(ffbc__Contract__r.ffbc__Status__c)</formula>
+        <inlineHelpText>Status of the contract to which this billing document belongs.</inlineHelpText>
+        <label>Contract Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ContractType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field containing the type of contract to which this billing document belongs.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(ffbc__Contract__r.ffbc__Type__c)</formula>
+        <inlineHelpText>Type of contract to which this billing document belongs.</inlineHelpText>
+        <label>Contract Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__Contract__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup Field to the Contract that have generated the Document</description>
+        <externalId>false</externalId>
+        <label>Contract</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.fferpcore__Account__c</field>
+                <operation>equals</operation>
+                <valueField>ffbc__Contract__c.ffbc__Account__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>ffbc__Contract__c.ffbc__Type__c</field>
+                <operation>equals</operation>
+                <value>Contract</value>
+            </filterItems>
+            <filterItems>
+                <field>ffbc__Contract__c.ffbc__Status__c</field>
+                <operation>equals</operation>
+                <value>Draft, Active, Expired</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>ffbc__Contract__c</referenceTo>
+        <relationshipLabel>Related Billing Documents</relationshipLabel>
+        <relationshipName>BillingDocuments</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__TotalledOnContract__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the Total Value of the billing document line items is included in the Total Billed field of the related contract line items.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether the Total Value of the billing document line items is included in the Total Billed field of the related contract line items.</inlineHelpText>
+        <label>Included in Contract Total Billed</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__TriggerId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>An identifier that is used to create billing documents when billing a contract.</description>
+        <externalId>false</externalId>
+        <label>Trigger ID</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the Salesforce Account to which this document relates.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the Salesforce Account to which this document relates.</inlineHelpText>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Billing Documents</relationshipLabel>
+        <relationshipName>Billing_Documents1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__AnalysisItem1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Used to sub-analyze billing documents and can be used to represent a number of different business concepts.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to sub-analyze billing documents and can be used to represent a number of different business concepts.</inlineHelpText>
+        <label>Analysis Item 1</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>fferpcore__AnalysisItem__c.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Analysis_1</value>
+            </filterItems>
+            <filterItems>
+                <field>fferpcore__AnalysisItem__c.RecordType.NamespacePrefix</field>
+                <operation>equals</operation>
+                <value>fferpcore</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>fferpcore__AnalysisItem__c</referenceTo>
+        <relationshipLabel>Related Documents 1</relationshipLabel>
+        <relationshipName>RelatedDocuments1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__AnalysisItem2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Used to sub-analyze billing documents and can be used to represent a number of different business concepts.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to sub-analyze billing documents and can be used to represent a number of different business concepts.</inlineHelpText>
+        <label>Analysis Item 2</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>fferpcore__AnalysisItem__c.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Analysis_2</value>
+            </filterItems>
+            <filterItems>
+                <field>fferpcore__AnalysisItem__c.RecordType.NamespacePrefix</field>
+                <operation>equals</operation>
+                <value>fferpcore</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>fferpcore__AnalysisItem__c</referenceTo>
+        <relationshipLabel>Related Documents 2</relationshipLabel>
+        <relationshipName>RelatedDocuments2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__AnalysisItem3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Used to sub-analyze billing documents and can be used to represent a number of different business concepts.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to sub-analyze billing documents and can be used to represent a number of different business concepts.</inlineHelpText>
+        <label>Analysis Item 3</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>fferpcore__AnalysisItem__c.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Analysis_3</value>
+            </filterItems>
+            <filterItems>
+                <field>fferpcore__AnalysisItem__c.RecordType.NamespacePrefix</field>
+                <operation>equals</operation>
+                <value>fferpcore</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>fferpcore__AnalysisItem__c</referenceTo>
+        <relationshipLabel>Related Documents 3</relationshipLabel>
+        <relationshipName>RelatedDocuments3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__AnalysisItem4__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Used to sub-analyze billing documents and can be used to represent a number of different business concepts.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to sub-analyze billing documents and can be used to represent a number of different business concepts.</inlineHelpText>
+        <label>Analysis Item 4</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>fferpcore__AnalysisItem__c.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Analysis_4</value>
+            </filterItems>
+            <filterItems>
+                <field>fferpcore__AnalysisItem__c.RecordType.NamespacePrefix</field>
+                <operation>equals</operation>
+                <value>fferpcore</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>fferpcore__AnalysisItem__c</referenceTo>
+        <relationshipLabel>Related Documents 4</relationshipLabel>
+        <relationshipName>RelatedDocuments4</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__BillingAccountName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the account to appear on the billing document as the account being billed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the account to appear on the billing document as the account being billed.</inlineHelpText>
+        <label>Billing Account</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__BillingCity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Billing City</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__BillingCountry__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Billing Country</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__BillingPostalCode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Billing Zip/Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__BillingState__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Billing State/Province</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__BillingStreet__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Billing Street</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__Company__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the associated company.</description>
+        <externalId>false</externalId>
+        <label>Company</label>
+        <referenceTo>fferpcore__Company__c</referenceTo>
+        <relationshipLabel>Billing Documents</relationshipLabel>
+        <relationshipName>Billing_Documents</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__CompletionProcessTracking__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the process tracking record to which this billing document currently relates.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the process tracking record to which this billing document currently relates.</inlineHelpText>
+        <label>Completion Process</label>
+        <referenceTo>fferpcore__ProcessTracking__c</referenceTo>
+        <relationshipLabel>Billing Documents</relationshipLabel>
+        <relationshipName>BillingDocuments</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__CustomerReference__c</fullName>
+        <deprecated>false</deprecated>
+        <description>External customer reference.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>External customer reference.</inlineHelpText>
+        <label>Customer Reference</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__DateIssued__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date on which the billing document was sent.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the billing document was sent.</inlineHelpText>
+        <label>Date Issued</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Description of the sales invoice or credit note.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Description of the sales invoice or credit note.</inlineHelpText>
+        <label>Description</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__DiscountTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The total discount of all billing document line items associated with this billing document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The total saving of all billing document line items associated with this billing document.</inlineHelpText>
+        <label>Discount Total</label>
+        <summarizedField>fferpcore__BillingDocumentLineItem__c.fferpcore__DiscountTotal__c</summarizedField>
+        <summaryForeignKey>fferpcore__BillingDocumentLineItem__c.fferpcore__BillingDocument__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__DocumentDate__c</fullName>
+        <defaultValue>TODAY()</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Date on which the document was created.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the document was created.</inlineHelpText>
+        <label>Document Date</label>
+        <required>true</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__DocumentDueDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date on which payment is expected.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which payment is expected.</inlineHelpText>
+        <label>Document Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__DocumentStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Status of the billing document. The status can be Draft or Complete. When the status is complete, you can only edit the Document Due Date, Customer Reference and Description.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Status of the billing document. The status can be Draft or Complete. When the status is complete, you can only edit the Document Due Date, Customer Reference and Description.</inlineHelpText>
+        <label>Document Status</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+                <value>
+                    <fullName>Discarded</fullName>
+                    <default>false</default>
+                    <label>Discarded</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>fferpcore__DocumentTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total value of all the billing document line items on this billing document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total value of all the billing document line items on this billing document.</inlineHelpText>
+        <label>Document Total</label>
+        <summarizedField>fferpcore__BillingDocumentLineItem__c.fferpcore__TotalValue__c</summarizedField>
+        <summaryForeignKey>fferpcore__BillingDocumentLineItem__c.fferpcore__BillingDocument__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__DocumentTypePrefix__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(fferpcore__DocumentType__c, &quot;Credit Note&quot;), &quot;CRN&quot;, &quot;INV&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Document Type Prefix</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__DocumentType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the document is a sales invoice or a sales credit note.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether the document is a sales invoice or a sales credit note.</inlineHelpText>
+        <label>Document Type</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Invoice</fullName>
+                    <default>false</default>
+                    <label>Invoice</label>
+                </value>
+                <value>
+                    <fullName>Credit Note</fullName>
+                    <default>false</default>
+                    <label>Credit Note</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ExternalDocumentNumber__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>External Document Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__FooterText__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Text to be shown at the end of printed billing documents.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Text to be shown at the end of printed billing documents.</inlineHelpText>
+        <label>Footer Text</label>
+        <length>131072</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>fferpcore__HeaderText__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Text to be shown at the start of printed billing documents.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Text to be shown at the start of printed billing documents.</inlineHelpText>
+        <label>Header Text</label>
+        <length>131072</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>fferpcore__IsBillingAddressValidated__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the billing address has been validated against the addresses in the external tax calculation service.</description>
+        <externalId>false</externalId>
+        <formula>NOT
+            ( ISBLANK(fferpcore__BillingStreet__c) &amp;&amp;
+              ISBLANK(fferpcore__BillingCity__c) &amp;&amp;
+              ISBLANK(fferpcore__BillingState__c) &amp;&amp;
+              ISBLANK(fferpcore__BillingPostalCode__c) &amp;&amp;
+              ISBLANK(fferpcore__BillingCountry__c)
+            ) &amp;&amp;
+            ( fferpcore__BillingStreet__c  =  fferpcore__ValidatedBillingStreet__c ) &amp;&amp;
+            ( fferpcore__BillingCity__c =  fferpcore__ValidatedBillingCity__c ) &amp;&amp;
+            ( fferpcore__BillingState__c =  fferpcore__ValidatedBillingState__c ) &amp;&amp;
+            ( fferpcore__BillingPostalCode__c =  fferpcore__ValidatedBillingPostalCode__c ) &amp;&amp;
+            ( fferpcore__BillingCountry__c =  fferpcore__ValidatedBillingCountry__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Indicates whether the billing address has been validated against the addresses in the external tax calculation service.</inlineHelpText>
+        <label>Billing Address Validated</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__IsComplete__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>ISPICKVAL(fferpcore__DocumentStatus__c, &quot;Complete&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__IsShippingAddressValidated__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the shipping address has been validated against the addresses in the external tax calculation service.</description>
+        <externalId>false</externalId>
+        <formula>NOT
+            ( ISBLANK(fferpcore__ShippingStreet__c) &amp;&amp;
+              ISBLANK(fferpcore__ShippingCity__c) &amp;&amp;
+              ISBLANK(fferpcore__ShippingState__c) &amp;&amp;
+              ISBLANK(fferpcore__ShippingPostalCode__c) &amp;&amp;
+              ISBLANK(fferpcore__ShippingCountry__c)
+            ) &amp;&amp;
+            ( fferpcore__ShippingStreet__c  =  fferpcore__ValidatedShippingStreet__c ) &amp;&amp;
+            ( fferpcore__ShippingCity__c =  fferpcore__ValidatedShippingCity__c ) &amp;&amp;
+            ( fferpcore__ShippingState__c =  fferpcore__ValidatedShippingState__c ) &amp;&amp;
+            ( fferpcore__ShippingPostalCode__c =  fferpcore__ValidatedShippingPostalCode__c ) &amp;&amp;
+            ( fferpcore__ShippingCountry__c =  fferpcore__ValidatedShippingCountry__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Indicates whether the shipping address has been validated against the addresses in the external tax calculation service.</inlineHelpText>
+        <label>Shipping Address Validated</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__NetTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The total net value of all billing document line items associated with this billing document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The total net value of all billing document line items associated with this billing document.</inlineHelpText>
+        <label>Net Total</label>
+        <summarizedField>fferpcore__BillingDocumentLineItem__c.fferpcore__NetValue__c</summarizedField>
+        <summaryForeignKey>fferpcore__BillingDocumentLineItem__c.fferpcore__BillingDocument__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__NumberOfBillingDocumentLineItems__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of billing document line items currently associated with this billing document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of billing document line items currently associated with this billing document.</inlineHelpText>
+        <label>Number Of Billing Document Line Items</label>
+        <summaryForeignKey>fferpcore__BillingDocumentLineItem__c.fferpcore__BillingDocument__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__RelatedDocument__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the related invoice or credit note.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the related invoice or credit note.</inlineHelpText>
+        <label>Related Document</label>
+        <referenceTo>fferpcore__BillingDocument__c</referenceTo>
+        <relationshipLabel>Related Documents</relationshipLabel>
+        <relationshipName>RelatedDocuments</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ReportingDocumentTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total value of all the billing document line items on this billing document based on the Document Type. If the document is an invoice, the value is the same as the Document Total. If the document is a credit note, the value is calculated using the formula: Document Total * -1.</description>
+        <externalId>false</externalId>
+        <formula>IF (ISPICKVAL(fferpcore__DocumentType__c, &quot;Credit Note&quot;),  fferpcore__DocumentTotal__c * -1, fferpcore__DocumentTotal__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Total value of all the billing document line items on this billing document based on the Document Type.</inlineHelpText>
+        <label>Reporting Document Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ShippingAccountName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the account to appear on the billing document as the Shipping Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the account to appear on the billing document as the Shipping Account.</inlineHelpText>
+        <label>Shipping Account</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ShippingCity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Shipping City</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ShippingCountry__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Shipping Country</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ShippingPostalCode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Shipping Zip/Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ShippingState__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Shipping State/Province</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ShippingStreet__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Shipping Street</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__TaxValueTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The total tax value of all billing document line items associated with this billing document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The total tax value of all billing document line items associated with this billing document.</inlineHelpText>
+        <label>Tax Value Total</label>
+        <summarizedField>fferpcore__BillingDocumentLineItem__c.fferpcore__TaxValueTotal__c</summarizedField>
+        <summaryForeignKey>fferpcore__BillingDocumentLineItem__c.fferpcore__BillingDocument__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ValidatedBillingCity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Validated Billing City</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ValidatedBillingCountry__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Validated Billing Country</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ValidatedBillingPostalCode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Validated Billing Zip/Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ValidatedBillingState__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Validated Billing State/Province</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ValidatedBillingStreet__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Validated Billing Street</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ValidatedShippingCity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Validated Shipping City</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ValidatedShippingCountry__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Validated Shipping Country</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ValidatedShippingPostalCode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Validated Shipping Zip/Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ValidatedShippingState__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Validated Shipping State/Province</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__ValidatedShippingStreet__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Validated Shipping Street</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Billing_Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Billing Start Date</label>
+        <summarizedField>fferpcore__BillingDocumentLineItem__c.ffbc__BillingPeriodStartDate__c</summarizedField>
+        <summaryForeignKey>fferpcore__BillingDocumentLineItem__c.fferpcore__BillingDocument__c</summaryForeignKey>
+        <summaryOperation>min</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__DataMigration__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Data Migration</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__InvoiceStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Invoice Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Available</fullName>
+                    <default>true</default>
+                    <label>Available</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Invoice Created</fullName>
+                    <default>false</default>
+                    <label>Invoice Created</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Region__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Region</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Sales_Invoice__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Sales Invoice</label>
+        <referenceTo>c2g__codaInvoice__c</referenceTo>
+        <relationshipLabel>Billing Documents</relationshipLabel>
+        <relationshipName>Billing_Documents</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Billing Document</label>
+    <listViews>
+        <fullName>fferpcore__All</fullName>
+        <columns>NAME</columns>
+        <columns>fferpcore__DocumentType__c</columns>
+        <columns>fferpcore__Account__c</columns>
+        <columns>fferpcore__DocumentStatus__c</columns>
+        <columns>fferpcore__DocumentDate__c</columns>
+        <columns>fferpcore__DocumentTotal__c</columns>
+        <columns>fferpcore__RelatedDocument__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>BD{0000000}</displayFormat>
+        <label>Document Number</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Billing Documents</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>fferpcore__Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fferpcore__DocumentType__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fferpcore__DocumentStatus__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fferpcore__DocumentDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fferpcore__DocumentTotal__c</customTabListAdditionalFields>
+        <listViewButtons>fferpcore__CalculateTaxList</listViewButtons>
+        <lookupDialogsAdditionalFields>fferpcore__Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>fferpcore__DocumentType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>fferpcore__DocumentStatus__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>fferpcore__DocumentDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>fferpcore__DocumentTotal__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>fferpcore__Account__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>fferpcore__DocumentType__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>fferpcore__DocumentStatus__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>fferpcore__DocumentDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>fferpcore__DocumentTotal__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>fferpcore__Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fferpcore__DocumentType__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fferpcore__DocumentStatus__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fferpcore__DocumentDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fferpcore__DocumentTotal__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>c2g__ListRetryPost</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Retry Post</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__billingdocumentlistpost</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__RetryPost</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Retry Post</masterLabel>
+        <openType>noSidebar</openType>
+        <page>c2g__billingdocumentpost</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__CalculateTax</fullName>
+        <availability>online</availability>
+        <description>Calculates the tax rate and value for the document by calling Avalara AvaTax.</description>
+        <displayType>button</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Calculate Tax with Avalara</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__billingdocumentcalculatetax</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__CreditInvoice</fullName>
+        <availability>online</availability>
+        <description>Converts the billing document to a credit note</description>
+        <displayType>button</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Convert to Credit Note</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__creditbillingdocument</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__CreditInvoicesList</fullName>
+        <availability>online</availability>
+        <description>Converts the selected billing documents to credit notes</description>
+        <displayType>massActionButton</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Convert to Credit Notes</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__creditbillingdocumentbulk</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__Discard</fullName>
+        <availability>online</availability>
+        <description>Discards the Billing Document</description>
+        <displayType>button</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Discard</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__discardbillingdocumentconfirm</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__Email</fullName>
+        <availability>online</availability>
+        <description>Email this Billing Document as a PDF</description>
+        <displayType>button</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Email PDF</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__billingdocumentemail</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__EnhancedEdit</fullName>
+        <availability>online</availability>
+        <description>Opens the Enhanced Edit page for this billing document</description>
+        <displayType>button</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Edit with Enhanced Page</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__billingdocumentsedit</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__EnhancedView</fullName>
+        <availability>online</availability>
+        <description>Opens the Enhanced View page for this billing document</description>
+        <displayType>button</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>View on Enhanced Page</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__billingdocumentsview</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__PrintPreview</fullName>
+        <availability>online</availability>
+        <description>Print preview of the billing document</description>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Print</masterLabel>
+        <openType>newWindow</openType>
+        <page>ffbc__billingdocumentprintredirect</page>
+        <position>fullScreen</position>
+        <protected>false</protected>
+        <showsLocation>true</showsLocation>
+        <showsStatus>true</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__SetComplete</fullName>
+        <availability>online</availability>
+        <description>Completes the Billing Document</description>
+        <displayType>button</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Complete</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__billingdocumentconfirmcomplete</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__SetCompleteList</fullName>
+        <availability>online</availability>
+        <description>Completes the selected Billing Documents</description>
+        <displayType>massActionButton</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Complete</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__billingdocumentcompletebatch</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__SetDiscardList</fullName>
+        <availability>online</availability>
+        <description>Discards the selected Billing Documents</description>
+        <displayType>massActionButton</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Discard</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__discardbillingdocumentbatch</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>fferpcore__CalculateTax</fullName>
+        <availability>online</availability>
+        <description>Calculates tax for the billing document using the tax information stored on the Account, Company Tax Information and Product records associated with the billing document.</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Calculate Tax</masterLabel>
+        <openType>sidebar</openType>
+        <page>fferpcore__BillingDocumentCalculateTax</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>fferpcore__CalculateTaxList</fullName>
+        <availability>online</availability>
+        <description>Calculates tax for the selected billing documents using the tax information stored on the Account, Company Tax Information and Product records associated with the billing document.</description>
+        <displayType>massActionButton</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Calculate Tax</masterLabel>
+        <openType>sidebar</openType>
+        <page>fferpcore__BillingDocumentsCalculateTax</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>ffps_brunt__Create_Consolidated_Invoice</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Create Consolidated Invoice</masterLabel>
+        <openType>noSidebar</openType>
+        <page>ffps_brunt__CreateConsolidatedInvoice</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+</CustomObject>

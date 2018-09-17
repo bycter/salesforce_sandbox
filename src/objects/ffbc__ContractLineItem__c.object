@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>ffbc__contractlineitemhelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>ffbc__ActiveContractLineLockedFields</fullName>
+        <availableFields>
+            <field>ffbc__Description__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <description>Defines the fields of a contract line item that are read-only when the status of the related contract is Active.</description>
+        <displayedFields>
+            <field>ffbc__BillingTerm__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__BillingType__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__FirstBillDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__InArrears__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__ProductService__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__Quantity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__StartDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__EndDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__UnitPrice__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__UnitOfMeasure__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__RevenueCategory__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__Discount__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ffbc__PricingStructure__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Active Contract Line Locked Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>ffbc__EnhancedContractAdditionalFields</fullName>
+        <description>Defines the additional contract line item fields to be displayed on the enhanced Contract Detail page.</description>
+        <label>Enhanced Contract Additional Fields</label>
+    </fieldSets>
+    <fields>
+        <fullName>Creating_Contract_Line_Item__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Creating Contract Line Item</label>
+        <referenceTo>SBQQ__Subscription__c</referenceTo>
+        <relationshipLabel>Contract Line Items</relationshipLabel>
+        <relationshipName>Contract_Line_Items</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__ActiveContractLineItem__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the active contract line item to which this change request line item relates.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the active contract line item to which this change request line item relates.</inlineHelpText>
+        <label>Active Contract Line Item</label>
+        <referenceTo>ffbc__ContractLineItem__c</referenceTo>
+        <relationshipLabel>Contract Line Items</relationshipLabel>
+        <relationshipName>RelatedContractLineItems</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__AnnualRecurringRevenue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Monthly Recurring Revenue multiplied by 12.</description>
+        <externalId>false</externalId>
+        <formula>ffbc__MonthlyRecurringRevenue__c * 12</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Monthly Recurring Revenue multiplied by 12.</inlineHelpText>
+        <label>Annual Recurring Revenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__BilledTo__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date up to which the contract line item has been billed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date up to which the contract line item has been billed.</inlineHelpText>
+        <label>Billed To</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingTerm__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the soft date that determines when billing occurs.</description>
+        <externalId>false</externalId>
+        <label>Billing Term</label>
+        <referenceTo>ffbc__SoftDate__c</referenceTo>
+        <relationshipLabel>Related Contract Line Items</relationshipLabel>
+        <relationshipName>ContractLineItems</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__BillingType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The type of billing for this contract line item.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The type of billing for this contract line item.</inlineHelpText>
+        <label>Billing Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Recurring Fixed</fullName>
+                    <default>false</default>
+                    <label>Recurring Fixed</label>
+                </value>
+                <value>
+                    <fullName>Recurring Variable</fullName>
+                    <default>false</default>
+                    <label>Recurring Variable</label>
+                </value>
+                <value>
+                    <fullName>One-off</fullName>
+                    <default>false</default>
+                    <label>One-off</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffbc__ContractEndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field containing the end date of the contract to which the contract line item belongs.</description>
+        <externalId>false</externalId>
+        <formula>ffbc__Contract__r.ffbc__EndDate__c</formula>
+        <inlineHelpText>End date of the contract to which this contract line item belongs.</inlineHelpText>
+        <label>Contract End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__ContractFirstBillDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field containing the first bill date of the contract to which the contract line item belongs.</description>
+        <externalId>false</externalId>
+        <formula>ffbc__Contract__r.ffbc__FirstBillDate__c</formula>
+        <inlineHelpText>First bill date of the contract to which this contract line item belongs.</inlineHelpText>
+        <label>Contract First Bill Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__ContractStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field containing the start date of the contract to which the contract line item belongs.</description>
+        <externalId>false</externalId>
+        <formula>ffbc__Contract__r.ffbc__StartDate__c</formula>
+        <inlineHelpText>Start date of the contract to which this contract line item belongs.</inlineHelpText>
+        <label>Contract Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__ContractStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field containing the status of the contract to which the contract line item belongs.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(ffbc__Contract__r.ffbc__Status__c)</formula>
+        <inlineHelpText>Status of the contract to which this contract line item belongs.</inlineHelpText>
+        <label>Contract Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ContractType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field containing the type of contract to which this contract line item belongs.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(ffbc__Contract__r.ffbc__Type__c)</formula>
+        <inlineHelpText>Type of contract to which this contract line item belongs.</inlineHelpText>
+        <label>Contract Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__Contract__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Contract to which this contract line belongs.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contract to which this contract line belongs.</inlineHelpText>
+        <label>Contract</label>
+        <referenceTo>ffbc__Contract__c</referenceTo>
+        <relationshipLabel>Contract Line Items</relationshipLabel>
+        <relationshipName>ContractLineItems</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>ffbc__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Description of the contract line item.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Description of the contract line item.</inlineHelpText>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__Discount__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the discount applied to this contract line item.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the discount applied to this contract line item.</inlineHelpText>
+        <label>Discount</label>
+        <referenceTo>ffbc__Discount__c</referenceTo>
+        <relationshipLabel>Contract Line Items</relationshipLabel>
+        <relationshipName>ContractLineItems</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__EndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date on which this contract line item ends.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which this contract line item ends.</inlineHelpText>
+        <label>End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__FirstBillDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>First date on which the contract line item is to be billed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>First date on which the contract line item is to be billed.</inlineHelpText>
+        <label>First Bill Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__InArrears__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the contract line item is to be billed in arrears.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether the contract line item is to be billed in arrears.</inlineHelpText>
+        <label>Bill in Arrears</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__MonthlyRecurringRevenue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Monthly recurring revenue for the contract line item. This is calculated by multiplying the Sales Price by the Monthly Recurring Revenue Multiplier of the Soft Date associated with the contract line item.</description>
+        <externalId>false</externalId>
+        <formula>ffbc__MrrMultiplier__c * ffbc__SalesPrice__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Monthly recurring revenue for the contract line item. This is calculated by multiplying the Sales Price by the Monthly Recurring Revenue Multiplier of the Billing Term associated with the contract line item.</inlineHelpText>
+        <label>Monthly Recurring Revenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__MrrMultiplier__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Multiplier used to calculate monthly recurring revenue. Must contain a positive number.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Multiplier used to calculate monthly recurring revenue. Must contain a positive number.</inlineHelpText>
+        <label>Monthly Recurring Revenue Multiplier</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>9</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__Plan__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Plan</description>
+        <externalId>false</externalId>
+        <label>Plan Name</label>
+        <referenceTo>ffbc__Plan__c</referenceTo>
+        <relationshipLabel>Related Contract Line Items</relationshipLabel>
+        <relationshipName>ContractLineItems</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__PreviousContractLineItem__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the previous contract line item to which this contract line item relates.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the previous contract line item to which this contract line item relates.</inlineHelpText>
+        <label>Previous Contract Line Item</label>
+        <referenceTo>ffbc__ContractLineItem__c</referenceTo>
+        <relationshipLabel>Next Contract Line Item</relationshipLabel>
+        <relationshipName>NextContractLineItem</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__PricingStructure__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the pricing structure that determines the Unit Price for different quantities on this contract line item.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the pricing structure that determines the Unit Price for different quantities on this contract line item.</inlineHelpText>
+        <label>Pricing Structure</label>
+        <referenceTo>ffbc__PricingStructure__c</referenceTo>
+        <relationshipLabel>Related Contract Line Items</relationshipLabel>
+        <relationshipName>ContractLineItems</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__PricingType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Type of pricing to be used for this contract line item. When set to Fixed, the unit price is always the same. Otherwise, the unit price is determined by quantity.</description>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(ffbc__PricingStructure__c),
+                $Label.ffbc__pricingtypefixed,
+                TEXT(ffbc__PricingStructure__r.ffbc__PricingType__c)
+            )</formula>
+        <inlineHelpText>Type of pricing to be used for this contract line item. When set to Fixed, the unit price is always the same. Otherwise, the unit price is determined by quantity.</inlineHelpText>
+        <label>Pricing Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__ProductService__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the Salesforce product or service.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the Salesforce product or service.</inlineHelpText>
+        <label>Product or Service</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Related Contract Line Items</relationshipLabel>
+        <relationshipName>ContractLineItems</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__Quantity__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Quantity of the product or service being purchased. You must enter a value if a fixed Billing Type is selected.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Quantity of the product or service being purchased. You must enter a value if a fixed Billing Type is selected.</inlineHelpText>
+        <label>Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>6</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__RevenueCategory__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The type of revenue from which the contract line item originates.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The type of revenue from which the contract line item originates.</inlineHelpText>
+        <label>Revenue Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Net New Booking</fullName>
+                    <default>false</default>
+                    <label>Net New Booking</label>
+                </value>
+                <value>
+                    <fullName>Upgrade</fullName>
+                    <default>false</default>
+                    <label>Upgrade</label>
+                </value>
+                <value>
+                    <fullName>Downgrade</fullName>
+                    <default>false</default>
+                    <label>Downgrade</label>
+                </value>
+                <value>
+                    <fullName>Churn</fullName>
+                    <default>false</default>
+                    <label>Churn</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffbc__SalesPriceOverride__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Contains a value that is used to calculate the Sales Price when a contract line item contains a pricing structure.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contains a value that is used to calculate the Sales Price when a contract line item contains a pricing structure.</inlineHelpText>
+        <label>Sales Price Override</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__SalesPrice__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total price for the contract line. This is either calculated using the formula Quantity x Unit Price or it is equal to the Sales Price Override if that field contains a value.</description>
+        <externalId>false</externalId>
+        <formula>BLANKVALUE(ffbc__SalesPriceOverride__c, ffbc__Quantity__c * ffbc__UnitPrice__c)</formula>
+        <inlineHelpText>Total price for the contract line. This is either calculated using the formula Quantity x Unit Price or it is equal to the Sales Price Override if that field contains a value.</inlineHelpText>
+        <label>Sales Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__StartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date from which billing can commence for this contract line item.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date from which billing can commence for this contract line item.</inlineHelpText>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__TotalBilled__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Total amount billed for the contract line item.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total amount that has been billed for the contract line item.</inlineHelpText>
+        <label>Total Billed</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__TotalContractLineValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total value of the contract line item over its lifetime. The value is zero if the billing type is Recurring Variable or the Billing Type is Recurring Fixed and there is no end date. If the billing type is Recurring Fixed and there is an end date, the value is calculated using the formula: Sales Price x Number of Terms (including partial terms). If the billing type is One-off, the value is the sales price.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total value of the contract line item over its lifetime.</inlineHelpText>
+        <label>Total Contract Line Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__TriggerId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>An identifier that is used by Billing Central services when creating contract line items.</description>
+        <externalId>false</externalId>
+        <label>Trigger ID</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbc__UnitOfMeasure__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the unit of measure used to determine customer usage on this contract line item.</description>
+        <externalId>false</externalId>
+        <label>Unit Of Measure</label>
+        <referenceTo>ffbc__UnitOfMeasure__c</referenceTo>
+        <relationshipLabel>Related Contract Line Items</relationshipLabel>
+        <relationshipName>ContractLineItems</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbc__UnitPrice__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Price of one item. This is used to calculate the Sales Price.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Price of one item. This is used to calculate the Sales Price.</inlineHelpText>
+        <label>Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>9</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__General_Ledger_Account_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>General Ledger Account Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__IsConcession__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates that this line will create a negative line in FF Billing documents. For rent concessions only</inlineHelpText>
+        <label>Is Concession</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Related_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Used for contract lines that are automatically created by the system.</inlineHelpText>
+        <label>Related ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Contract Line Item</label>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>ffbc__All</fullName>
+        <columns>NAME</columns>
+        <columns>ffbc__ProductService__c</columns>
+        <columns>ffbc__Contract__c</columns>
+        <columns>ffbc__Quantity__c</columns>
+        <columns>ffbc__UnitPrice__c</columns>
+        <columns>ffbc__SalesPrice__c</columns>
+        <columns>ffbc__TotalBilled__c</columns>
+        <columns>ffbc__BillingTerm__c</columns>
+        <columns>ffbc__BillingType__c</columns>
+        <columns>ffbc__FirstBillDate__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CTLI{0000000000}</displayFormat>
+        <label>Contract Line Item Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Contract Line Items</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>ffbc__ProductService__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__Contract__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__BillingTerm__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__BillingType__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffbc__FirstBillDate__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ffbc__ProductService__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ffbc__Contract__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ffbc__BillingTerm__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ffbc__BillingType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ffbc__FirstBillDate__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ffbc__ProductService__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ffbc__Contract__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ffbc__BillingTerm__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ffbc__BillingType__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ffbc__FirstBillDate__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__ProductService__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__Contract__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__BillingTerm__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__BillingType__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ffbc__FirstBillDate__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>ffbc__GenerateBillingSchedule</fullName>
+        <availability>online</availability>
+        <description>Generate billing schedules for the Contract</description>
+        <displayType>button</displayType>
+        <height>200</height>
+        <linkType>page</linkType>
+        <masterLabel>Generate Billing Schedules</masterLabel>
+        <openType>sidebar</openType>
+        <page>ffbc__contractlinegeneratebillingschedule</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ffbc__NewPricingStructure</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>New Pricing Structure</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>{!URLFOR($Action.ffbc__PricingStructure__c.New, null)}</url>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Reporting Settings</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ffr__DisableCustomPermissions__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Disable Permissions on VisualForce Pages</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffr__HideSecurityWarning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This custom field allow user to hide an informative message in case there are non accessible fields for the user. This message appears at the top of the report listing the non accessible fields</description>
+        <externalId>false</externalId>
+        <label>Hide Security Warning</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Reporting Settings (FF)</label>
+    <visibility>Public</visibility>
+</CustomObject>

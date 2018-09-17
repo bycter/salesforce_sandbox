@@ -1,0 +1,1324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>c2g__codahelpcurrencyrevaluation</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Stores the master details related to a currency revaluation.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>c2g__Analysis__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Analysis</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Detail Level</fullName>
+                    <default>false</default>
+                    <label>Detail Level</label>
+                </value>
+                <value>
+                    <fullName>Summary Level</fullName>
+                    <default>false</default>
+                    <label>Summary Level</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__BreakdownByStandardAnalysisFields__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If checked your transaction line items for the gains and losses GLA will be broken down by standard analysis fields (Account, Product, Bank Account, Tax Code).</description>
+        <externalId>false</externalId>
+        <label>Standard Breakdown</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>c2g__BreakdownBySubAnalysisFields__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If checked your revaluation summary and transaction line items for the gains and losses GLA will be broken down by custom sub-analysis fields.</description>
+        <externalId>false</externalId>
+        <label>Sub-Analysis Breakdown</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>c2g__CancelPeriod__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cancel Period</label>
+        <referenceTo>c2g__codaPeriod__c</referenceTo>
+        <relationshipLabel>Currency Revaluations (Cancel Period)</relationshipLabel>
+        <relationshipName>CurrencyRevaluations4</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__CancellationReason__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cancellation Reason</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Dimension1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dimension 1</label>
+        <referenceTo>c2g__codaDimension1__c</referenceTo>
+        <relationshipLabel>Currency Revaluations</relationshipLabel>
+        <relationshipName>CurrencyRevaluations</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Dimension2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dimension 2</label>
+        <referenceTo>c2g__codaDimension2__c</referenceTo>
+        <relationshipLabel>Currency Revaluations</relationshipLabel>
+        <relationshipName>CurrencyRevaluations</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Dimension3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dimension 3</label>
+        <referenceTo>c2g__codaDimension3__c</referenceTo>
+        <relationshipLabel>Currency Revaluations</relationshipLabel>
+        <relationshipName>CurrencyRevaluations</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Dimension4__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dimension 4</label>
+        <referenceTo>c2g__codaDimension4__c</referenceTo>
+        <relationshipLabel>Currency Revaluations</relationshipLabel>
+        <relationshipName>CurrencyRevaluations</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__DimensionalAnalysis__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dimensional Analysis On Lines</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Copy from Source</fullName>
+                    <default>false</default>
+                    <label>Copy from Source</label>
+                </value>
+                <value>
+                    <fullName>Enter Dimensions</fullName>
+                    <default>false</default>
+                    <label>Enter Dimensions</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__DiscardReason__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Discard Reason</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>c2g__DocumentCurrency__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Document Currency</label>
+        <referenceTo>c2g__codaAccountingCurrency__c</referenceTo>
+        <relationshipLabel>Currency Revaluations</relationshipLabel>
+        <relationshipName>CurrencyRevaluations</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__DocumentDescription__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Document Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>c2g__DocumentReference__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Document Reference</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__DualExchangeRate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dual Exchange Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>9</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__DualValue__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dual Value</label>
+        <summarizedField>c2g__codaCurrencyRevaluationSummary__c.c2g__DualValue__c</summarizedField>
+        <summaryForeignKey>c2g__codaCurrencyRevaluationSummary__c.c2g__CurrencyRevaluation__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>c2g__ErrorListView__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Error</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>c2g__ErrorText__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Error Text</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>c2g__ExcludeCRVTransactions__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Exclude CRV Transactions</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>c2g__ExcludeRevaluedLines__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Should previously revalued lines be excluded from selection by this revaluation or should they cause the revaluation to fail?</description>
+        <externalId>false</externalId>
+        <label>Exclude Revalued Lines</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>c2g__GroupDisplayName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The currency revaluation group display name.</description>
+        <externalId>false</externalId>
+        <formula>c2g__RevalGroup__r.c2g__DisplayName__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Group Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__HomeExchangeRate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Document Exchange Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>9</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__HomeValue__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Home Value</label>
+        <summarizedField>c2g__codaCurrencyRevaluationSummary__c.c2g__HomeValue__c</summarizedField>
+        <summaryForeignKey>c2g__codaCurrencyRevaluationSummary__c.c2g__CurrencyRevaluation__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Locks__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The locking object ID used to protect updates to the owning currency revaluation field on Transaction lines.</description>
+        <externalId>false</externalId>
+        <label>Locks</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__OwnerCompany__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Company</label>
+        <referenceTo>c2g__codaCompany__c</referenceTo>
+        <relationshipLabel>Currency Revaluations</relationshipLabel>
+        <relationshipName>CurrencyRevaluations</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__PeriodFrom__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Period From</label>
+        <referenceTo>c2g__codaPeriod__c</referenceTo>
+        <relationshipLabel>Currency Revaluations</relationshipLabel>
+        <relationshipName>CurrencyRevaluations</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__PeriodTo__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Period To</label>
+        <referenceTo>c2g__codaPeriod__c</referenceTo>
+        <relationshipLabel>Currency Revaluations (Period To)</relationshipLabel>
+        <relationshipName>CurrencyRevaluations1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__PostingPeriod__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Posting Period</label>
+        <referenceTo>c2g__codaPeriod__c</referenceTo>
+        <relationshipLabel>Currency Revaluations (Posting Period)</relationshipLabel>
+        <relationshipName>CurrencyRevaluations2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__RevalGroup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Our currency revaluation group.</description>
+        <externalId>false</externalId>
+        <label>Group</label>
+        <referenceTo>c2g__codaCurrencyRevaluationGroup__c</referenceTo>
+        <relationshipLabel>Group Members</relationshipLabel>
+        <relationshipName>RevalGroupMembers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__RevaluationType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Revaluation Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Balance Sheet</fullName>
+                    <default>false</default>
+                    <label>Balance Sheet</label>
+                </value>
+                <value>
+                    <fullName>Income Statement</fullName>
+                    <default>false</default>
+                    <label>Income Statement</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__ReversalPeriod__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Reversal Period</label>
+        <referenceTo>c2g__codaPeriod__c</referenceTo>
+        <relationshipLabel>Currency Revaluations (Reversal Period)</relationshipLabel>
+        <relationshipName>CurrencyRevaluations3</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__ScheduledTime__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>c2g__RevalGroup__r.c2g__ScheduledTime__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Scheduled Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>true</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>Generating</fullName>
+                    <default>false</default>
+                    <label>Generating</label>
+                </value>
+                <value>
+                    <fullName>Generation Error</fullName>
+                    <default>false</default>
+                    <label>Generation Error</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Posting</fullName>
+                    <default>false</default>
+                    <label>Posting</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+                <value>
+                    <fullName>Posting Error</fullName>
+                    <default>false</default>
+                    <label>Posting Error</label>
+                </value>
+                <value>
+                    <fullName>Discarded</fullName>
+                    <default>false</default>
+                    <label>Discarded</label>
+                </value>
+                <value>
+                    <fullName>Discarding</fullName>
+                    <default>false</default>
+                    <label>Discarding</label>
+                </value>
+                <value>
+                    <fullName>Canceling</fullName>
+                    <default>false</default>
+                    <label>Canceling</label>
+                </value>
+                <value>
+                    <fullName>Canceled</fullName>
+                    <default>false</default>
+                    <label>Canceled</label>
+                </value>
+                <value>
+                    <fullName>Canceling Error</fullName>
+                    <default>false</default>
+                    <label>Canceling Error</label>
+                </value>
+                <value>
+                    <fullName>Void</fullName>
+                    <default>false</default>
+                    <label>Void</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__UnitOfWork__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Unit of Work</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__UnrealizedGainsLossesGLA__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Unrealized Gains/Losses GLA</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <errorMessage>The selected GLA does not exist or is not valid. It must be a corporate GLA.</errorMessage>
+            <filterItems>
+                <field>c2g__codaGeneralLedgerAccount__c.c2g__ChartOfAccountsStructure__r.Name</field>
+                <operation>equals</operation>
+                <value></value>
+            </filterItems>
+            <filterItems>
+                <field>c2g__codaGeneralLedgerAccount__c.c2g__ChartOfAccountsStructure__r.c2g__IsCorporate__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Currency Revaluations</relationshipLabel>
+        <relationshipName>CurrencyRevaluations</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Currency Revaluation</label>
+    <listViews>
+        <fullName>FF_100_Bruntwood_Management_Services_L_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 100 - Bruntwood Management Services L</label>
+        <queue>FF_100_Bruntwood_Management_Services_L</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_106_Bruntwood_Management_Services_3_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 106 - Bruntwood Management Services(3</label>
+        <queue>FF_106_Bruntwood_Management_Services_3</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_110_Manchester_Science_Partnerships_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 110 - Manchester Science Partnerships</label>
+        <queue>FF_110_Manchester_Science_Partnerships</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_112_Mi_IDEA_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 112 - Mi-IDEA Limited</label>
+        <queue>FF_112_Mi_IDEA_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_113_Citylabs_2_0_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 113 - Citylabs 2.0 Limited</label>
+        <queue>FF_113_Citylabs_2_0_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_115_Manchester_Technopark_Ltd_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 115 - Manchester Technopark Ltd</label>
+        <queue>FF_115_Manchester_Technopark_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_125_Salford_Innovation_Park_Ltd_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 125 - Salford Innovation Park Ltd</label>
+        <queue>FF_125_Salford_Innovation_Park_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_130_Principal_Agent_Management_Ltd_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 130 - Principal Agent Management Ltd</label>
+        <queue>FF_130_Principal_Agent_Management_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_135_Alderley_Park_Holdings_Ltd_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 135 - Alderley Park Holdings Ltd</label>
+        <queue>FF_135_Alderley_Park_Holdings_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_139_Alderley_Imaging_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 139 - Alderley Imaging Limited</label>
+        <queue>FF_139_Alderley_Imaging_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_140_Alderley_Park_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 140 - Alderley Park Limited</label>
+        <queue>FF_140_Alderley_Park_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_141_Circle_Square_District_Holdings_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 141 - Circle Square District Holdings</label>
+        <queue>FF_141_Circle_Square_District_Holdings</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_142_Circle_Square_District_Company_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 142 - Circle Square District Company</label>
+        <queue>FF_142_Circle_Square_District_Company</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_143_Circle_Square_Green_Company_Ltd_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 143 - Circle Square Green Company Ltd</label>
+        <queue>FF_143_Circle_Square_Green_Company_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_144_Bruntwood_Circle_Square_2_Limit_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 144 - Bruntwood Circle Square 2 Limit</label>
+        <queue>FF_144_Bruntwood_Circle_Square_2_Limit</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_145_Bruntwood_Circle_Square_4_Limit_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 145 - Bruntwood Circle Square 4 Limit</label>
+        <queue>FF_145_Bruntwood_Circle_Square_4_Limit</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_146_Bruntwood_Circle_Square_12_Limi_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 146 - Bruntwood Circle Square 12 Limi</label>
+        <queue>FF_146_Bruntwood_Circle_Square_12_Limi</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_147_Bruntwood_Science_Ltd_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 147 - Bruntwood Science Ltd</label>
+        <queue>FF_147_Bruntwood_Science_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_148_Bruntwood_Circle_Square_14_Limi_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 148 - Bruntwood Circle Square 14 Limi</label>
+        <queue>FF_148_Bruntwood_Circle_Square_14_Limi</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_15_Bruntwood_Energy_Services_Limite_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 15 - Bruntwood Energy Services Limite</label>
+        <queue>FF_15_Bruntwood_Energy_Services_Limite</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_16_Building_Sustainability_Services_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 16 - Building Sustainability Services</label>
+        <queue>FF_16_Building_Sustainability_Services</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_17_Manchester_Gas_and_Power_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 17 - Manchester Gas and Power Limited</label>
+        <queue>FF_17_Manchester_Gas_and_Power_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_1_Bruntwood_Group_Ltd_formerly_Bru_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 1 - Bruntwood Group Ltd (formerly Bru</label>
+        <queue>FF_1_Bruntwood_Group_Ltd_formerly_Bru</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_20_Bruntwood_2000_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 20 - Bruntwood 2000 Limited</label>
+        <queue>FF_20_Bruntwood_2000_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_24_Bruntwood_2000_Fourth_Properties_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 24 - Bruntwood 2000 Fourth Properties</label>
+        <queue>FF_24_Bruntwood_2000_Fourth_Properties</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_25_Bruntwood_2000_Alpha_Portfolio_L_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 25 - Bruntwood 2000 Alpha Portfolio L</label>
+        <queue>FF_25_Bruntwood_2000_Alpha_Portfolio_L</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_26_Bruntwood_2000_Beta_Portfolio_Li_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 26 - Bruntwood 2000 Beta Portfolio Li</label>
+        <queue>FF_26_Bruntwood_2000_Beta_Portfolio_Li</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_27_Bruntwood_2000_NW_Regen_Limite_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 27 - Bruntwood 2000 (NW Regen) Limite</label>
+        <queue>FF_27_Bruntwood_2000_NW_Regen_Limite</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_28_Bruntwood_2000_Holdings_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 28 - Bruntwood 2000 Holdings Limited</label>
+        <queue>FF_28_Bruntwood_2000_Holdings_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_31_The_Bruntwood_Charity_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 31 - The Bruntwood Charity</label>
+        <queue>FF_31_The_Bruntwood_Charity</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_33_Bruntwood_Development_Holdings_L_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 33 - Bruntwood Development Holdings L</label>
+        <queue>FF_33_Bruntwood_Development_Holdings_L</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_35_Bruntwood_Cornwall_Street_Limite_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 35 - Bruntwood Cornwall Street Limite</label>
+        <queue>FF_35_Bruntwood_Cornwall_Street_Limite</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_38_Bruntwood_St_Chads_Hotel_Ltd_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 38 -  Bruntwood St Chads Hotel Ltd</label>
+        <queue>FF_38_Bruntwood_St_Chads_Hotel_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_39_Citylabs_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 39 - Citylabs Limited</label>
+        <queue>FF_39_Citylabs_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_41_Bruntwood_Sixth_Properties_Limit_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 41 - Bruntwood Sixth Properties Limit</label>
+        <queue>FF_41_Bruntwood_Sixth_Properties_Limit</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_43_Bruntwood_MBS_Developments_Limit_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 43 - Bruntwood MBS Developments Limit</label>
+        <queue>FF_43_Bruntwood_MBS_Developments_Limit</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_44_Roundthorn_Group_Pension_Scheme_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 44 - Roundthorn Group Pension Scheme</label>
+        <queue>FF_44_Roundthorn_Group_Pension_Scheme</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_47_Bruntwood_Oxford_Road_Holdings_L_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 47 - Bruntwood Oxford Road Holdings L</label>
+        <queue>FF_47_Bruntwood_Oxford_Road_Holdings_L</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_48_Oxford_Property_Trading_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 48 - Oxford Property Trading Limited</label>
+        <queue>FF_48_Oxford_Property_Trading_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_49_Bruntwood_Albert_Square_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 49 - Bruntwood Albert Square Limited</label>
+        <queue>FF_49_Bruntwood_Albert_Square_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_4_Abney_2003_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 4 - Abney 2003 Limited</label>
+        <queue>FF_4_Abney_2003_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_50_Chandlers_Point_Management_Co_Li_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 50 - Chandlers Point Management Co Li</label>
+        <queue>FF_50_Chandlers_Point_Management_Co_Li</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_52_Arden_Business_Centre_Bredbury_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 52 - Arden Business Centre (Bredbury)</label>
+        <queue>FF_52_Arden_Business_Centre_Bredbury</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_54_Trinity_ICP_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 54 - Trinity ICP Limited</label>
+        <queue>FF_54_Trinity_ICP_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_56_Afflecks_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 56 - Afflecks Limited</label>
+        <queue>FF_56_Afflecks_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_57_Bruntwood_AV_Holdings_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 57 - Bruntwood AV Holdings Limited</label>
+        <queue>FF_57_Bruntwood_AV_Holdings_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_58_Bruntwood_AV_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 58 - Bruntwood AV Limited</label>
+        <queue>FF_58_Bruntwood_AV_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_60_Bruntwood_LG_Holding_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 60 - Bruntwood LG Holding Limited</label>
+        <queue>FF_60_Bruntwood_LG_Holding_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_62_Bruntwood_LG_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 62 - Bruntwood LG Limited</label>
+        <queue>FF_62_Bruntwood_LG_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_66_Bruntwood_Investments_Plc_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 66 - Bruntwood Investments Plc</label>
+        <queue>FF_66_Bruntwood_Investments_Plc</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_67_Bruntwood_RB_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 67 - Bruntwood RB Limited</label>
+        <queue>FF_67_Bruntwood_RB_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_6_Bruntwood_Limited_formerly_Brunt_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 6 - Bruntwood Limited (formerly Brunt</label>
+        <queue>FF_6_Bruntwood_Limited_formerly_Brunt</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_75_Bruntwood_Construction_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 75 - Bruntwood Construction Limited</label>
+        <queue>FF_75_Bruntwood_Construction_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_85_Bruntwood_Estates_Alpha_Portfoli_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 85 - Bruntwood Estates Alpha Portfoli</label>
+        <queue>FF_85_Bruntwood_Estates_Alpha_Portfoli</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_86_Bruntwood_Estates_Beta_Portfolio_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 86 - Bruntwood Estates Beta Portfolio</label>
+        <queue>FF_86_Bruntwood_Estates_Beta_Portfolio</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_87_Bruntwood_Estates_Ltd_formerly_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 87 - Bruntwood Estates Ltd (formerly</label>
+        <queue>FF_87_Bruntwood_Estates_Ltd_formerly</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_88_Bruntwood_Estates_Holdings_Limit_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 88 - Bruntwood Estates Holdings Limit</label>
+        <queue>FF_88_Bruntwood_Estates_Holdings_Limit</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_90_M_J_Oglesby_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 90 - M J Oglesby</label>
+        <queue>FF_90_M_J_Oglesby</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Birmingham_Science_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Birmingham Science Limited</label>
+        <queue>FF_Birmingham_Science_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Birmingham_Technology_Property_Limite_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Birmingham Technology Property Limite</label>
+        <queue>FF_Birmingham_Technology_Property_Limite</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Birmingham_Technology_Property_One_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Birmingham Technology (Property One)</label>
+        <queue>FF_Birmingham_Technology_Property_One</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Bruntwood_Circle_Square_1_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Bruntwood Circle Square 1 Limited</label>
+        <queue>FF_Bruntwood_Circle_Square_1_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Bruntwood_Didsbury_TP_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Bruntwood (Didsbury TP) Limited</label>
+        <queue>FF_Bruntwood_Didsbury_TP_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Bruntwood_Meeting_Rooms_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Bruntwood Meeting Rooms Limited</label>
+        <queue>FF_Bruntwood_Meeting_Rooms_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Citylabs_3_0_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Citylabs 3.0 Limited</label>
+        <queue>FF_Citylabs_3_0_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Company_1_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Company#1</label>
+        <queue>FF_Company_1</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Innovation_Birmingham_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Innovation Birmingham Limited</label>
+        <queue>FF_Innovation_Birmingham_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_K_SIte_Limited_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF K Site Limited</label>
+        <queue>FF_K_Site_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Trafford_Bruntwood_LLP_codaCurrencyRevaluation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Trafford Bruntwood LLP</label>
+        <queue>FF_Trafford_Bruntwood_LLP</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>c2g__All</fullName>
+        <columns>NAME</columns>
+        <columns>c2g__RevaluationType__c</columns>
+        <columns>c2g__DocumentCurrency__c</columns>
+        <columns>c2g__HomeExchangeRate__c</columns>
+        <columns>c2g__DualExchangeRate__c</columns>
+        <columns>c2g__PostingPeriod__c</columns>
+        <columns>c2g__ReversalPeriod__c</columns>
+        <columns>c2g__Status__c</columns>
+        <columns>c2g__RevalGroup__c</columns>
+        <columns>c2g__GroupDisplayName__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>CRV{000000}</displayFormat>
+        <label>Currency Revaluation Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Currency Revaluations</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>c2g__RevaluationType__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__DocumentCurrency__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__HomeExchangeRate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__PostingPeriod__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__ReversalPeriod__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__RevalGroup__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__GroupDisplayName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__ScheduledTime__c</customTabListAdditionalFields>
+        <listViewButtons>c2g__Restart</listViewButtons>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>c2g__Cancel</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Cancel Revaluation</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__codarevalcurrencycancel</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__ClearHistory</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Clear History</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__currencyrevalcancelhistory</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__Discard</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Discard</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__codacurrencyrevaldiscard</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__ErrorsListView</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Errors List View</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__codarevalcurbatchlistview</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__Post</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Post</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__currencyrevalpost</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__Restart</fullName>
+        <availability>online</availability>
+        <description>Restart an unfinished currency revaluation group.</description>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Restart Currency Revaluation Group</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__codacurrencyrevalrestart</page>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>c2g__Unlock</fullName>
+        <availability>online</availability>
+        <description>Unlock any transaction lines held by this revaluation.</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Unlock</masterLabel>
+        <openType>sidebar</openType>
+        <page>c2g__codarevalcurrencyunlock</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Contains records that define part of a sequence and the way in which to obtain the data for that part of the sequence. You can specify the Sequence Field record for which the part is to be used and the field from which the data is to be obtained.</description>
+    <fields>
+        <fullName>fferpcore__Index__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number that determines the order of the sequence parts.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Number that determines the order of the sequence parts.</inlineHelpText>
+        <label>Index</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__SequenceField__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Lookup to Sequence Field record to which this sequence part relates.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Lookup to Sequence Field record to which this sequence part relates.</inlineHelpText>
+        <label>Sequence Field</label>
+        <referenceTo>fferpcore__SequenceField__mdt</referenceTo>
+        <relationshipLabel>Parts</relationshipLabel>
+        <relationshipName>Parts</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fferpcore__Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Determines the sequence part data to be placed in the related sequence. Depending on the Class field, this can be the API name of a field or lookup relationship on the object defined in the related Sequence Field record.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Determines the sequence part data to be placed in the related sequence. Depending on the Class field, this can be the API name of a field or lookup relationship on the object defined in the related Sequence Field record.</inlineHelpText>
+        <label>Value</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Sequence Part</label>
+    <pluralLabel>Sequence Parts</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

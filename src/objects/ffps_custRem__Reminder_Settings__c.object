@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ffps_custRem__Account_Email_Contact_Field__c</fullName>
+        <defaultValue>&quot;c2g__CODAFinanceContact__c&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>API name of the Lookup field on Account holding the Contact that should be emailed for Reminders.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>API name of the Lookup field on Account holding the Contact that should be emailed for Reminders.</inlineHelpText>
+        <label>Account Email Contact Field</label>
+        <length>80</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Account_Language_Field__c</fullName>
+        <deprecated>false</deprecated>
+        <description>API Name of field holding the account &quot;language&quot; (can be a pick field or text). The values in this field must match the language values in the Reminder config/severity levels. Leave blank to ignore.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>API Name of field holding the account &quot;language&quot; (can be a pick field or text). The values in this field must match the language values in the Reminder config/severity levels. Leave blank to ignore.</inlineHelpText>
+        <label>Account Language Field</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Attach_PDFs_To_Account__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If set, when the reminder process emails or prints PDFs, it will also allow the individual reminder PDFs to be attached to the Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If set, when the reminder process emails or prints PDFs, it will also allow the individual reminder PDFs to be attached to the Account.</inlineHelpText>
+        <label>Attach PDFs To Account</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Attach_PDFs_To_Reminder__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If set, when the reminder process emails or prints PDFs, it will also attach the individual reminder PDFs directly to the Reminder object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If set, when the reminder process emails or prints PDFs, it will also attach the individual reminder PDFs directly to the Reminder object.</inlineHelpText>
+        <label>Attach PDFs To Reminder</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Batch_Error_Email_Address__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If errors occur during a batch run, can optionally send an email to this address (note the batch user will also be notified).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If errors occur during a batch run, can optionally send an email to this address (note the batch user will also be notified).</inlineHelpText>
+        <label>Batch Error Email Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Batch_Threshold_For_PDF_Attachments__c</fullName>
+        <defaultValue>10</defaultValue>
+        <deprecated>false</deprecated>
+        <description>When attaching PDFs to Accounts, if the number of PDFs is equal or greater than this number, a batch process will be used.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When attaching PDFs to Accounts, if the number of PDFs is equal or greater than this number, a batch process will be used.</inlineHelpText>
+        <label>Batch Threshold for PDF Attachments</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Days_Offset_For_Reminder_Process__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This setting applies an offset to the &quot;due date&quot; when calculating reminders. The purpose of this is to allow account-level reminders (level 1 and above) to start at &quot;due date - X days&quot; instead of just &quot;due date&quot;.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This setting applies an offset to the &quot;due date&quot; when calculating reminders. The purpose of this is to allow account-level reminders (level 1 and above) to start at &quot;due date - X days&quot; instead of just &quot;due date&quot;.</inlineHelpText>
+        <label>Days Early Offset For Reminder Process</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Disputed_SIN_Field_Name__c</fullName>
+        <defaultValue>&quot;ffps_custRem__In_Dispute__c&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Name of the checkbox field used to identify &quot;disputed&quot; SINs. These will still appear in the list, and count towards total balance, but will NOT be counted as overdue. Default value is &quot;ffps_custRem__In_Dispute__c&quot; (can ignore if not needed).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the checkbox field used to identify &quot;disputed&quot; SINs. These will still appear in the list, and count towards total balance, but will NOT be counted as overdue. Default value is &quot;ffps_custRem__In_Dispute__c&quot; (can ignore if not needed).</inlineHelpText>
+        <label>Disputed SIN Field Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Enable_Batch_Completion_Email__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If set, any batch jobs in this package will send a summary email on completion (and optionally copy any errors to the &quot;batch error&quot; email address).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If set, any batch jobs in this package will send a summary email on completion (and optionally copy any errors to the &quot;batch error&quot; email address).</inlineHelpText>
+        <label>Enable Batch Completion Email</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Enable_Clear_Groups_Batch__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Enable/disables the batch job to clear old &quot;previewed only&quot; ReminderGroups (committed groups are not affected - only removes groups that were abandoned at &quot;preview&quot; stage).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enable/disables the batch job to clear old &quot;previewed only&quot; ReminderGroups (committed groups are not affected - only removes groups that were abandoned at &quot;preview&quot; stage).</inlineHelpText>
+        <label>Enable Clear Groups Batch</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Enable_Reminder_Batch__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Enable/disables the batch job to send Reminders (will include all valid Companies). Allows the job to be enabled/disabled without having to remove the scheduling.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enable/disables the batch job to send Reminders (will include all valid Companies). Allows the job to be enabled/disabled without having to remove the scheduling.</inlineHelpText>
+        <label>Enable Reminder Batch</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Enable_Reminder_Reset_Batch__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Enable/disables the batch job to reset Account severity to 0 if no overdues found. Recommended to run daily.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enable/disables the batch job to reset Account severity to 0 if no overdues found. Recommended to run daily.</inlineHelpText>
+        <label>Enable Reminder Reset Batch</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Enable_Statement_Batch__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Enable/disables the batch job to send Statements (will include all valid Companies). Allows the job to be enabled/disabled without having to remove the scheduling.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enable/disables the batch job to send Statements (will include all valid Companies). Allows the job to be enabled/disabled without having to remove the scheduling.</inlineHelpText>
+        <label>Enable Statement Batch</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Exclude_Account_Field_Name__c</fullName>
+        <defaultValue>&quot;ffps_custRem__Exclude_From_Reminder_Process__c&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Name of the checkbox field used to exclude Accounts from the reminder process. Default value is &quot;ffps_custRem__Exclude_From_Reminder_Process__c&quot;.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the checkbox field used to exclude Accounts from the reminder process. Default value is &quot;ffps_custRem__Exclude_From_Reminder_Process__c&quot;.</inlineHelpText>
+        <label>Exclude Account Field Name</label>
+        <length>80</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Exclude_SIN_Field_Name__c</fullName>
+        <defaultValue>&quot;ffps_custRem__Exclude_From_Reminder_Process__c&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Name of the checkbox field used to exclude individual SINs from the reminder process. Default value is &quot;ffps_custRem__Exclude_From_Reminder_Process__c&quot;.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the checkbox field used to exclude individual SINs from the reminder process. Default value is &quot;ffps_custRem__Exclude_From_Reminder_Process__c&quot;.</inlineHelpText>
+        <label>Exclude SIN Field Name</label>
+        <length>80</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Exclude_Statement_Field_Name__c</fullName>
+        <defaultValue>&quot;ffps_custRem__Exclude_From_Statement_Process__c&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Name of the checkbox field used to exclude Accounts from the statement process. Default value is &quot;ffps_custRem__Exclude_From_Statement_Process__c&quot;.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the checkbox field used to exclude Accounts from the statement process. Default value is &quot;ffps_custRem__Exclude_From_Statement_Process__c&quot;.</inlineHelpText>
+        <label>Exclude Statement Field Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Non_Overdue_Doc_Types_Included__c</fullName>
+        <defaultValue>&quot;Invoice,Credit Note,Journal,Cash&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Comma-delimited list e.g. &quot;Invoice,Cash,Credit Note,Journal&quot;. Determines which outstanding (but not yet overdue) items will be included in the reminder statement, based on TransactionType. Set to &quot;NONE&quot; to ignore.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Comma-delimited list e.g. &quot;Invoice,Cash,Credit Note,Journal&quot;. Determines which outstanding (but not yet overdue) items will be included in the reminder statement, based on TransactionType. Set to &quot;NONE&quot; to ignore.</inlineHelpText>
+        <label>Non Overdue Doc Types Included</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__PDF_Attachment_Batch_Size__c</fullName>
+        <defaultValue>50</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Batch size for how many reminder PDFs are attached in each execute. Note there is an upper limit of 100, and lower is recommended.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Batch size for how many reminder PDFs are attached in each execute. Note there is an upper limit of 100, and lower is recommended.</inlineHelpText>
+        <label>PDF Attachment Batch Size</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__ReminderGroup_PDF_Template_URL__c</fullName>
+        <defaultValue>&quot;https://ffps-custrem.eu6.visual.force.com/apex/ReminderGroupTemplate&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Full URL (incl. https) of VisualForce template to use for a ReminderGroup. Has to be full URL so will work from batch mode. Note this will need to be set differently for each org.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Full URL (incl. https) of VisualForce template to use for a ReminderGroup. Has to be full URL so will work from batch mode. Note this will need to be set differently for each org.</inlineHelpText>
+        <label>ReminderGroup PDF Template URL</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Reminder_Batch_Size__c</fullName>
+        <defaultValue>50</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Batch size for scheduled Reminder batch job (note this does not translate directly to &quot;number of reminders per batch&quot;).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Batch size for scheduled Reminder batch job (note this does not translate directly to &quot;number of reminders per batch&quot;).</inlineHelpText>
+        <label>Reminder Batch Size</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Reminder_PDF_Template_URL__c</fullName>
+        <defaultValue>&quot;https://ffps-custrem.eu6.visual.force.com/apex/ReminderTemplate&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Full URL (incl. https) of VisualForce template to use for individual Reminders. Has to be full URL so will work from batch mode. Note this will need to be set differently for each org.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Full URL (incl. https) of VisualForce template to use for individual Reminders. Has to be full URL so will work from batch mode. Note this will need to be set differently for each org.</inlineHelpText>
+        <label>Reminder PDF Template URL</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffps_custRem__Statement_Batch_Size__c</fullName>
+        <defaultValue>50</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Batch size for scheduled Statement batch job (note this does not translate directly to &quot;number of reminders per batch&quot;).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Batch size for scheduled Statement batch job (note this does not translate directly to &quot;number of reminders per batch&quot;).</inlineHelpText>
+        <label>Statement Batch Size</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Reminder Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

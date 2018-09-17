@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>SBQQ__ErrorConditionHelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Error condition that causes parent Product Rule to fail.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>CPQ_Config_Version__c</fullName>
+        <externalId>false</externalId>
+        <label>CPQ Config Version</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_Old_Version__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is_Old_Version__c</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Load_Id__c</fullName>
+        <externalId>true</externalId>
+        <label>Load Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQ__FilterType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Type of filtering used in this condition.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose Variable to evaluate this rule against a Summary Variable; otherwise, choose Value.</inlineHelpText>
+        <label>Filter Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Variable</fullName>
+                    <default>false</default>
+                    <label>Variable</label>
+                </value>
+                <value>
+                    <fullName>Value</fullName>
+                    <default>false</default>
+                    <label>Value</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SBQQ__FilterValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The value you want the tested variable to be evaluated against.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the value you want the tested variable to be evaluated against.</inlineHelpText>
+        <label>Filter Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQ__FilterVariable__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The selected summary variable this rule evaluates.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the summary variable you want this rule to evaluate.</inlineHelpText>
+        <label>Filter Variable</label>
+        <referenceTo>SBQQ__SummaryVariable__c</referenceTo>
+        <relationshipLabel>Error Conditions (Filter Variable)</relationshipLabel>
+        <relationshipName>FilteredConditions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SBQQ__Index__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Assign an unique number to this Condition to reference it in the Product Rule&apos;s Advanced Condition.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Assign an unique number to this Condition to reference it in the Product Rule&apos;s Advanced Condition.</inlineHelpText>
+        <label>Index</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQ__Operator__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The operator used when evaluating the tested selection.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the operator to use when evaluating your tested selection.</inlineHelpText>
+        <label>Operator</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>equals</fullName>
+                    <default>false</default>
+                    <label>equals</label>
+                </value>
+                <value>
+                    <fullName>not equals</fullName>
+                    <default>false</default>
+                    <label>not equals</label>
+                </value>
+                <value>
+                    <fullName>less than</fullName>
+                    <default>false</default>
+                    <label>less than</label>
+                </value>
+                <value>
+                    <fullName>less or equals</fullName>
+                    <default>false</default>
+                    <label>less or equals</label>
+                </value>
+                <value>
+                    <fullName>greater than</fullName>
+                    <default>false</default>
+                    <label>greater than</label>
+                </value>
+                <value>
+                    <fullName>greater or equals</fullName>
+                    <default>false</default>
+                    <label>greater or equals</label>
+                </value>
+                <value>
+                    <fullName>starts with</fullName>
+                    <default>false</default>
+                    <label>starts with</label>
+                </value>
+                <value>
+                    <fullName>ends with</fullName>
+                    <default>false</default>
+                    <label>ends with</label>
+                </value>
+                <value>
+                    <fullName>contains</fullName>
+                    <default>false</default>
+                    <label>contains</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SBQQ__ParentRuleIsActive__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>SBQQ__Rule__r.SBQQ__Active__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ParentRuleIsActive</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SBQQ__RuleTargetsQuote__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>ISPICKVAL(SBQQ__Rule__r.SBQQ__Scope__c, &apos;Quote&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RuleTargetsQuote</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SBQQ__Rule__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Parent rule for this condition.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Parent rule for this condition (that runs this condition).</inlineHelpText>
+        <label>Rule</label>
+        <referenceTo>SBQQ__ProductRule__c</referenceTo>
+        <relationshipLabel>Error Conditions</relationshipLabel>
+        <relationshipName>ErrorConditions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>SBQQ__TestedAttribute__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Used to identify the specific attribute if the Tested Field is a global Configuration Attribute field.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to identify the specific attribute if the Tested Field is a global Configuration Attribute field.</inlineHelpText>
+        <label>Tested Attribute</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.SBQQ__TestedField__c</field>
+                <operation>equals</operation>
+                <valueField>SBQQ__ProductAttribute__c.SBQQ__Attribute__r.SBQQ__TargetField__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>SBQQ__ProductAttribute__c</referenceTo>
+        <relationshipLabel>Error Conditions</relationshipLabel>
+        <relationshipName>ErrorConditions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SBQQ__TestedField__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Field on the Quote object that should be used in testing this condition.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field on the Quote object that should be used in testing this condition.</inlineHelpText>
+        <label>Tested Field</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>SBQQ__TestedObject__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Address__c</fullName>
+                    <default>false</default>
+                    <label>Address__c</label>
+                </value>
+                <value>
+                    <fullName>Break_Date__c</fullName>
+                    <default>false</default>
+                    <label>Break_Date__c</label>
+                </value>
+                <value>
+                    <fullName>Break_Penalty__c</fullName>
+                    <default>false</default>
+                    <label>Break_Penalty__c</label>
+                </value>
+                <value>
+                    <fullName>Bundle_Code__c</fullName>
+                    <default>false</default>
+                    <label>Bundle_Code__c</label>
+                </value>
+                <value>
+                    <fullName>Cap_Per_sq_ft__c</fullName>
+                    <default>false</default>
+                    <label>Cap_Per_sq_ft__c</label>
+                </value>
+                <value>
+                    <fullName>Car_Parking_Inventory__c</fullName>
+                    <default>false</default>
+                    <label>Car_Parking_Inventory__c</label>
+                </value>
+                <value>
+                    <fullName>Company_Number__c</fullName>
+                    <default>false</default>
+                    <label>Company_Number__c</label>
+                </value>
+                <value>
+                    <fullName>Comparable_ID_for_Calculator__c</fullName>
+                    <default>false</default>
+                    <label>Comparable_ID_for_Calculator__c</label>
+                </value>
+                <value>
+                    <fullName>Customer_Price__c</fullName>
+                    <default>false</default>
+                    <label>Customer_Price__c</label>
+                </value>
+                <value>
+                    <fullName>Deposit_Already_Held__c</fullName>
+                    <default>false</default>
+                    <label>Deposit_Already_Held__c</label>
+                </value>
+                <value>
+                    <fullName>Deposit_Amount__c</fullName>
+                    <default>false</default>
+                    <label>Deposit_Amount__c</label>
+                </value>
+                <value>
+                    <fullName>Deposit_Payment_Total__c</fullName>
+                    <default>false</default>
+                    <label>Deposit_Payment_Total__c</label>
+                </value>
+                <value>
+                    <fullName>Deposit_Q_L__c</fullName>
+                    <default>false</default>
+                    <label>Deposit_Q_L__c</label>
+                </value>
+                <value>
+                    <fullName>Discount_Amount__c</fullName>
+                    <default>false</default>
+                    <label>Discount_Amount__c</label>
+                </value>
+                <value>
+                    <fullName>Discount_Amount_Total__c</fullName>
+                    <default>false</default>
+                    <label>Discount_Amount_Total__c</label>
+                </value>
+                <value>
+                    <fullName>Discount_Percent__c</fullName>
+                    <default>false</default>
+                    <label>Discount_Percent__c</label>
+                </value>
+                <value>
+                    <fullName>Discount_Term_Certain_Percent__c</fullName>
+                    <default>false</default>
+                    <label>Discount_Term_Certain_Percent__c</label>
+                </value>
+                <value>
+                    <fullName>End_Term__c</fullName>
+                    <default>false</default>
+                    <label>End_Term__c</label>
+                </value>
+                <value>
+                    <fullName>Fixed__c</fullName>
+                    <default>false</default>
+                    <label>Fixed__c</label>
+                </value>
+                <value>
+                    <fullName>Group Line Items</fullName>
+                    <default>false</default>
+                    <label>Group Line Items</label>
+                </value>
+                <value>
+                    <fullName>Headline_Item_Subscription_Term__c</fullName>
+                    <default>false</default>
+                    <label>Headline_Item_Subscription_Term__c</label>
+                </value>
+                <value>
+                    <fullName>Indicative_Start_Date__c</fullName>
+                    <default>false</default>
+                    <label>Indicative_Start_Date__c</label>
+                </value>
+                <value>
+                    <fullName>Inventory__c</fullName>
+                    <default>false</default>
+                    <label>Inventory__c</label>
+                </value>
+                <value>
+                    <fullName>Is_Manual_Deposit__c</fullName>
+                    <default>false</default>
+                    <label>Is_Manual_Deposit__c</label>
+                </value>
+                <value>
+                    <fullName>Lease_Start_Date__c</fullName>
+                    <default>false</default>
+                    <label>Lease_Start_Date__c</label>
+                </value>
+                <value>
+                    <fullName>Legal_Fees_Cap__c</fullName>
+                    <default>false</default>
+                    <label>Legal_Fees_Cap__c</label>
+                </value>
+                <value>
+                    <fullName>List_Price__c</fullName>
+                    <default>false</default>
+                    <label>List_Price__c</label>
+                </value>
+                <value>
+                    <fullName>Maximum_Notice__c</fullName>
+                    <default>false</default>
+                    <label>Maximum_Notice__c</label>
+                </value>
+                <value>
+                    <fullName>Minimum_Notice__c</fullName>
+                    <default>false</default>
+                    <label>Minimum_Notice__c</label>
+                </value>
+                <value>
+                    <fullName>Monthly_Payment__c</fullName>
+                    <default>false</default>
+                    <label>Monthly_Payment__c</label>
+                </value>
+                <value>
+                    <fullName>Net_Subtotal__c</fullName>
+                    <default>false</default>
+                    <label>Net_Subtotal__c</label>
+                </value>
+                <value>
+                    <fullName>Net_Total__c</fullName>
+                    <default>false</default>
+                    <label>Net_Total__c</label>
+                </value>
+                <value>
+                    <fullName>Number_of_Rental_Months__c</fullName>
+                    <default>false</default>
+                    <label>Number_of_Rental_Months__c</label>
+                </value>
+                <value>
+                    <fullName>Payable_by_customer__c</fullName>
+                    <default>false</default>
+                    <label>Payable_by_customer__c</label>
+                </value>
+                <value>
+                    <fullName>Percentage_Upfront__c</fullName>
+                    <default>false</default>
+                    <label>Percentage_Upfront__c</label>
+                </value>
+                <value>
+                    <fullName>Period__c</fullName>
+                    <default>false</default>
+                    <label>Period__c</label>
+                </value>
+                <value>
+                    <fullName>Pre_emption_Agreement__c</fullName>
+                    <default>false</default>
+                    <label>Pre_emption_Agreement__c</label>
+                </value>
+                <value>
+                    <fullName>Price_Source__c</fullName>
+                    <default>false</default>
+                    <label>Price_Source__c</label>
+                </value>
+                <value>
+                    <fullName>Product Code</fullName>
+                    <default>false</default>
+                    <label>Product Code</label>
+                </value>
+                <value>
+                    <fullName>Quanta__c</fullName>
+                    <default>false</default>
+                    <label>Quanta__c</label>
+                </value>
+                <value>
+                    <fullName>Quanta_Car_Space__c</fullName>
+                    <default>false</default>
+                    <label>Quanta_Car_Space__c</label>
+                </value>
+                <value>
+                    <fullName>Quanta_Suite__c</fullName>
+                    <default>false</default>
+                    <label>Quanta_Suite__c</label>
+                </value>
+                <value>
+                    <fullName>Record_Type__c</fullName>
+                    <default>false</default>
+                    <label>Record_Type__c</label>
+                </value>
+                <value>
+                    <fullName>Rent_Review_Anniversary__c</fullName>
+                    <default>false</default>
+                    <label>Rent_Review_Anniversary__c</label>
+                </value>
+                <value>
+                    <fullName>Rent_Review_Date__c</fullName>
+                    <default>false</default>
+                    <label>Rent_Review_Date__c</label>
+                </value>
+                <value>
+                    <fullName>Rent_Review_Timing__c</fullName>
+                    <default>false</default>
+                    <label>Rent_Review_Timing__c</label>
+                </value>
+                <value>
+                    <fullName>Rent_Review_Type__c</fullName>
+                    <default>false</default>
+                    <label>Rent_Review_Type__c</label>
+                </value>
+                <value>
+                    <fullName>SBQQ__Discount__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__Discount__c</label>
+                </value>
+                <value>
+                    <fullName>SBQQ__ProductCode__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__ProductCode__c</label>
+                </value>
+                <value>
+                    <fullName>SBQQ__Quantity__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__Quantity__c</label>
+                </value>
+                <value>
+                    <fullName>SBQQ__RequiredBy__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__RequiredBy__c</label>
+                </value>
+                <value>
+                    <fullName>Start_Date__c</fullName>
+                    <default>false</default>
+                    <label>Start_Date__c</label>
+                </value>
+                <value>
+                    <fullName>Start_Term__c</fullName>
+                    <default>false</default>
+                    <label>Start_Term__c</label>
+                </value>
+                <value>
+                    <fullName>Subtotal__c</fullName>
+                    <default>false</default>
+                    <label>Subtotal__c</label>
+                </value>
+                <value>
+                    <fullName>Suite_Inventory__c</fullName>
+                    <default>false</default>
+                    <label>Suite_Inventory__c</label>
+                </value>
+                <value>
+                    <fullName>Term__c</fullName>
+                    <default>false</default>
+                    <label>Term__c</label>
+                </value>
+                <value>
+                    <fullName>Tolerance_State__c</fullName>
+                    <default>false</default>
+                    <label>Tolerance_State__c</label>
+                </value>
+                <value>
+                    <fullName>Total__c</fullName>
+                    <default>false</default>
+                    <label>Total__c</label>
+                </value>
+                <value>
+                    <fullName>Type_of_Guarantor__c</fullName>
+                    <default>false</default>
+                    <label>Type_of_Guarantor__c</label>
+                </value>
+                <value>
+                    <fullName>Unit Price</fullName>
+                    <default>false</default>
+                    <label>Unit Price</label>
+                </value>
+                <value>
+                    <fullName>Value__c</fullName>
+                    <default>false</default>
+                    <label>Value__c</label>
+                </value>
+                <value>
+                    <fullName>When_to_Start_the_Term__c</fullName>
+                    <default>false</default>
+                    <label>When_to_Start_the_Term__c</label>
+                </value>
+                <value>
+                    <fullName>Works_Prior_to_Lease_Start__c</fullName>
+                    <default>false</default>
+                    <label>Works_Prior_to_Lease_Start__c</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Quote</controllingFieldValue>
+                <valueName>Group Line Items</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote</controllingFieldValue>
+                <valueName>Price_Source__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote</controllingFieldValue>
+                <valueName>Record_Type__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Address__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Break_Date__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Break_Penalty__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Bundle_Code__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Cap_Per_sq_ft__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Car_Parking_Inventory__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Company_Number__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Comparable_ID_for_Calculator__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Customer_Price__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Deposit_Already_Held__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Deposit_Amount__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Deposit_Payment_Total__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Deposit_Q_L__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Discount_Amount__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Discount_Amount_Total__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Discount_Percent__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Discount_Term_Certain_Percent__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>End_Term__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Fixed__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Headline_Item_Subscription_Term__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Indicative_Start_Date__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Inventory__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Is_Manual_Deposit__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Lease_Start_Date__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Legal_Fees_Cap__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>List_Price__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Maximum_Notice__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Minimum_Notice__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Monthly_Payment__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Net_Subtotal__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Net_Total__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Number_of_Rental_Months__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Payable_by_customer__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Percentage_Upfront__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Period__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <valueName>Pre_emption_Agreement__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Product Code</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Quanta__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Quanta_Car_Space__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Quanta_Suite__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Rent_Review_Anniversary__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Rent_Review_Date__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Rent_Review_Timing__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Rent_Review_Type__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>SBQQ__Discount__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>SBQQ__ProductCode__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>SBQQ__Quantity__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>SBQQ__RequiredBy__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <valueName>Start_Date__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Start_Term__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Subtotal__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Suite_Inventory__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Term__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Tolerance_State__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Total__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Type_of_Guarantor__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Unit Price</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Value__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>When_to_Start_the_Term__c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quote Line</controllingFieldValue>
+                <controllingFieldValue>Product Option</controllingFieldValue>
+                <controllingFieldValue>Configuration Attributes</controllingFieldValue>
+                <valueName>Works_Prior_to_Lease_Start__c</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SBQQ__TestedObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Object that contains the field being tested by this condition.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify the object that contains the tested field.</inlineHelpText>
+        <label>Tested Object</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Quote</fullName>
+                    <default>false</default>
+                    <label>Quote</label>
+                </value>
+                <value>
+                    <fullName>Quote Line</fullName>
+                    <default>false</default>
+                    <label>Quote Line</label>
+                </value>
+                <value>
+                    <fullName>Quote Line Group</fullName>
+                    <default>false</default>
+                    <label>Quote Line Group</label>
+                </value>
+                <value>
+                    <fullName>Product Option</fullName>
+                    <default>false</default>
+                    <label>Product Option</label>
+                </value>
+                <value>
+                    <fullName>Configuration Attributes</fullName>
+                    <default>false</default>
+                    <label>Configuration Attributes</label>
+                </value>
+                <value>
+                    <fullName>Upgraded Asset</fullName>
+                    <default>false</default>
+                    <label>Upgraded Asset</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SBQQ__TestedVariable__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The Summary Variable in which this rule will be evaluated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the Summary Variable you want this rule to evaluate.</inlineHelpText>
+        <label>Tested Variable</label>
+        <referenceTo>SBQQ__SummaryVariable__c</referenceTo>
+        <relationshipLabel>Error Conditions (Tested Variable)</relationshipLabel>
+        <relationshipName>TestedConditions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Error Condition</label>
+    <nameField>
+        <displayFormat>{000000}</displayFormat>
+        <label>Condition #</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Error Conditions</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>SBQQ__Rule__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SBQQ__TestedVariable__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SBQQ__FilterType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SBQQ__Operator__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SBQQ__FilterVariable__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SBQQ__FilterValue__c</lookupDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>SBQQ__FilterCombinationValidation</fullName>
+        <active>true</active>
+        <description>Validation for the combination of Filter Type Variable.</description>
+        <errorConditionFormula>AND(ISPICKVAL(SBQQ__FilterType__c, &quot;Variable&quot;), ISBLANK(SBQQ__FilterVariable__c))</errorConditionFormula>
+        <errorMessage>A Filter Type of &apos;Variable&apos; must have a Filter Variable.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>SBQQ__ScopeAndErrorConditionTestedObject</fullName>
+        <active>true</active>
+        <description>Validation for the combination of Product Scope and Tested Object.</description>
+        <errorConditionFormula>OR(AND(ISPICKVAL(SBQQ__Rule__r.SBQQ__Scope__c,&quot;Quote&quot;),OR(ISPICKVAL(SBQQ__TestedObject__c, &quot;Product Option&quot;),ISPICKVAL(SBQQ__TestedObject__c, &quot;Configuration Attributes&quot;))),AND(ISPICKVAL(SBQQ__Rule__r.SBQQ__Scope__c,&quot;Product&quot;),OR(ISPICKVAL(SBQQ__TestedObject__c, &quot;Quote Line&quot;),ISPICKVAL(SBQQ__TestedObject__c, &quot;Quote Line Group&quot;))))</errorConditionFormula>
+        <errorMessage>This combination of Product Scope and Tested Object is not valid.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>SBQQ__Tested_attr_required_if_global_field</fullName>
+        <active>true</active>
+        <description>Tested Attribute required since the Tested Field is a global Configuration Attribute field.</description>
+        <errorConditionFormula>IF(TEXT(SBQQ__TestedObject__c) == &apos;Configuration Attributes&apos; &amp;&amp; CONTAINS(TEXT(SBQQ__TestedField__c), &apos;.&apos;) &amp;&amp; SBQQ__TestedAttribute__c == &apos;&apos;, true, false)</errorConditionFormula>
+        <errorMessage>Tested Attribute required since the Tested Field is a global Configuration Attribute field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>SBQQ__Tested_field_or_variable_required</fullName>
+        <active>true</active>
+        <description>Requires that either Tested Variable or Tested Field be specified.</description>
+        <errorConditionFormula>AND(ISPICKVAL(SBQQ__TestedField__c,&quot;&quot;),ISBLANK(SBQQ__TestedVariable__c))</errorConditionFormula>
+        <errorMessage>You must specify either Tested Field or Tested Variable.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

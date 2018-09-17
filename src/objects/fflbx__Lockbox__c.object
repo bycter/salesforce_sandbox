@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>fflbx__lockboxhelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>fflbx__AccountResolutionField__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This is an alternative field for finding customer records during the import process. You can use it to resolve issues with duplicate account names.</inlineHelpText>
+        <label>Account Resolution Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fflbx__BankAccount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Bank Account</label>
+        <referenceTo>c2g__codaBankAccount__c</referenceTo>
+        <relationshipLabel>Bank Lockboxes</relationshipLabel>
+        <relationshipName>Lockboxes</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>fflbx__BankChargesGLA__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Bank Charges GLA</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Bank Lockboxes (Bank Charges GLA)</relationshipLabel>
+        <relationshipName>BankChargesGLALockboxes</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__CashEntryProcess__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Optional custom cash entry process if you are not using the standard cash entry routine.</inlineHelpText>
+        <label>Cash Entry Process</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>fflbx__LockboxProcessSetting__c.fflbx__ProgramType__c</field>
+                <operation>equals</operation>
+                <value>Cash Entry</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>fflbx__LockboxProcessSetting__c</referenceTo>
+        <relationshipLabel>Bank Lockboxes (Cash Entry Process)</relationshipLabel>
+        <relationshipName>CashEntryProcessLockboxes</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__CashMatchingProcess__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Optional custom cash matching process if you are not using the standard cash matching routine.</inlineHelpText>
+        <label>Cash Matching Process</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>fflbx__LockboxProcessSetting__c.fflbx__ProgramType__c</field>
+                <operation>equals</operation>
+                <value>Cash Matching</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>fflbx__LockboxProcessSetting__c</referenceTo>
+        <relationshipLabel>Bank Lockboxes (Cash Matching Process)</relationshipLabel>
+        <relationshipName>CashMatchingProcessLockboxes</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__CurrencyWriteoffGLA__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Currency Write-off GLA</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Bank Lockboxes (Currency write-off GLA)</relationshipLabel>
+        <relationshipName>CurrencywriteoffLockboxes</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__Currency__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Currency</label>
+        <referenceTo>c2g__codaAccountingCurrency__c</referenceTo>
+        <relationshipLabel>Bank Lockboxes</relationshipLabel>
+        <relationshipName>Lockboxes</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fflbx__DiscountGLA__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Discount GLA</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Bank Lockboxes (Discount GLA)</relationshipLabel>
+        <relationshipName>DiscountGLALockboxes</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__DocumentResolutionFieldCRN__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the API name of Sales Credit Note field you want to use to resolve the document on the AR Cash Transaction Line.</inlineHelpText>
+        <label>Document Resolution Field (CRN)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fflbx__DocumentResolutionFieldSIN__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the API name of Sales Invoice field you want to use to resolve the document on the AR Cash Transaction Line.</inlineHelpText>
+        <label>Document Resolution Field (SIN)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fflbx__ImportProcess__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Optional custom import process if you are not using the standard import routine.</inlineHelpText>
+        <label>Import Process</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>fflbx__LockboxProcessSetting__c.fflbx__ProgramType__c</field>
+                <operation>equals</operation>
+                <value>Import</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>fflbx__LockboxProcessSetting__c</referenceTo>
+        <relationshipLabel>Bank Lockboxes (Import Process)</relationshipLabel>
+        <relationshipName>ImportProcessLockboxes</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fflbx__MatchingMode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose how cash matching should be performed. When set to Document, document reference numbers must be supplied. For all other modes, account references must be supplied. See the Help for more information.</inlineHelpText>
+        <label>Matching Mode</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Document</fullName>
+                    <default>true</default>
+                    <label>Document</label>
+                </value>
+                <value>
+                    <fullName>Document Outstanding Value : Highest First</fullName>
+                    <default>false</default>
+                    <label>Document Outstanding Value : Highest First</label>
+                </value>
+                <value>
+                    <fullName>Document Outstanding Value : Lowest First</fullName>
+                    <default>false</default>
+                    <label>Document Outstanding Value : Lowest First</label>
+                </value>
+                <value>
+                    <fullName>Document Date : Oldest First</fullName>
+                    <default>false</default>
+                    <label>Document Date : Oldest First</label>
+                </value>
+                <value>
+                    <fullName>Document Date : Newest First</fullName>
+                    <default>false</default>
+                    <label>Document Date : Newest First</label>
+                </value>
+                <value>
+                    <fullName>Document Number : Oldest First</fullName>
+                    <default>false</default>
+                    <label>Document Number : Oldest First</label>
+                </value>
+                <value>
+                    <fullName>Document Number : Newest First</fullName>
+                    <default>false</default>
+                    <label>Document Number : Newest First</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>fflbx__NumberWiretransfer__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number / Wire transfer</label>
+        <length>18</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>fflbx__WriteoffGLA__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Write-off GLA</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Bank Lockboxes (Write-off GLA)</relationshipLabel>
+        <relationshipName>WriteoffGLALockboxes</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Bank Lockbox</label>
+    <listViews>
+        <fullName>fflbx__All</fullName>
+        <columns>NAME</columns>
+        <columns>fflbx__BankAccount__c</columns>
+        <columns>fflbx__NumberWiretransfer__c</columns>
+        <columns>fflbx__Currency__c</columns>
+        <columns>fflbx__MatchingMode__c</columns>
+        <columns>fflbx__BankChargesGLA__c</columns>
+        <columns>fflbx__DiscountGLA__c</columns>
+        <columns>fflbx__WriteoffGLA__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>L-{0000}</displayFormat>
+        <label>Bank Lockbox Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Bank Lockboxes</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>fflbx__BankAccount__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fflbx__NumberWiretransfer__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fflbx__Currency__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>fflbx__MatchingMode__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>fflbx__NumberWiretransfer__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>fflbx__BankAccount__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>fflbx__Currency__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>fflbx__Description__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>fflbx__BankAccount__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fflbx__Description__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

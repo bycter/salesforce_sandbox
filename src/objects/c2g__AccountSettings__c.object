@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Account Settings (FF)</description>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>c2g__AccountBalanceReportURL__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Account Balance Report</description>
+        <externalId>false</externalId>
+        <label>Account Balance Report URL</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <label>Account Settings (FF)</label>
+    <visibility>Public</visibility>
+</CustomObject>

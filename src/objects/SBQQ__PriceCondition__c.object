@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>SBQQ__PriceConditionHelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Condition that fires the parent price rule.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>CPQ_Config_Version__c</fullName>
+        <externalId>false</externalId>
+        <label>CPQ Config Version</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_Old_Version__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is_Old_Version__c</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Load_Id__c</fullName>
+        <externalId>true</externalId>
+        <label>Load Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQ__Field__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Field on Quote Line or Product Option object that is evaluated by this condition.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the field that should contain the value you enter in the Value field.</inlineHelpText>
+        <label>Field</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Annual_Average__c</fullName>
+                    <default>false</default>
+                    <label>Annual_Average__c</label>
+                </value>
+                <value>
+                    <fullName>Break_Date__c</fullName>
+                    <default>false</default>
+                    <label>Break_Date__c</label>
+                </value>
+                <value>
+                    <fullName>Bundle_Code__c</fullName>
+                    <default>false</default>
+                    <label>Bundle_Code__c</label>
+                </value>
+                <value>
+                    <fullName>Comparable_ID_for_Calculator__c</fullName>
+                    <default>false</default>
+                    <label>Comparable_ID_for_Calculator__c</label>
+                </value>
+                <value>
+                    <fullName>Cost_per_Sq_Ft_Annual__c</fullName>
+                    <default>false</default>
+                    <label>Cost_per_Sq_Ft_Annual__c</label>
+                </value>
+                <value>
+                    <fullName>Credit_or_Payment__c</fullName>
+                    <default>false</default>
+                    <label>Credit_or_Payment__c</label>
+                </value>
+                <value>
+                    <fullName>Date__c</fullName>
+                    <default>false</default>
+                    <label>Date__c</label>
+                </value>
+                <value>
+                    <fullName>Date_Balance_Due__c</fullName>
+                    <default>false</default>
+                    <label>Date_Balance_Due__c</label>
+                </value>
+                <value>
+                    <fullName>Deposit_Amount__c</fullName>
+                    <default>false</default>
+                    <label>Deposit_Amount__c</label>
+                </value>
+                <value>
+                    <fullName>Deposit_Payment_Total__c</fullName>
+                    <default>false</default>
+                    <label>Deposit_Payment_Total__c</label>
+                </value>
+                <value>
+                    <fullName>Discount_Amount_Total__c</fullName>
+                    <default>false</default>
+                    <label>Discount_Amount_Total__c</label>
+                </value>
+                <value>
+                    <fullName>Discount_Full_Term__c</fullName>
+                    <default>false</default>
+                    <label>Discount_Full_Term__c</label>
+                </value>
+                <value>
+                    <fullName>Discount_Full_Term_Percent__c</fullName>
+                    <default>false</default>
+                    <label>Discount_Full_Term_Percent__c</label>
+                </value>
+                <value>
+                    <fullName>Discount_Term_Certain__c</fullName>
+                    <default>false</default>
+                    <label>Discount_Term_Certain__c</label>
+                </value>
+                <value>
+                    <fullName>Discount_Term_Certain_Percent__c</fullName>
+                    <default>false</default>
+                    <label>Discount_Term_Certain_Percent__c</label>
+                </value>
+                <value>
+                    <fullName>DTC_Serv_CF__c</fullName>
+                    <default>false</default>
+                    <label>DTC_Serv_CF__c</label>
+                </value>
+                <value>
+                    <fullName>DTC_Serv_Term__c</fullName>
+                    <default>false</default>
+                    <label>DTC_Serv_Term__c</label>
+                </value>
+                <value>
+                    <fullName>Earliest_Break_Date__c</fullName>
+                    <default>false</default>
+                    <label>Earliest_Break_Date__c</label>
+                </value>
+                <value>
+                    <fullName>Headline_Item_Subscription_Term__c</fullName>
+                    <default>false</default>
+                    <label>Headline_Item_Subscription_Term__c</label>
+                </value>
+                <value>
+                    <fullName>Inventory__c</fullName>
+                    <default>false</default>
+                    <label>Inventory__c</label>
+                </value>
+                <value>
+                    <fullName>List_Price__c</fullName>
+                    <default>false</default>
+                    <label>List_Price__c</label>
+                </value>
+                <value>
+                    <fullName>Monthly_Average_Without_Discount__c</fullName>
+                    <default>false</default>
+                    <label>Monthly_Average_Without_Discount__c</label>
+                </value>
+                <value>
+                    <fullName>Monthly_Cost__c</fullName>
+                    <default>false</default>
+                    <label>Monthly_Cost__c</label>
+                </value>
+                <value>
+                    <fullName>Price_Source__c</fullName>
+                    <default>false</default>
+                    <label>Price_Source__c</label>
+                </value>
+                <value>
+                    <fullName>Product_for_Filter__c</fullName>
+                    <default>false</default>
+                    <label>Product_for_Filter__c</label>
+                </value>
+                <value>
+                    <fullName>Product Code</fullName>
+                    <default>false</default>
+                    <label>Product Code</label>
+                </value>
+                <value>
+                    <fullName>Product Name</fullName>
+                    <default>false</default>
+                    <label>Product Name</label>
+                </value>
+                <value>
+                    <fullName>Property__c</fullName>
+                    <default>false</default>
+                    <label>Property__c</label>
+                </value>
+                <value>
+                    <fullName>Property_for_Filter__c</fullName>
+                    <default>false</default>
+                    <label>Property_for_Filter__c</label>
+                </value>
+                <value>
+                    <fullName>Quanta__c</fullName>
+                    <default>false</default>
+                    <label>Quanta__c</label>
+                </value>
+                <value>
+                    <fullName>Revised_Price_Cost_Per_Handset_PCM__c</fullName>
+                    <default>false</default>
+                    <label>Revised_Price_Cost_Per_Handset_PCM__c</label>
+                </value>
+                <value>
+                    <fullName>SBQQ__DynamicOptionId__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__DynamicOptionId__c</label>
+                </value>
+                <value>
+                    <fullName>SBQQ__ProductCode__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__ProductCode__c</label>
+                </value>
+                <value>
+                    <fullName>SBQQ__ProductName__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__ProductName__c</label>
+                </value>
+                <value>
+                    <fullName>SBQQ__Quantity__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__Quantity__c</label>
+                </value>
+                <value>
+                    <fullName>SBQQ__RequiredBy__c</fullName>
+                    <default>false</default>
+                    <label>SBQQ__RequiredBy__c</label>
+                </value>
+                <value>
+                    <fullName>Start_Date__c</fullName>
+                    <default>false</default>
+                    <label>Start_Date__c</label>
+                </value>
+                <value>
+                    <fullName>Start_Term__c</fullName>
+                    <default>false</default>
+                    <label>Start_Term__c</label>
+                </value>
+                <value>
+                    <fullName>Status__c</fullName>
+                    <default>false</default>
+                    <label>Status__c</label>
+                </value>
+                <value>
+                    <fullName>Term__c</fullName>
+                    <default>false</default>
+                    <label>Term__c</label>
+                </value>
+                <value>
+                    <fullName>Tolerance_State__c</fullName>
+                    <default>false</default>
+                    <label>Tolerance_State__c</label>
+                </value>
+                <value>
+                    <fullName>Updated_Monthly_Average__c</fullName>
+                    <default>false</default>
+                    <label>Updated_Monthly_Average__c</label>
+                </value>
+                <value>
+                    <fullName>Updated_Price_per_sq_ft__c</fullName>
+                    <default>false</default>
+                    <label>Updated_Price_per_sq_ft__c</label>
+                </value>
+                <value>
+                    <fullName>Updated_Rent_Per_Workstation__c</fullName>
+                    <default>false</default>
+                    <label>Updated_Rent_Per_Workstation__c</label>
+                </value>
+                <value>
+                    <fullName>Value__c</fullName>
+                    <default>false</default>
+                    <label>Value__c</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SBQQ__FilterFormula__c</fullName>
+        <deprecated>false</deprecated>
+        <description>You can construct a formula using many of Salesforce&apos;s available operators and functions. Refer to Salesforce CPQ documentation for the full list. You can also add in information from the quote or the target object field (i.e., SBQQ__QuoteLine__c.SBQQ__ListPrice__c).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a formula with operators, functions, and available fields on quote and target object. Not supported on legacy calculator.</inlineHelpText>
+        <label>Filter Formula</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>SBQQ__FilterType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Type of filtering used in this condition.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose Variable to evaluate this condition against a Summary Variable; otherwise, choose Value.</inlineHelpText>
+        <label>Filter Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Value</fullName>
+                    <default>false</default>
+                    <label>Value</label>
+                </value>
+                <value>
+                    <fullName>Variable</fullName>
+                    <default>false</default>
+                    <label>Variable</label>
+                </value>
+                <value>
+                    <fullName>Formula</fullName>
+                    <default>false</default>
+                    <label>Formula</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SBQQ__FilterVariable__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Summary variable that filters this condition.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the Summary Variable you want this condition to use as a filter.</inlineHelpText>
+        <label>Filter Variable</label>
+        <referenceTo>SBQQ__SummaryVariable__c</referenceTo>
+        <relationshipLabel>Filtered Price Conditions</relationshipLabel>
+        <relationshipName>FilteredPriceConditions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SBQQ__Index__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Assign an unique number to this Condition to reference it in the Price Rule&apos;s Advanced Condition.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Assign an unique number to this Condition to reference it in the Price Rule&apos;s Advanced Condition.</inlineHelpText>
+        <label>Index</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SBQQ__Object__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Object against which the condition is evaluated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Object against which the condition is evaluated.</inlineHelpText>
+        <label>Object</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Quote</fullName>
+                    <default>false</default>
+                    <label>Quote</label>
+                </value>
+                <value>
+                    <fullName>Quote Line</fullName>
+                    <default>false</default>
+                    <label>Quote Line</label>
+                </value>
+                <value>
+                    <fullName>Product Option</fullName>
+                    <default>false</default>
+                    <label>Product Option</label>
+                </value>
+                <value>
+                    <fullName>Summary Variable</fullName>
+                    <default>false</default>
+                    <label>Summary Variable</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SBQQ__Operator__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The operator that is applied when comparing the Field with the Value.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the operator to apply when comparing the Field with the Value.</inlineHelpText>
+        <label>Operator</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>equals</fullName>
+                    <default>false</default>
+                    <label>equals</label>
+                </value>
+                <value>
+                    <fullName>not equals</fullName>
+                    <default>false</default>
+                    <label>not equals</label>
+                </value>
+                <value>
+                    <fullName>less than</fullName>
+                    <default>false</default>
+                    <label>less than</label>
+                </value>
+                <value>
+                    <fullName>less or equals</fullName>
+                    <default>false</default>
+                    <label>less or equals</label>
+                </value>
+                <value>
+                    <fullName>greater than</fullName>
+                    <default>false</default>
+                    <label>greater than</label>
+                </value>
+                <value>
+                    <fullName>greater or equals</fullName>
+                    <default>false</default>
+                    <label>greater or equals</label>
+                </value>
+                <value>
+                    <fullName>starts with</fullName>
+                    <default>false</default>
+                    <label>starts with</label>
+                </value>
+                <value>
+                    <fullName>ends with</fullName>
+                    <default>false</default>
+                    <label>ends with</label>
+                </value>
+                <value>
+                    <fullName>contains</fullName>
+                    <default>false</default>
+                    <label>contains</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SBQQ__ParentRuleIsActive__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>SBQQ__Rule__r.SBQQ__Active__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ParentRuleIsActive</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SBQQ__RuleTargetsCalculator__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>ISPICKVAL(SBQQ__Rule__r.SBQQ__TargetObject__c, &apos;Calculator&apos;) || ISPICKVAL(SBQQ__Rule__r.SBQQ__TargetObject__c, &apos;Quote Line&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RuleTargetsCalculator</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SBQQ__Rule__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Price rule running this condition.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Price rule running this condition.</inlineHelpText>
+        <label>Price Rule</label>
+        <referenceTo>SBQQ__PriceRule__c</referenceTo>
+        <relationshipLabel>Price Conditions</relationshipLabel>
+        <relationshipName>PriceConditions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>SBQQ__TestedFormula__c</fullName>
+        <deprecated>false</deprecated>
+        <description>You can construct a formula using many of Salesforce&apos;s available operators and functions. Refer to Salesforce CPQ documentation for the full list. You can also add in information from the quote or the target object field (i.e., SBQQ__QuoteLine__c.SBQQ__ListPrice__c).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a formula with operators, functions, and available fields on quote and target object. Not supported on legacy calculator.</inlineHelpText>
+        <label>Tested Formula</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>SBQQ__TestedVariable__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Summary variable tested when evaluating this price condition.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Summary variable tested by this price condition.</inlineHelpText>
+        <label>Tested Variable</label>
+        <referenceTo>SBQQ__SummaryVariable__c</referenceTo>
+        <relationshipLabel>Price Conditions (Tested Variable)</relationshipLabel>
+        <relationshipName>TestedPriceConditions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SBQQ__Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Value to evaluate against.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the value you want to match in the field you selected using the operator chosen.</inlineHelpText>
+        <label>Filter Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Price Condition</label>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Condition #</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Price Conditions</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>SBQQ__Filter_formula_field_null</fullName>
+        <active>true</active>
+        <description>Require Filter Formula when Filter Type is Formula.</description>
+        <errorConditionFormula>AND(ISPICKVAL(SBQQ__FilterType__c, &quot;Formula&quot;), ISBLANK(SBQQ__FilterFormula__c))</errorConditionFormula>
+        <errorMessage>If Filter Type is Formula, then Filter Formula cannot be empty.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>SBQQ__Tested_field_or_variable</fullName>
+        <active>true</active>
+        <description>Require either tested field or variable.</description>
+        <errorConditionFormula>AND(ISBLANK(TEXT(SBQQ__Field__c)),ISBLANK(SBQQ__TestedVariable__c),ISBLANK(SBQQ__TestedFormula__c))</errorConditionFormula>
+        <errorMessage>You must specify either field or tested variable.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

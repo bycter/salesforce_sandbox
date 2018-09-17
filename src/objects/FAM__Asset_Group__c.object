@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>FAM__AssetGroupHelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Contains a logical grouping of fixed assets. Examples of asset groups include facility equipment, information technology, enterprise printing or vehicles. Asset groups may determine the appropriate general ledger account, sub account or dimension to use in the general ledger.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Accumulated_Depreciation_GL_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the account to use to reduce the value of the asset on the balance sheet. This field works the same way as the corresponding field on the asset and is used when the field in the sub group or asset is empty.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the account to use to reduce the value of the asset on the balance sheet. This field works the same way as the corresponding field on the asset and is used when the field in the sub group or asset is empty.</inlineHelpText>
+        <label>Accumulated Depreciation GL Account</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Asset Groups (Accumulated Depreciation GL Account)</relationshipLabel>
+        <relationshipName>Asset_Groups1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Company__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the company in FinancialForce Accounting to which this asset is to be associated with. This field works the same way as the corresponding field on the asset and is used when the field in the sub group or asset is empty.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the company in FinancialForce Accounting to which this asset is to be associated with. This field works the same way as the corresponding field on the asset and is used when the field in the sub group or asset is empty.</inlineHelpText>
+        <label>Company</label>
+        <referenceTo>c2g__codaCompany__c</referenceTo>
+        <relationshipLabel>Asset Groups</relationshipLabel>
+        <relationshipName>Asset_Groups</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Depreciation_GL_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the account to use to reduce the value of the asset on the balance sheet. This field works the same way as the corresponding field on the asset and is used when the field in the sub group or asset is empty.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the account to use to reduce the value of the asset on the balance sheet. This field works the same way as the corresponding field on the asset and is used when the field in the sub group or asset is empty.</inlineHelpText>
+        <label>Depreciation GL Account</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Asset Groups</relationshipLabel>
+        <relationshipName>Asset_Groups</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fixed_Asset_GL_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the account to be debited when the asset is acquired and credited when the asset is disposed of. This field works the same way as the corresponding field on the asset and is used when the field in the sub group or asset is empty.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the account to be debited when the asset is acquired and credited when the asset is disposed of. This field works the same way as the corresponding field on the asset and is used when the field in the sub group or asset is empty.</inlineHelpText>
+        <label>Fixed Asset GL Account</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Asset Groups (Fixed Asset GL Account)</relationshipLabel>
+        <relationshipName>Asset_Groups2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PNL_On_Asset_Disposal_GL_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the account in FinancialForce Accounting to be debited when an asset is disposed of. This field works the same way as the corresponding field on the asset and is used when the field in the sub group or asset is empty.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the account in FinancialForce Accounting to be debited when an asset is disposed of. This field works the same way as the corresponding field on the asset and is used when the field in the sub group or asset is empty.</inlineHelpText>
+        <label>Asset Disposal Profit and Loss GLA</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Asset Groups (PNL GL Account)</relationshipLabel>
+        <relationshipName>Asset_Groups4</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Payment_GL_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the account in FinancialForce Accounting that is to be credited when the asset is acquired. This field works the same way as the corresponding field on the asset and is used when the field in the sub group or asset is empty.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the account in FinancialForce Accounting that is to be credited when the asset is acquired. This field works the same way as the corresponding field on the asset and is used when the field in the sub group or asset is empty.</inlineHelpText>
+        <label>Payment GL Account</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Asset Groups (Payment GL Account)</relationshipLabel>
+        <relationshipName>Asset_Groups3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Asset Group</label>
+    <listViews>
+        <fullName>FAM__All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Asset Group Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Asset Groups</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

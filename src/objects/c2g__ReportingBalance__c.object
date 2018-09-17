@@ -1,0 +1,1213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>c2g__codahelpreportingbalance</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Extract of the Budget and Balance information used for reporting purposes.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>c2g__Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Reporting Balances</relationshipLabel>
+        <relationshipName>ReportingBalances</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__AdjustOperatingActivities__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Reclassify Profits</label>
+        <length>5</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__BalanceUpdateTimestamp__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Balance Update Timestamp</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>c2g__BankAccount__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Bank Account</label>
+        <referenceTo>c2g__codaBankAccount__c</referenceTo>
+        <relationshipLabel>Reporting Balances</relationshipLabel>
+        <relationshipName>ReportingBalances</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__BudgetAndBalance__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Budget and Balance</label>
+        <referenceTo>c2g__codaBudget__c</referenceTo>
+        <relationshipLabel>Reporting Balances</relationshipLabel>
+        <relationshipName>ReportingBalances</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__CashFlowCategory__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cash Flow Category</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__CashFlowLineSummary__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cash Flow Line Summary</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__Dimension1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dimension 1</label>
+        <referenceTo>c2g__codaDimension1__c</referenceTo>
+        <relationshipLabel>Reporting Balances</relationshipLabel>
+        <relationshipName>ReportingBalances</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Dimension2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dimension 2</label>
+        <referenceTo>c2g__codaDimension2__c</referenceTo>
+        <relationshipLabel>Reporting Balances</relationshipLabel>
+        <relationshipName>ReportingBalances</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Dimension3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dimension 3</label>
+        <referenceTo>c2g__codaDimension3__c</referenceTo>
+        <relationshipLabel>Reporting Balances</relationshipLabel>
+        <relationshipName>ReportingBalances</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Dimension4__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dimension 4</label>
+        <referenceTo>c2g__codaDimension4__c</referenceTo>
+        <relationshipLabel>Reporting Balances</relationshipLabel>
+        <relationshipName>ReportingBalances</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__DualValue__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dual Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__ExternalId__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>External Id</label>
+        <length>32</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__GeneralLedgerAccount__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>General Ledger Account</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <errorMessage>The selected GLA does not exist or is not valid. It must be a corporate GLA.</errorMessage>
+            <filterItems>
+                <field>c2g__codaGeneralLedgerAccount__c.c2g__ChartOfAccountsStructure__r.Name</field>
+                <operation>equals</operation>
+                <value></value>
+            </filterItems>
+            <filterItems>
+                <field>c2g__codaGeneralLedgerAccount__c.c2g__ChartOfAccountsStructure__r.c2g__IsCorporate__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Reporting Balances</relationshipLabel>
+        <relationshipName>ReportingBalances</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__HashCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Cash Flow Exception Hash Code</description>
+        <externalId>false</externalId>
+        <label>Cash Flow Exception Hash Code</label>
+        <length>28</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__HomeValue__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Home Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__IntersectDefinition__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Intersect Definition</label>
+        <referenceTo>c2g__codaIntersectDefinition__c</referenceTo>
+        <relationshipLabel>Reporting Balances</relationshipLabel>
+        <relationshipName>ReportingBalances</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__LocalGLA__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Local GLA</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 AND 2</booleanFilter>
+            <errorMessage>The selected GLA does not exist or is not valid.</errorMessage>
+            <filterItems>
+                <field>c2g__codaGeneralLedgerAccount__c.c2g__ChartOfAccountsStructure__c</field>
+                <operation>notEqual</operation>
+                <value></value>
+            </filterItems>
+            <filterItems>
+                <field>c2g__codaGeneralLedgerAccount__c.c2g__ChartOfAccountsStructure__r.c2g__IsCorporate__c</field>
+                <operation>equals</operation>
+                <value>False</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Reporting Balances Local GLA</relationshipLabel>
+        <relationshipName>ReportingBalancesLocalGLA</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__NumberOfRelatedTransactionLineItems__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number of Related Transaction Line Items</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__OwnerCompany__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Company</label>
+        <referenceTo>c2g__codaCompany__c</referenceTo>
+        <relationshipLabel>Reporting Balances (Company)</relationshipLabel>
+        <relationshipName>ReportingBalances2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__PeriodNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(ISNUMBER(c2g__Period__r.c2g__PeriodNumber__c),VALUE(c2g__Period__r.c2g__PeriodNumber__c),null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Period Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__Period__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Period</label>
+        <referenceTo>c2g__codaPeriod__c</referenceTo>
+        <relationshipLabel>Reporting Balances</relationshipLabel>
+        <relationshipName>ReportingBalances</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Reporting Balances</relationshipLabel>
+        <relationshipName>ReportingBalances</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__ReportingBalanceHashCode__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>Reporting Balance Hash Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__Subanalysis__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>c2g__BankAccount__r.c2g__AccountName__c + c2g__Product__r.Name + c2g__TaxCode__r.Name + c2g__Account__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sub-analysis</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__TaxCode__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Tax Code</label>
+        <referenceTo>c2g__codaTaxCode__c</referenceTo>
+        <relationshipLabel>Reporting Balances</relationshipLabel>
+        <relationshipName>ReportingBalances</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>c2g__Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Actual</fullName>
+                    <default>false</default>
+                    <label>Actual</label>
+                </value>
+                <value>
+                    <fullName>Budget</fullName>
+                    <default>false</default>
+                    <label>Budget</label>
+                </value>
+                <value>
+                    <fullName>Forecast</fullName>
+                    <default>false</default>
+                    <label>Forecast</label>
+                </value>
+                <value>
+                    <fullName>Size</fullName>
+                    <default>false</default>
+                    <label>Size</label>
+                </value>
+                <value>
+                    <fullName>HeadCountActual</fullName>
+                    <default>false</default>
+                    <label>HeadCountActual</label>
+                </value>
+                <value>
+                    <fullName>HeadCountBudget</fullName>
+                    <default>false</default>
+                    <label>HeadCountBudget</label>
+                </value>
+                <value>
+                    <fullName>HeadCountForecast</fullName>
+                    <default>false</default>
+                    <label>HeadCountForecast</label>
+                </value>
+                <value>
+                    <fullName>HeadCountPlan</fullName>
+                    <default>false</default>
+                    <label>HeadCountPlan</label>
+                </value>
+                <value>
+                    <fullName>VolumeActual</fullName>
+                    <default>false</default>
+                    <label>VolumeActual</label>
+                </value>
+                <value>
+                    <fullName>VolumeBudget</fullName>
+                    <default>false</default>
+                    <label>VolumeBudget</label>
+                </value>
+                <value>
+                    <fullName>VolumeForecast</fullName>
+                    <default>false</default>
+                    <label>VolumeForecast</label>
+                </value>
+                <value>
+                    <fullName>VolumePlan</fullName>
+                    <default>false</default>
+                    <label>VolumePlan</label>
+                </value>
+                <value>
+                    <fullName>Shares</fullName>
+                    <default>false</default>
+                    <label>Shares</label>
+                </value>
+                <value>
+                    <fullName>SharesInIssue</fullName>
+                    <default>false</default>
+                    <label>SharesInIssue</label>
+                </value>
+                <value>
+                    <fullName>SharesOutstanding</fullName>
+                    <default>false</default>
+                    <label>SharesOutstanding</label>
+                </value>
+                <value>
+                    <fullName>SharesPrice</fullName>
+                    <default>false</default>
+                    <label>SharesPrice</label>
+                </value>
+                <value>
+                    <fullName>Cash Flow Exception</fullName>
+                    <default>false</default>
+                    <label>Cash Flow Exception</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>c2g__UnitOfWork__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Unit of Work</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__Version__c</fullName>
+        <defaultValue>1</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Version</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>c2g__YearNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(ISNUMBER(c2g__Period__r.c2g__YearName__r.Name),VALUE(c2g__Period__r.c2g__YearName__r.Name),null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Year Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Reporting Balance</label>
+    <listViews>
+        <fullName>FF_100_Bruntwood_Management_Services_L_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 100 - Bruntwood Management Services L</label>
+        <queue>FF_100_Bruntwood_Management_Services_L</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_106_Bruntwood_Management_Services_3_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 106 - Bruntwood Management Services(3</label>
+        <queue>FF_106_Bruntwood_Management_Services_3</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_110_Manchester_Science_Partnerships_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 110 - Manchester Science Partnerships</label>
+        <queue>FF_110_Manchester_Science_Partnerships</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_112_Mi_IDEA_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 112 - Mi-IDEA Limited</label>
+        <queue>FF_112_Mi_IDEA_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_113_Citylabs_2_0_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 113 - Citylabs 2.0 Limited</label>
+        <queue>FF_113_Citylabs_2_0_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_115_Manchester_Technopark_Ltd_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 115 - Manchester Technopark Ltd</label>
+        <queue>FF_115_Manchester_Technopark_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_125_Salford_Innovation_Park_Ltd_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 125 - Salford Innovation Park Ltd</label>
+        <queue>FF_125_Salford_Innovation_Park_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_130_Principal_Agent_Management_Ltd_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 130 - Principal Agent Management Ltd</label>
+        <queue>FF_130_Principal_Agent_Management_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_135_Alderley_Park_Holdings_Ltd_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 135 - Alderley Park Holdings Ltd</label>
+        <queue>FF_135_Alderley_Park_Holdings_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_139_Alderley_Imaging_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 139 - Alderley Imaging Limited</label>
+        <queue>FF_139_Alderley_Imaging_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_140_Alderley_Park_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 140 - Alderley Park Limited</label>
+        <queue>FF_140_Alderley_Park_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_141_Circle_Square_District_Holdings_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 141 - Circle Square District Holdings</label>
+        <queue>FF_141_Circle_Square_District_Holdings</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_142_Circle_Square_District_Company_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 142 - Circle Square District Company</label>
+        <queue>FF_142_Circle_Square_District_Company</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_143_Circle_Square_Green_Company_Ltd_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 143 - Circle Square Green Company Ltd</label>
+        <queue>FF_143_Circle_Square_Green_Company_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_144_Bruntwood_Circle_Square_2_Limit_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 144 - Bruntwood Circle Square 2 Limit</label>
+        <queue>FF_144_Bruntwood_Circle_Square_2_Limit</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_145_Bruntwood_Circle_Square_4_Limit_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 145 - Bruntwood Circle Square 4 Limit</label>
+        <queue>FF_145_Bruntwood_Circle_Square_4_Limit</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_146_Bruntwood_Circle_Square_12_Limi_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 146 - Bruntwood Circle Square 12 Limi</label>
+        <queue>FF_146_Bruntwood_Circle_Square_12_Limi</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_147_Bruntwood_Science_Ltd_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 147 - Bruntwood Science Ltd</label>
+        <queue>FF_147_Bruntwood_Science_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_148_Bruntwood_Circle_Square_14_Limi_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 148 - Bruntwood Circle Square 14 Limi</label>
+        <queue>FF_148_Bruntwood_Circle_Square_14_Limi</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_15_Bruntwood_Energy_Services_Limite_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 15 - Bruntwood Energy Services Limite</label>
+        <queue>FF_15_Bruntwood_Energy_Services_Limite</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_16_Building_Sustainability_Services_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 16 - Building Sustainability Services</label>
+        <queue>FF_16_Building_Sustainability_Services</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_17_Manchester_Gas_and_Power_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 17 - Manchester Gas and Power Limited</label>
+        <queue>FF_17_Manchester_Gas_and_Power_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_1_Bruntwood_Group_Ltd_formerly_Bru_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 1 - Bruntwood Group Ltd (formerly Bru</label>
+        <queue>FF_1_Bruntwood_Group_Ltd_formerly_Bru</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_20_Bruntwood_2000_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 20 - Bruntwood 2000 Limited</label>
+        <queue>FF_20_Bruntwood_2000_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_24_Bruntwood_2000_Fourth_Properties_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 24 - Bruntwood 2000 Fourth Properties</label>
+        <queue>FF_24_Bruntwood_2000_Fourth_Properties</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_25_Bruntwood_2000_Alpha_Portfolio_L_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 25 - Bruntwood 2000 Alpha Portfolio L</label>
+        <queue>FF_25_Bruntwood_2000_Alpha_Portfolio_L</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_26_Bruntwood_2000_Beta_Portfolio_Li_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 26 - Bruntwood 2000 Beta Portfolio Li</label>
+        <queue>FF_26_Bruntwood_2000_Beta_Portfolio_Li</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_27_Bruntwood_2000_NW_Regen_Limite_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 27 - Bruntwood 2000 (NW Regen) Limite</label>
+        <queue>FF_27_Bruntwood_2000_NW_Regen_Limite</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_28_Bruntwood_2000_Holdings_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 28 - Bruntwood 2000 Holdings Limited</label>
+        <queue>FF_28_Bruntwood_2000_Holdings_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_31_The_Bruntwood_Charity_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 31 - The Bruntwood Charity</label>
+        <queue>FF_31_The_Bruntwood_Charity</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_33_Bruntwood_Development_Holdings_L_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 33 - Bruntwood Development Holdings L</label>
+        <queue>FF_33_Bruntwood_Development_Holdings_L</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_35_Bruntwood_Cornwall_Street_Limite_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 35 - Bruntwood Cornwall Street Limite</label>
+        <queue>FF_35_Bruntwood_Cornwall_Street_Limite</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_38_Bruntwood_St_Chads_Hotel_Ltd_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 38 -  Bruntwood St Chads Hotel Ltd</label>
+        <queue>FF_38_Bruntwood_St_Chads_Hotel_Ltd</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_39_Citylabs_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 39 - Citylabs Limited</label>
+        <queue>FF_39_Citylabs_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_41_Bruntwood_Sixth_Properties_Limit_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 41 - Bruntwood Sixth Properties Limit</label>
+        <queue>FF_41_Bruntwood_Sixth_Properties_Limit</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_43_Bruntwood_MBS_Developments_Limit_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 43 - Bruntwood MBS Developments Limit</label>
+        <queue>FF_43_Bruntwood_MBS_Developments_Limit</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_44_Roundthorn_Group_Pension_Scheme_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 44 - Roundthorn Group Pension Scheme</label>
+        <queue>FF_44_Roundthorn_Group_Pension_Scheme</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_47_Bruntwood_Oxford_Road_Holdings_L_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 47 - Bruntwood Oxford Road Holdings L</label>
+        <queue>FF_47_Bruntwood_Oxford_Road_Holdings_L</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_48_Oxford_Property_Trading_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 48 - Oxford Property Trading Limited</label>
+        <queue>FF_48_Oxford_Property_Trading_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_49_Bruntwood_Albert_Square_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 49 - Bruntwood Albert Square Limited</label>
+        <queue>FF_49_Bruntwood_Albert_Square_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_4_Abney_2003_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 4 - Abney 2003 Limited</label>
+        <queue>FF_4_Abney_2003_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_50_Chandlers_Point_Management_Co_Li_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 50 - Chandlers Point Management Co Li</label>
+        <queue>FF_50_Chandlers_Point_Management_Co_Li</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_52_Arden_Business_Centre_Bredbury_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 52 - Arden Business Centre (Bredbury)</label>
+        <queue>FF_52_Arden_Business_Centre_Bredbury</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_54_Trinity_ICP_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 54 - Trinity ICP Limited</label>
+        <queue>FF_54_Trinity_ICP_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_56_Afflecks_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 56 - Afflecks Limited</label>
+        <queue>FF_56_Afflecks_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_57_Bruntwood_AV_Holdings_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 57 - Bruntwood AV Holdings Limited</label>
+        <queue>FF_57_Bruntwood_AV_Holdings_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_58_Bruntwood_AV_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 58 - Bruntwood AV Limited</label>
+        <queue>FF_58_Bruntwood_AV_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_60_Bruntwood_LG_Holding_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 60 - Bruntwood LG Holding Limited</label>
+        <queue>FF_60_Bruntwood_LG_Holding_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_62_Bruntwood_LG_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 62 - Bruntwood LG Limited</label>
+        <queue>FF_62_Bruntwood_LG_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_66_Bruntwood_Investments_Plc_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 66 - Bruntwood Investments Plc</label>
+        <queue>FF_66_Bruntwood_Investments_Plc</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_67_Bruntwood_RB_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 67 - Bruntwood RB Limited</label>
+        <queue>FF_67_Bruntwood_RB_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_6_Bruntwood_Limited_formerly_Brunt_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 6 - Bruntwood Limited (formerly Brunt</label>
+        <queue>FF_6_Bruntwood_Limited_formerly_Brunt</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_75_Bruntwood_Construction_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 75 - Bruntwood Construction Limited</label>
+        <queue>FF_75_Bruntwood_Construction_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_85_Bruntwood_Estates_Alpha_Portfoli_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 85 - Bruntwood Estates Alpha Portfoli</label>
+        <queue>FF_85_Bruntwood_Estates_Alpha_Portfoli</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_86_Bruntwood_Estates_Beta_Portfolio_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 86 - Bruntwood Estates Beta Portfolio</label>
+        <queue>FF_86_Bruntwood_Estates_Beta_Portfolio</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_87_Bruntwood_Estates_Ltd_formerly_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 87 - Bruntwood Estates Ltd (formerly</label>
+        <queue>FF_87_Bruntwood_Estates_Ltd_formerly</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_88_Bruntwood_Estates_Holdings_Limit_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 88 - Bruntwood Estates Holdings Limit</label>
+        <queue>FF_88_Bruntwood_Estates_Holdings_Limit</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_90_M_J_Oglesby_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF 90 - M J Oglesby</label>
+        <queue>FF_90_M_J_Oglesby</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Birmingham_Science_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Birmingham Science Limited</label>
+        <queue>FF_Birmingham_Science_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Birmingham_Technology_Property_Limite_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Birmingham Technology Property Limite</label>
+        <queue>FF_Birmingham_Technology_Property_Limite</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Birmingham_Technology_Property_One_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Birmingham Technology (Property One)</label>
+        <queue>FF_Birmingham_Technology_Property_One</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Bruntwood_Circle_Square_1_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Bruntwood Circle Square 1 Limited</label>
+        <queue>FF_Bruntwood_Circle_Square_1_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Bruntwood_Didsbury_TP_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Bruntwood (Didsbury TP) Limited</label>
+        <queue>FF_Bruntwood_Didsbury_TP_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Bruntwood_Meeting_Rooms_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Bruntwood Meeting Rooms Limited</label>
+        <queue>FF_Bruntwood_Meeting_Rooms_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Citylabs_3_0_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Citylabs 3.0 Limited</label>
+        <queue>FF_Citylabs_3_0_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Company_1_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Company#1</label>
+        <queue>FF_Company_1</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Innovation_Birmingham_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Innovation Birmingham Limited</label>
+        <queue>FF_Innovation_Birmingham_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_K_SIte_Limited_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF K Site Limited</label>
+        <queue>FF_K_Site_Limited</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FF_Trafford_Bruntwood_LLP_ReportingBalance</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FF Trafford Bruntwood LLP</label>
+        <queue>FF_Trafford_Bruntwood_LLP</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>c2g__All</fullName>
+        <columns>NAME</columns>
+        <columns>c2g__Type__c</columns>
+        <columns>c2g__Period__c</columns>
+        <columns>c2g__IntersectDefinition__c</columns>
+        <columns>c2g__Account__c</columns>
+        <columns>c2g__BankAccount__c</columns>
+        <columns>c2g__Product__c</columns>
+        <columns>c2g__TaxCode__c</columns>
+        <columns>c2g__Dimension1__c</columns>
+        <columns>c2g__Dimension2__c</columns>
+        <columns>c2g__Dimension3__c</columns>
+        <columns>c2g__Dimension4__c</columns>
+        <columns>c2g__HomeValue__c</columns>
+        <columns>c2g__DualValue__c</columns>
+        <columns>c2g__OwnerCompany__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Reporting Balance Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Reporting Balances</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>c2g__Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__Period__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__GeneralLedgerAccount__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__BankAccount__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__Product__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__TaxCode__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__HomeValue__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>c2g__DualValue__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

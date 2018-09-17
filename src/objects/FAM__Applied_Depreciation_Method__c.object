@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customHelpPage>FAM__AppliedDepreciationMethodHelp</customHelpPage>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Contains records of the depreciation methods applied to depreciation books. Each record contains the depreciation book, depreciation method applied and the date on which that method came into effect.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>FAM__Depreciation_Book__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Lookup to the depreciation book to which the depreciation method applies.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the depreciation book to which the depreciation method applies.</inlineHelpText>
+        <label>Depreciation Book</label>
+        <referenceTo>FAM__Depreciation_Book__c</referenceTo>
+        <relationshipLabel>Applied Depreciation Methods</relationshipLabel>
+        <relationshipName>Applied_Depreciation_Methods</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>FAM__Depreciation_Formula__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Visual representation of the applied depreciation formula for the chosen depreciation method.</description>
+        <externalId>false</externalId>
+        <formula>IF(FAM__Depreciation_Method__r.FAM__Formula_URL__c != &apos;&apos;, IMAGE(FAM__Depreciation_Method__r.FAM__Formula_URL__c , FAM__Depreciation_Method__r.Name),&apos;&apos;)</formula>
+        <inlineHelpText>Visual representation of the applied depreciation formula for the chosen depreciation method.</inlineHelpText>
+        <label>Depreciation Formula</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Depreciation_Method__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the depreciation method applied to the depreciation book.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the depreciation method applied to the depreciation book.</inlineHelpText>
+        <label>Depreciation Method</label>
+        <referenceTo>FAM__FA_Depreciation_Method__c</referenceTo>
+        <relationshipLabel>Applied Depreciation Methods</relationshipLabel>
+        <relationshipName>Applied_Depreciation_Methods</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Effective_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date from which the Depreciation method is applied on the tax book.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date from which the Depreciation method is applied on the tax book.</inlineHelpText>
+        <label>Effective Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Applied Depreciation Method</label>
+    <listViews>
+        <fullName>FAM__All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>DM-{0000000}</displayFormat>
+        <label>Applied Depreciation Method</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Applied Depreciation Methods</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ffps_brunt__Currency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Currency</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>GBP</fullName>
+                    <default>true</default>
+                    <label>GBP</label>
+                </value>
+                <value>
+                    <fullName>USD</fullName>
+                    <default>false</default>
+                    <label>USD</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Destination_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers (Destination Account)</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Destination_Bank_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Bank Account</label>
+        <referenceTo>c2g__codaBankAccount__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Destination_Company__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Company</label>
+        <referenceTo>c2g__codaCompany__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers (Destination Company)</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers1</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Destination_Dimension_1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Dimension 1</label>
+        <referenceTo>c2g__codaDimension1__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers (Destination Dimension 1)</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Destination_Dimension_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Dimension 2</label>
+        <referenceTo>c2g__codaDimension2__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers (Destination Dimension 2)</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Destination_Dimension_3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Dimension 3</label>
+        <referenceTo>c2g__codaDimension3__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers (Destination Dimension 3)</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Destination_Document_Currency__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Document Currency</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>c2g__codaAccountingCurrency__c.c2g__OwnerCompany__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.ffps_brunt__Destination_Company__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>c2g__codaAccountingCurrency__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers (Destination Document Currency)</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Destination_Document_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Document Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Destination_Document_Description__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Document Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Destination_Document_Period__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Document Period</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>c2g__codaPeriod__c.c2g__OwnerCompany__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.ffps_brunt__Destination_Company__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>c2g__codaPeriod__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers (Destination Document Period)</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Destination_General_Ledger_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination General Ledger Account</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers (Destination General Ledger Account)</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Destination_Journal_Number__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Journal Number</label>
+        <referenceTo>c2g__codaJournal__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Destination_Line_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Line Type</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Account - Customer</fullName>
+                    <default>true</default>
+                    <label>Account - Customer</label>
+                </value>
+                <value>
+                    <fullName>Account - Vendor</fullName>
+                    <default>false</default>
+                    <label>Account - Vendor</label>
+                </value>
+                <value>
+                    <fullName>Bank Account</fullName>
+                    <default>false</default>
+                    <label>Bank Account</label>
+                </value>
+                <value>
+                    <fullName>General Ledger Account</fullName>
+                    <default>false</default>
+                    <label>General Ledger Account</label>
+                </value>
+                <value>
+                    <fullName>Product - Purchases</fullName>
+                    <default>false</default>
+                    <label>Product - Purchases</label>
+                </value>
+                <value>
+                    <fullName>Product - Sales</fullName>
+                    <default>false</default>
+                    <label>Product - Sales</label>
+                </value>
+                <value>
+                    <fullName>Tax Code</fullName>
+                    <default>false</default>
+                    <label>Tax Code</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Destination_Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Destination_Tax_Code__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Tax Code</label>
+        <referenceTo>c2g__codaTaxCode__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers (Destination Tax Code)</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Intra_Company_Transfer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Intra-Company transactions happen inside the same company, specify the same source and destination company.</inlineHelpText>
+        <label>Intra Company Transfer</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Processing_Messages__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Processing Messages</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Processing_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Processing Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Available</fullName>
+                    <default>false</default>
+                    <label>Available</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+                <value>
+                    <fullName>Error</fullName>
+                    <default>false</default>
+                    <label>Error</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Source_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Source_Bank_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Bank Account</label>
+        <referenceTo>c2g__codaBankAccount__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers (Source Bank Account)</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Source_Company__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Company</label>
+        <referenceTo>c2g__codaCompany__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Source_Dimension_1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Dimension 1</label>
+        <referenceTo>c2g__codaDimension1__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Source_Dimension_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Dimension 2</label>
+        <referenceTo>c2g__codaDimension2__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Source_Dimension_3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Dimension 3</label>
+        <referenceTo>c2g__codaDimension3__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Source_Document_Currency__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Document Currency</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>c2g__codaAccountingCurrency__c.c2g__OwnerCompany__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.ffps_brunt__Source_Company__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>c2g__codaAccountingCurrency__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Source_Document_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Document Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Source_Document_Description__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Document Description</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Source_Document_Period__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Document Period</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>c2g__codaPeriod__c.c2g__OwnerCompany__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.ffps_brunt__Source_Company__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>c2g__codaPeriod__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Source_General_Ledger_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source General Ledger Account</label>
+        <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Source_Journal_Number__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Journal Number</label>
+        <referenceTo>c2g__codaJournal__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers (Source Journal Number)</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Source_Line_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Line Type</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Account - Customer</fullName>
+                    <default>true</default>
+                    <label>Account - Customer</label>
+                </value>
+                <value>
+                    <fullName>Account - Vendor</fullName>
+                    <default>false</default>
+                    <label>Account - Vendor</label>
+                </value>
+                <value>
+                    <fullName>Bank Account</fullName>
+                    <default>false</default>
+                    <label>Bank Account</label>
+                </value>
+                <value>
+                    <fullName>General Ledger Account</fullName>
+                    <default>false</default>
+                    <label>General Ledger Account</label>
+                </value>
+                <value>
+                    <fullName>Product - Purchases</fullName>
+                    <default>false</default>
+                    <label>Product - Purchases</label>
+                </value>
+                <value>
+                    <fullName>Product - Sales</fullName>
+                    <default>false</default>
+                    <label>Product - Sales</label>
+                </value>
+                <value>
+                    <fullName>Tax Code</fullName>
+                    <default>false</default>
+                    <label>Tax Code</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Source_Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers (Source Product)</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Source_Tax_Code__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Tax Code</label>
+        <referenceTo>c2g__codaTaxCode__c</referenceTo>
+        <relationshipLabel>Bruntwood Intercompany Transfers</relationshipLabel>
+        <relationshipName>Bruntwood_Intercompany_Transfers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Journal</fullName>
+                    <default>true</default>
+                    <label>Journal</label>
+                </value>
+                <value>
+                    <fullName>Cash</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Cash</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffps_brunt__Value__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Value</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Bruntwood Intercompany Transfer</label>
+    <listViews>
+        <fullName>ffps_brunt__All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>BIC-{0000}</displayFormat>
+        <label>Transfer Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Bruntwood Intercompany Transfers</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>ffps_brunt__Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffps_brunt__Processing_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffps_brunt__Source_Company__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffps_brunt__Destination_Company__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffps_brunt__Source_Journal_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ffps_brunt__Destination_Journal_Number__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>ffps_brunt__Cannot_change_from_complete</fullName>
+        <active>true</active>
+        <description>Cannot change status from complete</description>
+        <errorConditionFormula>AND(
+ISPICKVAL(PRIORVALUE(ffps_brunt__Processing_Status__c), &apos;Complete&apos;),
+ISCHANGED(ffps_brunt__Processing_Status__c))</errorConditionFormula>
+        <errorMessage>You cannot change the status of the ICT once it is &apos;Complete&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ffps_brunt__Cannot_move_to_complete</fullName>
+        <active>true</active>
+        <description>Cannot move an incomplete ICT to &apos;Complete&apos;</description>
+        <errorConditionFormula>AND( 
+ISPICKVAL(ffps_brunt__Processing_Status__c, &apos;Complete&apos;), 
+ISCHANGED(ffps_brunt__Processing_Status__c),
+OR(ISBLANK(ffps_brunt__Destination_Journal_Number__c ),
+   ISBLANK(ffps_brunt__Source_Journal_Number__c ))
+)</errorConditionFormula>
+        <errorMessage>Cannot move an incomplete ICT to &apos;Complete&apos;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ffps_brunt__Destination_bank_account_company</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ffps_brunt__Destination_Bank_Account__c != NULL, ffps_brunt__Destination_Company__c != ffps_brunt__Destination_Bank_Account__r.c2g__OwnerCompany__c)</errorConditionFormula>
+        <errorDisplayField>ffps_brunt__Destination_Bank_Account__c</errorDisplayField>
+        <errorMessage>Destination bank account must match the destination company</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ffps_brunt__Source_Bank_account_company</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ffps_brunt__Source_Bank_Account__c != NULL,
+ ffps_brunt__Source_Bank_Account__r.c2g__OwnerCompany__c !=  ffps_brunt__Source_Company__c)</errorConditionFormula>
+        <errorDisplayField>ffps_brunt__Source_Bank_Account__c</errorDisplayField>
+        <errorMessage>Source bank account company must match source company</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ffps_brunt__Source_and_destination_companies</fullName>
+        <active>true</active>
+        <description>Source and destination companies cannot be the same</description>
+        <errorConditionFormula>AND(ffps_brunt__Intra_Company_Transfer__c != true, ffps_brunt__Source_Company__c ==  ffps_brunt__Destination_Company__c)</errorConditionFormula>
+        <errorMessage>Source and destination companies cannot be the same.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

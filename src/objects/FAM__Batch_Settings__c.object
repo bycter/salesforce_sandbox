@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Contains settings that control batch processes in FinancialForce Fixed Assets Management</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>FAM__Depreciation_Generation_Scope__c</fullName>
+        <defaultValue>50</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The maximum number of depreciation books to be processed in a single batch.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The maximum number of depreciation books to be processed in a single batch. If you encounter platform limits during processing, try lowering this value.</inlineHelpText>
+        <label>Depreciation Book Batch Limit</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Export_Batch_Runs_To_Retain__c</fullName>
+        <defaultValue>5</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The number of export batches that batch control records and batch logs are stored for.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of export batches that batch control records and batch logs are stored for. Batches are deleted on the basis of oldest first.</inlineHelpText>
+        <label>Number of Export Batches to Keep</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Export_Schedules_Scope__c</fullName>
+        <defaultValue>500</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The maximum number of depreciation schedules to be processed in a single batch.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The maximum number of depreciation schedules to be processed in a single batch. If you encounter platform limits during processing, try lowering this value.</inlineHelpText>
+        <label>Export Schedules Batch Limit</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Generate_Batch_Runs_To_Retain__c</fullName>
+        <defaultValue>5</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The number of generate batches that batch control records and batch logs are stored for.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of generate batches that batch control records and batch logs are stored for. Batches are deleted on the basis of oldest first.</inlineHelpText>
+        <label>Number of Generate Batches to Keep</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Max_Number_of_Jobs_in_Queue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The maximum number of batches to process at the same time.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The maximum number of batches to process at the same time.</inlineHelpText>
+        <label>Maximum Queue Size</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FAM__Notification_Chatter__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Chatter posts will be created to notify users of batch progress.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Chatter posts will be created to notify users of batch progress.</inlineHelpText>
+        <label>Chatter Notifications</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Notification_Email__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Email messages will be created to notify users of batch progress.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Email messages will be created to notify users of batch progress.</inlineHelpText>
+        <label>Email Notifications</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Notification_Recipients__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One or more email addresses of additional users to notify of batch progress. Separate email addresses using semicolons (;).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Any email addresses supplied will be notified in addition to the user who started the batch process.</inlineHelpText>
+        <label>Notification Recipients</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>FAM__Notification_Task__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Salesforce tasks will be created to notify users of batch progress.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Salesforce tasks will be created to notify users of batch progress.</inlineHelpText>
+        <label>Task Notifications</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Fixed Asset Management Batch Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

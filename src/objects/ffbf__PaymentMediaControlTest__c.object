@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ffbf__BankAccountNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Originator Bank Account Number</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbf__CompanyName__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Company Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbf__CreditTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( TEXT(ffbf__PaymentType__c) = &quot;Payments&quot; ,  ffbf__PaymentValue__c , 0 )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Credit Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbf__DebitTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF ( TEXT(ffbf__PaymentType__c) = &quot;Collections&quot;,  ffbf__PaymentValue__c , 0 )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Debit Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbf__DestinationBankAccountNumberSum__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Bank Account Number Sum</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbf__DestinationBankAccountTextSum__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Bank Account Text Sum</label>
+        <length>45</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbf__DestinationSortCodeNumberSum__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Destination Sort Code Number Sum</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbf__HashTotal2__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>CASE ( LEN ( TEXT (ffbf__DestinationSortCodeNumberSum__c) ), 
+		1, &quot;000000000&quot; &amp;  MID (TEXT( ffbf__DestinationSortCodeNumberSum__c ),1,1),
+		2, &quot;00000000&quot; &amp;  MID (TEXT( ffbf__DestinationSortCodeNumberSum__c ),1,2),
+		3, &quot;0000000&quot; &amp;  MID (TEXT( ffbf__DestinationSortCodeNumberSum__c ),1,3),
+		4, &quot;000000&quot; &amp;  MID (TEXT( ffbf__DestinationSortCodeNumberSum__c ),1,4),
+		5, &quot;00000&quot; &amp;  MID (TEXT( ffbf__DestinationSortCodeNumberSum__c ),1,5),
+		6, &quot;0000&quot; &amp;  MID (TEXT( ffbf__DestinationSortCodeNumberSum__c ),1,6),
+		7, &quot;000&quot; &amp;  MID (TEXT( ffbf__DestinationSortCodeNumberSum__c ),1,7),
+		8, &quot;00&quot; &amp;  MID (TEXT( ffbf__DestinationSortCodeNumberSum__c ),1,8),
+		9, &quot;0&quot; &amp;  MID (TEXT( ffbf__DestinationSortCodeNumberSum__c ),1,9), 
+		RIGHT (TEXT(ffbf__DestinationSortCodeNumberSum__c), 10))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Hash Total 2</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbf__HashTotalText__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>CASE ( LEN ( (ffbf__DestinationBankAccountTextSum__c) ), 
+1, &quot;00000000000&quot;, 
+2, &quot;00000000000&quot;, 
+3, &quot;00000000000&quot;, 
+4, &quot;00000000000&quot;, 
+5, &quot;0000000000&quot; &amp; MID (( ffbf__DestinationBankAccountTextSum__c ),1,1), 
+6, &quot;000000000&quot; &amp; MID (( ffbf__DestinationBankAccountTextSum__c ),1,2), 
+7, &quot;00000000&quot; &amp; MID (( ffbf__DestinationBankAccountTextSum__c ),1,3), 
+8, &quot;0000000&quot; &amp; MID (( ffbf__DestinationBankAccountTextSum__c ),1,4), 
+9, &quot;000000&quot; &amp; MID (( ffbf__DestinationBankAccountTextSum__c ),1,5), 
+10, &quot;00000&quot; &amp; MID (( ffbf__DestinationBankAccountTextSum__c ),1,6), 
+11, &quot;0000&quot; &amp; MID (( ffbf__DestinationBankAccountTextSum__c ),1,7), 
+12, &quot;000&quot; &amp; MID (( ffbf__DestinationBankAccountTextSum__c ),1,8), 
+13, &quot;00&quot; &amp; MID (( ffbf__DestinationBankAccountTextSum__c ),1,9), 
+14, &quot;0&quot; &amp; MID (( ffbf__DestinationBankAccountTextSum__c ),1,10), 
+15, MID (( ffbf__DestinationBankAccountTextSum__c ),1,11), 
+MID (( ffbf__DestinationBankAccountTextSum__c) , 2, 11) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Hash Total Text</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbf__HashTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>CASE ( LEN ( TEXT (ffbf__DestinationBankAccountNumberSum__c) ),
+1, &quot;00000000000&quot;,
+2, &quot;00000000000&quot;,
+3, &quot;00000000000&quot;,
+4, &quot;00000000000&quot;,
+5, &quot;0000000000&quot; &amp; MID (TEXT( ffbf__DestinationBankAccountNumberSum__c ),1,1),
+6, &quot;000000000&quot; &amp; MID (TEXT( ffbf__DestinationBankAccountNumberSum__c ),1,2),
+7, &quot;00000000&quot; &amp; MID (TEXT( ffbf__DestinationBankAccountNumberSum__c ),1,3),
+8, &quot;0000000&quot; &amp; MID (TEXT( ffbf__DestinationBankAccountNumberSum__c ),1,4),
+9, &quot;000000&quot; &amp; MID (TEXT( ffbf__DestinationBankAccountNumberSum__c ),1,5),
+10, &quot;00000&quot; &amp; MID (TEXT( ffbf__DestinationBankAccountNumberSum__c ),1,6),
+11, &quot;0000&quot; &amp; MID (TEXT( ffbf__DestinationBankAccountNumberSum__c ),1,7),
+12, &quot;000&quot; &amp; MID (TEXT( ffbf__DestinationBankAccountNumberSum__c ),1,8),
+13, &quot;00&quot; &amp; MID (TEXT( ffbf__DestinationBankAccountNumberSum__c ),1,9),
+14, &quot;0&quot; &amp; MID (TEXT( ffbf__DestinationBankAccountNumberSum__c ),1,10),
+15, MID (TEXT( ffbf__DestinationBankAccountNumberSum__c ),1,11),
+MID ( TEXT( ffbf__DestinationBankAccountNumberSum__c) , 2, 11) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Hash Total</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbf__PaymentDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ffbf__PaymentType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Payments</fullName>
+                    <default>false</default>
+                    <label>Payments</label>
+                </value>
+                <value>
+                    <fullName>Collections</fullName>
+                    <default>false</default>
+                    <label>Collections</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ffbf__PaymentValue__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ffbf__Payment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment</label>
+        <referenceTo>ffbf__PaymentTest__c</referenceTo>
+        <relationshipName>BankFormatPaymentMediaControlTests</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ffbf__RecordCounts__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Record Counts</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Payment Media Control Test</label>
+    <nameField>
+        <label>Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Payment Media Control Tests</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>
