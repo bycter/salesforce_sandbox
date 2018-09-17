@@ -16,6 +16,9 @@
                 <field>First_Name__c</field>
             </layoutItems>
             <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Last_Name__c</field>
             </layoutItems>
