@@ -7,6 +7,8 @@ public class CheckfrontDTO {
         public Booking booking { get; set; }
     }
 
+
+
     public class Booking {
         public String status { get; set; }
         public String code { get; set; }
@@ -16,6 +18,8 @@ public class CheckfrontDTO {
         public Fields fields { get; set; }
         public  Customer customer { get; set; }
         public Order order { get; set; }
+
+
 
         public Meeting_Room_Booking__c convertToSObject() {
             Meeting_Room_Booking__c payment = new Meeting_Room_Booking__c();
