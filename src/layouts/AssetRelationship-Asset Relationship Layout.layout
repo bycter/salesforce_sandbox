@@ -20,6 +20,7 @@
                 <field>RelationshipType</field>
             </layoutItems>
         </layoutColumns>
+
         <layoutColumns>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -32,6 +33,7 @@
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
+
     <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>true</detailHeading>

@@ -14,6 +14,7 @@
         <actionName>Delete</actionName>
         <type>Default</type>
     </actionOverrides>
+
     <actionOverrides>
         <actionName>Edit</actionName>
         <type>Default</type>
@@ -22,6 +23,7 @@
         <actionName>EmailHighlightAction</actionName>
         <type>Default</type>
     </actionOverrides>
+
     <actionOverrides>
         <actionName>EnableCustomerPortalUser</actionName>
         <type>Default</type>

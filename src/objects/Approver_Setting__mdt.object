@@ -7,6 +7,7 @@
         <label>Approver</label>
         <required>true</required>
         <type>Picklist</type>
+
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
@@ -34,6 +35,7 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
+
     <fields>
         <fullName>Tolerance_State__c</fullName>
         <externalId>false</externalId>

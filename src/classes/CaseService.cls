@@ -16,6 +16,8 @@ public with sharing class CaseService {
 
     private static BusinessHours defaultBusinessHours;
 
+
+
     public static void setCaseInventory(List<Case> cases) {
         List<String> codesToFilter = new List<String>{
                 ProductService.PRODUCT_CODE_OFFICE_RENT,

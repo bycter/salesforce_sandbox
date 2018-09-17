@@ -10,4 +10,6 @@ public class Constants {
     public static final String INVENTORY_STATUS_RESERVED = 'Reserved';
     public static final String INVENTORY_STATUS_TERM_OUT = 'Terms Out';
 
+
+
 }
